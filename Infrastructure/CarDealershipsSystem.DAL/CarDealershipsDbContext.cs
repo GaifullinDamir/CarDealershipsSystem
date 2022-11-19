@@ -1,8 +1,7 @@
-﻿using CarDealershipsSystem.DAL.Repositories;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using CarDealershipsSystem.Domain;
 
 namespace CarDealershipsSystem.DAL;
-
 public partial class CarDealershipsDbContext : DbContext
 {
     public CarDealershipsDbContext()

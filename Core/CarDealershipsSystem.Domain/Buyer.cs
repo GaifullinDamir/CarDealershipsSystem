@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CarDealershipsSystem.DAL.Repositories;
+namespace CarDealershipsSystem.Domain;
 
 public partial class Buyer
 {
