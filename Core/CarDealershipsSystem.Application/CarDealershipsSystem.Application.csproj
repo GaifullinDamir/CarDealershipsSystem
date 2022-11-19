@@ -15,4 +15,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\CarDealershipsSystem.DAL\CarDealershipsSystem.DAL.csproj" />
+    <ProjectReference Include="..\CarDealershipsSystem.Domain\CarDealershipsSystem.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
