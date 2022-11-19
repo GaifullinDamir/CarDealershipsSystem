@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CarDealershipsSystem.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarDealershipsSystem.DAL;
