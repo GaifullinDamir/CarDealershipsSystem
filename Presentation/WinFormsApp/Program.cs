@@ -62,7 +62,7 @@ namespace WinFormsApp
                     services.AddScoped<ICarService, CarService>();
                     services.AddScoped<ICarExemplarService, CarExemplarService>();
                     services.AddScoped<ICarOrderService, CarOrderService>();
-                    services.AddScoped<IManagerService, IManagerService>();
+                    services.AddScoped<IManagerService, ManagerService>();
                     services.AddTransient<MainWindow>();
                 });
         }
