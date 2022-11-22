@@ -50,10 +50,12 @@ namespace WinFormsApp
 
                     //Repositories
                     services.AddScoped<IBranchRepository, BranchRepository>();
+                    services.AddScoped<IBuyerRepository, BuyerRepository>();
+                    services.AddScoped<ICarRepository, CarRepository>();
 
                     //Services
                     services.AddScoped<IBranchService, BranchService>();
-
+                    services.AddScoped<IBuyerService, BuyerService>();
                     services.AddTransient<MainWindow>();
                 });
         }
