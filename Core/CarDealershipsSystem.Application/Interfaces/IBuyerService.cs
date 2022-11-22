@@ -2,8 +2,8 @@
 
 namespace CarDealershipsSystem.Application.Interfaces
 {
-    public interface IBranchService
+    public interface IBuyerService
     {
-        IEnumerable<BranchDTO> GetBranches();
+        IEnumerable<BuyerDTO> GetBuyers();
     }
 }
