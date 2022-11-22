@@ -17,7 +17,8 @@ namespace CarDealershipsSystem.Application.Services
         public IEnumerable<BranchDTO> GetBranches()
         {
             var branches = _branchRepository.GetBranches();
-            var branchesDTO = branches.Select(branch => new BranchDTO
+            var branchesDTO = branches
+                .Select(branch => new BranchDTO
             {
                 IdBranch = branch.IdBranch,
                 BranchName = branch.BranchName,
@@ -47,7 +48,7 @@ namespace CarDealershipsSystem.Application.Services
                         Color = carex.Color,
                         YearOfAssembly = carex.YearOfAssembly
                     })
-                    .ToList(),
+                    .ToList()
                 })
                 .ToList(),
                 Managers = branch.Managers

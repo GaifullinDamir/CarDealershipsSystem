@@ -14,8 +14,10 @@ namespace CarDealershipsSystem.Application.Services
 
         public IEnumerable<BuyerDTO> GetBuyers()
         {
-            var buyers = _buyerRepository.GetBuyers();
-            var buyersDTO = buyers.Select(buyer => new BuyerDTO
+            var buyers = _buyerRepository
+                .GetBuyers();
+            var buyersDTO = buyers
+                .Select(buyer => new BuyerDTO
             {
                 BuyerPassData = buyer.BuyerPassData,
                 BuyerSurname = buyer.BuyerSurname,
