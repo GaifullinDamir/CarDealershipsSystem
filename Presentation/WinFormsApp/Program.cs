@@ -54,6 +54,7 @@ namespace WinFormsApp
                     services.AddScoped<ICarRepository, CarRepository>();
                     services.AddScoped<ICarExemplarRepository, CarExemplarRepository>();
                     services.AddScoped<ICarOrderRepository, CarOrderRepository>();
+                    services.AddScoped<IManagerRepository, ManagerRepository>();
 
                     //Services
                     services.AddScoped<IBranchService, BranchService>();
@@ -61,6 +62,7 @@ namespace WinFormsApp
                     services.AddScoped<ICarService, CarService>();
                     services.AddScoped<ICarExemplarService, CarExemplarService>();
                     services.AddScoped<ICarOrderService, CarOrderService>();
+                    services.AddScoped<IManagerService, IManagerService>();
                     services.AddTransient<MainWindow>();
                 });
         }
