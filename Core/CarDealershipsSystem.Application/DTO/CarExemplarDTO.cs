@@ -6,6 +6,8 @@
 
         public int IdCar { get; set; }
 
+        public int IdOrder { get; set; }
+
         public int HorsePower { get; set; }
 
         public decimal Price { get; set; }

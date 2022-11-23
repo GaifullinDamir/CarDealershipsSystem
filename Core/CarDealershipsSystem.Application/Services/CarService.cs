@@ -20,7 +20,6 @@ namespace CarDealershipsSystem.Application.Services
             {
                 IdCar = car.IdCar,
                 IdBranch = car.IdBranch,
-                IdOrder = car.IdOrder,
                 Brand = car.Brand,
                 Model = car.Model,
                 BodyType = car.BodyType,

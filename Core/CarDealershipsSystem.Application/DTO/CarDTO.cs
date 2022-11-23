@@ -6,8 +6,6 @@
 
         public int IdBranch { get; set; }
 
-        public int IdOrder { get; set; }
-
         public string Brand { get; set; } = null!;
 
         public string Model { get; set; } = null!;
