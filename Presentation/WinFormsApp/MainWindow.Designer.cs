@@ -75,6 +75,7 @@
             this.Name = "MainWindow";
             this.ShowIcon = false;
             this.Text = "Car Dealerships System";
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.branchServiceBindingSource)).EndInit();
             this.ResumeLayout(false);

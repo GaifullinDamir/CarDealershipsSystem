@@ -15,9 +15,11 @@ public partial class CarOrder
 
     public decimal OrderAmount { get; set; }
 
+    //Свойство навигации
     public virtual Buyer BuyerPassDataNavigation { get; set; } = null!;
 
-    public virtual ICollection<Car> Cars { get; } = new List<Car>();
+    public virtual CarExemplar? CarExemplar { get; set; }
 
+    //Свойство навигации
     public virtual Manager MngrPassDataNavigation { get; set; } = null!;
 }

@@ -9,8 +9,6 @@ public partial class Car
 
     public int IdBranch { get; set; }
 
-    public int IdOrder { get; set; }
-
     public string Brand { get; set; } = null!;
 
     public string Model { get; set; } = null!;
@@ -21,7 +19,6 @@ public partial class Car
 
     public virtual ICollection<CarExemplar> CarExemplars { get; } = new List<CarExemplar>();
 
-    public virtual Branch IdBranchNavigation { get; set; } = null!;
-
-    public virtual CarOrder IdOrderNavigation { get; set; } = null!;
+    //Свойство навигации
+    public virtual Branch IdBranchNavigation { get; set; } = null!; 
 }

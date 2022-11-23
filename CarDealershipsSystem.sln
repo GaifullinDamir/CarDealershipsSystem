@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{98A6CA8B-B347-4D19-B7E3-C3EB1DE9E6B0}"
+	ProjectSection(SolutionItems) = preProject
+		DescriptionCore.txt = DescriptionCore.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{16407C8B-3654-459F-B127-9CF8D114E5F8}"
 EndProject
@@ -15,7 +18,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarDealershipsSystem.Applic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarDealershipsSystem.DAL", "Infrastructure\CarDealershipsSystem.DAL\CarDealershipsSystem.DAL.csproj", "{1FD9A020-3823-4FCD-82B0-E39B9B087773}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp", "Presentation\WinFormsApp\WinFormsApp.csproj", "{CB5310F9-DEDF-47EF-8D0C-69E846743419}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsApp", "Presentation\WinFormsApp\WinFormsApp.csproj", "{CB5310F9-DEDF-47EF-8D0C-69E846743419}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

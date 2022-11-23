@@ -47,15 +47,20 @@ namespace WinFormsApp
             var carOrders = _carOrderService.GetCarOrders();
             var carServices = _carService.GetCars();
             var managerServices = _managerService.GetManagers();
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.ReadOnly = true;
-            dataGridView1.DataSource = _branchService.GetBranches().ToList();
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.ReadOnly = true;
+            dataGridView1.DataSource = _branchService.GetBranches().ToList();
         }
     }
 }
