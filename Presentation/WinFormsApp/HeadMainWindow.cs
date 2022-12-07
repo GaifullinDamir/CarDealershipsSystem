@@ -16,5 +16,30 @@ namespace WinFormsApp
         {
             InitializeComponent();
         }
+
+        private void tabControl_HeadMainWindow_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox_HeadMainWindow_Managers_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
