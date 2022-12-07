@@ -59,8 +59,19 @@
             this.button_HeadMainWindow_DeleteManager_Delete = new System.Windows.Forms.Button();
             this.groupBox_HeadMainWindow_AddManager = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             this.tabPage_Cars = new System.Windows.Forms.TabPage();
+            this.groupBox_HeadMainWindow_Cars = new System.Windows.Forms.GroupBox();
+            this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            this.dataGridView_HeadMainWindow_Cars = new System.Windows.Forms.DataGridView();
+            this.button_HeadMainWindow_DataGridView_Cars_Update = new System.Windows.Forms.Button();
+            this.button_HeadMainWindow_AddCar = new System.Windows.Forms.Button();
+            this.button_HeadMainWindow_AddCarExemplar = new System.Windows.Forms.Button();
+            this.groupBox_HeadMainWindow_SearchCar = new System.Windows.Forms.GroupBox();
+            this.button_HeadMainWindow_SearchCar = new System.Windows.Forms.Button();
+            this.textBox_HeadMainWindow_SearchCar_Brand_Input = new System.Windows.Forms.TextBox();
+            this.textBox_HeadMainWindow_SearchCar_Model_Input = new System.Windows.Forms.TextBox();
+            this.label_HeadMainWindow_SearchCar_Brand = new System.Windows.Forms.Label();
+            this.label_HeadMainWindow_SearchCar_Model = new System.Windows.Forms.Label();
             this.tabControl_HeadMainWindow.SuspendLayout();
             this.tabPage_Branches.SuspendLayout();
             this.groupBox_HeadMainWindow_Branches.SuspendLayout();
@@ -74,6 +85,10 @@
             this.groupBox_HeadMainWindow_SearchManager.SuspendLayout();
             this.groupBox_HeadMainWindow_DeleteManager.SuspendLayout();
             this.groupBox_HeadMainWindow_AddManager.SuspendLayout();
+            this.tabPage_Cars.SuspendLayout();
+            this.groupBox_HeadMainWindow_Cars.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_HeadMainWindow_Cars)).BeginInit();
+            this.groupBox_HeadMainWindow_SearchCar.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl_HeadMainWindow
@@ -389,19 +404,128 @@
             this.button3.Text = "Добавить";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // sqlCommand1
-            // 
-            this.sqlCommand1.CommandTimeout = 30;
-            this.sqlCommand1.EnableOptimizedParameterBinding = false;
-            // 
             // tabPage_Cars
             // 
+            this.tabPage_Cars.Controls.Add(this.groupBox_HeadMainWindow_SearchCar);
+            this.tabPage_Cars.Controls.Add(this.button_HeadMainWindow_AddCarExemplar);
+            this.tabPage_Cars.Controls.Add(this.button_HeadMainWindow_AddCar);
+            this.tabPage_Cars.Controls.Add(this.groupBox_HeadMainWindow_Cars);
+            this.tabPage_Cars.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tabPage_Cars.Location = new System.Drawing.Point(4, 29);
             this.tabPage_Cars.Name = "tabPage_Cars";
             this.tabPage_Cars.Size = new System.Drawing.Size(911, 627);
             this.tabPage_Cars.TabIndex = 2;
             this.tabPage_Cars.Text = "Автомобили";
             this.tabPage_Cars.UseVisualStyleBackColor = true;
+            // 
+            // groupBox_HeadMainWindow_Cars
+            // 
+            this.groupBox_HeadMainWindow_Cars.Controls.Add(this.button_HeadMainWindow_DataGridView_Cars_Update);
+            this.groupBox_HeadMainWindow_Cars.Controls.Add(this.dataGridView_HeadMainWindow_Cars);
+            this.groupBox_HeadMainWindow_Cars.Location = new System.Drawing.Point(3, 17);
+            this.groupBox_HeadMainWindow_Cars.Name = "groupBox_HeadMainWindow_Cars";
+            this.groupBox_HeadMainWindow_Cars.Size = new System.Drawing.Size(905, 442);
+            this.groupBox_HeadMainWindow_Cars.TabIndex = 0;
+            this.groupBox_HeadMainWindow_Cars.TabStop = false;
+            this.groupBox_HeadMainWindow_Cars.Text = "Автомобили";
+            this.groupBox_HeadMainWindow_Cars.Enter += new System.EventHandler(this.groupBox1_HeadMainWindow_Cars_Enter);
+            // 
+            // sqlCommand1
+            // 
+            this.sqlCommand1.CommandTimeout = 30;
+            this.sqlCommand1.EnableOptimizedParameterBinding = false;
+            // 
+            // dataGridView_HeadMainWindow_Cars
+            // 
+            this.dataGridView_HeadMainWindow_Cars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_HeadMainWindow_Cars.Location = new System.Drawing.Point(6, 29);
+            this.dataGridView_HeadMainWindow_Cars.Name = "dataGridView_HeadMainWindow_Cars";
+            this.dataGridView_HeadMainWindow_Cars.RowHeadersWidth = 51;
+            this.dataGridView_HeadMainWindow_Cars.RowTemplate.Height = 29;
+            this.dataGridView_HeadMainWindow_Cars.Size = new System.Drawing.Size(893, 337);
+            this.dataGridView_HeadMainWindow_Cars.TabIndex = 0;
+            // 
+            // button_HeadMainWindow_DataGridView_Cars_Update
+            // 
+            this.button_HeadMainWindow_DataGridView_Cars_Update.Location = new System.Drawing.Point(345, 386);
+            this.button_HeadMainWindow_DataGridView_Cars_Update.Name = "button_HeadMainWindow_DataGridView_Cars_Update";
+            this.button_HeadMainWindow_DataGridView_Cars_Update.Size = new System.Drawing.Size(200, 35);
+            this.button_HeadMainWindow_DataGridView_Cars_Update.TabIndex = 1;
+            this.button_HeadMainWindow_DataGridView_Cars_Update.Text = "Обновить";
+            this.button_HeadMainWindow_DataGridView_Cars_Update.UseVisualStyleBackColor = true;
+            // 
+            // button_HeadMainWindow_AddCar
+            // 
+            this.button_HeadMainWindow_AddCar.Location = new System.Drawing.Point(49, 513);
+            this.button_HeadMainWindow_AddCar.Name = "button_HeadMainWindow_AddCar";
+            this.button_HeadMainWindow_AddCar.Size = new System.Drawing.Size(200, 35);
+            this.button_HeadMainWindow_AddCar.TabIndex = 1;
+            this.button_HeadMainWindow_AddCar.Text = "Добавить автомобиль";
+            this.button_HeadMainWindow_AddCar.UseVisualStyleBackColor = true;
+            // 
+            // button_HeadMainWindow_AddCarExemplar
+            // 
+            this.button_HeadMainWindow_AddCarExemplar.Location = new System.Drawing.Point(49, 554);
+            this.button_HeadMainWindow_AddCarExemplar.Name = "button_HeadMainWindow_AddCarExemplar";
+            this.button_HeadMainWindow_AddCarExemplar.Size = new System.Drawing.Size(200, 35);
+            this.button_HeadMainWindow_AddCarExemplar.TabIndex = 2;
+            this.button_HeadMainWindow_AddCarExemplar.Text = "Добавить экземпляр";
+            this.button_HeadMainWindow_AddCarExemplar.UseVisualStyleBackColor = true;
+            // 
+            // groupBox_HeadMainWindow_SearchCar
+            // 
+            this.groupBox_HeadMainWindow_SearchCar.Controls.Add(this.label_HeadMainWindow_SearchCar_Model);
+            this.groupBox_HeadMainWindow_SearchCar.Controls.Add(this.label_HeadMainWindow_SearchCar_Brand);
+            this.groupBox_HeadMainWindow_SearchCar.Controls.Add(this.textBox_HeadMainWindow_SearchCar_Model_Input);
+            this.groupBox_HeadMainWindow_SearchCar.Controls.Add(this.textBox_HeadMainWindow_SearchCar_Brand_Input);
+            this.groupBox_HeadMainWindow_SearchCar.Controls.Add(this.button_HeadMainWindow_SearchCar);
+            this.groupBox_HeadMainWindow_SearchCar.Location = new System.Drawing.Point(467, 465);
+            this.groupBox_HeadMainWindow_SearchCar.Name = "groupBox_HeadMainWindow_SearchCar";
+            this.groupBox_HeadMainWindow_SearchCar.Size = new System.Drawing.Size(441, 149);
+            this.groupBox_HeadMainWindow_SearchCar.TabIndex = 3;
+            this.groupBox_HeadMainWindow_SearchCar.TabStop = false;
+            this.groupBox_HeadMainWindow_SearchCar.Text = "Поиск автомобиля";
+            // 
+            // button_HeadMainWindow_SearchCar
+            // 
+            this.button_HeadMainWindow_SearchCar.Location = new System.Drawing.Point(129, 108);
+            this.button_HeadMainWindow_SearchCar.Name = "button_HeadMainWindow_SearchCar";
+            this.button_HeadMainWindow_SearchCar.Size = new System.Drawing.Size(200, 35);
+            this.button_HeadMainWindow_SearchCar.TabIndex = 2;
+            this.button_HeadMainWindow_SearchCar.Text = "Найти автомобиль";
+            this.button_HeadMainWindow_SearchCar.UseVisualStyleBackColor = true;
+            // 
+            // textBox_HeadMainWindow_SearchCar_Brand_Input
+            // 
+            this.textBox_HeadMainWindow_SearchCar_Brand_Input.Location = new System.Drawing.Point(164, 29);
+            this.textBox_HeadMainWindow_SearchCar_Brand_Input.Name = "textBox_HeadMainWindow_SearchCar_Brand_Input";
+            this.textBox_HeadMainWindow_SearchCar_Brand_Input.Size = new System.Drawing.Size(200, 30);
+            this.textBox_HeadMainWindow_SearchCar_Brand_Input.TabIndex = 3;
+            // 
+            // textBox_HeadMainWindow_SearchCar_Model_Input
+            // 
+            this.textBox_HeadMainWindow_SearchCar_Model_Input.Location = new System.Drawing.Point(164, 72);
+            this.textBox_HeadMainWindow_SearchCar_Model_Input.Name = "textBox_HeadMainWindow_SearchCar_Model_Input";
+            this.textBox_HeadMainWindow_SearchCar_Model_Input.Size = new System.Drawing.Size(200, 30);
+            this.textBox_HeadMainWindow_SearchCar_Model_Input.TabIndex = 4;
+            // 
+            // label_HeadMainWindow_SearchCar_Brand
+            // 
+            this.label_HeadMainWindow_SearchCar_Brand.AutoSize = true;
+            this.label_HeadMainWindow_SearchCar_Brand.Location = new System.Drawing.Point(95, 32);
+            this.label_HeadMainWindow_SearchCar_Brand.Name = "label_HeadMainWindow_SearchCar_Brand";
+            this.label_HeadMainWindow_SearchCar_Brand.Size = new System.Drawing.Size(63, 23);
+            this.label_HeadMainWindow_SearchCar_Brand.TabIndex = 5;
+            this.label_HeadMainWindow_SearchCar_Brand.Text = "Бренд:";
+            // 
+            // label_HeadMainWindow_SearchCar_Model
+            // 
+            this.label_HeadMainWindow_SearchCar_Model.AutoSize = true;
+            this.label_HeadMainWindow_SearchCar_Model.Location = new System.Drawing.Point(80, 72);
+            this.label_HeadMainWindow_SearchCar_Model.Name = "label_HeadMainWindow_SearchCar_Model";
+            this.label_HeadMainWindow_SearchCar_Model.Size = new System.Drawing.Size(78, 23);
+            this.label_HeadMainWindow_SearchCar_Model.TabIndex = 6;
+            this.label_HeadMainWindow_SearchCar_Model.Text = "Модель:";
             // 
             // HeadMainWindow
             // 
@@ -433,6 +557,11 @@
             this.groupBox_HeadMainWindow_SearchManager.PerformLayout();
             this.groupBox_HeadMainWindow_DeleteManager.ResumeLayout(false);
             this.groupBox_HeadMainWindow_AddManager.ResumeLayout(false);
+            this.tabPage_Cars.ResumeLayout(false);
+            this.groupBox_HeadMainWindow_Cars.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_HeadMainWindow_Cars)).EndInit();
+            this.groupBox_HeadMainWindow_SearchCar.ResumeLayout(false);
+            this.groupBox_HeadMainWindow_SearchCar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -472,5 +601,16 @@
         private Label label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename;
         private Button button_HeadMainWindow_ChangeManagerInfo_Change;
         private TabPage tabPage_Cars;
+        private GroupBox groupBox_HeadMainWindow_Cars;
+        private GroupBox groupBox_HeadMainWindow_SearchCar;
+        private TextBox textBox_HeadMainWindow_SearchCar_Brand_Input;
+        private Button button_HeadMainWindow_SearchCar;
+        private Button button_HeadMainWindow_AddCarExemplar;
+        private Button button_HeadMainWindow_AddCar;
+        private Button button_HeadMainWindow_DataGridView_Cars_Update;
+        private DataGridView dataGridView_HeadMainWindow_Cars;
+        private Label label_HeadMainWindow_SearchCar_Brand;
+        private TextBox textBox_HeadMainWindow_SearchCar_Model_Input;
+        private Label label_HeadMainWindow_SearchCar_Model;
     }
 }
