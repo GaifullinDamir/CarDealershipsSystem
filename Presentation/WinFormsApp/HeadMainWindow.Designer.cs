@@ -32,7 +32,7 @@
             this.tabPage_Branches = new System.Windows.Forms.TabPage();
             this.groupBox_HeadMainWindow_Branches = new System.Windows.Forms.GroupBox();
             this.button_HeadMainWindow_DataGridView_UpdateBranches = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView_HeadMainWindow_Branches = new System.Windows.Forms.DataGridView();
             this.groupBox_HeadMainWindow_SearchBranch = new System.Windows.Forms.GroupBox();
             this.button_HeadMainWindow_SearchBranch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,7 +64,7 @@
             this.tabControl_HeadMainWindow.SuspendLayout();
             this.tabPage_Branches.SuspendLayout();
             this.groupBox_HeadMainWindow_Branches.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_HeadMainWindow_Branches)).BeginInit();
             this.groupBox_HeadMainWindow_SearchBranch.SuspendLayout();
             this.groupBox_HeadMainWindow_AddBranch.SuspendLayout();
             this.tabPage_Managers.SuspendLayout();
@@ -105,7 +105,7 @@
             // groupBox_HeadMainWindow_Branches
             // 
             this.groupBox_HeadMainWindow_Branches.Controls.Add(this.button_HeadMainWindow_DataGridView_UpdateBranches);
-            this.groupBox_HeadMainWindow_Branches.Controls.Add(this.dataGridView1);
+            this.groupBox_HeadMainWindow_Branches.Controls.Add(this.dataGridView_HeadMainWindow_Branches);
             this.groupBox_HeadMainWindow_Branches.Location = new System.Drawing.Point(16, 17);
             this.groupBox_HeadMainWindow_Branches.Name = "groupBox_HeadMainWindow_Branches";
             this.groupBox_HeadMainWindow_Branches.Size = new System.Drawing.Size(388, 322);
@@ -122,15 +122,15 @@
             this.button_HeadMainWindow_DataGridView_UpdateBranches.Text = "Обновить";
             this.button_HeadMainWindow_DataGridView_UpdateBranches.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridView_HeadMainWindow_Branches
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 29);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(376, 225);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView_HeadMainWindow_Branches.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_HeadMainWindow_Branches.Location = new System.Drawing.Point(6, 29);
+            this.dataGridView_HeadMainWindow_Branches.Name = "dataGridView_HeadMainWindow_Branches";
+            this.dataGridView_HeadMainWindow_Branches.RowHeadersWidth = 51;
+            this.dataGridView_HeadMainWindow_Branches.RowTemplate.Height = 29;
+            this.dataGridView_HeadMainWindow_Branches.Size = new System.Drawing.Size(376, 225);
+            this.dataGridView_HeadMainWindow_Branches.TabIndex = 0;
             // 
             // groupBox_HeadMainWindow_SearchBranch
             // 
@@ -419,7 +419,7 @@
             this.tabControl_HeadMainWindow.ResumeLayout(false);
             this.tabPage_Branches.ResumeLayout(false);
             this.groupBox_HeadMainWindow_Branches.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_HeadMainWindow_Branches)).EndInit();
             this.groupBox_HeadMainWindow_SearchBranch.ResumeLayout(false);
             this.groupBox_HeadMainWindow_SearchBranch.PerformLayout();
             this.groupBox_HeadMainWindow_AddBranch.ResumeLayout(false);
@@ -450,7 +450,7 @@
         private TabPage tabPage_Managers;
         private GroupBox groupBox_HeadMainWindow_Branches;
         private Button button_HeadMainWindow_DataGridView_UpdateBranches;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridView_HeadMainWindow_Branches;
         private GroupBox groupBox_HeadMainWindow_SearchBranch;
         private Button button_HeadMainWindow_SearchBranch;
         private Label label1;
