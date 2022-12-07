@@ -32,6 +32,7 @@
             this.textBox_AuthorizationWindow_HeadPassword_Input = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage_AutorizationWindow_Head = new System.Windows.Forms.TabPage();
+            this.button_AuthorizationWindow_HeadRegister = new System.Windows.Forms.Button();
             this.button_AuthorizationWindow_HeadAuthorize = new System.Windows.Forms.Button();
             this.label_AuthorizationWindow_HeadPassword = new System.Windows.Forms.Label();
             this.label_AuthorizationWindow_HeadLogin = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.label_AuthorizationWindow_ManagerLogin = new System.Windows.Forms.Label();
             this.textBox_AuthorizationWindow_ManagerLogin_Input = new System.Windows.Forms.TextBox();
             this.textBox_AuthorizationWindow_ManagerPassword_Input = new System.Windows.Forms.TextBox();
-            this.button_AuthorizationWindow_HeadRegister = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage_AutorizationWindow_Head.SuspendLayout();
             this.tabPage_AuthorizationWindow_Manager.SuspendLayout();
@@ -88,6 +88,20 @@
             this.tabPage_AutorizationWindow_Head.Size = new System.Drawing.Size(430, 256);
             this.tabPage_AutorizationWindow_Head.TabIndex = 0;
             this.tabPage_AutorizationWindow_Head.Text = "Руководитель";
+            // 
+            // button_AuthorizationWindow_HeadRegister
+            // 
+            this.button_AuthorizationWindow_HeadRegister.AutoSize = true;
+            this.button_AuthorizationWindow_HeadRegister.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button_AuthorizationWindow_HeadRegister.BackColor = System.Drawing.Color.White;
+            this.button_AuthorizationWindow_HeadRegister.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button_AuthorizationWindow_HeadRegister.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button_AuthorizationWindow_HeadRegister.Location = new System.Drawing.Point(115, 200);
+            this.button_AuthorizationWindow_HeadRegister.Name = "button_AuthorizationWindow_HeadRegister";
+            this.button_AuthorizationWindow_HeadRegister.Size = new System.Drawing.Size(184, 32);
+            this.button_AuthorizationWindow_HeadRegister.TabIndex = 5;
+            this.button_AuthorizationWindow_HeadRegister.Text = "Зарегистрироваться";
+            this.button_AuthorizationWindow_HeadRegister.UseVisualStyleBackColor = false;
             // 
             // button_AuthorizationWindow_HeadAuthorize
             // 
@@ -182,26 +196,15 @@
             this.textBox_AuthorizationWindow_ManagerPassword_Input.Size = new System.Drawing.Size(160, 30);
             this.textBox_AuthorizationWindow_ManagerPassword_Input.TabIndex = 6;
             // 
-            // button_AuthorizationWindow_HeadRegister
-            // 
-            this.button_AuthorizationWindow_HeadRegister.BackColor = System.Drawing.Color.White;
-            this.button_AuthorizationWindow_HeadRegister.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button_AuthorizationWindow_HeadRegister.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button_AuthorizationWindow_HeadRegister.Location = new System.Drawing.Point(115, 200);
-            this.button_AuthorizationWindow_HeadRegister.Name = "button_AuthorizationWindow_HeadRegister";
-            this.button_AuthorizationWindow_HeadRegister.Size = new System.Drawing.Size(200, 35);
-            this.button_AuthorizationWindow_HeadRegister.TabIndex = 5;
-            this.button_AuthorizationWindow_HeadRegister.Text = "Зарегистрироваться";
-            this.button_AuthorizationWindow_HeadRegister.UseVisualStyleBackColor = false;
-            // 
             // AuthorizationWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(462, 313);
             this.Controls.Add(this.tabControl1);
+            this.MaximizeBox = false;
             this.Name = "AuthorizationWindow";
-            this.Text = "AuthorizationWindow";
+            this.ShowIcon = false;
             this.tabControl1.ResumeLayout(false);
             this.tabPage_AutorizationWindow_Head.ResumeLayout(false);
             this.tabPage_AutorizationWindow_Head.PerformLayout();

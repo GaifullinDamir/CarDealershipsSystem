@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WinFormsApp
 {
-    public partial class RegistrationWindow : Form
+    public partial class HeadRegistrationWindow : Form
     {
-        public RegistrationWindow()
+        public HeadRegistrationWindow()
         {
             InitializeComponent();
         }

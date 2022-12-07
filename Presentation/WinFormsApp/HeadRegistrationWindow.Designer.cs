@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp
 {
-    partial class RegistrationWindow
+    partial class HeadRegistrationWindow
     {
         /// <summary>
         /// Required designer variable.
