@@ -37,7 +37,6 @@
             this.button_HeadMainWindow_SearchBranch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.groupBox_MainWindow_DeleteBranch = new System.Windows.Forms.GroupBox();
             this.groupBox_HeadMainWindow_AddBranch = new System.Windows.Forms.GroupBox();
             this.button_HeadMainWindow_AddBranch = new System.Windows.Forms.Button();
             this.textBox_HeadMainWindow_BranchAddress_Input = new System.Windows.Forms.TextBox();
@@ -61,6 +60,7 @@
             this.groupBox_HeadMainWindow_AddManager = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            this.tabPage_Cars = new System.Windows.Forms.TabPage();
             this.tabControl_HeadMainWindow.SuspendLayout();
             this.tabPage_Branches.SuspendLayout();
             this.groupBox_HeadMainWindow_Branches.SuspendLayout();
@@ -80,10 +80,11 @@
             // 
             this.tabControl_HeadMainWindow.Controls.Add(this.tabPage_Branches);
             this.tabControl_HeadMainWindow.Controls.Add(this.tabPage_Managers);
+            this.tabControl_HeadMainWindow.Controls.Add(this.tabPage_Cars);
             this.tabControl_HeadMainWindow.Location = new System.Drawing.Point(11, 13);
             this.tabControl_HeadMainWindow.Name = "tabControl_HeadMainWindow";
             this.tabControl_HeadMainWindow.SelectedIndex = 0;
-            this.tabControl_HeadMainWindow.Size = new System.Drawing.Size(818, 569);
+            this.tabControl_HeadMainWindow.Size = new System.Drawing.Size(919, 660);
             this.tabControl_HeadMainWindow.TabIndex = 0;
             this.tabControl_HeadMainWindow.SelectedIndexChanged += new System.EventHandler(this.tabControl_HeadMainWindow_SelectedIndexChanged);
             // 
@@ -91,13 +92,12 @@
             // 
             this.tabPage_Branches.Controls.Add(this.groupBox_HeadMainWindow_Branches);
             this.tabPage_Branches.Controls.Add(this.groupBox_HeadMainWindow_SearchBranch);
-            this.tabPage_Branches.Controls.Add(this.groupBox_MainWindow_DeleteBranch);
             this.tabPage_Branches.Controls.Add(this.groupBox_HeadMainWindow_AddBranch);
             this.tabPage_Branches.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tabPage_Branches.Location = new System.Drawing.Point(4, 29);
             this.tabPage_Branches.Name = "tabPage_Branches";
             this.tabPage_Branches.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Branches.Size = new System.Drawing.Size(810, 536);
+            this.tabPage_Branches.Size = new System.Drawing.Size(911, 627);
             this.tabPage_Branches.TabIndex = 0;
             this.tabPage_Branches.Text = "Филиалы";
             this.tabPage_Branches.UseVisualStyleBackColor = true;
@@ -108,14 +108,14 @@
             this.groupBox_HeadMainWindow_Branches.Controls.Add(this.dataGridView_HeadMainWindow_Branches);
             this.groupBox_HeadMainWindow_Branches.Location = new System.Drawing.Point(16, 17);
             this.groupBox_HeadMainWindow_Branches.Name = "groupBox_HeadMainWindow_Branches";
-            this.groupBox_HeadMainWindow_Branches.Size = new System.Drawing.Size(388, 322);
+            this.groupBox_HeadMainWindow_Branches.Size = new System.Drawing.Size(889, 344);
             this.groupBox_HeadMainWindow_Branches.TabIndex = 6;
             this.groupBox_HeadMainWindow_Branches.TabStop = false;
             this.groupBox_HeadMainWindow_Branches.Text = "Филиалы";
             // 
             // button_HeadMainWindow_DataGridView_UpdateBranches
             // 
-            this.button_HeadMainWindow_DataGridView_UpdateBranches.Location = new System.Drawing.Point(94, 270);
+            this.button_HeadMainWindow_DataGridView_UpdateBranches.Location = new System.Drawing.Point(339, 244);
             this.button_HeadMainWindow_DataGridView_UpdateBranches.Name = "button_HeadMainWindow_DataGridView_UpdateBranches";
             this.button_HeadMainWindow_DataGridView_UpdateBranches.Size = new System.Drawing.Size(200, 35);
             this.button_HeadMainWindow_DataGridView_UpdateBranches.TabIndex = 1;
@@ -129,7 +129,7 @@
             this.dataGridView_HeadMainWindow_Branches.Name = "dataGridView_HeadMainWindow_Branches";
             this.dataGridView_HeadMainWindow_Branches.RowHeadersWidth = 51;
             this.dataGridView_HeadMainWindow_Branches.RowTemplate.Height = 29;
-            this.dataGridView_HeadMainWindow_Branches.Size = new System.Drawing.Size(376, 225);
+            this.dataGridView_HeadMainWindow_Branches.Size = new System.Drawing.Size(877, 193);
             this.dataGridView_HeadMainWindow_Branches.TabIndex = 0;
             // 
             // groupBox_HeadMainWindow_SearchBranch
@@ -137,7 +137,7 @@
             this.groupBox_HeadMainWindow_SearchBranch.Controls.Add(this.button_HeadMainWindow_SearchBranch);
             this.groupBox_HeadMainWindow_SearchBranch.Controls.Add(this.label1);
             this.groupBox_HeadMainWindow_SearchBranch.Controls.Add(this.textBox1);
-            this.groupBox_HeadMainWindow_SearchBranch.Location = new System.Drawing.Point(16, 345);
+            this.groupBox_HeadMainWindow_SearchBranch.Location = new System.Drawing.Point(16, 435);
             this.groupBox_HeadMainWindow_SearchBranch.Name = "groupBox_HeadMainWindow_SearchBranch";
             this.groupBox_HeadMainWindow_SearchBranch.Size = new System.Drawing.Size(388, 172);
             this.groupBox_HeadMainWindow_SearchBranch.TabIndex = 5;
@@ -169,15 +169,6 @@
             this.textBox1.Size = new System.Drawing.Size(300, 30);
             this.textBox1.TabIndex = 2;
             // 
-            // groupBox_MainWindow_DeleteBranch
-            // 
-            this.groupBox_MainWindow_DeleteBranch.Location = new System.Drawing.Point(425, 277);
-            this.groupBox_MainWindow_DeleteBranch.Name = "groupBox_MainWindow_DeleteBranch";
-            this.groupBox_MainWindow_DeleteBranch.Size = new System.Drawing.Size(360, 240);
-            this.groupBox_MainWindow_DeleteBranch.TabIndex = 4;
-            this.groupBox_MainWindow_DeleteBranch.TabStop = false;
-            this.groupBox_MainWindow_DeleteBranch.Text = "Удалить филиал";
-            // 
             // groupBox_HeadMainWindow_AddBranch
             // 
             this.groupBox_HeadMainWindow_AddBranch.Controls.Add(this.button_HeadMainWindow_AddBranch);
@@ -185,7 +176,7 @@
             this.groupBox_HeadMainWindow_AddBranch.Controls.Add(this.label_HeadMainWindow_BranchAddress);
             this.groupBox_HeadMainWindow_AddBranch.Controls.Add(this.label_HeadMainWindow_BranchName);
             this.groupBox_HeadMainWindow_AddBranch.Controls.Add(this.textBox_HeadMainWindow_BranchName_Input);
-            this.groupBox_HeadMainWindow_AddBranch.Location = new System.Drawing.Point(425, 17);
+            this.groupBox_HeadMainWindow_AddBranch.Location = new System.Drawing.Point(545, 365);
             this.groupBox_HeadMainWindow_AddBranch.Name = "groupBox_HeadMainWindow_AddBranch";
             this.groupBox_HeadMainWindow_AddBranch.Size = new System.Drawing.Size(360, 254);
             this.groupBox_HeadMainWindow_AddBranch.TabIndex = 3;
@@ -244,7 +235,7 @@
             this.tabPage_Managers.Location = new System.Drawing.Point(4, 29);
             this.tabPage_Managers.Name = "tabPage_Managers";
             this.tabPage_Managers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Managers.Size = new System.Drawing.Size(810, 536);
+            this.tabPage_Managers.Size = new System.Drawing.Size(911, 627);
             this.tabPage_Managers.TabIndex = 1;
             this.tabPage_Managers.Text = "Менеджеры";
             this.tabPage_Managers.UseVisualStyleBackColor = true;
@@ -254,7 +245,7 @@
             this.groupBox_HeadMainWindow_ChangeManagerInfo.Controls.Add(this.label_HeadMainWindow_ChangeManager_MngrPassData);
             this.groupBox_HeadMainWindow_ChangeManagerInfo.Controls.Add(this.label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename);
             this.groupBox_HeadMainWindow_ChangeManagerInfo.Controls.Add(this.button_HeadMainWindow_ChangeManagerInfo_Change);
-            this.groupBox_HeadMainWindow_ChangeManagerInfo.Location = new System.Drawing.Point(437, 198);
+            this.groupBox_HeadMainWindow_ChangeManagerInfo.Location = new System.Drawing.Point(530, 300);
             this.groupBox_HeadMainWindow_ChangeManagerInfo.Name = "groupBox_HeadMainWindow_ChangeManagerInfo";
             this.groupBox_HeadMainWindow_ChangeManagerInfo.Size = new System.Drawing.Size(360, 141);
             this.groupBox_HeadMainWindow_ChangeManagerInfo.TabIndex = 11;
@@ -295,7 +286,7 @@
             this.groupBox_HeadMainWindow_Managers.Controls.Add(this.dataGridView_HeadMainWindow_Managers);
             this.groupBox_HeadMainWindow_Managers.Location = new System.Drawing.Point(16, 17);
             this.groupBox_HeadMainWindow_Managers.Name = "groupBox_HeadMainWindow_Managers";
-            this.groupBox_HeadMainWindow_Managers.Size = new System.Drawing.Size(403, 322);
+            this.groupBox_HeadMainWindow_Managers.Size = new System.Drawing.Size(874, 265);
             this.groupBox_HeadMainWindow_Managers.TabIndex = 10;
             this.groupBox_HeadMainWindow_Managers.TabStop = false;
             this.groupBox_HeadMainWindow_Managers.Text = "Менеджеры";
@@ -303,7 +294,7 @@
             // 
             // button_HeadMainWindow_DataGridView_UpdateManagers
             // 
-            this.button_HeadMainWindow_DataGridView_UpdateManagers.Location = new System.Drawing.Point(98, 270);
+            this.button_HeadMainWindow_DataGridView_UpdateManagers.Location = new System.Drawing.Point(327, 217);
             this.button_HeadMainWindow_DataGridView_UpdateManagers.Name = "button_HeadMainWindow_DataGridView_UpdateManagers";
             this.button_HeadMainWindow_DataGridView_UpdateManagers.Size = new System.Drawing.Size(200, 35);
             this.button_HeadMainWindow_DataGridView_UpdateManagers.TabIndex = 1;
@@ -317,7 +308,7 @@
             this.dataGridView_HeadMainWindow_Managers.Name = "dataGridView_HeadMainWindow_Managers";
             this.dataGridView_HeadMainWindow_Managers.RowHeadersWidth = 51;
             this.dataGridView_HeadMainWindow_Managers.RowTemplate.Height = 29;
-            this.dataGridView_HeadMainWindow_Managers.Size = new System.Drawing.Size(382, 225);
+            this.dataGridView_HeadMainWindow_Managers.Size = new System.Drawing.Size(862, 172);
             this.dataGridView_HeadMainWindow_Managers.TabIndex = 0;
             // 
             // groupBox_HeadMainWindow_SearchManager
@@ -325,7 +316,7 @@
             this.groupBox_HeadMainWindow_SearchManager.Controls.Add(this.button_HeadMainWindow_SearchManager_Search);
             this.groupBox_HeadMainWindow_SearchManager.Controls.Add(this.label_HeadMainWindow_SearchManager_MngrPassData);
             this.groupBox_HeadMainWindow_SearchManager.Controls.Add(this.textBox_HeadMainWIndow_SearchManager_MngrPassData_Input);
-            this.groupBox_HeadMainWindow_SearchManager.Location = new System.Drawing.Point(16, 345);
+            this.groupBox_HeadMainWindow_SearchManager.Location = new System.Drawing.Point(16, 447);
             this.groupBox_HeadMainWindow_SearchManager.Name = "groupBox_HeadMainWindow_SearchManager";
             this.groupBox_HeadMainWindow_SearchManager.Size = new System.Drawing.Size(403, 172);
             this.groupBox_HeadMainWindow_SearchManager.TabIndex = 9;
@@ -361,7 +352,7 @@
             // groupBox_HeadMainWindow_DeleteManager
             // 
             this.groupBox_HeadMainWindow_DeleteManager.Controls.Add(this.button_HeadMainWindow_DeleteManager_Delete);
-            this.groupBox_HeadMainWindow_DeleteManager.Location = new System.Drawing.Point(437, 431);
+            this.groupBox_HeadMainWindow_DeleteManager.Location = new System.Drawing.Point(530, 533);
             this.groupBox_HeadMainWindow_DeleteManager.Name = "groupBox_HeadMainWindow_DeleteManager";
             this.groupBox_HeadMainWindow_DeleteManager.Size = new System.Drawing.Size(360, 86);
             this.groupBox_HeadMainWindow_DeleteManager.TabIndex = 8;
@@ -381,7 +372,7 @@
             // groupBox_HeadMainWindow_AddManager
             // 
             this.groupBox_HeadMainWindow_AddManager.Controls.Add(this.button3);
-            this.groupBox_HeadMainWindow_AddManager.Location = new System.Drawing.Point(437, 345);
+            this.groupBox_HeadMainWindow_AddManager.Location = new System.Drawing.Point(530, 447);
             this.groupBox_HeadMainWindow_AddManager.Name = "groupBox_HeadMainWindow_AddManager";
             this.groupBox_HeadMainWindow_AddManager.Size = new System.Drawing.Size(360, 84);
             this.groupBox_HeadMainWindow_AddManager.TabIndex = 7;
@@ -403,11 +394,20 @@
             this.sqlCommand1.CommandTimeout = 30;
             this.sqlCommand1.EnableOptimizedParameterBinding = false;
             // 
+            // tabPage_Cars
+            // 
+            this.tabPage_Cars.Location = new System.Drawing.Point(4, 29);
+            this.tabPage_Cars.Name = "tabPage_Cars";
+            this.tabPage_Cars.Size = new System.Drawing.Size(911, 627);
+            this.tabPage_Cars.TabIndex = 2;
+            this.tabPage_Cars.Text = "Автомобили";
+            this.tabPage_Cars.UseVisualStyleBackColor = true;
+            // 
             // HeadMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 593);
+            this.ClientSize = new System.Drawing.Size(942, 673);
             this.Controls.Add(this.tabControl_HeadMainWindow);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -455,7 +455,6 @@
         private Button button_HeadMainWindow_SearchBranch;
         private Label label1;
         private TextBox textBox1;
-        private GroupBox groupBox_MainWindow_DeleteBranch;
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
         private GroupBox groupBox_HeadMainWindow_Managers;
         private Button button_HeadMainWindow_DataGridView_UpdateManagers;
@@ -472,5 +471,6 @@
         private Label label_HeadMainWindow_ChangeManager_MngrPassData;
         private Label label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename;
         private Button button_HeadMainWindow_ChangeManagerInfo_Change;
+        private TabPage tabPage_Cars;
     }
 }
