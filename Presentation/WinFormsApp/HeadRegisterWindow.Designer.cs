@@ -157,6 +157,7 @@
             this.MaximizeBox = false;
             this.Name = "HeadRegisterWindow";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CarDealershipsSystem";
             this.Load += new System.EventHandler(this.HeadRegisterWindow_Load);
             this.ResumeLayout(false);

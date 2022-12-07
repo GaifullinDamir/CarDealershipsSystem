@@ -30,7 +30,7 @@
         {
             this.textBox_AuthorizationWindow_HeadLogin_Input = new System.Windows.Forms.TextBox();
             this.textBox_AuthorizationWindow_HeadPassword_Input = new System.Windows.Forms.TextBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControl_AuthprizationWindow = new System.Windows.Forms.TabControl();
             this.tabPage_AutorizationWindow_Head = new System.Windows.Forms.TabPage();
             this.button_AuthorizationWindow_HeadRegister = new System.Windows.Forms.Button();
             this.button_AuthorizationWindow_HeadAuthorize = new System.Windows.Forms.Button();
@@ -42,7 +42,7 @@
             this.label_AuthorizationWindow_ManagerLogin = new System.Windows.Forms.Label();
             this.textBox_AuthorizationWindow_ManagerLogin_Input = new System.Windows.Forms.TextBox();
             this.textBox_AuthorizationWindow_ManagerPassword_Input = new System.Windows.Forms.TextBox();
-            this.tabControl1.SuspendLayout();
+            this.tabControl_AuthprizationWindow.SuspendLayout();
             this.tabPage_AutorizationWindow_Head.SuspendLayout();
             this.tabPage_AuthorizationWindow_Manager.SuspendLayout();
             this.SuspendLayout();
@@ -61,15 +61,15 @@
             this.textBox_AuthorizationWindow_HeadPassword_Input.Size = new System.Drawing.Size(160, 30);
             this.textBox_AuthorizationWindow_HeadPassword_Input.TabIndex = 1;
             // 
-            // tabControl1
+            // tabControl_AuthprizationWindow
             // 
-            this.tabControl1.Controls.Add(this.tabPage_AutorizationWindow_Head);
-            this.tabControl1.Controls.Add(this.tabPage_AuthorizationWindow_Manager);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(438, 289);
-            this.tabControl1.TabIndex = 2;
+            this.tabControl_AuthprizationWindow.Controls.Add(this.tabPage_AutorizationWindow_Head);
+            this.tabControl_AuthprizationWindow.Controls.Add(this.tabPage_AuthorizationWindow_Manager);
+            this.tabControl_AuthprizationWindow.Location = new System.Drawing.Point(12, 12);
+            this.tabControl_AuthprizationWindow.Name = "tabControl_AuthprizationWindow";
+            this.tabControl_AuthprizationWindow.SelectedIndex = 0;
+            this.tabControl_AuthprizationWindow.Size = new System.Drawing.Size(438, 289);
+            this.tabControl_AuthprizationWindow.TabIndex = 2;
             // 
             // tabPage_AutorizationWindow_Head
             // 
@@ -200,13 +200,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(462, 313);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControl_AuthprizationWindow);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "AuthorizationWindow";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CarDealershipsSystem";
-            this.tabControl1.ResumeLayout(false);
+            this.tabControl_AuthprizationWindow.ResumeLayout(false);
             this.tabPage_AutorizationWindow_Head.ResumeLayout(false);
             this.tabPage_AutorizationWindow_Head.PerformLayout();
             this.tabPage_AuthorizationWindow_Manager.ResumeLayout(false);
@@ -219,7 +220,7 @@
 
         private TextBox textBox_AuthorizationWindow_HeadLogin_Input;
         private TextBox textBox_AuthorizationWindow_HeadPassword_Input;
-        private TabControl tabControl1;
+        private TabControl tabControl_AuthprizationWindow;
         private TabPage tabPage_AutorizationWindow_Head;
         private TabPage tabPage_AuthorizationWindow_Manager;
         private Button button_AuthorizationWindow_HeadAuthorize;
