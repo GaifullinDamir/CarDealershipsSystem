@@ -16,5 +16,10 @@ namespace WinFormsApp
         {
             InitializeComponent();
         }
+
+        private void button_AuthorizationWindow_HeadAuthorize_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
