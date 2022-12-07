@@ -34,7 +34,7 @@ namespace WinFormsApp
             var host = CreateHostBuilder().Build();
             ServiceProvider = host.Services;
 
-            System.Windows.Forms.Application.Run(ServiceProvider.GetRequiredService<AuthorizationWindow>());
+            System.Windows.Forms.Application.Run(ServiceProvider.GetRequiredService<HeadMainWindow>());
         }
         public static IServiceProvider ServiceProvider { get; private set; }
 
@@ -63,7 +63,7 @@ namespace WinFormsApp
                     services.AddScoped<ICarExemplarService, CarExemplarService>();
                     services.AddScoped<ICarOrderService, CarOrderService>();
                     services.AddScoped<IManagerService, ManagerService>();
-                    services.AddTransient<AuthorizationWindow>();
+                    services.AddTransient<HeadMainWindow>();
                 });
         }
     }

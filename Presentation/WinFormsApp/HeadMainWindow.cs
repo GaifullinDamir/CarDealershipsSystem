@@ -27,17 +27,27 @@ namespace WinFormsApp
 
         }
 
-        private void groupBox4_Enter(object sender, EventArgs e)
+        private void groupBox4_HeadMainWindow_AddManager_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void groupBox3_Enter(object sender, EventArgs e)
+        private void groupBox3_HeadMainWindow_DeleteManager_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
+        private void groupBox2_HeadMainWindow_SearchManager_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HeadMainWindow_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox_HeadMainWindow_ChangeManagerInfo_Enter(object sender, EventArgs e)
         {
 
         }
