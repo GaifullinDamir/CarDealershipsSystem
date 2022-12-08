@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace WinFormsApp.Forms
 {
-    public partial class AddManagerForm : Form
+    public partial class ChangeManagerInfoWindow : Form
     {
-        public AddManagerForm()
+        public ChangeManagerInfoWindow()
         {
             InitializeComponent();
-        }
-
-        private void button_AddManagerForm_UpdateBranches_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

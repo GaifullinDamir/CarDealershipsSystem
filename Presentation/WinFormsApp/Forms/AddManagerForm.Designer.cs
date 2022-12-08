@@ -87,6 +87,7 @@
             this.button_AddManagerForm_UpdateBranches.TabIndex = 1;
             this.button_AddManagerForm_UpdateBranches.Text = "Обновить";
             this.button_AddManagerForm_UpdateBranches.UseVisualStyleBackColor = true;
+            this.button_AddManagerForm_UpdateBranches.Click += new System.EventHandler(this.button_AddManagerForm_UpdateBranches_Click);
             // 
             // groupBox_AddmanagerWindow_InputManagerData
             // 
