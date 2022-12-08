@@ -17,8 +17,6 @@ namespace WinFormsApp.Forms
             InitializeComponent();
         }
 
-   
-
         
     }
 }
