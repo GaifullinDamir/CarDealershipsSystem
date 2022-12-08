@@ -139,6 +139,7 @@
             // 
             // dataGridView_HeadMainWindow_Branches
             // 
+            this.dataGridView_HeadMainWindow_Branches.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView_HeadMainWindow_Branches.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_HeadMainWindow_Branches.Location = new System.Drawing.Point(10, 30);
             this.dataGridView_HeadMainWindow_Branches.Name = "dataGridView_HeadMainWindow_Branches";
@@ -318,6 +319,7 @@
             // 
             // dataGridView_HeadMainWindow_Managers
             // 
+            this.dataGridView_HeadMainWindow_Managers.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView_HeadMainWindow_Managers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_HeadMainWindow_Managers.Location = new System.Drawing.Point(10, 30);
             this.dataGridView_HeadMainWindow_Managers.Name = "dataGridView_HeadMainWindow_Managers";
@@ -435,7 +437,7 @@
             // label_HeadMainWindow_SearchCar_Model
             // 
             this.label_HeadMainWindow_SearchCar_Model.AutoSize = true;
-            this.label_HeadMainWindow_SearchCar_Model.Location = new System.Drawing.Point(80, 72);
+            this.label_HeadMainWindow_SearchCar_Model.Location = new System.Drawing.Point(41, 110);
             this.label_HeadMainWindow_SearchCar_Model.Name = "label_HeadMainWindow_SearchCar_Model";
             this.label_HeadMainWindow_SearchCar_Model.Size = new System.Drawing.Size(78, 23);
             this.label_HeadMainWindow_SearchCar_Model.TabIndex = 6;
@@ -444,7 +446,7 @@
             // label_HeadMainWindow_SearchCar_Brand
             // 
             this.label_HeadMainWindow_SearchCar_Brand.AutoSize = true;
-            this.label_HeadMainWindow_SearchCar_Brand.Location = new System.Drawing.Point(95, 32);
+            this.label_HeadMainWindow_SearchCar_Brand.Location = new System.Drawing.Point(56, 60);
             this.label_HeadMainWindow_SearchCar_Brand.Name = "label_HeadMainWindow_SearchCar_Brand";
             this.label_HeadMainWindow_SearchCar_Brand.Size = new System.Drawing.Size(63, 23);
             this.label_HeadMainWindow_SearchCar_Brand.TabIndex = 5;
@@ -452,21 +454,21 @@
             // 
             // textBox_HeadMainWindow_SearchCar_Model_Input
             // 
-            this.textBox_HeadMainWindow_SearchCar_Model_Input.Location = new System.Drawing.Point(164, 72);
+            this.textBox_HeadMainWindow_SearchCar_Model_Input.Location = new System.Drawing.Point(125, 110);
             this.textBox_HeadMainWindow_SearchCar_Model_Input.Name = "textBox_HeadMainWindow_SearchCar_Model_Input";
             this.textBox_HeadMainWindow_SearchCar_Model_Input.Size = new System.Drawing.Size(200, 30);
             this.textBox_HeadMainWindow_SearchCar_Model_Input.TabIndex = 4;
             // 
             // textBox_HeadMainWindow_SearchCar_Brand_Input
             // 
-            this.textBox_HeadMainWindow_SearchCar_Brand_Input.Location = new System.Drawing.Point(164, 29);
+            this.textBox_HeadMainWindow_SearchCar_Brand_Input.Location = new System.Drawing.Point(125, 60);
             this.textBox_HeadMainWindow_SearchCar_Brand_Input.Name = "textBox_HeadMainWindow_SearchCar_Brand_Input";
             this.textBox_HeadMainWindow_SearchCar_Brand_Input.Size = new System.Drawing.Size(200, 30);
             this.textBox_HeadMainWindow_SearchCar_Brand_Input.TabIndex = 3;
             // 
             // button_HeadMainWindow_SearchCar
             // 
-            this.button_HeadMainWindow_SearchCar.Location = new System.Drawing.Point(129, 108);
+            this.button_HeadMainWindow_SearchCar.Location = new System.Drawing.Point(125, 161);
             this.button_HeadMainWindow_SearchCar.Name = "button_HeadMainWindow_SearchCar";
             this.button_HeadMainWindow_SearchCar.Size = new System.Drawing.Size(200, 35);
             this.button_HeadMainWindow_SearchCar.TabIndex = 2;
@@ -514,6 +516,7 @@
             // 
             // dataGridView_HeadMainWindow_Cars
             // 
+            this.dataGridView_HeadMainWindow_Cars.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView_HeadMainWindow_Cars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_HeadMainWindow_Cars.Location = new System.Drawing.Point(10, 30);
             this.dataGridView_HeadMainWindow_Cars.Name = "dataGridView_HeadMainWindow_Cars";
