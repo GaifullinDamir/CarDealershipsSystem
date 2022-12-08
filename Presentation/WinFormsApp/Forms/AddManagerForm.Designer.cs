@@ -51,6 +51,8 @@
             this.textBox_AddManagerWindow_MngrSurname_Input = new System.Windows.Forms.TextBox();
             this.label_AddManagerWindow_MngrPassData = new System.Windows.Forms.Label();
             this.textBox_AddManagerWindow_MngrPassData_Input = new System.Windows.Forms.TextBox();
+            this.textBox_AddManagerForm_IdBranch_Input = new System.Windows.Forms.TextBox();
+            this.label_AddManagerWindow_IdBranch = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AddManagerForm_Branches)).BeginInit();
             this.groupBox_AddManagerForm_Branches.SuspendLayout();
             this.groupBox_AddmanagerWindow_InputManagerData.SuspendLayout();
@@ -69,6 +71,8 @@
             // 
             // groupBox_AddManagerForm_Branches
             // 
+            this.groupBox_AddManagerForm_Branches.Controls.Add(this.label_AddManagerWindow_IdBranch);
+            this.groupBox_AddManagerForm_Branches.Controls.Add(this.textBox_AddManagerForm_IdBranch_Input);
             this.groupBox_AddManagerForm_Branches.Controls.Add(this.button_AddManagerForm_UpdateBranches);
             this.groupBox_AddManagerForm_Branches.Controls.Add(this.dataGridView_AddManagerForm_Branches);
             this.groupBox_AddManagerForm_Branches.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -81,7 +85,7 @@
             // 
             // button_AddManagerForm_UpdateBranches
             // 
-            this.button_AddManagerForm_UpdateBranches.Location = new System.Drawing.Point(350, 350);
+            this.button_AddManagerForm_UpdateBranches.Location = new System.Drawing.Point(6, 350);
             this.button_AddManagerForm_UpdateBranches.Name = "button_AddManagerForm_UpdateBranches";
             this.button_AddManagerForm_UpdateBranches.Size = new System.Drawing.Size(200, 35);
             this.button_AddManagerForm_UpdateBranches.TabIndex = 1;
@@ -271,6 +275,22 @@
             this.textBox_AddManagerWindow_MngrPassData_Input.Size = new System.Drawing.Size(200, 30);
             this.textBox_AddManagerWindow_MngrPassData_Input.TabIndex = 0;
             // 
+            // textBox_AddManagerForm_IdBranch_Input
+            // 
+            this.textBox_AddManagerForm_IdBranch_Input.Location = new System.Drawing.Point(686, 355);
+            this.textBox_AddManagerForm_IdBranch_Input.Name = "textBox_AddManagerForm_IdBranch_Input";
+            this.textBox_AddManagerForm_IdBranch_Input.Size = new System.Drawing.Size(200, 30);
+            this.textBox_AddManagerForm_IdBranch_Input.TabIndex = 17;
+            // 
+            // label_AddManagerWindow_IdBranch
+            // 
+            this.label_AddManagerWindow_IdBranch.AutoSize = true;
+            this.label_AddManagerWindow_IdBranch.Location = new System.Drawing.Point(540, 358);
+            this.label_AddManagerWindow_IdBranch.Name = "label_AddManagerWindow_IdBranch";
+            this.label_AddManagerWindow_IdBranch.Size = new System.Drawing.Size(144, 23);
+            this.label_AddManagerWindow_IdBranch.TabIndex = 18;
+            this.label_AddManagerWindow_IdBranch.Text = "Номер филиала:";
+            // 
             // AddManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -286,6 +306,7 @@
             this.Text = "CarDealershipsSystem";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AddManagerForm_Branches)).EndInit();
             this.groupBox_AddManagerForm_Branches.ResumeLayout(false);
+            this.groupBox_AddManagerForm_Branches.PerformLayout();
             this.groupBox_AddmanagerWindow_InputManagerData.ResumeLayout(false);
             this.groupBox_AddmanagerWindow_InputManagerData.PerformLayout();
             this.ResumeLayout(false);
@@ -317,5 +338,7 @@
         private Label label_AddManagerForm_MngrPassword_Input;
         private TextBox textBox_AddManagerForm_MngrPassword_Input;
         private Button button_AddManagerWindow_AddManager;
+        private Label label_AddManagerWindow_IdBranch;
+        private TextBox textBox_AddManagerForm_IdBranch_Input;
     }
 }
