@@ -39,6 +39,10 @@
             this.label_HeadRegistrWindow_HeadPassData = new System.Windows.Forms.Label();
             this.label_HeadRegistrWindow_HeadPhoneNumber = new System.Windows.Forms.Label();
             this.button_HeadRegisterWindow_Register = new System.Windows.Forms.Button();
+            this.textBox_HeadRegisterWindow_HeadLogin_Input = new System.Windows.Forms.TextBox();
+            this.label_HeadRegisterWindow_HeadLogin = new System.Windows.Forms.Label();
+            this.textBox_HeadRegisterWindow_HeadPassword_Input = new System.Windows.Forms.TextBox();
+            this.label_HeadRegisterWindow_HeadPassword = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox_HeadRegistrWindow_HeadName_Input
@@ -129,19 +133,57 @@
             // button_HeadRegisterWindow_Register
             // 
             this.button_HeadRegisterWindow_Register.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button_HeadRegisterWindow_Register.Location = new System.Drawing.Point(140, 240);
+            this.button_HeadRegisterWindow_Register.Location = new System.Drawing.Point(140, 321);
             this.button_HeadRegisterWindow_Register.Name = "button_HeadRegisterWindow_Register";
             this.button_HeadRegisterWindow_Register.Size = new System.Drawing.Size(200, 35);
             this.button_HeadRegisterWindow_Register.TabIndex = 10;
             this.button_HeadRegisterWindow_Register.Text = "Зарегистрироваться";
             this.button_HeadRegisterWindow_Register.UseVisualStyleBackColor = true;
             // 
+            // textBox_HeadRegisterWindow_HeadLogin_Input
+            // 
+            this.textBox_HeadRegisterWindow_HeadLogin_Input.Location = new System.Drawing.Point(200, 223);
+            this.textBox_HeadRegisterWindow_HeadLogin_Input.Name = "textBox_HeadRegisterWindow_HeadLogin_Input";
+            this.textBox_HeadRegisterWindow_HeadLogin_Input.Size = new System.Drawing.Size(200, 27);
+            this.textBox_HeadRegisterWindow_HeadLogin_Input.TabIndex = 11;
+            // 
+            // label_HeadRegisterWindow_HeadLogin
+            // 
+            this.label_HeadRegisterWindow_HeadLogin.AutoSize = true;
+            this.label_HeadRegisterWindow_HeadLogin.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_HeadRegisterWindow_HeadLogin.Location = new System.Drawing.Point(124, 223);
+            this.label_HeadRegisterWindow_HeadLogin.Name = "label_HeadRegisterWindow_HeadLogin";
+            this.label_HeadRegisterWindow_HeadLogin.Size = new System.Drawing.Size(63, 23);
+            this.label_HeadRegisterWindow_HeadLogin.TabIndex = 12;
+            this.label_HeadRegisterWindow_HeadLogin.Text = "Логин:";
+            // 
+            // textBox_HeadRegisterWindow_HeadPassword_Input
+            // 
+            this.textBox_HeadRegisterWindow_HeadPassword_Input.Location = new System.Drawing.Point(200, 265);
+            this.textBox_HeadRegisterWindow_HeadPassword_Input.Name = "textBox_HeadRegisterWindow_HeadPassword_Input";
+            this.textBox_HeadRegisterWindow_HeadPassword_Input.Size = new System.Drawing.Size(200, 27);
+            this.textBox_HeadRegisterWindow_HeadPassword_Input.TabIndex = 13;
+            // 
+            // label_HeadRegisterWindow_HeadPassword
+            // 
+            this.label_HeadRegisterWindow_HeadPassword.AutoSize = true;
+            this.label_HeadRegisterWindow_HeadPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_HeadRegisterWindow_HeadPassword.Location = new System.Drawing.Point(112, 265);
+            this.label_HeadRegisterWindow_HeadPassword.Name = "label_HeadRegisterWindow_HeadPassword";
+            this.label_HeadRegisterWindow_HeadPassword.Size = new System.Drawing.Size(75, 23);
+            this.label_HeadRegisterWindow_HeadPassword.TabIndex = 14;
+            this.label_HeadRegisterWindow_HeadPassword.Text = "Пароль:";
+            // 
             // HeadRegisterWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(462, 313);
+            this.ClientSize = new System.Drawing.Size(462, 376);
+            this.Controls.Add(this.label_HeadRegisterWindow_HeadPassword);
+            this.Controls.Add(this.textBox_HeadRegisterWindow_HeadPassword_Input);
+            this.Controls.Add(this.label_HeadRegisterWindow_HeadLogin);
+            this.Controls.Add(this.textBox_HeadRegisterWindow_HeadLogin_Input);
             this.Controls.Add(this.button_HeadRegisterWindow_Register);
             this.Controls.Add(this.label_HeadRegistrWindow_HeadPhoneNumber);
             this.Controls.Add(this.label_HeadRegistrWindow_HeadPassData);
@@ -178,5 +220,9 @@
         private Label label_HeadRegistrWindow_HeadPassData;
         private Label label_HeadRegistrWindow_HeadPhoneNumber;
         private Button button_HeadRegisterWindow_Register;
+        private TextBox textBox_HeadRegisterWindow_HeadLogin_Input;
+        private Label label_HeadRegisterWindow_HeadLogin;
+        private TextBox textBox_HeadRegisterWindow_HeadPassword_Input;
+        private Label label_HeadRegisterWindow_HeadPassword;
     }
 }
