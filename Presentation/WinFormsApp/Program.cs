@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using CarDealershipsSystem.Application.Services;
+using WinFormsApp.Forms;
 
 namespace WinFormsApp
 {
@@ -34,7 +35,7 @@ namespace WinFormsApp
             var host = CreateHostBuilder().Build();
             ServiceProvider = host.Services;
 
-            System.Windows.Forms.Application.Run(ServiceProvider.GetRequiredService<HeadMainWindow>());
+            System.Windows.Forms.Application.Run(ServiceProvider.GetRequiredService<AddCarWindow>());
         }
         public static IServiceProvider ServiceProvider { get; private set; }
 
@@ -63,7 +64,7 @@ namespace WinFormsApp
                     services.AddScoped<ICarExemplarService, CarExemplarService>();
                     services.AddScoped<ICarOrderService, CarOrderService>();
                     services.AddScoped<IManagerService, ManagerService>();
-                    services.AddTransient<HeadMainWindow>();
+                    services.AddTransient<AddCarWindow>();
                 });
         }
     }

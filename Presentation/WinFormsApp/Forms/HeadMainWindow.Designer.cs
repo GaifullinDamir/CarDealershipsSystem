@@ -55,8 +55,6 @@
             this.button_HeadMainWindow_SearchManager_Search = new System.Windows.Forms.Button();
             this.label_HeadMainWindow_SearchManager_MngrPassData = new System.Windows.Forms.Label();
             this.textBox_HeadMainWIndow_SearchManager_MngrPassData_Input = new System.Windows.Forms.TextBox();
-            this.groupBox_HeadMainWindow_DeleteManager = new System.Windows.Forms.GroupBox();
-            this.button_HeadMainWindow_DeleteManager_Delete = new System.Windows.Forms.Button();
             this.groupBox_HeadMainWindow_AddManager = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage_Cars = new System.Windows.Forms.TabPage();
@@ -83,7 +81,6 @@
             this.groupBox_HeadMainWindow_Managers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_HeadMainWindow_Managers)).BeginInit();
             this.groupBox_HeadMainWindow_SearchManager.SuspendLayout();
-            this.groupBox_HeadMainWindow_DeleteManager.SuspendLayout();
             this.groupBox_HeadMainWindow_AddManager.SuspendLayout();
             this.tabPage_Cars.SuspendLayout();
             this.groupBox_HeadMainWindow_SearchCar.SuspendLayout();
@@ -245,7 +242,6 @@
             this.tabPage_Managers.Controls.Add(this.groupBox_HeadMainWindow_ChangeManagerInfo);
             this.tabPage_Managers.Controls.Add(this.groupBox_HeadMainWindow_Managers);
             this.tabPage_Managers.Controls.Add(this.groupBox_HeadMainWindow_SearchManager);
-            this.tabPage_Managers.Controls.Add(this.groupBox_HeadMainWindow_DeleteManager);
             this.tabPage_Managers.Controls.Add(this.groupBox_HeadMainWindow_AddManager);
             this.tabPage_Managers.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tabPage_Managers.Location = new System.Drawing.Point(4, 29);
@@ -366,32 +362,12 @@
             this.textBox_HeadMainWIndow_SearchManager_MngrPassData_Input.Size = new System.Drawing.Size(150, 30);
             this.textBox_HeadMainWIndow_SearchManager_MngrPassData_Input.TabIndex = 2;
             // 
-            // groupBox_HeadMainWindow_DeleteManager
-            // 
-            this.groupBox_HeadMainWindow_DeleteManager.Controls.Add(this.button_HeadMainWindow_DeleteManager_Delete);
-            this.groupBox_HeadMainWindow_DeleteManager.Location = new System.Drawing.Point(306, 520);
-            this.groupBox_HeadMainWindow_DeleteManager.Name = "groupBox_HeadMainWindow_DeleteManager";
-            this.groupBox_HeadMainWindow_DeleteManager.Size = new System.Drawing.Size(300, 100);
-            this.groupBox_HeadMainWindow_DeleteManager.TabIndex = 8;
-            this.groupBox_HeadMainWindow_DeleteManager.TabStop = false;
-            this.groupBox_HeadMainWindow_DeleteManager.Text = "Уволить менеджера";
-            this.groupBox_HeadMainWindow_DeleteManager.Enter += new System.EventHandler(this.groupBox3_HeadMainWindow_DeleteManager_Enter);
-            // 
-            // button_HeadMainWindow_DeleteManager_Delete
-            // 
-            this.button_HeadMainWindow_DeleteManager_Delete.Location = new System.Drawing.Point(75, 40);
-            this.button_HeadMainWindow_DeleteManager_Delete.Name = "button_HeadMainWindow_DeleteManager_Delete";
-            this.button_HeadMainWindow_DeleteManager_Delete.Size = new System.Drawing.Size(150, 35);
-            this.button_HeadMainWindow_DeleteManager_Delete.TabIndex = 6;
-            this.button_HeadMainWindow_DeleteManager_Delete.Text = "Уволить";
-            this.button_HeadMainWindow_DeleteManager_Delete.UseVisualStyleBackColor = true;
-            // 
             // groupBox_HeadMainWindow_AddManager
             // 
             this.groupBox_HeadMainWindow_AddManager.Controls.Add(this.button3);
             this.groupBox_HeadMainWindow_AddManager.Location = new System.Drawing.Point(306, 406);
             this.groupBox_HeadMainWindow_AddManager.Name = "groupBox_HeadMainWindow_AddManager";
-            this.groupBox_HeadMainWindow_AddManager.Size = new System.Drawing.Size(300, 100);
+            this.groupBox_HeadMainWindow_AddManager.Size = new System.Drawing.Size(300, 214);
             this.groupBox_HeadMainWindow_AddManager.TabIndex = 7;
             this.groupBox_HeadMainWindow_AddManager.TabStop = false;
             this.groupBox_HeadMainWindow_AddManager.Text = "Добавить менеджера";
@@ -399,7 +375,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(75, 40);
+            this.button3.Location = new System.Drawing.Point(76, 96);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(150, 35);
             this.button3.TabIndex = 5;
@@ -558,7 +534,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_HeadMainWindow_Managers)).EndInit();
             this.groupBox_HeadMainWindow_SearchManager.ResumeLayout(false);
             this.groupBox_HeadMainWindow_SearchManager.PerformLayout();
-            this.groupBox_HeadMainWindow_DeleteManager.ResumeLayout(false);
             this.groupBox_HeadMainWindow_AddManager.ResumeLayout(false);
             this.tabPage_Cars.ResumeLayout(false);
             this.groupBox_HeadMainWindow_SearchCar.ResumeLayout(false);
@@ -595,10 +570,8 @@
         private Button button_HeadMainWindow_SearchManager_Search;
         private Label label_HeadMainWindow_SearchManager_MngrPassData;
         private TextBox textBox_HeadMainWIndow_SearchManager_MngrPassData_Input;
-        private GroupBox groupBox_HeadMainWindow_DeleteManager;
         private GroupBox groupBox_HeadMainWindow_AddManager;
         private Button button3;
-        private Button button_HeadMainWindow_DeleteManager_Delete;
         private GroupBox groupBox_HeadMainWindow_ChangeManagerInfo;
         private Label label_HeadMainWindow_ChangeManager_MngrPassData;
         private Label label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename;
