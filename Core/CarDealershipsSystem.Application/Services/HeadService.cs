@@ -84,7 +84,7 @@ namespace CarDealershipsSystem.Application.Services
                             HeadId = headUser.HeadId,
                             HeadPassword = headUser.HeadPassword,
                             HeadLogin = headUser.HeadLogin,
-                            HeadPassData = head.HeadPassData
+                            HeadPassData = headUser.HeadPassData
                         }).ToList()
                 }).ToList();
             return headsDTO;
