@@ -69,7 +69,16 @@
             this.groupBox_HeadMainWindow_Cars = new System.Windows.Forms.GroupBox();
             this.button_HeadMainWindow_DataGridView_Cars_Update = new System.Windows.Forms.Button();
             this.dataGridView_HeadMainWindow_Cars = new System.Windows.Forms.DataGridView();
-            this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            this.tabPage_HeadPersonalArea = new System.Windows.Forms.TabPage();
+            this.groupBox_HeadMainWindow_HeadPersonalData = new System.Windows.Forms.GroupBox();
+            this.label_HeadMainWindow_PeronalArea_HeadPassPata = new System.Windows.Forms.Label();
+            this.label_HeadMainWindow_PersonalArea_HeadName = new System.Windows.Forms.Label();
+            this.label_HeadMainWindow_PersonalArea_HeadSurname = new System.Windows.Forms.Label();
+            this.label_HeadMainWindow_PersonalArea_HeadMiddlename = new System.Windows.Forms.Label();
+            this.label_HeadMainWindow_PersonalArea_HeadPhoneNumber = new System.Windows.Forms.Label();
+            this.label_HeadMainWindow_PersonalArea_HeadLogin = new System.Windows.Forms.Label();
+            this.label_HeadMainWindow_PersonalArea_HeadPassword = new System.Windows.Forms.Label();
+            this.button_HeadMainWindow_PersonalArea_UpdateData = new System.Windows.Forms.Button();
             this.tabControl_HeadMainWindow.SuspendLayout();
             this.tabPage_Branches.SuspendLayout();
             this.groupBox_HeadMainWindow_Branches.SuspendLayout();
@@ -86,6 +95,8 @@
             this.groupBox_HeadMainWindow_SearchCar.SuspendLayout();
             this.groupBox_HeadMainWindow_Cars.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_HeadMainWindow_Cars)).BeginInit();
+            this.tabPage_HeadPersonalArea.SuspendLayout();
+            this.groupBox_HeadMainWindow_HeadPersonalData.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl_HeadMainWindow
@@ -93,12 +104,12 @@
             this.tabControl_HeadMainWindow.Controls.Add(this.tabPage_Branches);
             this.tabControl_HeadMainWindow.Controls.Add(this.tabPage_Managers);
             this.tabControl_HeadMainWindow.Controls.Add(this.tabPage_Cars);
+            this.tabControl_HeadMainWindow.Controls.Add(this.tabPage_HeadPersonalArea);
             this.tabControl_HeadMainWindow.Location = new System.Drawing.Point(11, 13);
             this.tabControl_HeadMainWindow.Name = "tabControl_HeadMainWindow";
             this.tabControl_HeadMainWindow.SelectedIndex = 0;
             this.tabControl_HeadMainWindow.Size = new System.Drawing.Size(920, 660);
             this.tabControl_HeadMainWindow.TabIndex = 0;
-            this.tabControl_HeadMainWindow.SelectedIndexChanged += new System.EventHandler(this.tabControl_HeadMainWindow_SelectedIndexChanged);
             // 
             // tabPage_Branches
             // 
@@ -263,7 +274,6 @@
             this.groupBox_HeadMainWindow_ChangeManagerInfo.TabIndex = 11;
             this.groupBox_HeadMainWindow_ChangeManagerInfo.TabStop = false;
             this.groupBox_HeadMainWindow_ChangeManagerInfo.Text = "Изменить данные о менеджере";
-            this.groupBox_HeadMainWindow_ChangeManagerInfo.Enter += new System.EventHandler(this.groupBox_HeadMainWindow_ChangeManagerInfo_Enter);
             // 
             // label_HeadMainWindow_ChangeManager_MngrPassData
             // 
@@ -302,7 +312,6 @@
             this.groupBox_HeadMainWindow_Managers.TabIndex = 10;
             this.groupBox_HeadMainWindow_Managers.TabStop = false;
             this.groupBox_HeadMainWindow_Managers.Text = "Менеджеры";
-            this.groupBox_HeadMainWindow_Managers.Enter += new System.EventHandler(this.groupBox_HeadMainWindow_Managers_Enter);
             // 
             // button_HeadMainWindow_DataGridView_UpdateManagers
             // 
@@ -335,7 +344,6 @@
             this.groupBox_HeadMainWindow_SearchManager.TabIndex = 9;
             this.groupBox_HeadMainWindow_SearchManager.TabStop = false;
             this.groupBox_HeadMainWindow_SearchManager.Text = "Поиск менеджера";
-            this.groupBox_HeadMainWindow_SearchManager.Enter += new System.EventHandler(this.groupBox2_HeadMainWindow_SearchManager_Enter);
             // 
             // button_HeadMainWindow_SearchManager_Search
             // 
@@ -371,7 +379,6 @@
             this.groupBox_HeadMainWindow_AddManager.TabIndex = 7;
             this.groupBox_HeadMainWindow_AddManager.TabStop = false;
             this.groupBox_HeadMainWindow_AddManager.Text = "Добавить менеджера";
-            this.groupBox_HeadMainWindow_AddManager.Enter += new System.EventHandler(this.groupBox4_HeadMainWindow_AddManager_Enter);
             // 
             // button3
             // 
@@ -479,7 +486,6 @@
             this.groupBox_HeadMainWindow_Cars.TabIndex = 0;
             this.groupBox_HeadMainWindow_Cars.TabStop = false;
             this.groupBox_HeadMainWindow_Cars.Text = "Автомобили";
-            this.groupBox_HeadMainWindow_Cars.Enter += new System.EventHandler(this.groupBox1_HeadMainWindow_Cars_Enter);
             // 
             // button_HeadMainWindow_DataGridView_Cars_Update
             // 
@@ -501,10 +507,106 @@
             this.dataGridView_HeadMainWindow_Cars.Size = new System.Drawing.Size(880, 300);
             this.dataGridView_HeadMainWindow_Cars.TabIndex = 0;
             // 
-            // sqlCommand1
+            // tabPage_HeadPersonalArea
             // 
-            this.sqlCommand1.CommandTimeout = 30;
-            this.sqlCommand1.EnableOptimizedParameterBinding = false;
+            this.tabPage_HeadPersonalArea.Controls.Add(this.groupBox_HeadMainWindow_HeadPersonalData);
+            this.tabPage_HeadPersonalArea.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tabPage_HeadPersonalArea.Location = new System.Drawing.Point(4, 29);
+            this.tabPage_HeadPersonalArea.Name = "tabPage_HeadPersonalArea";
+            this.tabPage_HeadPersonalArea.Size = new System.Drawing.Size(912, 627);
+            this.tabPage_HeadPersonalArea.TabIndex = 3;
+            this.tabPage_HeadPersonalArea.Text = "Личный кабинет";
+            this.tabPage_HeadPersonalArea.UseVisualStyleBackColor = true;
+            // 
+            // groupBox_HeadMainWindow_HeadPersonalData
+            // 
+            this.groupBox_HeadMainWindow_HeadPersonalData.Controls.Add(this.button_HeadMainWindow_PersonalArea_UpdateData);
+            this.groupBox_HeadMainWindow_HeadPersonalData.Controls.Add(this.label_HeadMainWindow_PersonalArea_HeadPassword);
+            this.groupBox_HeadMainWindow_HeadPersonalData.Controls.Add(this.label_HeadMainWindow_PersonalArea_HeadLogin);
+            this.groupBox_HeadMainWindow_HeadPersonalData.Controls.Add(this.label_HeadMainWindow_PersonalArea_HeadPhoneNumber);
+            this.groupBox_HeadMainWindow_HeadPersonalData.Controls.Add(this.label_HeadMainWindow_PersonalArea_HeadMiddlename);
+            this.groupBox_HeadMainWindow_HeadPersonalData.Controls.Add(this.label_HeadMainWindow_PersonalArea_HeadSurname);
+            this.groupBox_HeadMainWindow_HeadPersonalData.Controls.Add(this.label_HeadMainWindow_PersonalArea_HeadName);
+            this.groupBox_HeadMainWindow_HeadPersonalData.Controls.Add(this.label_HeadMainWindow_PeronalArea_HeadPassPata);
+            this.groupBox_HeadMainWindow_HeadPersonalData.Location = new System.Drawing.Point(3, 3);
+            this.groupBox_HeadMainWindow_HeadPersonalData.Name = "groupBox_HeadMainWindow_HeadPersonalData";
+            this.groupBox_HeadMainWindow_HeadPersonalData.Size = new System.Drawing.Size(906, 328);
+            this.groupBox_HeadMainWindow_HeadPersonalData.TabIndex = 0;
+            this.groupBox_HeadMainWindow_HeadPersonalData.TabStop = false;
+            this.groupBox_HeadMainWindow_HeadPersonalData.Text = "Личные данные";
+            // 
+            // label_HeadMainWindow_PeronalArea_HeadPassPata
+            // 
+            this.label_HeadMainWindow_PeronalArea_HeadPassPata.AutoSize = true;
+            this.label_HeadMainWindow_PeronalArea_HeadPassPata.Location = new System.Drawing.Point(24, 43);
+            this.label_HeadMainWindow_PeronalArea_HeadPassPata.Name = "label_HeadMainWindow_PeronalArea_HeadPassPata";
+            this.label_HeadMainWindow_PeronalArea_HeadPassPata.Size = new System.Drawing.Size(179, 23);
+            this.label_HeadMainWindow_PeronalArea_HeadPassPata.TabIndex = 0;
+            this.label_HeadMainWindow_PeronalArea_HeadPassPata.Text = "Паспортные данные:";
+            // 
+            // label_HeadMainWindow_PersonalArea_HeadName
+            // 
+            this.label_HeadMainWindow_PersonalArea_HeadName.AutoSize = true;
+            this.label_HeadMainWindow_PersonalArea_HeadName.Location = new System.Drawing.Point(24, 80);
+            this.label_HeadMainWindow_PersonalArea_HeadName.Name = "label_HeadMainWindow_PersonalArea_HeadName";
+            this.label_HeadMainWindow_PersonalArea_HeadName.Size = new System.Drawing.Size(49, 23);
+            this.label_HeadMainWindow_PersonalArea_HeadName.TabIndex = 1;
+            this.label_HeadMainWindow_PersonalArea_HeadName.Text = "Имя:";
+            // 
+            // label_HeadMainWindow_PersonalArea_HeadSurname
+            // 
+            this.label_HeadMainWindow_PersonalArea_HeadSurname.AutoSize = true;
+            this.label_HeadMainWindow_PersonalArea_HeadSurname.Location = new System.Drawing.Point(24, 115);
+            this.label_HeadMainWindow_PersonalArea_HeadSurname.Name = "label_HeadMainWindow_PersonalArea_HeadSurname";
+            this.label_HeadMainWindow_PersonalArea_HeadSurname.Size = new System.Drawing.Size(88, 23);
+            this.label_HeadMainWindow_PersonalArea_HeadSurname.TabIndex = 2;
+            this.label_HeadMainWindow_PersonalArea_HeadSurname.Text = "Фамилия:";
+            // 
+            // label_HeadMainWindow_PersonalArea_HeadMiddlename
+            // 
+            this.label_HeadMainWindow_PersonalArea_HeadMiddlename.AutoSize = true;
+            this.label_HeadMainWindow_PersonalArea_HeadMiddlename.Location = new System.Drawing.Point(25, 155);
+            this.label_HeadMainWindow_PersonalArea_HeadMiddlename.Name = "label_HeadMainWindow_PersonalArea_HeadMiddlename";
+            this.label_HeadMainWindow_PersonalArea_HeadMiddlename.Size = new System.Drawing.Size(87, 23);
+            this.label_HeadMainWindow_PersonalArea_HeadMiddlename.TabIndex = 3;
+            this.label_HeadMainWindow_PersonalArea_HeadMiddlename.Text = "Отчество:";
+            // 
+            // label_HeadMainWindow_PersonalArea_HeadPhoneNumber
+            // 
+            this.label_HeadMainWindow_PersonalArea_HeadPhoneNumber.AutoSize = true;
+            this.label_HeadMainWindow_PersonalArea_HeadPhoneNumber.Location = new System.Drawing.Point(24, 190);
+            this.label_HeadMainWindow_PersonalArea_HeadPhoneNumber.Name = "label_HeadMainWindow_PersonalArea_HeadPhoneNumber";
+            this.label_HeadMainWindow_PersonalArea_HeadPhoneNumber.Size = new System.Drawing.Size(150, 23);
+            this.label_HeadMainWindow_PersonalArea_HeadPhoneNumber.TabIndex = 4;
+            this.label_HeadMainWindow_PersonalArea_HeadPhoneNumber.Text = "Номер телефона:";
+            // 
+            // label_HeadMainWindow_PersonalArea_HeadLogin
+            // 
+            this.label_HeadMainWindow_PersonalArea_HeadLogin.AutoSize = true;
+            this.label_HeadMainWindow_PersonalArea_HeadLogin.Location = new System.Drawing.Point(491, 68);
+            this.label_HeadMainWindow_PersonalArea_HeadLogin.Name = "label_HeadMainWindow_PersonalArea_HeadLogin";
+            this.label_HeadMainWindow_PersonalArea_HeadLogin.Size = new System.Drawing.Size(63, 23);
+            this.label_HeadMainWindow_PersonalArea_HeadLogin.TabIndex = 5;
+            this.label_HeadMainWindow_PersonalArea_HeadLogin.Text = "Логин:";
+            // 
+            // label_HeadMainWindow_PersonalArea_HeadPassword
+            // 
+            this.label_HeadMainWindow_PersonalArea_HeadPassword.AutoSize = true;
+            this.label_HeadMainWindow_PersonalArea_HeadPassword.Location = new System.Drawing.Point(491, 124);
+            this.label_HeadMainWindow_PersonalArea_HeadPassword.Name = "label_HeadMainWindow_PersonalArea_HeadPassword";
+            this.label_HeadMainWindow_PersonalArea_HeadPassword.Size = new System.Drawing.Size(75, 23);
+            this.label_HeadMainWindow_PersonalArea_HeadPassword.TabIndex = 6;
+            this.label_HeadMainWindow_PersonalArea_HeadPassword.Text = "Пароль:";
+            // 
+            // button_HeadMainWindow_PersonalArea_UpdateData
+            // 
+            this.button_HeadMainWindow_PersonalArea_UpdateData.Location = new System.Drawing.Point(390, 271);
+            this.button_HeadMainWindow_PersonalArea_UpdateData.Name = "button_HeadMainWindow_PersonalArea_UpdateData";
+            this.button_HeadMainWindow_PersonalArea_UpdateData.Size = new System.Drawing.Size(150, 35);
+            this.button_HeadMainWindow_PersonalArea_UpdateData.TabIndex = 7;
+            this.button_HeadMainWindow_PersonalArea_UpdateData.Text = "Обновить";
+            this.button_HeadMainWindow_PersonalArea_UpdateData.UseVisualStyleBackColor = true;
+            this.button_HeadMainWindow_PersonalArea_UpdateData.Click += new System.EventHandler(this.button_HeadMainWindow_PersonalArea_UpdateData_Click);
             // 
             // HeadMainWindow
             // 
@@ -518,6 +620,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CarDealershipsSystem";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HeadMainWindow_FormClosing);
             this.Load += new System.EventHandler(this.HeadMainWindow_Load);
             this.tabControl_HeadMainWindow.ResumeLayout(false);
             this.tabPage_Branches.ResumeLayout(false);
@@ -540,6 +643,9 @@
             this.groupBox_HeadMainWindow_SearchCar.PerformLayout();
             this.groupBox_HeadMainWindow_Cars.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_HeadMainWindow_Cars)).EndInit();
+            this.tabPage_HeadPersonalArea.ResumeLayout(false);
+            this.groupBox_HeadMainWindow_HeadPersonalData.ResumeLayout(false);
+            this.groupBox_HeadMainWindow_HeadPersonalData.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -562,7 +668,6 @@
         private Button button_HeadMainWindow_SearchBranch;
         private Label label1;
         private TextBox textBox1;
-        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
         private GroupBox groupBox_HeadMainWindow_Managers;
         private Button button_HeadMainWindow_DataGridView_UpdateManagers;
         private DataGridView dataGridView_HeadMainWindow_Managers;
@@ -588,5 +693,15 @@
         private Label label_HeadMainWindow_SearchCar_Brand;
         private TextBox textBox_HeadMainWindow_SearchCar_Model_Input;
         private Label label_HeadMainWindow_SearchCar_Model;
+        private TabPage tabPage_HeadPersonalArea;
+        private GroupBox groupBox_HeadMainWindow_HeadPersonalData;
+        private Button button_HeadMainWindow_PersonalArea_UpdateData;
+        private Label label_HeadMainWindow_PersonalArea_HeadPassword;
+        private Label label_HeadMainWindow_PersonalArea_HeadLogin;
+        private Label label_HeadMainWindow_PersonalArea_HeadPhoneNumber;
+        private Label label_HeadMainWindow_PersonalArea_HeadMiddlename;
+        private Label label_HeadMainWindow_PersonalArea_HeadSurname;
+        private Label label_HeadMainWindow_PersonalArea_HeadName;
+        private Label label_HeadMainWindow_PeronalArea_HeadPassPata;
     }
 }

@@ -14,7 +14,7 @@ namespace CarDealershipsSystem.DAL.Repositories
         public IEnumerable<Manager> GetManagers()
         {
             var managers = _context.Managers.ToList();
-            return (IEnumerable<Manager>)managers;
+            return managers;
         }
     }
 }

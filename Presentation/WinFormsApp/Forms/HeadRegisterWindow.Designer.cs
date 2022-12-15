@@ -139,6 +139,7 @@
             this.button_HeadRegisterWindow_Register.TabIndex = 10;
             this.button_HeadRegisterWindow_Register.Text = "Зарегистрироваться";
             this.button_HeadRegisterWindow_Register.UseVisualStyleBackColor = true;
+            this.button_HeadRegisterWindow_Register.Click += new System.EventHandler(this.button_HeadRegisterWindow_Register_Click);
             // 
             // textBox_HeadRegisterWindow_HeadLogin_Input
             // 
@@ -201,6 +202,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CarDealershipsSystem";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HeadRegisterWindow_FormClosing);
             this.Load += new System.EventHandler(this.HeadRegisterWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

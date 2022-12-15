@@ -15,37 +15,44 @@ namespace WinFormsApp
     {
         private readonly IBranchService _branchService;
         private readonly IManagerService _managerService;
-        public HeadMainWindow(IBranchService branchService, IManagerService managerService)
+        private readonly IHeadService _headService;
+        private readonly IHeadUserService _headUserService;
+        public HeadMainWindow(
+            IBranchService branchService, IManagerService managerService,
+            IHeadService headService, IHeadUserService headUserService
+            )
         {
+            InitializeComponent();
             _branchService = branchService;
             _managerService = managerService;
-            InitializeComponent();
+            _headService = headService;
+            _headUserService = headUserService;
         }
 
-        private void tabControl_HeadMainWindow_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        //private void tabControl_HeadMainWindow_SelectedIndexChanged(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
-        private void groupBox_HeadMainWindow_Managers_Enter(object sender, EventArgs e)
-        {
+        //private void groupBox_HeadMainWindow_Managers_Enter(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
-        private void groupBox4_HeadMainWindow_AddManager_Enter(object sender, EventArgs e)
-        {
+        //private void groupBox4_HeadMainWindow_AddManager_Enter(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
-        private void groupBox3_HeadMainWindow_DeleteManager_Enter(object sender, EventArgs e)
-        {
+        //private void groupBox3_HeadMainWindow_DeleteManager_Enter(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
-        private void groupBox2_HeadMainWindow_SearchManager_Enter(object sender, EventArgs e)
-        {
+        //private void groupBox2_HeadMainWindow_SearchManager_Enter(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
         private void HeadMainWindow_Load(object sender, EventArgs e)
         {
@@ -76,16 +83,27 @@ namespace WinFormsApp
             dataGridView_HeadMainWindow_Managers.DataSource = _managerService.GetManagers().ToList();
 
         }
-        private void groupBox_HeadMainWindow_ChangeManagerInfo_Enter(object sender, EventArgs e)
-        {
 
+        private void HeadMainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
         }
 
-        private void groupBox1_HeadMainWindow_Cars_Enter(object sender, EventArgs e)
+        private void button_HeadMainWindow_PersonalArea_UpdateData_Click(object sender, EventArgs e)
         {
-
+            //label_HeadMainWindow_PeronalArea_HeadPassPata.Text += 
         }
+        //private void groupBox_HeadMainWindow_ChangeManagerInfo_Enter(object sender, EventArgs e)
+        //{
 
-  
+        //}
+
+        //private void groupBox1_HeadMainWindow_Cars_Enter(object sender, EventArgs e)
+        //{
+
+        //}
+
+
+
     }
 }
