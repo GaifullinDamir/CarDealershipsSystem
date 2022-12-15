@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using CarDealershipsSystem.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarDealershipsSystem.DAL;
@@ -26,7 +25,13 @@ public partial class CarDealershipsDbContext : DbContext
 
     public virtual DbSet<CarOrder> CarOrders { get; set; }
 
+    public virtual DbSet<Head> Heads { get; set; }
+
+    public virtual DbSet<HeadUser> HeadUsers { get; set; }
+
     public virtual DbSet<Manager> Managers { get; set; }
+
+    public virtual DbSet<ManagerUser> ManagerUsers { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -36,13 +41,9 @@ public partial class CarDealershipsDbContext : DbContext
     {
         modelBuilder.Entity<Branch>(entity =>
         {
-            entity.HasKey(e => e.IdBranch).HasName("PK__BRANCH__261C45A455709BCD");
+            entity.HasKey(e => e.IdBranch).HasName("PK__BRANCH__261C45A449526CA9");
 
             entity.ToTable("BRANCH");
-
-            entity.HasIndex(e => e.HeadPassData, "UQ__BRANCH__1DEAC273DFEB80E0").IsUnique();
-
-            entity.HasIndex(e => e.HeadPhoneNumber, "UQ__BRANCH__5F3A4AF4C99158AD").IsUnique();
 
             entity.Property(e => e.IdBranch).HasColumnName("ID_BRANCH");
             entity.Property(e => e.BranchAddress)
@@ -53,32 +54,21 @@ public partial class CarDealershipsDbContext : DbContext
                 .HasMaxLength(30)
                 .IsUnicode(false)
                 .HasColumnName("BRANCH_NAME");
-            entity.Property(e => e.HeadMiddlename)
-                .HasMaxLength(30)
-                .IsUnicode(false)
-                .HasColumnName("HEAD_MIDDLENAME");
-            entity.Property(e => e.HeadName)
-                .HasMaxLength(30)
-                .IsUnicode(false)
-                .HasColumnName("HEAD_NAME");
             entity.Property(e => e.HeadPassData).HasColumnName("HEAD_PASS_DATA");
-            entity.Property(e => e.HeadPhoneNumber)
-                .HasMaxLength(20)
-                .IsUnicode(false)
-                .HasColumnName("HEAD_PHONE_NUMBER");
-            entity.Property(e => e.HeadSurname)
-                .HasMaxLength(30)
-                .IsUnicode(false)
-                .HasColumnName("HEAD_SURNAME");
+
+            entity.HasOne(d => d.HeadPassDataNavigation).WithMany(p => p.Branches)
+                .HasForeignKey(d => d.HeadPassData)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__BRANCH__HEAD_PAS__2E1BDC42");
         });
 
         modelBuilder.Entity<Buyer>(entity =>
         {
-            entity.HasKey(e => e.BuyerPassData).HasName("PK__BUYER__ABE081A1CD13A3F3");
+            entity.HasKey(e => e.BuyerPassData).HasName("PK__BUYER__ABE081A1133CF006");
 
             entity.ToTable("BUYER");
 
-            entity.HasIndex(e => e.BuyerPhoneNumber, "UQ__BUYER__7FDA2467AA8FB3AA").IsUnique();
+            entity.HasIndex(e => e.BuyerPhoneNumber, "UQ__BUYER__7FDA2467078599A0").IsUnique();
 
             entity.Property(e => e.BuyerPassData)
                 .ValueGeneratedNever()
@@ -103,7 +93,7 @@ public partial class CarDealershipsDbContext : DbContext
 
         modelBuilder.Entity<Car>(entity =>
         {
-            entity.HasKey(e => e.IdCar).HasName("PK__CAR__2BF8FA1E3EAC1837");
+            entity.HasKey(e => e.IdCar).HasName("PK__CAR__2BF8FA1E27D97252");
 
             entity.ToTable("CAR");
 
@@ -126,16 +116,14 @@ public partial class CarDealershipsDbContext : DbContext
             entity.HasOne(d => d.IdBranchNavigation).WithMany(p => p.Cars)
                 .HasForeignKey(d => d.IdBranch)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__CAR__ID_BRANCH__45F365D3");
+                .HasConstraintName("FK__CAR__ID_BRANCH__3B75D760");
         });
 
         modelBuilder.Entity<CarExemplar>(entity =>
         {
-            entity.HasKey(e => e.VinNumber).HasName("PK__CAR_EXEM__B372A1A3F7264785");
+            entity.HasKey(e => e.VinNumber).HasName("PK__CAR_EXEM__B372A1A336820FDF");
 
             entity.ToTable("CAR_EXEMPLAR");
-
-            entity.HasIndex(e => e.IdOrder, "UQ__CAR_EXEM__D23A856410BEEE08").IsUnique();
 
             entity.Property(e => e.VinNumber)
                 .HasMaxLength(17)
@@ -147,7 +135,6 @@ public partial class CarDealershipsDbContext : DbContext
                 .HasColumnName("COLOR");
             entity.Property(e => e.HorsePower).HasColumnName("HORSE_POWER");
             entity.Property(e => e.IdCar).HasColumnName("ID_CAR");
-            entity.Property(e => e.IdOrder).HasColumnName("ID_ORDER");
             entity.Property(e => e.Price)
                 .HasColumnType("money")
                 .HasColumnName("PRICE");
@@ -158,19 +145,16 @@ public partial class CarDealershipsDbContext : DbContext
             entity.HasOne(d => d.IdCarNavigation).WithMany(p => p.CarExemplars)
                 .HasForeignKey(d => d.IdCar)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__CAR_EXEMP__ID_CA__4F7CD00D");
-
-            entity.HasOne(d => d.IdOrderNavigation).WithOne(p => p.CarExemplar)
-                .HasForeignKey<CarExemplar>(d => d.IdOrder)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__CAR_EXEMP__ID_OR__5165187F");
+                .HasConstraintName("FK__CAR_EXEMP__ID_CA__440B1D61");
         });
 
         modelBuilder.Entity<CarOrder>(entity =>
         {
-            entity.HasKey(e => e.IdOrder).HasName("PK__CAR_ORDE__D23A8565936C2142");
+            entity.HasKey(e => e.IdOrder).HasName("PK__CAR_ORDE__D23A85654B760AAC");
 
             entity.ToTable("CAR_ORDER");
+
+            entity.HasIndex(e => e.VinNumber, "UQ__CAR_ORDE__B372A1A205396611").IsUnique();
 
             entity.Property(e => e.IdOrder).HasColumnName("ID_ORDER");
             entity.Property(e => e.BuyerPassData).HasColumnName("BUYER_PASS_DATA");
@@ -181,25 +165,86 @@ public partial class CarDealershipsDbContext : DbContext
             entity.Property(e => e.OrderAmount)
                 .HasColumnType("money")
                 .HasColumnName("ORDER_AMOUNT");
+            entity.Property(e => e.VinNumber)
+                .HasMaxLength(17)
+                .IsUnicode(false)
+                .HasColumnName("VIN_NUMBER");
 
             entity.HasOne(d => d.BuyerPassDataNavigation).WithMany(p => p.CarOrders)
                 .HasForeignKey(d => d.BuyerPassData)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__CAR_ORDER__BUYER__412EB0B6");
+                .HasConstraintName("FK__CAR_ORDER__BUYER__5629CD9C");
 
             entity.HasOne(d => d.MngrPassDataNavigation).WithMany(p => p.CarOrders)
                 .HasForeignKey(d => d.MngrPassData)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__CAR_ORDER__MNGR___403A8C7D");
+                .HasConstraintName("FK__CAR_ORDER__MNGR___5535A963");
+
+            entity.HasOne(d => d.VinNumberNavigation).WithOne(p => p.CarOrder)
+                .HasForeignKey<CarOrder>(d => d.VinNumber)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__CAR_ORDER__VIN_N__534D60F1");
+        });
+
+        modelBuilder.Entity<Head>(entity =>
+        {
+            entity.HasKey(e => e.HeadPassData).HasName("PK__HEAD__1DEAC2727813A270");
+
+            entity.ToTable("HEAD");
+
+            entity.HasIndex(e => e.HeadPhoneNumber, "UQ__HEAD__5F3A4AF4C94D8D5A").IsUnique();
+
+            entity.Property(e => e.HeadPassData)
+                .ValueGeneratedNever()
+                .HasColumnName("HEAD_PASS_DATA");
+            entity.Property(e => e.HeadMiddlename)
+                .HasMaxLength(30)
+                .IsUnicode(false)
+                .HasColumnName("HEAD_MIDDLENAME");
+            entity.Property(e => e.HeadName)
+                .HasMaxLength(30)
+                .IsUnicode(false)
+                .HasColumnName("HEAD_NAME");
+            entity.Property(e => e.HeadPhoneNumber)
+                .HasMaxLength(20)
+                .IsUnicode(false)
+                .HasColumnName("HEAD_PHONE_NUMBER");
+            entity.Property(e => e.HeadSurname)
+                .HasMaxLength(30)
+                .IsUnicode(false)
+                .HasColumnName("HEAD_SURNAME");
+        });
+
+        modelBuilder.Entity<HeadUser>(entity =>
+        {
+            entity.HasKey(e => e.HeadId).HasName("PK__HEAD_USE__A1D4D0953520D4BD");
+
+            entity.ToTable("HEAD_USER");
+
+            entity.Property(e => e.HeadId).HasColumnName("HEAD_ID");
+            entity.Property(e => e.HeadLogin)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("HEAD_LOGIN");
+            entity.Property(e => e.HeadPassData).HasColumnName("HEAD_PASS_DATA");
+            entity.Property(e => e.HeadPassword)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("HEAD_PASSWORD");
+
+            entity.HasOne(d => d.HeadPassDataNavigation).WithMany(p => p.HeadUsers)
+                .HasForeignKey(d => d.HeadPassData)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__HEAD_USER__HEAD___59FA5E80");
         });
 
         modelBuilder.Entity<Manager>(entity =>
         {
-            entity.HasKey(e => e.MngrPassData).HasName("PK__MANAGER__91EE629496BCE8F8");
+            entity.HasKey(e => e.MngrPassData).HasName("PK__MANAGER__91EE6294E91B2B1E");
 
             entity.ToTable("MANAGER");
 
-            entity.HasIndex(e => e.MngrPhoneNumber, "UQ__MANAGER__AB6758BF338EC494").IsUnique();
+            entity.HasIndex(e => e.MngrPhoneNumber, "UQ__MANAGER__AB6758BFF124EF66").IsUnique();
 
             entity.Property(e => e.MngrPassData)
                 .ValueGeneratedNever()
@@ -234,7 +279,30 @@ public partial class CarDealershipsDbContext : DbContext
             entity.HasOne(d => d.IdBranchNavigation).WithMany(p => p.Managers)
                 .HasForeignKey(d => d.IdBranch)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__MANAGER__ID_BRAN__36B12243");
+                .HasConstraintName("FK__MANAGER__ID_BRAN__31EC6D26");
+        });
+
+        modelBuilder.Entity<ManagerUser>(entity =>
+        {
+            entity.HasKey(e => e.ManagerId).HasName("PK__MANAGER___238F82818EECAF5B");
+
+            entity.ToTable("MANAGER_USER");
+
+            entity.Property(e => e.ManagerId).HasColumnName("MANAGER_ID");
+            entity.Property(e => e.ManagerLogin)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("MANAGER_LOGIN");
+            entity.Property(e => e.ManagerPassword)
+                .HasMaxLength(30)
+                .IsUnicode(false)
+                .HasColumnName("MANAGER_PASSWORD");
+            entity.Property(e => e.MngrPassData).HasColumnName("MNGR_PASS_DATA");
+
+            entity.HasOne(d => d.MngrPassDataNavigation).WithMany(p => p.ManagerUsers)
+                .HasForeignKey(d => d.MngrPassData)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__MANAGER_U__MNGR___5CD6CB2B");
         });
 
         OnModelCreatingPartial(modelBuilder);

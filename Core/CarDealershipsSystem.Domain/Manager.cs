@@ -25,6 +25,7 @@ public partial class Manager
 
     public virtual ICollection<CarOrder> CarOrders { get; } = new List<CarOrder>();
 
-    //Свойство навигации
     public virtual Branch IdBranchNavigation { get; set; } = null!;
+
+    public virtual ICollection<ManagerUser> ManagerUsers { get; } = new List<ManagerUser>();
 }
