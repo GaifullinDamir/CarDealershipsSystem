@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CarDealershipsSystem.Domain;
+namespace CarDealershipsSystem.DAL;
 
 public partial class CarExemplar
 {

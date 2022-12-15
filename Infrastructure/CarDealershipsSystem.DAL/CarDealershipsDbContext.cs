@@ -112,7 +112,7 @@ public partial class CarDealershipsDbContext : DbContext
                 .HasMaxLength(30)
                 .IsUnicode(false)
                 .HasColumnName("MODEL");
-            entity.Property(e => e.Quantity).HasColumnName("QUANTITY");
+
 
             entity.HasOne(d => d.IdBranchNavigation).WithMany(p => p.Cars)
                 .HasForeignKey(d => d.IdBranch)

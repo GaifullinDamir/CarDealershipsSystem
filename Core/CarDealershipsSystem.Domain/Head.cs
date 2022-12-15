@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CarDealershipsSystem.Domain;
+namespace CarDealershipsSystem.DAL;
 
 public partial class Head
 {
-    public long HeadPassData { get; set; }
+    public string HeadPassData { get; set; } = null!;
 
     public string HeadName { get; set; } = null!;
 
@@ -15,8 +15,9 @@ public partial class Head
 
     public string HeadPhoneNumber { get; set; } = null!;
 
-    //set добавил сам!
-    public virtual ICollection<Branch> Branches { get; set; } = new List<Branch>();
-    //set добавил сам!
-    public virtual ICollection<HeadUser> HeadUsers { get; set; } = new List<HeadUser>();
+    public string HeadPassword { get; set; } = null!;
+
+    public string HeadLogin { get; set; } = null!;
+
+    public virtual ICollection<Branch> Branches { get; } = new List<Branch>();
 }

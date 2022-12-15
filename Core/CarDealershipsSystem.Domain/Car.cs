@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CarDealershipsSystem.Domain;
+namespace CarDealershipsSystem.DAL;
 
 public partial class Car
 {
@@ -14,8 +14,6 @@ public partial class Car
     public string Model { get; set; } = null!;
 
     public string BodyType { get; set; } = null!;
-
-    public int Quantity { get; set; }
 
     public virtual ICollection<CarExemplar> CarExemplars { get; } = new List<CarExemplar>();
 
