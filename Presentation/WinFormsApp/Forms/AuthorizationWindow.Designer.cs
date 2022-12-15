@@ -100,6 +100,7 @@
             this.button_AuthorizationWindow_HeadRegister.TabIndex = 5;
             this.button_AuthorizationWindow_HeadRegister.Text = "Зарегистрироваться";
             this.button_AuthorizationWindow_HeadRegister.UseVisualStyleBackColor = false;
+            this.button_AuthorizationWindow_HeadRegister.Click += new System.EventHandler(this.button_AuthorizationWindow_HeadRegister_Click);
             // 
             // button_AuthorizationWindow_HeadAuthorize
             // 
