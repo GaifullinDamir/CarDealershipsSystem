@@ -14,7 +14,7 @@ namespace CarDealershipsSystem.DAL.Repositories
         public IEnumerable<Branch> GetBranches()
         {
             var branches = _context.Branches.ToList();
-            return (IEnumerable<Branch>)branches;
+            return branches;
         }
     }
 }

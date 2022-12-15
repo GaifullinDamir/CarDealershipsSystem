@@ -15,7 +15,8 @@ public partial class Head
 
     public string HeadPhoneNumber { get; set; } = null!;
 
-    public virtual ICollection<Branch> Branches { get; } = new List<Branch>();
-
-    public virtual ICollection<HeadUser> HeadUsers { get; } = new List<HeadUser>();
+    //set добавил сам!
+    public virtual ICollection<Branch> Branches { get; set; } = new List<Branch>();
+    //set добавил сам!
+    public virtual ICollection<HeadUser> HeadUsers { get; set; } = new List<HeadUser>();
 }

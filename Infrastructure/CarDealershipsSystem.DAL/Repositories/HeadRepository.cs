@@ -15,7 +15,7 @@ namespace CarDealershipsSystem.DAL.Repositories
         public IEnumerable<Head> GetHeads()
         {
             var heads = _context.Heads.ToList();
-            return (IEnumerable<Head>)heads;
+            return heads;
         }
 
         public bool SaveHead(Head head)
