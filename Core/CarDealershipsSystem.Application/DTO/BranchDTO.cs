@@ -10,7 +10,7 @@ namespace CarDealershipsSystem.Application.DTO
 
         public string BranchAddress { get; set; } = null!;
 
-        public long HeadPassData { get; set; }
+        public string HeadPassData { get; set; } = null!;
 
         public virtual List <CarDTO> Cars { get; set; } = new List<CarDTO>();
 
