@@ -6,7 +6,7 @@
 
         public bool IsHeadAccountExist();
 
-        public void RegisterHeadUser( long headPassData, string headName, string headSurname,
+        public bool RegisterHeadUser( long headPassData, string headName, string headSurname,
             string headMiddleName, string headPhoneNumber, string headLogin,
             string headPassword
             );

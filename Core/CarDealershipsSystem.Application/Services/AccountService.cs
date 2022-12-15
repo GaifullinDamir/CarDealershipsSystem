@@ -41,7 +41,7 @@ namespace CarDealershipsSystem.Application.Services
                 return false;
         }
 
-        public void RegisterHeadUser( long headPassData, string headName, string headSurname,
+        public bool RegisterHeadUser( long headPassData, string headName, string headSurname,
            string headMiddleName, string headPhoneNumber, string headLogin,
            string headPassword
            )
@@ -67,8 +67,10 @@ namespace CarDealershipsSystem.Application.Services
                 HeadUsers = headUsers,
                 Branches = branches
             };
-            var result = 
-
+            var result = _headRepository.SaveHead(head);
+            if (result)
+            { return true; }
+            return false;
             
         }
     }
