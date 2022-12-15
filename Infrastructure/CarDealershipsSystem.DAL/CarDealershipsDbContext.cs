@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CarDealershipsSystem.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarDealershipsSystem.DAL;

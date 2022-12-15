@@ -70,6 +70,7 @@ namespace WinFormsApp
                     services.AddScoped<IHeadUserService, HeadUserService>();
                     services.AddScoped<IManagerService, ManagerService>();
                     services.AddScoped<IManagerUserService, ManagerUserService>();
+                    services.AddScoped<IAccountService, AccountService>();
                     services.AddTransient<AuthorizationWindow>();
                 });
         }
