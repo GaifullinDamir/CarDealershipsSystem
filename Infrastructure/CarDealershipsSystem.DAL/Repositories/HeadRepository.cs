@@ -12,7 +12,7 @@ namespace CarDealershipsSystem.DAL.Repositories
             _context = context;
         }
 
-        public IEnumerable<Head> GetBranches()
+        public IEnumerable<Head> GetHeads()
         {
             var heads = _context.Heads.ToList();
             return (IEnumerable<Head>)heads;

@@ -4,6 +4,6 @@ namespace CarDealershipsSystem.DAL.Interfaces
 {
     public interface IHeadRepository
     {
-        IEnumerable<Head> GetBranches();
+        IEnumerable<Head> GetHeads();
     }
 }
