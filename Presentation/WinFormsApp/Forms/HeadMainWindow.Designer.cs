@@ -98,7 +98,7 @@
             this.tabControl_HeadMainWindow.SelectedIndex = 0;
             this.tabControl_HeadMainWindow.Size = new System.Drawing.Size(920, 660);
             this.tabControl_HeadMainWindow.TabIndex = 0;
-            this.tabControl_HeadMainWindow.SelectedIndexChanged += new System.EventHandler(this.tabControl_HeadMainWindow_SelectedIndexChanged);
+            //this.tabControl_HeadMainWindow.SelectedIndexChanged += new System.EventHandler(this.tabControl_HeadMainWindow_SelectedIndexChanged);
             // 
             // tabPage_Branches
             // 
@@ -263,7 +263,6 @@
             this.groupBox_HeadMainWindow_ChangeManagerInfo.TabIndex = 11;
             this.groupBox_HeadMainWindow_ChangeManagerInfo.TabStop = false;
             this.groupBox_HeadMainWindow_ChangeManagerInfo.Text = "Изменить данные о менеджере";
-            this.groupBox_HeadMainWindow_ChangeManagerInfo.Enter += new System.EventHandler(this.groupBox_HeadMainWindow_ChangeManagerInfo_Enter);
             // 
             // label_HeadMainWindow_ChangeManager_MngrPassData
             // 
@@ -302,7 +301,7 @@
             this.groupBox_HeadMainWindow_Managers.TabIndex = 10;
             this.groupBox_HeadMainWindow_Managers.TabStop = false;
             this.groupBox_HeadMainWindow_Managers.Text = "Менеджеры";
-            this.groupBox_HeadMainWindow_Managers.Enter += new System.EventHandler(this.groupBox_HeadMainWindow_Managers_Enter);
+            //this.groupBox_HeadMainWindow_Managers.Enter += new System.EventHandler(this.groupBox_HeadMainWindow_Managers_Enter);
             // 
             // button_HeadMainWindow_DataGridView_UpdateManagers
             // 
@@ -335,7 +334,7 @@
             this.groupBox_HeadMainWindow_SearchManager.TabIndex = 9;
             this.groupBox_HeadMainWindow_SearchManager.TabStop = false;
             this.groupBox_HeadMainWindow_SearchManager.Text = "Поиск менеджера";
-            this.groupBox_HeadMainWindow_SearchManager.Enter += new System.EventHandler(this.groupBox2_HeadMainWindow_SearchManager_Enter);
+            //this.groupBox_HeadMainWindow_SearchManager.Enter += new System.EventHandler(this.groupBox2_HeadMainWindow_SearchManager_Enter);
             // 
             // button_HeadMainWindow_SearchManager_Search
             // 
@@ -371,7 +370,7 @@
             this.groupBox_HeadMainWindow_AddManager.TabIndex = 7;
             this.groupBox_HeadMainWindow_AddManager.TabStop = false;
             this.groupBox_HeadMainWindow_AddManager.Text = "Добавить менеджера";
-            this.groupBox_HeadMainWindow_AddManager.Enter += new System.EventHandler(this.groupBox4_HeadMainWindow_AddManager_Enter);
+            //this.groupBox_HeadMainWindow_AddManager.Enter += new System.EventHandler(this.groupBox4_HeadMainWindow_AddManager_Enter);
             // 
             // button3
             // 
@@ -479,7 +478,6 @@
             this.groupBox_HeadMainWindow_Cars.TabIndex = 0;
             this.groupBox_HeadMainWindow_Cars.TabStop = false;
             this.groupBox_HeadMainWindow_Cars.Text = "Автомобили";
-            this.groupBox_HeadMainWindow_Cars.Enter += new System.EventHandler(this.groupBox1_HeadMainWindow_Cars_Enter);
             // 
             // button_HeadMainWindow_DataGridView_Cars_Update
             // 
@@ -518,6 +516,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CarDealershipsSystem";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HeadMainWindow_FormClosing);
             this.Load += new System.EventHandler(this.HeadMainWindow_Load);
             this.tabControl_HeadMainWindow.ResumeLayout(false);
             this.tabPage_Branches.ResumeLayout(false);

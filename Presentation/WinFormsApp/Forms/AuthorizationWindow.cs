@@ -8,22 +8,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp.Forms;
 
 namespace WinFormsApp
 {
     public partial class AuthorizationWindow : Form
+
     {
-        private readonly IBranchService _branchService;
-        private readonly IManagerService _managerService;
+        
         private readonly IAccountService _accountService;
+        private readonly HeadMainWindow _headMainWindow;
+        private readonly ManagerMainWindow _managerMainWindow;
+        private readonly HeadRegisterWindow _headRegisterWindow;
         public AuthorizationWindow(
-            IBranchService branchService, IManagerService managerService, IAccountService accountService)
+            IAccountService accountService
+            , HeadMainWindow headMainWindow, ManagerMainWindow managerMainWindow, HeadRegisterWindow headRegisterWindow)
         {
-            _branchService = branchService;
-            _managerService = managerService;
             _accountService = accountService;
+            _headMainWindow = headMainWindow;
+            _managerMainWindow = managerMainWindow;
+            _headRegisterWindow = headRegisterWindow;
             InitializeComponent();
         }
+
+        
 
         private void button_AuthorizationWindow_HeadAuthorize_Click(object sender, EventArgs e)
         {
@@ -32,17 +40,18 @@ namespace WinFormsApp
             var isGoToHeadMainWindow = _accountService.IsCorrectHeadAuthorizationData(headLogin, headPassword);
             if (isGoToHeadMainWindow)
             {
-                HeadMainWindow headMainWindow = new HeadMainWindow(_branchService, _managerService);
-                headMainWindow.Show();
+                _headMainWindow.Show();
                 this.Hide();
-
+            }
+            else
+            {
+                MessageBox.Show("Авторизационные данные не верны.");
             }
         }
 
         private void button_AuthorizationWindow_HeadRegister_Click(object sender, EventArgs e)
         {
-            HeadRegisterWindow headRegisterWindow = new HeadRegisterWindow();
-            headRegisterWindow.Show();
+            _headRegisterWindow.Show();
         }
     }
 }

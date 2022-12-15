@@ -22,30 +22,30 @@ namespace WinFormsApp
             InitializeComponent();
         }
 
-        private void tabControl_HeadMainWindow_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        //private void tabControl_HeadMainWindow_SelectedIndexChanged(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
-        private void groupBox_HeadMainWindow_Managers_Enter(object sender, EventArgs e)
-        {
+        //private void groupBox_HeadMainWindow_Managers_Enter(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
-        private void groupBox4_HeadMainWindow_AddManager_Enter(object sender, EventArgs e)
-        {
+        //private void groupBox4_HeadMainWindow_AddManager_Enter(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
-        private void groupBox3_HeadMainWindow_DeleteManager_Enter(object sender, EventArgs e)
-        {
+        //private void groupBox3_HeadMainWindow_DeleteManager_Enter(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
-        private void groupBox2_HeadMainWindow_SearchManager_Enter(object sender, EventArgs e)
-        {
+        //private void groupBox2_HeadMainWindow_SearchManager_Enter(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
         private void HeadMainWindow_Load(object sender, EventArgs e)
         {
@@ -76,16 +76,22 @@ namespace WinFormsApp
             dataGridView_HeadMainWindow_Managers.DataSource = _managerService.GetManagers().ToList();
 
         }
-        private void groupBox_HeadMainWindow_ChangeManagerInfo_Enter(object sender, EventArgs e)
+
+        private void HeadMainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            Environment.Exit(0);
         }
+        //private void groupBox_HeadMainWindow_ChangeManagerInfo_Enter(object sender, EventArgs e)
+        //{
 
-        private void groupBox1_HeadMainWindow_Cars_Enter(object sender, EventArgs e)
-        {
+        //}
 
-        }
+        //private void groupBox1_HeadMainWindow_Cars_Enter(object sender, EventArgs e)
+        //{
 
-  
+        //}
+
+
+
     }
 }
