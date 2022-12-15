@@ -3,18 +3,19 @@ using CarDealershipsSystem.Domain;
 
 namespace CarDealershipsSystem.DAL.Repositories
 {
-    public class ManagerRepository : IManagerRepository
+    public class HeadRepository : IHeadRepository
     {
         private readonly CarDealershipsDbContext _context;
-        public ManagerRepository(CarDealershipsDbContext context)
+
+        public HeadRepository(CarDealershipsDbContext context)
         {
             _context = context;
         }
 
-        public IEnumerable<Manager> GetManagers()
+        public IEnumerable<Head> GetHeads()
         {
-            var managers = _context.Managers.ToList();
-            return (IEnumerable<Manager>)managers;
+            var heads = _context.Heads.ToList();
+            return (IEnumerable<Head>)heads;
         }
     }
 }

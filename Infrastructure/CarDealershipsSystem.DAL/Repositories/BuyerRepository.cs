@@ -14,7 +14,7 @@ namespace CarDealershipsSystem.DAL.Repositories
         public IEnumerable<Buyer> GetBuyers()
         {
             var buyers = _context.Buyers.ToList();
-            return buyers;
+            return (IEnumerable<Buyer>)buyers;
         }
     }
 }

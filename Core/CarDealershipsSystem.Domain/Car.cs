@@ -19,6 +19,5 @@ public partial class Car
 
     public virtual ICollection<CarExemplar> CarExemplars { get; } = new List<CarExemplar>();
 
-    //Свойство навигации
-    public virtual Branch IdBranchNavigation { get; set; } = null!; 
+    public virtual Branch IdBranchNavigation { get; set; } = null!;
 }

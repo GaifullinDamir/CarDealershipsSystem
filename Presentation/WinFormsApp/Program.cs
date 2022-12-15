@@ -35,7 +35,7 @@ namespace WinFormsApp
             var host = CreateHostBuilder().Build();
             ServiceProvider = host.Services;
 
-            System.Windows.Forms.Application.Run(ServiceProvider.GetRequiredService<AddCarWindow>());
+            System.Windows.Forms.Application.Run(ServiceProvider.GetRequiredService<AuthorizationWindow>());
         }
         public static IServiceProvider ServiceProvider { get; private set; }
 
@@ -54,8 +54,11 @@ namespace WinFormsApp
                     services.AddScoped<IBuyerRepository, BuyerRepository>();
                     services.AddScoped<ICarRepository, CarRepository>();
                     services.AddScoped<ICarExemplarRepository, CarExemplarRepository>();
+                    services.AddScoped<IHeadRepository, HeadRepository>();
+                    services.AddScoped<IHeadUserRepository, HeadUserRepository>();
                     services.AddScoped<ICarOrderRepository, CarOrderRepository>();
                     services.AddScoped<IManagerRepository, ManagerRepository>();
+                    services.AddScoped<IManagerUserRepository, ManagerUserRepository>();
 
                     //Services
                     services.AddScoped<IBranchService, BranchService>();
@@ -63,8 +66,11 @@ namespace WinFormsApp
                     services.AddScoped<ICarService, CarService>();
                     services.AddScoped<ICarExemplarService, CarExemplarService>();
                     services.AddScoped<ICarOrderService, CarOrderService>();
+                    services.AddScoped<IHeadService, HeadService>();
+                    services.AddScoped<IHeadUserService, HeadUserService>();
                     services.AddScoped<IManagerService, ManagerService>();
-                    services.AddTransient<AddCarWindow>();
+                    services.AddScoped<IManagerUserService, ManagerUserService>();
+                    services.AddTransient<AuthorizationWindow>();
                 });
         }
     }

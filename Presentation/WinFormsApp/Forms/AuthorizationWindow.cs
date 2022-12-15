@@ -21,5 +21,11 @@ namespace WinFormsApp
         {
 
         }
+
+        private void button_AuthorizationWindow_HeadRegister_Click(object sender, EventArgs e)
+        {
+            HeadRegisterWindow headRegisterWindow = new HeadRegisterWindow();
+            headRegisterWindow.Show();
+        }
     }
 }

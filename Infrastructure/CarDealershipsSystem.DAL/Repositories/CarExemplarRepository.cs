@@ -14,7 +14,7 @@ namespace CarDealershipsSystem.DAL.Repositories
         public IEnumerable<CarExemplar> GetCarExemplars()
         {
             var carExemplars = _context.CarExemplars.ToList();
-            return carExemplars;
+            return (IEnumerable<CarExemplar>)carExemplars;
         }
     }
 }

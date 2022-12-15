@@ -19,15 +19,10 @@ namespace CarDealershipsSystem.Application.Services
             var branches = _branchRepository.GetBranches();
             var branchesDTO = branches
                 .Select(branch => new BranchDTO
-            {
+                {
                 IdBranch = branch.IdBranch,
                 BranchName = branch.BranchName,
                 BranchAddress = branch.BranchAddress,
-                HeadName = branch.HeadName,
-                HeadSurname = branch.HeadSurname,
-                HeadMiddlename = branch.HeadMiddlename,
-                HeadPassData = branch.HeadPassData,
-                HeadPhoneNumber = branch.HeadPhoneNumber,
                 Cars = branch.Cars
                 .Select(car => new CarDTO
                 {
