@@ -17,5 +17,14 @@ namespace CarDealershipsSystem.DAL.Repositories
             var heads = _context.Heads.ToList();
             return (IEnumerable<Head>)heads;
         }
+
+        public bool SaveHead(Head head)
+        {
+            if(head == null)
+            { return false; }
+
+            _context.Add(head);
+            return _context.SaveChanges() > 0 ? true : false;
+        }
     }
 }

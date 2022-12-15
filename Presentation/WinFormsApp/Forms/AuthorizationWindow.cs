@@ -51,7 +51,11 @@ namespace WinFormsApp
 
         private void button_AuthorizationWindow_HeadRegister_Click(object sender, EventArgs e)
         {
-            _headRegisterWindow.Show();
+            if (!_accountService.IsHeadAccountExist())
+            { _headRegisterWindow.Show(); }
+            else
+                MessageBox.Show("Аккаунт уже создан.");
+            
         }
     }
 }

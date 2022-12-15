@@ -24,5 +24,20 @@ namespace CarDealershipsSystem.Application.Services
             }
             return false;
         }
+
+        public bool IsHeadAccountExist()
+        {
+            if (_headUserService.GetHeadUsers().Count() != 0) { return true; }
+            else
+                return false;
+        }
+
+        public void RegisterHeadUser( long HeadPassData, string HeadName, string HeadSurname,
+           string HeadMiddleName, string HeadPhoneNumber, string HeadLogin,
+           string HeadPassword
+           )
+        {
+
+        }
     }
 }

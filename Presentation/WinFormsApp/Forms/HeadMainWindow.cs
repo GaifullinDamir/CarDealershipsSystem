@@ -15,11 +15,18 @@ namespace WinFormsApp
     {
         private readonly IBranchService _branchService;
         private readonly IManagerService _managerService;
-        public HeadMainWindow(IBranchService branchService, IManagerService managerService)
+        private readonly IHeadService _headService;
+        private readonly IHeadUserService _headUserService;
+        public HeadMainWindow(
+            IBranchService branchService, IManagerService managerService,
+            IHeadService headService, IHeadUserService headUserService
+            )
         {
+            InitializeComponent();
             _branchService = branchService;
             _managerService = managerService;
-            InitializeComponent();
+            _headService = headService;
+            _headUserService = headUserService;
         }
 
         //private void tabControl_HeadMainWindow_SelectedIndexChanged(object sender, EventArgs e)
@@ -80,6 +87,11 @@ namespace WinFormsApp
         private void HeadMainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void button_HeadMainWindow_PersonalArea_UpdateData_Click(object sender, EventArgs e)
+        {
+            //label_HeadMainWindow_PeronalArea_HeadPassPata.Text += 
         }
         //private void groupBox_HeadMainWindow_ChangeManagerInfo_Enter(object sender, EventArgs e)
         //{
