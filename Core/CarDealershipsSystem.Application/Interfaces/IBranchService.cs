@@ -7,5 +7,7 @@ namespace CarDealershipsSystem.Application.Interfaces
         IEnumerable<BranchDTO> GetBranches();
 
         public bool AddBranch(string branchName, string branchAddress, int idHead);
+
+        public IEnumerable<BranchDTO> SearchBranch(string branchName);
     }
 }

@@ -37,5 +37,16 @@ namespace CarDealershipsSystem.Application.Services
             });
             return carsDTO;
         }
+
+        public int GetCarExemplarsCount(BranchDTO branch)
+        {
+            var cars = branch.Cars.ToList();
+            int counter = 0;
+            foreach (var car in cars)
+            {
+                counter += car.CarExemplars.Count();
+            }
+            return counter;
+        }
     }
 }

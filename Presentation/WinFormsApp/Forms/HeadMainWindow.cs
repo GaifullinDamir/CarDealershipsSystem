@@ -1,4 +1,5 @@
-﻿using CarDealershipsSystem.Application.Interfaces;
+﻿using CarDealershipsSystem.Application.DTO;
+using CarDealershipsSystem.Application.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,12 +18,14 @@ namespace WinFormsApp
         private readonly IManagerService _managerService;
         private readonly IHeadService _headService;
         private readonly IAccountService _accountService;
+        private readonly ICarService _carService;
 
         private string _changeHeadData_ComboBoxOption;
 
         public HeadMainWindow(
             IBranchService branchService, IManagerService managerService,
-            IHeadService headService, IAccountService accountService
+            IHeadService headService, IAccountService accountService,
+            ICarService carService
             )
         {
             InitializeComponent();
@@ -30,6 +33,7 @@ namespace WinFormsApp
             _managerService = managerService;
             _headService = headService;
             _accountService = accountService;
+            _carService = carService;
       
         }
 
@@ -60,16 +64,30 @@ namespace WinFormsApp
 
         private void HeadMainWindow_Load(object sender, EventArgs e)
         {
-            Init_DataGridView_Branches();
+            var branches = _branchService.GetBranches().ToList();
+            Init_DataGridView_Branches(branches);
             Init_DataGridView_Managers();
         }
 
-        private void Init_DataGridView_Branches()
+        private void Init_DataGridView_Branches(List<BranchDTO> branches)
         {
+            //var branches = _branchService.GetBranches().ToList();
+            //var carsCount = new List<int>();
+            //foreach (var branch in branches)
+            //{
+            //    carsCount.Add(_carService.GetCarExemplarsCount(branch));
+            //}
+
+            //var column4 = new DataGridViewColumn();
+            //column4.HeaderText = "Количество авто";
+            //column4.Name = "countCars"; 
+
             dataGridView_HeadMainWindow_Branches.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView_HeadMainWindow_Branches.AllowUserToAddRows = false;
             dataGridView_HeadMainWindow_Branches.ReadOnly = true;
-            dataGridView_HeadMainWindow_Branches.DataSource = _branchService.GetBranches().ToList();
+            dataGridView_HeadMainWindow_Branches.DataSource = branches;
+
+
             dataGridView_HeadMainWindow_Branches.Columns[0].Width = 100;
             dataGridView_HeadMainWindow_Branches.Columns[1].Width = 300;
             dataGridView_HeadMainWindow_Branches.Columns[2].Width = 310;
@@ -79,6 +97,8 @@ namespace WinFormsApp
             dataGridView_HeadMainWindow_Branches.Columns[1].HeaderText = "Название филиала";
             dataGridView_HeadMainWindow_Branches.Columns[2].HeaderText = "Адрес филиала";
             dataGridView_HeadMainWindow_Branches.Columns[3].HeaderText = "ID рукводителя";
+            //dataGridView_HeadMainWindow_Branches.Columns[4].HeaderText = "Количество авто";
+
         }
 
         private void Init_DataGridView_Managers()
@@ -165,7 +185,21 @@ namespace WinFormsApp
 
         private void button_HeadMainWindow_DataGridView_UpdateBranches_Click(object sender, EventArgs e)
         {
-            Init_DataGridView_Branches();
+            var branches = _branchService.GetBranches().ToList();
+            Init_DataGridView_Branches(branches);
+        }
+
+        private void button_HeadMainWindow_SearchBranch_Click(object sender, EventArgs e)
+        {
+            var branchName = textBox_HeadMainWindow_SearchByBranchName_BranchName_Input.Text;
+            if (!(String.IsNullOrWhiteSpace(branchName)))
+            {
+                var branches = _branchService.SearchBranch(branchName).ToList();
+                Init_DataGridView_Branches(branches);
+            }
+            else
+                MessageBox.Show("Введите имя филиала.");
+            
         }
         //private void groupBox_HeadMainWindow_ChangeManagerInfo_Enter(object sender, EventArgs e)
         //{

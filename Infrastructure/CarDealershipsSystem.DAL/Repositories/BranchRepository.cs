@@ -20,6 +20,15 @@ namespace CarDealershipsSystem.DAL.Repositories
                 .ToList();
             return branches;
         }
+        IEnumerable<Branch> GetBranchesByName(string branchName)
+        {
+            var branches = _context.Branches
+                .Where(branch => branch.BranchName == branchName)
+                .Include(branch => branch.Cars)
+                .Include(branch => branch.Managers)
+                .ToList();
+            return branches;
+        }
 
         public bool SaveBranch(Branch branch)
         {

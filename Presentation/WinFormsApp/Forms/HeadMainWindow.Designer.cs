@@ -36,7 +36,7 @@
             this.groupBox_HeadMainWindow_SearchBranch = new System.Windows.Forms.GroupBox();
             this.button_HeadMainWindow_SearchBranch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_HeadMainWindow_SearchByBranchName_BranchName_Input = new System.Windows.Forms.TextBox();
             this.groupBox_HeadMainWindow_AddBranch = new System.Windows.Forms.GroupBox();
             this.button_HeadMainWindow_AddBranch = new System.Windows.Forms.Button();
             this.textBox_HeadMainWindow_BranchAddress_Input = new System.Windows.Forms.TextBox();
@@ -167,7 +167,7 @@
             // 
             this.groupBox_HeadMainWindow_SearchBranch.Controls.Add(this.button_HeadMainWindow_SearchBranch);
             this.groupBox_HeadMainWindow_SearchBranch.Controls.Add(this.label1);
-            this.groupBox_HeadMainWindow_SearchBranch.Controls.Add(this.textBox1);
+            this.groupBox_HeadMainWindow_SearchBranch.Controls.Add(this.textBox_HeadMainWindow_SearchByBranchName_BranchName_Input);
             this.groupBox_HeadMainWindow_SearchBranch.Location = new System.Drawing.Point(3, 423);
             this.groupBox_HeadMainWindow_SearchBranch.Name = "groupBox_HeadMainWindow_SearchBranch";
             this.groupBox_HeadMainWindow_SearchBranch.Size = new System.Drawing.Size(450, 199);
@@ -183,6 +183,7 @@
             this.button_HeadMainWindow_SearchBranch.TabIndex = 6;
             this.button_HeadMainWindow_SearchBranch.Text = "Найти";
             this.button_HeadMainWindow_SearchBranch.UseVisualStyleBackColor = true;
+            this.button_HeadMainWindow_SearchBranch.Click += new System.EventHandler(this.button_HeadMainWindow_SearchBranch_Click);
             // 
             // label1
             // 
@@ -193,12 +194,12 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Название филиала";
             // 
-            // textBox1
+            // textBox_HeadMainWindow_SearchByBranchName_BranchName_Input
             // 
-            this.textBox1.Location = new System.Drawing.Point(75, 80);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 30);
-            this.textBox1.TabIndex = 2;
+            this.textBox_HeadMainWindow_SearchByBranchName_BranchName_Input.Location = new System.Drawing.Point(75, 80);
+            this.textBox_HeadMainWindow_SearchByBranchName_BranchName_Input.Name = "textBox_HeadMainWindow_SearchByBranchName_BranchName_Input";
+            this.textBox_HeadMainWindow_SearchByBranchName_BranchName_Input.Size = new System.Drawing.Size(300, 30);
+            this.textBox_HeadMainWindow_SearchByBranchName_BranchName_Input.TabIndex = 2;
             // 
             // groupBox_HeadMainWindow_AddBranch
             // 
@@ -733,7 +734,7 @@
         private GroupBox groupBox_HeadMainWindow_SearchBranch;
         private Button button_HeadMainWindow_SearchBranch;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox textBox_HeadMainWindow_SearchByBranchName_BranchName_Input;
         private GroupBox groupBox_HeadMainWindow_Managers;
         private Button button_HeadMainWindow_DataGridView_UpdateManagers;
         private DataGridView dataGridView_HeadMainWindow_Managers;
