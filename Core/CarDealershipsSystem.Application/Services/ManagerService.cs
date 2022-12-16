@@ -18,6 +18,7 @@ namespace CarDealershipsSystem.Application.Services
             var managersDTO = managers
                 .Select(manager => new ManagerDTO
                 {
+                    IdMngr = manager.IdMngr,
                     MngrPassData = manager.MngrPassData,
                     IdBranch = manager.IdBranch,
                     MngrSurname = manager.MngrSurname,
@@ -33,8 +34,8 @@ namespace CarDealershipsSystem.Application.Services
                     .Select(carorder => new CarOrderDTO
                     {
                         IdOrder = carorder.IdOrder,
-                        MngrPassData = carorder.MngrPassData,
-                        BuyerPassData = carorder.BuyerPassData,
+                        IdMngr = carorder.IdMngr,
+                        IdBuyer = carorder.IdBuyer,
                         ContractDate = carorder.ContractDate,
                         OrderAmount = carorder.OrderAmount
                     })

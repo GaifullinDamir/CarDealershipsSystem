@@ -19,6 +19,7 @@ namespace CarDealershipsSystem.Application.Services
             var headsDTO = heads
                 .Select(head => new HeadDTO
                 {
+                    IdHead = head.IdHead,
                     HeadPassData = head.HeadPassData,
                     HeadName = head.HeadName,
                     HeadSurname = head.HeadSurname,
@@ -69,8 +70,8 @@ namespace CarDealershipsSystem.Application.Services
                                         .Select(carorder => new CarOrderDTO
                                         {
                                             IdOrder = carorder.IdOrder,
-                                            MngrPassData = carorder.MngrPassData,
-                                            BuyerPassData = carorder.BuyerPassData,
+                                            IdMngr = carorder.IdMngr,
+                                            IdBuyer = carorder.IdBuyer,
                                             ContractDate = carorder.ContractDate,
                                             OrderAmount = carorder.OrderAmount
                                         })

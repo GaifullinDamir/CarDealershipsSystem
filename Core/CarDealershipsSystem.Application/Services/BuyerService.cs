@@ -27,8 +27,8 @@ namespace CarDealershipsSystem.Application.Services
                 CarOrders = buyer.CarOrders.Select(carorder => new CarOrderDTO
                 {
                     IdOrder = carorder.IdOrder,
-                    MngrPassData = carorder.MngrPassData,
-                    BuyerPassData = carorder.BuyerPassData,
+                    IdMngr = carorder.IdMngr,
+                    IdBuyer = carorder.IdBuyer,
                     ContractDate = carorder.ContractDate,
                     OrderAmount = carorder.OrderAmount
                 })
