@@ -116,7 +116,7 @@ namespace WinFormsApp
         private void comboBox_HeadMainWindow_PersonalArea_ChangeHeadData_SelectedIndexChanged(object sender, EventArgs e)
         {
             var comboBoxOption = comboBox_HeadMainWindow_PersonalArea_ChangeHeadData.SelectedItem.ToString();
-            if(String.IsNullOrWhiteSpace(comboBoxOption))
+            if(!String.IsNullOrWhiteSpace(comboBoxOption))
             {
                 _changeHeadData_ComboBoxOption = comboBoxOption;
             }
