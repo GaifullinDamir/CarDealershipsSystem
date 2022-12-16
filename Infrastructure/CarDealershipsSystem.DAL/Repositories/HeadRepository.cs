@@ -1,5 +1,6 @@
 ﻿using CarDealershipsSystem.DAL.Interfaces;
 using CarDealershipsSystem.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarDealershipsSystem.DAL.Repositories
 {
@@ -14,7 +15,9 @@ namespace CarDealershipsSystem.DAL.Repositories
 
         public IEnumerable<Head> GetHeads()
         {
-            var heads = _context.Heads.ToList();
+            var heads = _context.Heads
+                .Include(head => head.Branches)
+                .ToList();
             return heads;
         }
 

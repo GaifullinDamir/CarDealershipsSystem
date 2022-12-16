@@ -24,6 +24,7 @@ namespace CarDealershipsSystem.Application.Services
                 IdBranch = branch.IdBranch,
                 BranchName = branch.BranchName,
                 BranchAddress = branch.BranchAddress,
+                IdHead = branch.IdHead,
                 Cars = branch.Cars
                 .Select(car => new CarDTO
                 {

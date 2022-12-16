@@ -69,14 +69,16 @@ namespace WinFormsApp
             dataGridView_HeadMainWindow_Branches.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView_HeadMainWindow_Branches.AllowUserToAddRows = false;
             dataGridView_HeadMainWindow_Branches.ReadOnly = true;
-            //dataGridView_HeadMainWindow_Branches.ColumnCount = 3;
             dataGridView_HeadMainWindow_Branches.DataSource = _branchService.GetBranches().ToList();
-            dataGridView_HeadMainWindow_Branches.Columns[0].Width = 80;
-            dataGridView_HeadMainWindow_Branches.Columns[1].Width = 100;
-            dataGridView_HeadMainWindow_Branches.Columns[2].Width = 140;
+            dataGridView_HeadMainWindow_Branches.Columns[0].Width = 100;
+            dataGridView_HeadMainWindow_Branches.Columns[1].Width = 300;
+            dataGridView_HeadMainWindow_Branches.Columns[2].Width = 310;
+            dataGridView_HeadMainWindow_Branches.Columns[3].Width = 120;
+
             dataGridView_HeadMainWindow_Branches.Columns[0].HeaderText = "ID филиала";
             dataGridView_HeadMainWindow_Branches.Columns[1].HeaderText = "Название филиала";
             dataGridView_HeadMainWindow_Branches.Columns[2].HeaderText = "Адрес филиала";
+            dataGridView_HeadMainWindow_Branches.Columns[3].HeaderText = "ID рукводителя";
         }
 
         private void Init_DataGridView_Managers()
@@ -159,6 +161,11 @@ namespace WinFormsApp
             else
                 MessageBox.Show("Поля не должны оставаться пустыми.");
            
+        }
+
+        private void button_HeadMainWindow_DataGridView_UpdateBranches_Click(object sender, EventArgs e)
+        {
+            Init_DataGridView_Branches();
         }
         //private void groupBox_HeadMainWindow_ChangeManagerInfo_Enter(object sender, EventArgs e)
         //{

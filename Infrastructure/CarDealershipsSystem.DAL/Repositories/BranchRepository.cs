@@ -1,5 +1,6 @@
 ﻿using CarDealershipsSystem.DAL.Interfaces;
 using CarDealershipsSystem.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarDealershipsSystem.DAL.Repositories
 {
@@ -13,7 +14,10 @@ namespace CarDealershipsSystem.DAL.Repositories
         }
         public IEnumerable<Branch> GetBranches()
         {
-            var branches = _context.Branches.ToList();
+            var branches = _context.Branches
+                .Include(branch => branch.Cars)
+                .Include(branch => branch.Managers)
+                .ToList();
             return branches;
         }
 

@@ -150,6 +150,7 @@
             this.button_HeadMainWindow_DataGridView_UpdateBranches.TabIndex = 1;
             this.button_HeadMainWindow_DataGridView_UpdateBranches.Text = "Обновить";
             this.button_HeadMainWindow_DataGridView_UpdateBranches.UseVisualStyleBackColor = true;
+            this.button_HeadMainWindow_DataGridView_UpdateBranches.Click += new System.EventHandler(this.button_HeadMainWindow_DataGridView_UpdateBranches_Click);
             // 
             // dataGridView_HeadMainWindow_Branches
             // 

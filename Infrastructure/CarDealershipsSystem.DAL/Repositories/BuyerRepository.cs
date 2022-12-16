@@ -1,5 +1,6 @@
 ﻿using CarDealershipsSystem.DAL.Interfaces;
 using CarDealershipsSystem.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarDealershipsSystem.DAL.Repositories
 {
@@ -13,7 +14,9 @@ namespace CarDealershipsSystem.DAL.Repositories
 
         public IEnumerable<Buyer> GetBuyers()
         {
-            var buyers = _context.Buyers.ToList();
+            var buyers = _context.Buyers
+                .Include(buyer => buyer.CarOrders)
+                .ToList();
             return buyers;
         }
     }
