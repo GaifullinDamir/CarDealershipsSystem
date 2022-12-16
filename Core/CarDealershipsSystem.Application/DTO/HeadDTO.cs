@@ -2,6 +2,8 @@
 {
     public class HeadDTO
     {
+        public int IdHead { get; set; }
+
         public string HeadPassData { get; set; } = null!;
 
         public string HeadName { get; set; } = null!;

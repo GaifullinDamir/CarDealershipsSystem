@@ -2,6 +2,8 @@
 {
     public class ManagerDTO
     {
+        public int IdMngr { get; set; }
+
         public string MngrPassData { get; set; } = null!;
 
         public int IdBranch { get; set; }
