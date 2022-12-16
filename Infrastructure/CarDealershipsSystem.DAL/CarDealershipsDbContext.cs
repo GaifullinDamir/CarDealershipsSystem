@@ -28,11 +28,10 @@ public partial class CarDealershipsDbContext : DbContext
 
     public virtual DbSet<Head> Heads { get; set; }
 
-    public virtual DbSet<HeadUser> HeadUsers { get; set; }
+
 
     public virtual DbSet<Manager> Managers { get; set; }
 
-    public virtual DbSet<ManagerUser> ManagerUsers { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -216,28 +215,7 @@ public partial class CarDealershipsDbContext : DbContext
                 .HasColumnName("HEAD_SURNAME");
         });
 
-        modelBuilder.Entity<HeadUser>(entity =>
-        {
-            entity.HasKey(e => e.HeadId).HasName("PK__HEAD_USE__A1D4D0953520D4BD");
-
-            entity.ToTable("HEAD_USER");
-
-            entity.Property(e => e.HeadId).HasColumnName("HEAD_ID");
-            entity.Property(e => e.HeadLogin)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("HEAD_LOGIN");
-            entity.Property(e => e.HeadPassData).HasColumnName("HEAD_PASS_DATA");
-            entity.Property(e => e.HeadPassword)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("HEAD_PASSWORD");
-
-            entity.HasOne(d => d.HeadPassDataNavigation).WithMany(p => p.HeadUsers)
-                .HasForeignKey(d => d.HeadPassData)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__HEAD_USER__HEAD___59FA5E80");
-        });
+        
 
         modelBuilder.Entity<Manager>(entity =>
         {
@@ -283,28 +261,7 @@ public partial class CarDealershipsDbContext : DbContext
                 .HasConstraintName("FK__MANAGER__ID_BRAN__31EC6D26");
         });
 
-        modelBuilder.Entity<ManagerUser>(entity =>
-        {
-            entity.HasKey(e => e.ManagerId).HasName("PK__MANAGER___238F82818EECAF5B");
-
-            entity.ToTable("MANAGER_USER");
-
-            entity.Property(e => e.ManagerId).HasColumnName("MANAGER_ID");
-            entity.Property(e => e.ManagerLogin)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("MANAGER_LOGIN");
-            entity.Property(e => e.ManagerPassword)
-                .HasMaxLength(30)
-                .IsUnicode(false)
-                .HasColumnName("MANAGER_PASSWORD");
-            entity.Property(e => e.MngrPassData).HasColumnName("MNGR_PASS_DATA");
-
-            entity.HasOne(d => d.MngrPassDataNavigation).WithMany(p => p.ManagerUsers)
-                .HasForeignKey(d => d.MngrPassData)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__MANAGER_U__MNGR___5CD6CB2B");
-        });
+       
 
         OnModelCreatingPartial(modelBuilder);
     }
