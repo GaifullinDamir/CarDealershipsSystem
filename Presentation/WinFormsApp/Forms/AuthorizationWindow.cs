@@ -37,16 +37,21 @@ namespace WinFormsApp
         {
             var headLogin = textBox_AuthorizationWindow_HeadLogin_Input.Text;
             var headPassword = textBox_AuthorizationWindow_HeadPassword_Input.Text;
-            var isGoToHeadMainWindow = _accountService.IsCorrectHeadAuthorizationData(headLogin, headPassword);
-            if (isGoToHeadMainWindow)
+            if (!(String.IsNullOrWhiteSpace(headLogin) || String.IsNullOrWhiteSpace(headPassword)))
             {
-                _headMainWindow.Show();
-                this.Hide();
+                var isGoToHeadMainWindow = _accountService.IsCorrectHeadAuthorizationData(headLogin, headPassword);
+                if (isGoToHeadMainWindow)
+                {
+                    _headMainWindow.Show();
+                    this.Hide();
+                }
+                else
+                    MessageBox.Show("Авторизационные данные не верны.");
             }
             else
-            {
-                MessageBox.Show("Авторизационные данные не верны.");
-            }
+                MessageBox.Show("Не оставляйте поля пустыми.");
+
+            
         }
 
         private void button_AuthorizationWindow_HeadRegister_Click(object sender, EventArgs e)
