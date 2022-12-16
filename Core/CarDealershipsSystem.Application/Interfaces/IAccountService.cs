@@ -10,5 +10,7 @@
             string headMiddleName, string headPhoneNumber, string headLogin,
             string headPassword
             );
+
+        public bool HeadChangeData(string option, string data);
     }
 }

@@ -16,6 +16,7 @@ namespace WinFormsApp
         private readonly IBranchService _branchService;
         private readonly IManagerService _managerService;
         private readonly IHeadService _headService;
+        private string _changeHeadData_ComboBoxOption;
 
         public HeadMainWindow(
             IBranchService branchService, IManagerService managerService,
@@ -91,7 +92,40 @@ namespace WinFormsApp
 
         private void button_HeadMainWindow_PersonalArea_UpdateData_Click(object sender, EventArgs e)
         {
-            //label_HeadMainWindow_PeronalArea_HeadPassPata.Text += 
+            var head = _headService.GetHeads().ToList();
+            label_HeadMainWindow_PeronalArea_HeadPassPata.Text =
+                "Паспортные данные:    " + head[0].HeadPassData;
+            label_HeadMainWindow_PersonalArea_HeadName.Text =
+                "Имя:    " + head[0].HeadName;
+            label_HeadMainWindow_PersonalArea_HeadSurname.Text =
+                "Фамилия:    " + head[0].HeadSurname;
+            label_HeadMainWindow_PersonalArea_HeadMiddlename.Text =
+                "Отчество:    " + head[0].HeadMiddlename;
+            label_HeadMainWindow_PersonalArea_HeadPhoneNumber.Text =
+                "Номер телефона:    " + head[0].HeadPhoneNumber;
+            label_HeadMainWindow_PersonalArea_HeadLogin.Text =
+                "Логин:    " + head[0].HeadLogin;
+            label_HeadMainWindow_PersonalArea_HeadPassword.Text =
+                "Пароль:    " + head[0].HeadPassword;
+
+        }
+
+        private void comboBox_HeadMainWindow_PersonalArea_ChangeHeadData_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var comboBoxOption = comboBox_HeadMainWindow_PersonalArea_ChangeHeadData.SelectedItem.ToString();
+            if(String.IsNullOrWhiteSpace(comboBoxOption))
+            {
+                _changeHeadData_ComboBoxOption = comboBoxOption;
+            }
+            
+        }
+
+        private void button_HeadMainWindow_PersonalArea_ChahngeHeadData_Change_Click(object sender, EventArgs e)
+        {
+            //if(_changeHeadData_ComboBoxOption == "Имя")
+            //{ 
+            //    textBox_HeadMainWindow_PersonalArea_ChangeHeadData_Input
+            //}    
         }
         //private void groupBox_HeadMainWindow_ChangeManagerInfo_Enter(object sender, EventArgs e)
         //{
