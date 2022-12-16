@@ -2,18 +2,22 @@
 {
     public class HeadDTO
     {
-        public long HeadPassData { get; set; }
+        public string HeadPassData { get; set; } = null!;
 
         public string HeadName { get; set; } = null!;
 
         public string HeadSurname { get; set; } = null!;
-        
+
         public string HeadMiddlename { get; set; } = null!;
 
         public string HeadPhoneNumber { get; set; } = null!;
 
+        public string HeadPassword { get; set; } = null!;
+
+        public string HeadLogin { get; set; } = null!;
+
         public virtual List<BranchDTO> Branches { get; set; } = new List<BranchDTO>();
 
-        public virtual List<HeadUserDTO> HeadUsers { get; set; } = new List<HeadUserDTO>();
+        
     }
 }

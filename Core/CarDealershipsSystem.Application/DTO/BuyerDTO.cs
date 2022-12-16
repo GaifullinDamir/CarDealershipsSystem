@@ -4,7 +4,7 @@ namespace CarDealershipsSystem.Application.DTO
 {
     public class BuyerDTO
     {
-        public long BuyerPassData { get; set; }
+        public string BuyerPassData { get; set; } = null!;
 
         public string BuyerSurname { get; set; } = null!;
 
