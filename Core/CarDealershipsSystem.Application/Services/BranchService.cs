@@ -9,10 +9,11 @@ namespace CarDealershipsSystem.Application.Services
     public class BranchService : IBranchService
     {
         private readonly IBranchRepository _branchRepository;
-
-        public BranchService(IBranchRepository branchRepository)
+        private readonly ICarRepository _carRepository;
+        public BranchService(IBranchRepository branchRepository, ICarRepository carRepository)
         {
             _branchRepository = branchRepository;
+            _carRepository = carRepository;
         }
         public IEnumerable<BranchDTO> GetBranches()
         {
@@ -71,6 +72,21 @@ namespace CarDealershipsSystem.Application.Services
                 .ToList()
             }) ;
             return branchesDTO;
+        }
+
+        public bool AddBranch(string branchName, string branchAddress, int idHead)
+        {
+            var branch = new Branch()
+            {
+                BranchName = branchName,
+                BranchAddress = branchAddress,
+                IdHead = idHead
+            };
+            if (_branchRepository.SaveBranch(branch))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

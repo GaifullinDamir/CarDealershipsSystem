@@ -141,6 +141,25 @@ namespace WinFormsApp
             else
                 MessageBox.Show("Поле данных не должно быть пустым.");
         }
+
+        private void button_HeadMainWindow_AddBranch_Click(object sender, EventArgs e)
+        {
+            var branchName = textBox_HeadMainWindow_BranchName_Input.Text;
+            var branchAddress = textBox_HeadMainWindow_BranchAddress_Input.Text;
+            var idHead = _headService.GetHeads().FirstOrDefault().IdHead;
+            if (!(String.IsNullOrWhiteSpace(branchName) || String.IsNullOrWhiteSpace(branchAddress)))
+            {
+                if (_branchService.AddBranch(branchName, branchAddress, idHead))
+                {
+                    MessageBox.Show($"Филиал {branchName} добавлен успешно.");
+                }
+                else
+                    MessageBox.Show("ВОзникла ошибка при добавлении.");
+            }
+            else
+                MessageBox.Show("Поля не должны оставаться пустыми.");
+           
+        }
         //private void groupBox_HeadMainWindow_ChangeManagerInfo_Enter(object sender, EventArgs e)
         //{
 

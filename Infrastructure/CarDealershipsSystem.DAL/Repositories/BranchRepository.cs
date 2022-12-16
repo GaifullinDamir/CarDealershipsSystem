@@ -16,5 +16,16 @@ namespace CarDealershipsSystem.DAL.Repositories
             var branches = _context.Branches.ToList();
             return branches;
         }
+
+        public bool SaveBranch(Branch branch)
+        {
+            if (branch == null)
+            {
+                return false;
+            }
+
+            _context.Add(branch);
+            return _context.SaveChanges() > 0 ? true : false;
+        }
     }
 }

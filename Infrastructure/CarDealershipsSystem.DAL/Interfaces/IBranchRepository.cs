@@ -5,5 +5,7 @@ namespace CarDealershipsSystem.DAL.Interfaces
     public interface IBranchRepository
     {
         IEnumerable<Branch> GetBranches();
+
+        public bool SaveBranch(Branch branch);
     }
 }
