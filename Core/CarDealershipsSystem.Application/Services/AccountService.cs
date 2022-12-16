@@ -6,24 +6,23 @@ namespace CarDealershipsSystem.Application.Services
 {
     public class AccountService : IAccountService
     {
-        private readonly IHeadUserService _headUserService;
         private readonly IBranchRepository _branchRepository;
         private readonly IHeadRepository _headRepository;
-        private readonly IHeadUserRepository _headUserRepository;
-        public AccountService(IHeadUserService headUserService, IBranchRepository branchRepository, 
-            IHeadRepository headRepository, IHeadUserRepository headUserRepository)
+        private readonly IHeadService _headService;
+        public AccountService(IBranchRepository branchRepository, 
+            IHeadRepository headRepository,
+            IHeadService headService)
         {
-            _headUserService = headUserService;
             _branchRepository = branchRepository;
             _headRepository = headRepository;
-            _headUserRepository = headUserRepository;
+            _headService = headService;
         }
 
         /*В данном методе, мы получаем из пользовательского ввода логин и пароль, а также получаем логин и паполь из бд.
          Сравниваем их, если они идентичны, возвращаем true. Иначе - false*/
         public bool IsCorrectHeadAuthorizationData(string headLogin, string headPassword)
         {
-            var headUsers = _headUserService.GetHeadUsers();
+            var headUsers = _headService.GetHeads();
             foreach (var headUser in headUsers)
             {
                 if(headLogin == headUser.HeadLogin && headPassword == headUser.HeadPassword)
@@ -36,26 +35,16 @@ namespace CarDealershipsSystem.Application.Services
 
         public bool IsHeadAccountExist()
         {
-            if (_headUserService.GetHeadUsers().Count() != 0) { return true; }
+            if (_headService.GetHeads().Count() != 0) { return true; }
             else
                 return false;
         }
 
-        public bool RegisterHeadUser( long headPassData, string headName, string headSurname,
+        public bool RegisterHeadUser( string headPassData, string headName, string headSurname,
            string headMiddleName, string headPhoneNumber, string headLogin,
            string headPassword
            )
         {
-            var headUser = new HeadUser()
-            {
-                HeadPassData = headPassData,
-                HeadLogin = headLogin,
-                HeadPassword = headPassword
-            };
-
-            var headUsers = new List<HeadUser>();
-            headUsers.Add(headUser);
-
             var branches = _branchRepository.GetBranches().ToList();
             var head = new Head()
             {
@@ -64,11 +53,11 @@ namespace CarDealershipsSystem.Application.Services
                 HeadSurname = headSurname,
                 HeadMiddlename = headMiddleName,
                 HeadPhoneNumber = headPhoneNumber,
-                HeadUsers = headUsers,
+                HeadLogin = headLogin,
+                HeadPassword = headPassword,
                 Branches = branches
             };
-            var result = _headRepository.SaveHead(head);
-            if (result)
+            if (_headRepository.SaveHead(head))
             { return true; }
             return false;
             

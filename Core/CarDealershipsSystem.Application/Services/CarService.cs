@@ -22,7 +22,7 @@ namespace CarDealershipsSystem.Application.Services
                 IdBranch = car.IdBranch,
                 Brand = car.Brand,
                 Model = car.Model,
-                BodyType = car.BodyType,\
+                BodyType = car.BodyType,
                 CarExemplars = car.CarExemplars
                     .Select(carex => new CarExemplarDTO
                     {

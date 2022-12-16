@@ -18,6 +18,7 @@ public partial class Head
     public string HeadPassword { get; set; } = null!;
 
     public string HeadLogin { get; set; } = null!;
-
-    public virtual ICollection<Branch> Branches { get; } = new List<Branch>();
+    
+    /*set поставил сам*/
+    public virtual ICollection<Branch> Branches { get; set; } = new List<Branch>();
 }
