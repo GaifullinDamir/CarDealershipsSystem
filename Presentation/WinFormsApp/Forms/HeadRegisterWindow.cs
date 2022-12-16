@@ -52,6 +52,8 @@ namespace WinFormsApp
                     {
                         MessageBox.Show("Вы ввели некорректные данные");
                     }
+                    else
+                        MessageBox.Show("Аккаунт создан.");
                 }
                 else
                     MessageBox.Show("Поля не должны оставаться пустыми.");
