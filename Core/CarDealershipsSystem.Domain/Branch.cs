@@ -11,7 +11,7 @@ public partial class Branch
 
     public string BranchAddress { get; set; } = null!;
 
-    public long HeadPassData { get; set; }
+    public string HeadPassData { get; set; } = null!;
 
     public virtual ICollection<Car> Cars { get; } = new List<Car>();
 

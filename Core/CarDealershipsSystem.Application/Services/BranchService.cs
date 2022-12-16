@@ -31,7 +31,7 @@ namespace CarDealershipsSystem.Application.Services
                     Brand = car.Brand,
                     Model = car.Model,
                     BodyType = car.BodyType,
-                    Quantity = car.Quantity,
+
                     CarExemplars = car.CarExemplars
                     .Select(carex => new CarExemplarDTO
                     {

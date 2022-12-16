@@ -9,9 +9,9 @@ public partial class CarOrder
 
     public string VinNumber { get; set; } = null!;
 
-    public long MngrPassData { get; set; }
+    public string MngrPassData { get; set; } = null!;
 
-    public long BuyerPassData { get; set; }
+    public string BuyerPassData { get; set; } = null!;
 
     public DateTime ContractDate { get; set; }
 

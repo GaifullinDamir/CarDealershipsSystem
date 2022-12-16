@@ -27,6 +27,8 @@ namespace CarDealershipsSystem.Application.Services
                     MngrSalary = manager.MngrSalary,
                     MngrPayDate = manager.MngrPayDate,
                     MngrPrize = manager.MngrPrize,
+                    ManagerPassword = manager.ManagerPassword,
+                    ManagerLogin = manager.ManagerLogin,
                     CarOrders = manager.CarOrders
                     .Select(carorder => new CarOrderDTO
                     {

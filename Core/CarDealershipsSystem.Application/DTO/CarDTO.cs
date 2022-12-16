@@ -12,8 +12,6 @@
 
         public string BodyType { get; set; } = null!;
 
-        public int Quantity { get; set; }
-
         public virtual List<CarExemplarDTO> CarExemplars { get; set; } = new List<CarExemplarDTO>();
     }
 }

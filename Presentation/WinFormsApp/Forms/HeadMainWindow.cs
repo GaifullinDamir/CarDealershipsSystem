@@ -16,17 +16,17 @@ namespace WinFormsApp
         private readonly IBranchService _branchService;
         private readonly IManagerService _managerService;
         private readonly IHeadService _headService;
-        private readonly IHeadUserService _headUserService;
+
         public HeadMainWindow(
             IBranchService branchService, IManagerService managerService,
-            IHeadService headService, IHeadUserService headUserService
+            IHeadService headService
             )
         {
             InitializeComponent();
             _branchService = branchService;
             _managerService = managerService;
             _headService = headService;
-            _headUserService = headUserService;
+      
         }
 
         //private void tabControl_HeadMainWindow_SelectedIndexChanged(object sender, EventArgs e)

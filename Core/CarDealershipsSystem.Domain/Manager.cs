@@ -5,7 +5,7 @@ namespace CarDealershipsSystem.Domain;
 
 public partial class Manager
 {
-    public long MngrPassData { get; set; }
+    public string MngrPassData { get; set; } = null!;
 
     public int IdBranch { get; set; }
 
@@ -23,9 +23,11 @@ public partial class Manager
 
     public decimal? MngrPrize { get; set; }
 
+    public string ManagerPassword { get; set; } = null!;
+
+    public string ManagerLogin { get; set; } = null!;
+
     public virtual ICollection<CarOrder> CarOrders { get; } = new List<CarOrder>();
 
     public virtual Branch IdBranchNavigation { get; set; } = null!;
-
-    public virtual ICollection<ManagerUser> ManagerUsers { get; } = new List<ManagerUser>();
 }

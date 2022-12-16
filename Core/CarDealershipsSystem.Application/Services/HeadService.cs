@@ -24,6 +24,8 @@ namespace CarDealershipsSystem.Application.Services
                     HeadSurname = head.HeadSurname,
                     HeadMiddlename = head.HeadMiddlename,
                     HeadPhoneNumber = head.HeadPhoneNumber,
+                    HeadPassword = head.HeadPassword,
+                    HeadLogin = head.HeadLogin,
                     Branches = head.Branches
                         .Select(branch => new BranchDTO
                         {
@@ -38,7 +40,6 @@ namespace CarDealershipsSystem.Application.Services
                                 Brand = car.Brand,
                                 Model = car.Model,
                                 BodyType = car.BodyType,
-                                Quantity = car.Quantity,
                                 CarExemplars = car.CarExemplars
                                         .Select(carex => new CarExemplarDTO
                                         {
@@ -77,15 +78,7 @@ namespace CarDealershipsSystem.Application.Services
                                 })
                                 .ToList()
                         })
-                         .ToList(),
-                    HeadUsers = head.HeadUsers
-                        .Select(headUser => new HeadUserDTO
-                        {
-                            HeadId = headUser.HeadId,
-                            HeadPassword = headUser.HeadPassword,
-                            HeadLogin = headUser.HeadLogin,
-                            HeadPassData = headUser.HeadPassData
-                        }).ToList()
+                         .ToList()
                 }).ToList();
             return headsDTO;
         }
