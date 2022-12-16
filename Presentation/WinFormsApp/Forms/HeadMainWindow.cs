@@ -16,17 +16,20 @@ namespace WinFormsApp
         private readonly IBranchService _branchService;
         private readonly IManagerService _managerService;
         private readonly IHeadService _headService;
+        private readonly IAccountService _accountService;
+
         private string _changeHeadData_ComboBoxOption;
 
         public HeadMainWindow(
             IBranchService branchService, IManagerService managerService,
-            IHeadService headService
+            IHeadService headService, IAccountService accountService
             )
         {
             InitializeComponent();
             _branchService = branchService;
             _managerService = managerService;
             _headService = headService;
+            _accountService = accountService;
       
         }
 
@@ -122,10 +125,18 @@ namespace WinFormsApp
 
         private void button_HeadMainWindow_PersonalArea_ChahngeHeadData_Change_Click(object sender, EventArgs e)
         {
-            //if(_changeHeadData_ComboBoxOption == "Имя")
-            //{ 
-            //    textBox_HeadMainWindow_PersonalArea_ChangeHeadData_Input
-            //}    
+            var inputData = textBox_HeadMainWindow_PersonalArea_ChangeHeadData_Input.Text;
+            if (!String.IsNullOrWhiteSpace(inputData))
+            {
+                if (_accountService.HeadChangeData(_changeHeadData_ComboBoxOption, inputData))
+                {
+                    MessageBox.Show("Данные успешно изменены.");
+                }
+                else
+                    MessageBox.Show("Ошибка зименения данных.");
+            }
+            else
+                MessageBox.Show("Поле данных не должно быть пустым.");
         }
         //private void groupBox_HeadMainWindow_ChangeManagerInfo_Enter(object sender, EventArgs e)
         //{
