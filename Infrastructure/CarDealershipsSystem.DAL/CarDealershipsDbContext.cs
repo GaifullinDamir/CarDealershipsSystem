@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using CarDealershipsSystem.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace WinFormsApp;
+namespace CarDealershipsSystem.DAL;
 
 public partial class CarDealershipsDbContext : DbContext
 {

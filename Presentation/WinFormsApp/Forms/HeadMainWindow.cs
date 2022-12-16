@@ -92,8 +92,7 @@ namespace WinFormsApp
         {
             Environment.Exit(0);
         }
-
-        private void button_HeadMainWindow_PersonalArea_UpdateData_Click(object sender, EventArgs e)
+        private void updateData_HeadMainWindow_PersonalArea_Label()
         {
             var head = _headService.GetHeads().ToList();
             label_HeadMainWindow_PeronalArea_HeadPassPata.Text =
@@ -110,7 +109,10 @@ namespace WinFormsApp
                 "Логин:    " + head[0].HeadLogin;
             label_HeadMainWindow_PersonalArea_HeadPassword.Text =
                 "Пароль:    " + head[0].HeadPassword;
-
+        }
+        private void button_HeadMainWindow_PersonalArea_UpdateData_Click(object sender, EventArgs e)
+        {
+            updateData_HeadMainWindow_PersonalArea_Label();
         }
 
         private void comboBox_HeadMainWindow_PersonalArea_ChangeHeadData_SelectedIndexChanged(object sender, EventArgs e)
@@ -130,6 +132,7 @@ namespace WinFormsApp
             {
                 if (_accountService.HeadChangeData(_changeHeadData_ComboBoxOption, inputData))
                 {
+                    updateData_HeadMainWindow_PersonalArea_Label();
                     MessageBox.Show("Данные успешно изменены.");
                 }
                 else
