@@ -35,6 +35,11 @@ namespace WinFormsApp.Forms
             var mngrPhoneNumber = textBox_AddManagerWindow_MngrPhoneNumber_Input.Text;
             var mngrSalary = textBox_AddManagerWindow_MngrSalary_Input.Text;
             var mngrPayDate = textBox_AddManagerWindow_MngrPayDate_Input.Text;
+
+            int intIdBranch = 0;
+            decimal decMngrSalary = 0;
+            DateTime dateMngrPayDate;
+            
             if (!(String.IsNullOrWhiteSpace(mngrPassData) ||
                 String.IsNullOrWhiteSpace(idBranch)||
                 String.IsNullOrWhiteSpace(mngrSurname)||
@@ -44,15 +49,46 @@ namespace WinFormsApp.Forms
                 String.IsNullOrWhiteSpace(mngrSalary)||
                 String.IsNullOrWhiteSpace(mngrPayDate)))
             {
-                if (_branchService.AddBranch(branchName, branchAddress, idHead))
+                try
                 {
-                    MessageBox.Show($"Филиал {branchName} добавлен успешно.");
+                    intIdBranch = Convert.ToInt32(idBranch);
                 }
-                else
-                    MessageBox.Show("ВОзникла ошибка при добавлении.");
+                catch (Exception)
+                {
+                    MessageBox.Show("ID филиала - целое число.");
+                }
+
+                try
+                {
+                    if (!mngrSalary.Contains(','))
+                    {
+                        decMngrSalary = Convert.ToDecimal(mngrSalary);
+                    }
+                    else
+                        MessageBox.Show("Разедлителем между целой частью числа\n и десятичной должна быть точка ('.')");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Зарплата - число.");
+                }
+
+                try
+                {
+                    dateMngrPayDate = DateTime.Parse(mngrPayDate);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Формат записи даты:\n" +
+                        "yyyy.mm.dd\n" +
+                        "mm.dd.yyyy\n" +
+                        "yyyy-mm-dd\n" +
+                        "yyyy/mm/dd");
+                }
             }
             else
                 MessageBox.Show("Поля не должны оставаться пустыми.");
         }
+
+
     }
 }

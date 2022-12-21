@@ -48,31 +48,28 @@ namespace CarDealershipsSystem.Application.Services
             return managersDTO;
         }
 
-        public bool AddManager(string mngrPassData, string idBranch, string mngrSurname,
+        public bool AddManager(string mngrPassData, int idBranch, string mngrSurname,
             string mngrName, string mngrMiddlename, string mngrPhoneNumber,
-            string mngrSalary, string mngrPayDate, string managerPassword,
+            decimal mngrSalary, DateTime mngrPayDate, string managerPassword,
             string managerLogin)
         {
-            int intIdBranch = 0;
-            try
-            {
-                intIdBranch = Convert.ToInt32(idBranch);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            
 
-            _branch
+            var IsBranchExist = _branchService.IsBranchExistsById(idBranch);
+
+            
+
+            
+
             var manager = new Manager()
             {
                 MngrPassData = mngrPassData,
-                IdBranch = idBranch, //сделай проверку, есть ли такая бранча
+                IdBranch = iddBranch,
                 MngrSurname = mngrSurname,
                 MngrName = mngrName,
                 MngrMiddlename = mngrMiddlename,
                 MngrPhoneNumber = mngrPhoneNumber,
-                MngrSalary = mngrSalary,
+                MngrSalary = decMngrSalary,
                 MngrPayDate = mngrPayDate,
                 ManagerPassword = managerPassword,
                 ManagerLogin = managerLogin
