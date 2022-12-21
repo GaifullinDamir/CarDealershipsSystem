@@ -305,6 +305,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CarDealershipsSystem";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddManagerForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AddManagerForm_Branches)).EndInit();
             this.groupBox_AddManagerForm_Branches.ResumeLayout(false);
             this.groupBox_AddManagerForm_Branches.PerformLayout();

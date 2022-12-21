@@ -19,5 +19,15 @@ namespace CarDealershipsSystem.DAL.Repositories
                 .ToList();
             return managers;
         }
+
+        public bool SaveManager(Manager manager)
+        {
+            if (manager == null)
+            {
+                return false;
+            }
+            _context.Add(manager);
+            return _context.SaveChanges() > 0 ? true : false;
+        }
     }
 }

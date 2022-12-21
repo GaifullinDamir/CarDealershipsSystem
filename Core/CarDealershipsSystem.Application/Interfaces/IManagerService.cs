@@ -6,9 +6,14 @@ namespace CarDealershipsSystem.Application.Interfaces
     {
         IEnumerable<ManagerDTO> GetManagers();
 
-        public bool AddManager(string mngrPassData, string idBranch, string mngrSurname,
+        public bool AddManager(string mngrPassData, int idBranch, string mngrSurname,
             string mngrName, string mngrMiddlename, string mngrPhoneNumber,
-            string mngrSalary, string mngrPayDate, string managerPassword,
+            decimal mngrSalary, DateTime mngrPayDate, string managerPassword,
             string managerLogin);
+
+        public bool IsManagerDataNotUnique(string mngrPassData, string mngrPhoneNumber, string managerLogin, string managerPassword);
+
+
+
     }
 }

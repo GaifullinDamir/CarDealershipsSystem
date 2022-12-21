@@ -7,18 +7,18 @@ namespace CarDealershipsSystem.Application.Services
 {
     public class ManagerService : IManagerService
     {
-        private readonly IManagerRepository _managerServiceRepository;
+        private readonly IManagerRepository _managerRepository;
         private readonly IBranchService _branchService;
-        public ManagerService(IManagerRepository managerServiceRepository,
+        public ManagerService(IManagerRepository managerRepository,
             IBranchService branchService)
         {
-            _managerServiceRepository = managerServiceRepository;
+            _managerRepository = managerRepository;
             _branchService = branchService;
         }
 
         public IEnumerable<ManagerDTO> GetManagers()
         {
-            var managers = _managerServiceRepository.GetManagers();
+            var managers = _managerRepository.GetManagers();
             var managersDTO = managers
                 .Select(manager => new ManagerDTO
                 {
@@ -54,26 +54,44 @@ namespace CarDealershipsSystem.Application.Services
             string managerLogin)
         {
             
-
-            var IsBranchExist = _branchService.IsBranchExistsById(idBranch);
-
-            
-
-            
-
+            if (!_branchService.IsBranchExistsById(idBranch))
+            {
+                return false;
+            }
             var manager = new Manager()
             {
                 MngrPassData = mngrPassData,
-                IdBranch = iddBranch,
+                IdBranch = idBranch,
                 MngrSurname = mngrSurname,
                 MngrName = mngrName,
                 MngrMiddlename = mngrMiddlename,
                 MngrPhoneNumber = mngrPhoneNumber,
-                MngrSalary = decMngrSalary,
+                MngrSalary = mngrSalary,
                 MngrPayDate = mngrPayDate,
                 ManagerPassword = managerPassword,
                 ManagerLogin = managerLogin
             };
+            if (_managerRepository.SaveManager(manager))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool IsManagerDataNotUnique(string mngrPassData, string mngrPhoneNumber, string managerLogin, string managerPassword)
+        {
+            var managers = GetManagers();
+            foreach (var manager in managers)
+            {
+                if (mngrPassData == manager.MngrPassData||
+                    mngrPhoneNumber == manager.MngrPhoneNumber ||
+                    managerLogin == manager.ManagerLogin ||
+                    managerPassword == manager.ManagerPassword)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
