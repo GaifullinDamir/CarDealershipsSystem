@@ -90,6 +90,11 @@ namespace CarDealershipsSystem.Application.Services
             return false;
         }
 
+        public bool IsBranchExistsById(int idBranch)
+        {
+            if (_branchRepository.GetBranchById(idBranch) != null) { return true; }
+            return false;
+        }
         public IEnumerable<BranchDTO> SearchBranch(string branchName)
         {
             var branches = _branchRepository.GetBranchesByName(branchName);

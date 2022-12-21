@@ -56,7 +56,7 @@
             this.label_HeadMainWindow_SearchManager_MngrPassData = new System.Windows.Forms.Label();
             this.textBox_HeadMainWIndow_SearchManager_MngrPassData_Input = new System.Windows.Forms.TextBox();
             this.groupBox_HeadMainWindow_AddManager = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.button_HeadMainWindow_AddManager_Add = new System.Windows.Forms.Button();
             this.tabPage_Cars = new System.Windows.Forms.TabPage();
             this.groupBox_HeadMainWindow_SearchCar = new System.Windows.Forms.GroupBox();
             this.label_HeadMainWindow_SearchCar_Model = new System.Windows.Forms.Label();
@@ -381,7 +381,7 @@
             // 
             // groupBox_HeadMainWindow_AddManager
             // 
-            this.groupBox_HeadMainWindow_AddManager.Controls.Add(this.button3);
+            this.groupBox_HeadMainWindow_AddManager.Controls.Add(this.button_HeadMainWindow_AddManager_Add);
             this.groupBox_HeadMainWindow_AddManager.Location = new System.Drawing.Point(306, 406);
             this.groupBox_HeadMainWindow_AddManager.Name = "groupBox_HeadMainWindow_AddManager";
             this.groupBox_HeadMainWindow_AddManager.Size = new System.Drawing.Size(300, 214);
@@ -389,14 +389,15 @@
             this.groupBox_HeadMainWindow_AddManager.TabStop = false;
             this.groupBox_HeadMainWindow_AddManager.Text = "Добавить менеджера";
             // 
-            // button3
+            // button_HeadMainWindow_AddManager_Add
             // 
-            this.button3.Location = new System.Drawing.Point(76, 96);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(150, 35);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Добавить";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button_HeadMainWindow_AddManager_Add.Location = new System.Drawing.Point(76, 96);
+            this.button_HeadMainWindow_AddManager_Add.Name = "button_HeadMainWindow_AddManager_Add";
+            this.button_HeadMainWindow_AddManager_Add.Size = new System.Drawing.Size(150, 35);
+            this.button_HeadMainWindow_AddManager_Add.TabIndex = 5;
+            this.button_HeadMainWindow_AddManager_Add.Text = "Добавить";
+            this.button_HeadMainWindow_AddManager_Add.UseVisualStyleBackColor = true;
+            this.button_HeadMainWindow_AddManager_Add.Click += new System.EventHandler(this.button_HeadMainWindow_AddManager_Add_Click);
             // 
             // tabPage_Cars
             // 
@@ -743,7 +744,7 @@
         private Label label_HeadMainWindow_SearchManager_MngrPassData;
         private TextBox textBox_HeadMainWIndow_SearchManager_MngrPassData_Input;
         private GroupBox groupBox_HeadMainWindow_AddManager;
-        private Button button3;
+        private Button button_HeadMainWindow_AddManager_Add;
         private GroupBox groupBox_HeadMainWindow_ChangeManagerInfo;
         private Label label_HeadMainWindow_ChangeManager_MngrPassData;
         private Label label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename;

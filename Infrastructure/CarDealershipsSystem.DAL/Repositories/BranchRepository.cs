@@ -12,6 +12,7 @@ namespace CarDealershipsSystem.DAL.Repositories
         {
             _context = context;
         }
+
         public IEnumerable<Branch> GetBranches()
         {
             var branches = _context.Branches
@@ -20,12 +21,23 @@ namespace CarDealershipsSystem.DAL.Repositories
                 .ToList();
             return branches;
         }
-        IEnumerable<Branch> GetBranchesByName(string branchName)
+
+        public Branch GetBranchById(int idBranch)
+        {
+            var branch = _context.Branches
+                .Where(b => b.IdBranch == idBranch)
+                .Include(b => b.Cars)
+                .Include(b => b.Managers)
+                .FirstOrDefault();
+            return branch;
+        }
+
+        public IEnumerable<Branch> GetBranchesByName(string branchName)
         {
             var branches = _context.Branches
-                .Where(branch => branch.BranchName == branchName)
-                .Include(branch => branch.Cars)
-                .Include(branch => branch.Managers)
+                .Where(b => b.BranchName == branchName)
+                .Include(b => b.Cars)
+                .Include(b => b.Managers)
                 .ToList();
             return branches;
         }

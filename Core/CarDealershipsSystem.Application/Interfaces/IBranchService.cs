@@ -8,6 +8,8 @@ namespace CarDealershipsSystem.Application.Interfaces
 
         public bool AddBranch(string branchName, string branchAddress, int idHead);
 
+        public bool IsBranchExistsById(int idBranch);
+
         public IEnumerable<BranchDTO> SearchBranch(string branchName);
     }
 }

@@ -30,6 +30,8 @@
         {
             this.dataGridView_AddManagerForm_Branches = new System.Windows.Forms.DataGridView();
             this.groupBox_AddManagerForm_Branches = new System.Windows.Forms.GroupBox();
+            this.label_AddManagerWindow_IdBranch = new System.Windows.Forms.Label();
+            this.textBox_AddManagerForm_IdBranch_Input = new System.Windows.Forms.TextBox();
             this.button_AddManagerForm_UpdateBranches = new System.Windows.Forms.Button();
             this.groupBox_AddmanagerWindow_InputManagerData = new System.Windows.Forms.GroupBox();
             this.button_AddManagerWindow_AddManager = new System.Windows.Forms.Button();
@@ -51,8 +53,6 @@
             this.textBox_AddManagerWindow_MngrSurname_Input = new System.Windows.Forms.TextBox();
             this.label_AddManagerWindow_MngrPassData = new System.Windows.Forms.Label();
             this.textBox_AddManagerWindow_MngrPassData_Input = new System.Windows.Forms.TextBox();
-            this.textBox_AddManagerForm_IdBranch_Input = new System.Windows.Forms.TextBox();
-            this.label_AddManagerWindow_IdBranch = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AddManagerForm_Branches)).BeginInit();
             this.groupBox_AddManagerForm_Branches.SuspendLayout();
             this.groupBox_AddmanagerWindow_InputManagerData.SuspendLayout();
@@ -82,6 +82,22 @@
             this.groupBox_AddManagerForm_Branches.TabIndex = 1;
             this.groupBox_AddManagerForm_Branches.TabStop = false;
             this.groupBox_AddManagerForm_Branches.Text = "Филиалы";
+            // 
+            // label_AddManagerWindow_IdBranch
+            // 
+            this.label_AddManagerWindow_IdBranch.AutoSize = true;
+            this.label_AddManagerWindow_IdBranch.Location = new System.Drawing.Point(540, 358);
+            this.label_AddManagerWindow_IdBranch.Name = "label_AddManagerWindow_IdBranch";
+            this.label_AddManagerWindow_IdBranch.Size = new System.Drawing.Size(144, 23);
+            this.label_AddManagerWindow_IdBranch.TabIndex = 18;
+            this.label_AddManagerWindow_IdBranch.Text = "Номер филиала:";
+            // 
+            // textBox_AddManagerForm_IdBranch_Input
+            // 
+            this.textBox_AddManagerForm_IdBranch_Input.Location = new System.Drawing.Point(686, 355);
+            this.textBox_AddManagerForm_IdBranch_Input.Name = "textBox_AddManagerForm_IdBranch_Input";
+            this.textBox_AddManagerForm_IdBranch_Input.Size = new System.Drawing.Size(200, 30);
+            this.textBox_AddManagerForm_IdBranch_Input.TabIndex = 17;
             // 
             // button_AddManagerForm_UpdateBranches
             // 
@@ -130,6 +146,7 @@
             this.button_AddManagerWindow_AddManager.TabIndex = 18;
             this.button_AddManagerWindow_AddManager.Text = "Добавить";
             this.button_AddManagerWindow_AddManager.UseVisualStyleBackColor = true;
+            this.button_AddManagerWindow_AddManager.Click += new System.EventHandler(this.button_AddManagerWindow_AddManager_Click);
             // 
             // label_AddManagerForm_MngrPassword_Input
             // 
@@ -274,22 +291,6 @@
             this.textBox_AddManagerWindow_MngrPassData_Input.Name = "textBox_AddManagerWindow_MngrPassData_Input";
             this.textBox_AddManagerWindow_MngrPassData_Input.Size = new System.Drawing.Size(200, 30);
             this.textBox_AddManagerWindow_MngrPassData_Input.TabIndex = 0;
-            // 
-            // textBox_AddManagerForm_IdBranch_Input
-            // 
-            this.textBox_AddManagerForm_IdBranch_Input.Location = new System.Drawing.Point(686, 355);
-            this.textBox_AddManagerForm_IdBranch_Input.Name = "textBox_AddManagerForm_IdBranch_Input";
-            this.textBox_AddManagerForm_IdBranch_Input.Size = new System.Drawing.Size(200, 30);
-            this.textBox_AddManagerForm_IdBranch_Input.TabIndex = 17;
-            // 
-            // label_AddManagerWindow_IdBranch
-            // 
-            this.label_AddManagerWindow_IdBranch.AutoSize = true;
-            this.label_AddManagerWindow_IdBranch.Location = new System.Drawing.Point(540, 358);
-            this.label_AddManagerWindow_IdBranch.Name = "label_AddManagerWindow_IdBranch";
-            this.label_AddManagerWindow_IdBranch.Size = new System.Drawing.Size(144, 23);
-            this.label_AddManagerWindow_IdBranch.TabIndex = 18;
-            this.label_AddManagerWindow_IdBranch.Text = "Номер филиала:";
             // 
             // AddManagerForm
             // 

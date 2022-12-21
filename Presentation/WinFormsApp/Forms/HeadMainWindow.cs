@@ -1,14 +1,8 @@
 ﻿using CarDealershipsSystem.Application.DTO;
 using CarDealershipsSystem.Application.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
+using WinFormsApp.Forms;
 
 namespace WinFormsApp
 {
@@ -19,13 +13,14 @@ namespace WinFormsApp
         private readonly IHeadService _headService;
         private readonly IAccountService _accountService;
         private readonly ICarService _carService;
+        private readonly AddManagerForm _addManagerForm;
 
         private string _changeHeadData_ComboBoxOption;
 
         public HeadMainWindow(
             IBranchService branchService, IManagerService managerService,
             IHeadService headService, IAccountService accountService,
-            ICarService carService
+            ICarService carService, AddManagerForm addManagerForm
             )
         {
             InitializeComponent();
@@ -34,7 +29,7 @@ namespace WinFormsApp
             _headService = headService;
             _accountService = accountService;
             _carService = carService;
-      
+            _addManagerForm = addManagerForm;
         }
 
         //private void tabControl_HeadMainWindow_SelectedIndexChanged(object sender, EventArgs e)
@@ -64,7 +59,10 @@ namespace WinFormsApp
 
         private void HeadMainWindow_Load(object sender, EventArgs e)
         {
-            var branches = _branchService.GetBranches().ToList();
+            var branches = _branchService.GetBranches()
+                //.Join()
+                .ToList();
+
             Init_DataGridView_Branches(branches);
             Init_DataGridView_Managers();
         }
@@ -200,6 +198,11 @@ namespace WinFormsApp
             else
                 MessageBox.Show("Введите имя филиала.");
             
+        }
+
+        private void button_HeadMainWindow_AddManager_Add_Click(object sender, EventArgs e)
+        {
+            _addManagerForm.Show();
         }
         //private void groupBox_HeadMainWindow_ChangeManagerInfo_Enter(object sender, EventArgs e)
         //{

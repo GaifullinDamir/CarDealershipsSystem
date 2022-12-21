@@ -1,15 +1,19 @@
 ﻿using CarDealershipsSystem.Application.DTO;
 using CarDealershipsSystem.Application.Interfaces;
 using CarDealershipsSystem.DAL.Interfaces;
+using CarDealershipsSystem.Domain;
 
 namespace CarDealershipsSystem.Application.Services
 {
     public class ManagerService : IManagerService
     {
         private readonly IManagerRepository _managerServiceRepository;
-        public ManagerService(IManagerRepository managerServiceRepository)
+        private readonly IBranchService _branchService;
+        public ManagerService(IManagerRepository managerServiceRepository,
+            IBranchService branchService)
         {
             _managerServiceRepository = managerServiceRepository;
+            _branchService = branchService;
         }
 
         public IEnumerable<ManagerDTO> GetManagers()
@@ -42,6 +46,37 @@ namespace CarDealershipsSystem.Application.Services
                     .ToList()
                 });
             return managersDTO;
+        }
+
+        public bool AddManager(string mngrPassData, string idBranch, string mngrSurname,
+            string mngrName, string mngrMiddlename, string mngrPhoneNumber,
+            string mngrSalary, string mngrPayDate, string managerPassword,
+            string managerLogin)
+        {
+            int intIdBranch = 0;
+            try
+            {
+                intIdBranch = Convert.ToInt32(idBranch);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            _branch
+            var manager = new Manager()
+            {
+                MngrPassData = mngrPassData,
+                IdBranch = idBranch, //сделай проверку, есть ли такая бранча
+                MngrSurname = mngrSurname,
+                MngrName = mngrName,
+                MngrMiddlename = mngrMiddlename,
+                MngrPhoneNumber = mngrPhoneNumber,
+                MngrSalary = mngrSalary,
+                MngrPayDate = mngrPayDate,
+                ManagerPassword = managerPassword,
+                ManagerLogin = managerLogin
+            };
         }
     }
 }
