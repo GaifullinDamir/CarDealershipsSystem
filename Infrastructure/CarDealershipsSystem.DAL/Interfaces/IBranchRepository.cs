@@ -10,6 +10,8 @@ namespace CarDealershipsSystem.DAL.Interfaces
 
         IEnumerable<Branch> GetBranchesByName(string branchName);
 
+        public IEnumerable<Branch> GetBranchesWithCarsExemplars();
+
         public bool SaveBranch(Branch branch);
     }
 }

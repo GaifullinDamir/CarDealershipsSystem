@@ -1,5 +1,6 @@
 ﻿using CarDealershipsSystem.Application.DTO;
 using CarDealershipsSystem.Application.Interfaces;
+using CarDealershipsSystem.DAL.Interfaces;
 using System;
 
 using WinFormsApp.Forms;
@@ -14,13 +15,15 @@ namespace WinFormsApp
         private readonly IAccountService _accountService;
         private readonly ICarService _carService;
         private readonly AddManagerForm _addManagerForm;
+        private readonly IBranchRepository _branchRepository;
 
         private string _changeHeadData_ComboBoxOption;
 
         public HeadMainWindow(
             IBranchService branchService, IManagerService managerService,
             IHeadService headService, IAccountService accountService,
-            ICarService carService, AddManagerForm addManagerForm
+            ICarService carService, AddManagerForm addManagerForm,
+            IBranchRepository branchRepository
             )
         {
             InitializeComponent();
@@ -30,6 +33,7 @@ namespace WinFormsApp
             _accountService = accountService;
             _carService = carService;
             _addManagerForm = addManagerForm;
+            _branchRepository = branchRepository;
         }
 
         //private void tabControl_HeadMainWindow_SelectedIndexChanged(object sender, EventArgs e)
@@ -59,43 +63,49 @@ namespace WinFormsApp
 
         private void HeadMainWindow_Load(object sender, EventArgs e)
         {
-            var branches = _branchService.GetBranches()
-                //.Join()
-                .ToList();
-
-            Init_DataGridView_Branches(branches);
+            Init_DataGridView_Branches();
             Init_DataGridView_Managers();
         }
 
-        private void Init_DataGridView_Branches(List<BranchDTO> branches)
+        private void Init_DataGridView_Branches()
         {
-            //var branches = _branchService.GetBranches().ToList();
-            //var carsCount = new List<int>();
-            //foreach (var branch in branches)
-            //{
-            //    carsCount.Add(_carService.GetCarExemplarsCount(branch));
-            //}
-
-            //var column4 = new DataGridViewColumn();
-            //column4.HeaderText = "Количество авто";
-            //column4.Name = "countCars"; 
+            var branches = _branchRepository.GetBranchesWithCarsExemplars().ToList();
+            List<int> carsCount = new List<int>();
+            foreach (var branch in branches)
+            {
+                int temp = 0;
+                foreach (var car in branch.Cars)
+                {
+                    temp += car.CarExemplars.Count;
+                }
+                carsCount.Add(temp);
+            }
 
             dataGridView_HeadMainWindow_Branches.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView_HeadMainWindow_Branches.AllowUserToAddRows = false;
             dataGridView_HeadMainWindow_Branches.ReadOnly = true;
-            dataGridView_HeadMainWindow_Branches.DataSource = branches;
 
-
+            dataGridView_HeadMainWindow_Branches.ColumnCount = 4;
             dataGridView_HeadMainWindow_Branches.Columns[0].Width = 100;
-            dataGridView_HeadMainWindow_Branches.Columns[1].Width = 300;
-            dataGridView_HeadMainWindow_Branches.Columns[2].Width = 310;
-            dataGridView_HeadMainWindow_Branches.Columns[3].Width = 120;
+            dataGridView_HeadMainWindow_Branches.Columns[1].Width = 200;
+            dataGridView_HeadMainWindow_Branches.Columns[2].Width = 390;
+            dataGridView_HeadMainWindow_Branches.Columns[3].Width = 130;
+            dataGridView_HeadMainWindow_Branches.Columns[0].Name = "ID филиала";
+            dataGridView_HeadMainWindow_Branches.Columns[1].Name = "Название филиала";
+            dataGridView_HeadMainWindow_Branches.Columns[2].Name = "Адрес филиала";
+            dataGridView_HeadMainWindow_Branches.Columns[3].Name = "Количество экземпляров авто";
 
-            dataGridView_HeadMainWindow_Branches.Columns[0].HeaderText = "ID филиала";
-            dataGridView_HeadMainWindow_Branches.Columns[1].HeaderText = "Название филиала";
-            dataGridView_HeadMainWindow_Branches.Columns[2].HeaderText = "Адрес филиала";
-            dataGridView_HeadMainWindow_Branches.Columns[3].HeaderText = "ID рукводителя";
-            //dataGridView_HeadMainWindow_Branches.Columns[4].HeaderText = "Количество авто";
+            for (int i = 0; i < branches.Count(); i++)
+            {
+                if (dataGridView_HeadMainWindow_Branches.Rows.Count < branches.Count())
+                {
+                    dataGridView_HeadMainWindow_Branches.Rows.Add();
+                }
+                dataGridView_HeadMainWindow_Branches.Rows[i].Cells[0].Value = branches[i].IdBranch;
+                dataGridView_HeadMainWindow_Branches.Rows[i].Cells[1].Value = branches[i].BranchName;
+                dataGridView_HeadMainWindow_Branches.Rows[i].Cells[2].Value = branches[i].BranchAddress;
+                dataGridView_HeadMainWindow_Branches.Rows[i].Cells[3].Value = carsCount[i];
+            }
 
         }
 
@@ -183,8 +193,7 @@ namespace WinFormsApp
 
         private void button_HeadMainWindow_DataGridView_UpdateBranches_Click(object sender, EventArgs e)
         {
-            var branches = _branchService.GetBranches().ToList();
-            Init_DataGridView_Branches(branches);
+            Init_DataGridView_Branches();
         }
 
         private void button_HeadMainWindow_SearchBranch_Click(object sender, EventArgs e)
@@ -193,7 +202,7 @@ namespace WinFormsApp
             if (!(String.IsNullOrWhiteSpace(branchName)))
             {
                 var branches = _branchService.SearchBranch(branchName).ToList();
-                Init_DataGridView_Branches(branches);
+                Init_DataGridView_Branches();
             }
             else
                 MessageBox.Show("Введите имя филиала.");

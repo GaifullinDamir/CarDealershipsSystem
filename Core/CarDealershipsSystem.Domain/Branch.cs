@@ -13,7 +13,7 @@ public partial class Branch
 
     public int IdHead { get; set; }
 
-    public virtual ICollection<Car> Cars { get; } = new List<Car>();
+    public virtual ICollection<Car> Cars { get; set; } = new List<Car>();
 
     public virtual Head IdHeadNavigation { get; set; } = null!;
 

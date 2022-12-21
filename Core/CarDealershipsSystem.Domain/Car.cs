@@ -15,7 +15,7 @@ public partial class Car
 
     public string BodyType { get; set; } = null!;
 
-    public virtual ICollection<CarExemplar> CarExemplars { get; } = new List<CarExemplar>();
+    public virtual ICollection<CarExemplar> CarExemplars { get; set; } = new List<CarExemplar>();
 
     public virtual Branch IdBranchNavigation { get; set; } = null!;
 }
