@@ -68,6 +68,8 @@
             this.dataGridView_AddManagerForm_Branches.RowTemplate.Height = 29;
             this.dataGridView_AddManagerForm_Branches.Size = new System.Drawing.Size(880, 300);
             this.dataGridView_AddManagerForm_Branches.TabIndex = 0;
+            this.dataGridView_AddManagerForm_Branches.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_AddManagerForm_Branches_CellContentClick);
+           // this.dataGridView_AddManagerForm_Branches.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_AddManagerForm_Branches_CellMouseClick);
             // 
             // groupBox_AddManagerForm_Branches
             // 
@@ -306,6 +308,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CarDealershipsSystem";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddManagerForm_FormClosing);
+            this.Load += new System.EventHandler(this.AddManagerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AddManagerForm_Branches)).EndInit();
             this.groupBox_AddManagerForm_Branches.ResumeLayout(false);
             this.groupBox_AddManagerForm_Branches.PerformLayout();
