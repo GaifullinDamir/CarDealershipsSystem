@@ -9,17 +9,17 @@ public partial class CarOrder
 
     public string VinNumber { get; set; } = null!;
 
-    public string MngrPassData { get; set; } = null!;
+    public int IdMngr { get; set; }
 
-    public string BuyerPassData { get; set; } = null!;
+    public int IdBuyer { get; set; }
 
     public DateTime ContractDate { get; set; }
 
     public decimal OrderAmount { get; set; }
 
-    public virtual Buyer BuyerPassDataNavigation { get; set; } = null!;
+    public virtual Buyer IdBuyerNavigation { get; set; } = null!;
 
-    public virtual Manager MngrPassDataNavigation { get; set; } = null!;
+    public virtual Manager IdMngrNavigation { get; set; } = null!;
 
     public virtual CarExemplar VinNumberNavigation { get; set; } = null!;
 }

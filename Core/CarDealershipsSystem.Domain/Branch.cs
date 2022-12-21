@@ -11,11 +11,11 @@ public partial class Branch
 
     public string BranchAddress { get; set; } = null!;
 
-    public string HeadPassData { get; set; } = null!;
+    public int IdHead { get; set; }
 
     public virtual ICollection<Car> Cars { get; } = new List<Car>();
 
-    public virtual Head HeadPassDataNavigation { get; set; } = null!;
+    public virtual Head IdHeadNavigation { get; set; } = null!;
 
     public virtual ICollection<Manager> Managers { get; } = new List<Manager>();
 }

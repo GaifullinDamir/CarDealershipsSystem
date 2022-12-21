@@ -62,5 +62,40 @@ namespace CarDealershipsSystem.Application.Services
             return false;
             
         }
+
+        public bool HeadChangeData(string option, string data)
+        {
+            var head = _headRepository.GetHeads().FirstOrDefault();
+
+            if (option == "Имя")
+            {
+                head.HeadName = data;
+            }    
+            else if(option == "Фамилия")
+            {
+                head.HeadSurname = data;
+            }
+            else if(option == "Отчество")
+            {
+                head.HeadMiddlename = data;
+            }
+            else if (option == "Паспортные данные")
+            {
+                head.HeadPassData = data;
+            }
+            else if (option == "Номер телефона")
+            {
+                head.HeadPhoneNumber = data;
+            }
+            else if (option == "Логин")
+            {
+                head.HeadLogin = data;
+            }
+            else if (option == "Пароль")
+            {
+                head.HeadPassword = data;
+            }
+            return _headRepository.SaveHeadChange(head);
+        }
     }
 }

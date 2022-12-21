@@ -7,5 +7,7 @@ namespace CarDealershipsSystem.DAL.Interfaces
         IEnumerable<Head> GetHeads();
 
         public bool SaveHead(Head head);
+
+        public bool SaveHeadChange(Head head);
     }
 }
