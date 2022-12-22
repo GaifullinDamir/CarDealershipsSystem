@@ -157,6 +157,11 @@ namespace WinFormsApp.Forms
             dataGridView_AddManagerForm_Branches.Columns[1].Width = 300;
             dataGridView_AddManagerForm_Branches.Columns[2].Width = 450;
 
+            for (int i = 0; i < dataGridView_AddManagerForm_Branches.ColumnCount; i++)
+            {
+                dataGridView_AddManagerForm_Branches.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
             for (int i = 0; i < branches.Count(); i++)
             {
                 if (dataGridView_AddManagerForm_Branches.Rows.Count < branches.Count())

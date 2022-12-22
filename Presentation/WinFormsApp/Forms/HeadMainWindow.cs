@@ -72,7 +72,7 @@ namespace WinFormsApp
 
         private void Init_DataGridView_Branches(List<BranchDTO> branches)
         {
-            var branchesWithCarExemplars = _branchRepository.GetBranchesWithCarsExemplars().ToList();
+            //var branchesWithCarExemplars = _branchRepository.GetBranchesWithCarsExemplars().ToList();
 
             List<int> carsCount = new List<int>();
             foreach (var branch in branches)
@@ -100,6 +100,11 @@ namespace WinFormsApp
             dataGridView_HeadMainWindow_Branches.Columns[2].Name = "Адрес филиала";
             dataGridView_HeadMainWindow_Branches.Columns[3].Name = "Количество экземпляров авто";
 
+            for (int i = 0; i < dataGridView_HeadMainWindow_Branches.ColumnCount; i++)
+            {
+                dataGridView_HeadMainWindow_Branches.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
             for (int i = 0; i < branches.Count(); i++)
             {
                 if (dataGridView_HeadMainWindow_Branches.Rows.Count < branches.Count())
@@ -119,6 +124,8 @@ namespace WinFormsApp
             dataGridView_HeadMainWindow_Managers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView_HeadMainWindow_Managers.AllowUserToAddRows= false;
             dataGridView_HeadMainWindow_Managers.ReadOnly = true;
+
+            
 
             var managers = _managerService.GetManagers().ToList();
             List<int> carOrdersCount = new List<int>();
@@ -161,6 +168,11 @@ namespace WinFormsApp
             dataGridView_HeadMainWindow_Managers.Columns[9].Name = "Зарплата";
             dataGridView_HeadMainWindow_Managers.Columns[10].Name = "Дата\nзарплаты";
             dataGridView_HeadMainWindow_Managers.Columns[11].Name = "Премия";
+
+            for (int i = 0; i < dataGridView_HeadMainWindow_Managers.ColumnCount; i++)
+            {
+                dataGridView_HeadMainWindow_Managers.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
 
             for (int i = 0; i < managers.Count(); i++)
             {
@@ -332,7 +344,7 @@ namespace WinFormsApp
                 if (_managerService.ManagerChangeData(_changeManagerInfo_ComboBoxOption,
                     mngrPassData, inputData, ref errorMessage))
                 {
-                    updateData_HeadMainWindow_PersonalArea_Label();
+                    
                     MessageBox.Show("Данные успешно изменены.");
                 }
                 else
@@ -350,6 +362,11 @@ namespace WinFormsApp
             {
                 _changeManagerInfo_ComboBoxOption = comboBoxOption;
             }
+        }
+
+        private void button_HeadMainWindow_DataGridView_UpdateManagers_Click(object sender, EventArgs e)
+        {
+            Init_DataGridView_Managers();
         }
         //private void groupBox_HeadMainWindow_ChangeManagerInfo_Enter(object sender, EventArgs e)
         //{
