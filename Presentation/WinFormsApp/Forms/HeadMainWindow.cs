@@ -329,7 +329,7 @@ namespace WinFormsApp
             string errorMessage = "Ошибка при изменении.";
             if (!String.IsNullOrWhiteSpace(inputData))
             {
-                if (_managerService.ManagerChangeData(_changeHeadData_ComboBoxOption,
+                if (_managerService.ManagerChangeData(_changeManagerInfo_ComboBoxOption,
                     mngrPassData, inputData, ref errorMessage))
                 {
                     updateData_HeadMainWindow_PersonalArea_Label();
