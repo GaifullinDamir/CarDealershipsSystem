@@ -202,6 +202,7 @@ namespace CarDealershipsSystem.Application.Services
                     return false;
                 }
             }
+            return _managerRepository.SaveManagerChange(manager);
         }
     }
 }
