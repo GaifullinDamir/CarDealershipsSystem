@@ -13,6 +13,10 @@ namespace CarDealershipsSystem.Application.Interfaces
 
         public bool IsManagerDataNotUnique(string mngrPassData, string mngrPhoneNumber, string managerLogin, string managerPassword);
 
+        public ManagerDTO GetManagerByPassData(string mngrPassData);
+
+        public bool ManagerChangeData(decimal mngrSalary, DateTime mngrPayDate, decimal mngrPrize);
+
 
 
     }

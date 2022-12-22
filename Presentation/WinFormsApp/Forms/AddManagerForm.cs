@@ -169,12 +169,7 @@ namespace WinFormsApp.Forms
             }
         }
 
-        //private void dataGridView_AddManagerForm_Branches_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        //{
-            
-        //}
-
-        private void dataGridView_AddManagerForm_Branches_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView_AddManagerForm_Branches_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
             {
@@ -186,13 +181,12 @@ namespace WinFormsApp.Forms
                     .Cells[0]
                     .Value
                     .ToString();
-                } 
+                }
             }
             catch (Exception)
             {
                 return;
             }
-            
         }
     }
 }

@@ -287,7 +287,7 @@
             // label_HeadMainWindow_ChangeManager_MngrPassData
             // 
             this.label_HeadMainWindow_ChangeManager_MngrPassData.AutoSize = true;
-            this.label_HeadMainWindow_ChangeManager_MngrPassData.Location = new System.Drawing.Point(7, 111);
+            this.label_HeadMainWindow_ChangeManager_MngrPassData.Location = new System.Drawing.Point(66, 111);
             this.label_HeadMainWindow_ChangeManager_MngrPassData.Name = "label_HeadMainWindow_ChangeManager_MngrPassData";
             this.label_HeadMainWindow_ChangeManager_MngrPassData.Size = new System.Drawing.Size(175, 23);
             this.label_HeadMainWindow_ChangeManager_MngrPassData.TabIndex = 7;
@@ -296,7 +296,7 @@
             // label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename
             // 
             this.label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.AutoSize = true;
-            this.label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.Location = new System.Drawing.Point(8, 30);
+            this.label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.Location = new System.Drawing.Point(65, 30);
             this.label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.Name = "label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename";
             this.label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.Size = new System.Drawing.Size(49, 23);
             this.label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.TabIndex = 6;
@@ -310,6 +310,7 @@
             this.button_HeadMainWindow_ChangeManagerInfo_Change.TabIndex = 5;
             this.button_HeadMainWindow_ChangeManagerInfo_Change.Text = "Изменить";
             this.button_HeadMainWindow_ChangeManagerInfo_Change.UseVisualStyleBackColor = true;
+            this.button_HeadMainWindow_ChangeManagerInfo_Change.Click += new System.EventHandler(this.button_HeadMainWindow_ChangeManagerInfo_Change_Click);
             // 
             // groupBox_HeadMainWindow_Managers
             // 

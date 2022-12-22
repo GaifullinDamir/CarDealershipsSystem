@@ -33,5 +33,14 @@ namespace CarDealershipsSystem.DAL.Repositories
             _context.Add(manager);
             return _context.SaveChanges() > 0 ? true : false;
         }
+
+        public Manager GetManagerByPassData(string mngrPassData)
+        {
+            var manager = _context.Managers
+                .Include(manager => manager.CarOrders)
+                .FirstOrDefault(manager => manager.MngrPassData == mngrPassData);
+            var carOrders = _carOrderRepository.GetCarOrders();
+            return manager;
+        }
     }
 }

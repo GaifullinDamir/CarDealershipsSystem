@@ -16,6 +16,7 @@ namespace WinFormsApp
         private readonly ICarService _carService;
         private readonly AddManagerForm _addManagerForm;
         private readonly IBranchRepository _branchRepository;
+        private readonly ChangeManagerInfoWindow _changeManagerInfoWindow;
 
         private string _changeHeadData_ComboBoxOption;
         private int managersRowIndex = -1;
@@ -24,7 +25,7 @@ namespace WinFormsApp
             IBranchService branchService, IManagerService managerService,
             IHeadService headService, IAccountService accountService,
             ICarService carService, AddManagerForm addManagerForm,
-            IBranchRepository branchRepository
+            IBranchRepository branchRepository, ChangeManagerInfoWindow changeManagerInfoWindow
             )
         {
             InitializeComponent();
@@ -35,6 +36,7 @@ namespace WinFormsApp
             _carService = carService;
             _addManagerForm = addManagerForm;
             _branchRepository = branchRepository;
+            _changeManagerInfoWindow = changeManagerInfoWindow;
         }
 
         //private void tabControl_HeadMainWindow_SelectedIndexChanged(object sender, EventArgs e)
@@ -133,30 +135,33 @@ namespace WinFormsApp
 
             dataGridView_HeadMainWindow_Managers.Rows.Clear();
 
-            dataGridView_HeadMainWindow_Managers.ColumnCount = 11;
+            dataGridView_HeadMainWindow_Managers.ColumnCount = 12;
             dataGridView_HeadMainWindow_Managers.Columns[0].Width = 100;
             dataGridView_HeadMainWindow_Managers.Columns[1].Width = 100;
             dataGridView_HeadMainWindow_Managers.Columns[2].Width = 100;
             dataGridView_HeadMainWindow_Managers.Columns[3].Width = 120;
-            dataGridView_HeadMainWindow_Managers.Columns[4].Width = 100;
+            dataGridView_HeadMainWindow_Managers.Columns[4].Width = 120;
             dataGridView_HeadMainWindow_Managers.Columns[5].Width = 100;
-            dataGridView_HeadMainWindow_Managers.Columns[6].Width = 70;
-            dataGridView_HeadMainWindow_Managers.Columns[7].Width = 120;
-            dataGridView_HeadMainWindow_Managers.Columns[8].Width = 100;
-            dataGridView_HeadMainWindow_Managers.Columns[9].Width = 120;
-            dataGridView_HeadMainWindow_Managers.Columns[10].Width = 100;
+            dataGridView_HeadMainWindow_Managers.Columns[6].Width = 100;
+            dataGridView_HeadMainWindow_Managers.Columns[7].Width = 70;
+            dataGridView_HeadMainWindow_Managers.Columns[8].Width = 120;
+            dataGridView_HeadMainWindow_Managers.Columns[9].Width = 100;
+            dataGridView_HeadMainWindow_Managers.Columns[10].Width = 120;
+            dataGridView_HeadMainWindow_Managers.Columns[11].Width = 100;
                                         
             dataGridView_HeadMainWindow_Managers.Columns[0].Name = "Фамилия";
             dataGridView_HeadMainWindow_Managers.Columns[1].Name = "Имя";
             dataGridView_HeadMainWindow_Managers.Columns[2].Name = "Отчество";
             dataGridView_HeadMainWindow_Managers.Columns[3].Name = "Филиал";
-            dataGridView_HeadMainWindow_Managers.Columns[4].Name = "Логин";
-            dataGridView_HeadMainWindow_Managers.Columns[5].Name = "Пароль";
-            dataGridView_HeadMainWindow_Managers.Columns[6].Name = "Кол-во\nсделок";
-            dataGridView_HeadMainWindow_Managers.Columns[7].Name = "Номер\nтелефона";
-            dataGridView_HeadMainWindow_Managers.Columns[8].Name = "Зарплата";
-            dataGridView_HeadMainWindow_Managers.Columns[9].Name = "Дата\nзарплаты";
-            dataGridView_HeadMainWindow_Managers.Columns[10].Name = "Премия";
+            dataGridView_HeadMainWindow_Managers.Columns[4].Name = "Паспортные\nданные";
+
+            dataGridView_HeadMainWindow_Managers.Columns[5].Name = "Логин";
+            dataGridView_HeadMainWindow_Managers.Columns[6].Name = "Пароль";
+            dataGridView_HeadMainWindow_Managers.Columns[7].Name = "Кол-во\nсделок";
+            dataGridView_HeadMainWindow_Managers.Columns[8].Name = "Номер\nтелефона";
+            dataGridView_HeadMainWindow_Managers.Columns[9].Name = "Зарплата";
+            dataGridView_HeadMainWindow_Managers.Columns[10].Name = "Дата\nзарплаты";
+            dataGridView_HeadMainWindow_Managers.Columns[11].Name = "Премия";
 
             for (int i = 0; i < managers.Count(); i++)
             {
@@ -168,13 +173,14 @@ namespace WinFormsApp
                 dataGridView_HeadMainWindow_Managers.Rows[i].Cells[1].Value = managers[i].MngrName;
                 dataGridView_HeadMainWindow_Managers.Rows[i].Cells[2].Value = managers[i].MngrMiddlename;
                 dataGridView_HeadMainWindow_Managers.Rows[i].Cells[3].Value = managersBranches[i];
-                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[4].Value = managers[i].ManagerLogin;
-                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[5].Value = managers[i].ManagerPassword;
-                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[6].Value = carOrdersCount[i];
-                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[7].Value = managers[i].MngrPhoneNumber;
-                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[8].Value = managers[i].MngrSalary;
-                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[9].Value = managers[i].MngrPayDate;
-                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[10].Value = managers[i].MngrPrize;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[4].Value = managers[i].MngrPassData;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[5].Value = managers[i].ManagerLogin;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[6].Value = managers[i].ManagerPassword;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[7].Value = carOrdersCount[i];
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[8].Value = managers[i].MngrPhoneNumber;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[9].Value = managers[i].MngrSalary;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[10].Value = managers[i].MngrPayDate;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[1].Value = managers[i].MngrPrize;
             }
 
 
@@ -284,18 +290,15 @@ namespace WinFormsApp
             Environment.Exit(0);
         }
 
-        //private void dataGridView_HeadMainWindow_Managers_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        //{
-            
-
-
-        //}
-
         private void dataGridView_HeadMainWindow_Managers_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
             {
                 managersRowIndex = e.RowIndex;
+                if (managersRowIndex == -1)
+                {
+                    return;
+                }
             }
             catch (Exception)
             {
@@ -309,6 +312,20 @@ namespace WinFormsApp
 
             label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.Text = mngrSurname + "\n" + mngrName + "\n" + mngrMiddlename;
             label_HeadMainWindow_ChangeManager_MngrPassData.Text = managers[managersRowIndex].MngrPassData;
+        }
+
+        private void button_HeadMainWindow_ChangeManagerInfo_Change_Click(object sender, EventArgs e)
+        {
+            if (managersRowIndex != -1)
+            {
+                var managers = _managerService.GetManagers().ToList();
+                var mngrPassData = managers[managersRowIndex].MngrPassData;
+                _changeManagerInfoWindow.SetMngrPassData(mngrPassData);
+                _changeManagerInfoWindow.Show();
+            }
+            else
+                return;
+            
         }
         //private void groupBox_HeadMainWindow_ChangeManagerInfo_Enter(object sender, EventArgs e)
         //{

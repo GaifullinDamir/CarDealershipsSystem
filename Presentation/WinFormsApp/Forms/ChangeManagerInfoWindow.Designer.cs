@@ -97,6 +97,7 @@
             this.button_ChangeManagerInfoWindow_Change.TabIndex = 6;
             this.button_ChangeManagerInfoWindow_Change.Text = "Сохранить";
             this.button_ChangeManagerInfoWindow_Change.UseVisualStyleBackColor = true;
+            this.button_ChangeManagerInfoWindow_Change.Click += new System.EventHandler(this.button_ChangeManagerInfoWindow_Change_Click);
             // 
             // ChangeManagerInfoWindow
             // 
