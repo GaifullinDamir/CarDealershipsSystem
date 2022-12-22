@@ -75,8 +75,7 @@ namespace WinFormsApp
                     services.AddTransient<AddCarExemplarWindow>();
                     services.AddTransient<AddCarWindow>();
                     services.AddTransient<AddManagerForm>();
-                    services.AddTransient<ChangeManagerInfoWindow>();
-                    
+                   
                 });
         }
     }

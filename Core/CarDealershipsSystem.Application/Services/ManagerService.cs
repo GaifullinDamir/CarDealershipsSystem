@@ -2,6 +2,7 @@
 using CarDealershipsSystem.Application.Interfaces;
 using CarDealershipsSystem.DAL.Interfaces;
 using CarDealershipsSystem.Domain;
+using System.Globalization;
 
 namespace CarDealershipsSystem.Application.Services
 {
@@ -123,6 +124,84 @@ namespace CarDealershipsSystem.Application.Services
                     .ToList()
             };
             return managerDTO;
+        }
+
+        public bool ManagerChangeData(string option, string mngrPassData, string data, ref string errorMessage)
+        {
+            var manager = _managerRepository.GetManagerByPassData(mngrPassData);
+
+            if (option == "Имя")
+            {
+                manager.MngrName = data;
+            }
+            else if (option == "Фамилия")
+            {
+                manager.MngrSurname = data;
+            }
+            else if (option == "Отчество")
+            {
+                manager.MngrMiddlename = data;
+            }
+            else if (option == "Паспортные данные")
+            {
+                manager.MngrPassData = data;
+            }
+            else if (option == "Номер телефона")
+            {
+                manager.MngrPhoneNumber = data;
+            }
+            else if (option == "Логин")
+            {
+                manager.ManagerLogin = data;
+            }
+            else if (option == "Пароль")
+            {
+                manager.ManagerPassword = data;
+            }
+            else if (option == "Дата зарплаты")
+            {
+                try
+                {
+                    var dateMngrPayDate = DateTime.Parse(data);
+                    manager.MngrPayDate = dateMngrPayDate;
+
+                }
+                catch (Exception)
+                {
+                    errorMessage = "Формат записи даты:\n" +
+                        "yyyy.mm.dd\n" +
+                        "mm.dd.yyyy\n" +
+                        "yyyy-mm-dd\n" +
+                        "yyyy/mm/dd";
+                    return false;
+                }
+            }
+            else if (option == "Зарплата")
+            {
+                if (!data.Contains(','))
+                {
+                    var decMngrSalary = Decimal.Parse(data, CultureInfo.InvariantCulture);
+                    manager.MngrSalary = decMngrSalary;
+                }
+                else
+                {
+                    errorMessage = "Разедлителем между целой частью числа\n и десятичной должна быть точка ('.')";
+                    return false;
+                }
+            }
+            else if (option == "Премия")
+            {
+                if (!data.Contains(','))
+                {
+                    var decMngrPrize = Decimal.Parse(data, CultureInfo.InvariantCulture);
+                    manager.MngrPrize = decMngrPrize;
+                }
+                else
+                {
+                    errorMessage = "Разедлителем между целой частью числа\n и десятичной должна быть точка ('.')";
+                    return false;
+                }
+            }
         }
     }
 }

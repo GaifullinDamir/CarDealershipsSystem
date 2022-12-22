@@ -16,16 +16,16 @@ namespace WinFormsApp
         private readonly ICarService _carService;
         private readonly AddManagerForm _addManagerForm;
         private readonly IBranchRepository _branchRepository;
-        private readonly ChangeManagerInfoWindow _changeManagerInfoWindow;
 
         private string _changeHeadData_ComboBoxOption;
+        private string _changeManagerInfo_ComboBoxOption;
         private int managersRowIndex = -1;
 
         public HeadMainWindow(
             IBranchService branchService, IManagerService managerService,
             IHeadService headService, IAccountService accountService,
             ICarService carService, AddManagerForm addManagerForm,
-            IBranchRepository branchRepository, ChangeManagerInfoWindow changeManagerInfoWindow
+            IBranchRepository branchRepository
             )
         {
             InitializeComponent();
@@ -36,7 +36,6 @@ namespace WinFormsApp
             _carService = carService;
             _addManagerForm = addManagerForm;
             _branchRepository = branchRepository;
-            _changeManagerInfoWindow = changeManagerInfoWindow;
         }
 
         //private void tabControl_HeadMainWindow_SelectedIndexChanged(object sender, EventArgs e)
@@ -316,16 +315,41 @@ namespace WinFormsApp
 
         private void button_HeadMainWindow_ChangeManagerInfo_Change_Click(object sender, EventArgs e)
         {
+            string mngrPassData = "";
             if (managersRowIndex != -1)
             {
                 var managers = _managerService.GetManagers().ToList();
-                var mngrPassData = managers[managersRowIndex].MngrPassData;
-                _changeManagerInfoWindow.SetMngrPassData(mngrPassData);
-                _changeManagerInfoWindow.Show();
+                mngrPassData = managers[managersRowIndex].MngrPassData;
+                
             }
             else
                 return;
-            
+
+            var inputData = textBox_HeadMainWindow_NewManagerIfno_Input.Text;
+            string errorMessage = "Ошибка при изменении.";
+            if (!String.IsNullOrWhiteSpace(inputData))
+            {
+                if (_managerService.ManagerChangeData(_changeHeadData_ComboBoxOption,
+                    mngrPassData, inputData, ref errorMessage))
+                {
+                    updateData_HeadMainWindow_PersonalArea_Label();
+                    MessageBox.Show("Данные успешно изменены.");
+                }
+                else
+                    MessageBox.Show(errorMessage);
+            }
+            else
+                MessageBox.Show("Поле данных не должно быть пустым.");
+
+        }
+
+        private void comboBox_HeadMainWindow_ChangeManagerInfo_Change_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var comboBoxOption = comboBox_HeadMainWindow_ChangeManagerInfo_Change.SelectedItem.ToString();
+            if (!String.IsNullOrWhiteSpace(comboBoxOption))
+            {
+                _changeManagerInfo_ComboBoxOption = comboBoxOption;
+            }
         }
         //private void groupBox_HeadMainWindow_ChangeManagerInfo_Enter(object sender, EventArgs e)
         //{

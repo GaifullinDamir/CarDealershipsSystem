@@ -42,5 +42,12 @@ namespace CarDealershipsSystem.DAL.Repositories
             var carOrders = _carOrderRepository.GetCarOrders();
             return manager;
         }
+
+        public bool SaveManagerChange(Manager manager)
+        {
+            if (manager == null)
+            { return false; }
+            return _context.SaveChanges() > 0 ? true : false;
+        }
     }
 }

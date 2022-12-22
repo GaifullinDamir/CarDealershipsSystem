@@ -85,6 +85,10 @@
             this.label_HeadMainWindow_PersonalArea_HeadName = new System.Windows.Forms.Label();
             this.label_HeadMainWindow_PeronalArea_HeadPassPata = new System.Windows.Forms.Label();
             this.sqlCommandBuilder1 = new Microsoft.Data.SqlClient.SqlCommandBuilder();
+            this.label_HeadMainWindow_Managers_ChengeManagerInfo = new System.Windows.Forms.Label();
+            this.comboBox_HeadMainWindow_ChangeManagerInfo_Change = new System.Windows.Forms.ComboBox();
+            this.label_HeadMainWindow_ChangeManagerInfo_NewInfo = new System.Windows.Forms.Label();
+            this.textBox_HeadMainWindow_NewManagerIfno_Input = new System.Windows.Forms.TextBox();
             this.tabControl_HeadMainWindow.SuspendLayout();
             this.tabPage_Branches.SuspendLayout();
             this.groupBox_HeadMainWindow_Branches.SuspendLayout();
@@ -274,12 +278,16 @@
             // 
             // groupBox_HeadMainWindow_ChangeManagerInfo
             // 
+            this.groupBox_HeadMainWindow_ChangeManagerInfo.Controls.Add(this.label_HeadMainWindow_ChangeManagerInfo_NewInfo);
+            this.groupBox_HeadMainWindow_ChangeManagerInfo.Controls.Add(this.textBox_HeadMainWindow_NewManagerIfno_Input);
+            this.groupBox_HeadMainWindow_ChangeManagerInfo.Controls.Add(this.label_HeadMainWindow_Managers_ChengeManagerInfo);
+            this.groupBox_HeadMainWindow_ChangeManagerInfo.Controls.Add(this.comboBox_HeadMainWindow_ChangeManagerInfo_Change);
             this.groupBox_HeadMainWindow_ChangeManagerInfo.Controls.Add(this.label_HeadMainWindow_ChangeManager_MngrPassData);
             this.groupBox_HeadMainWindow_ChangeManagerInfo.Controls.Add(this.label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename);
             this.groupBox_HeadMainWindow_ChangeManagerInfo.Controls.Add(this.button_HeadMainWindow_ChangeManagerInfo_Change);
-            this.groupBox_HeadMainWindow_ChangeManagerInfo.Location = new System.Drawing.Point(609, 406);
+            this.groupBox_HeadMainWindow_ChangeManagerInfo.Location = new System.Drawing.Point(494, 406);
             this.groupBox_HeadMainWindow_ChangeManagerInfo.Name = "groupBox_HeadMainWindow_ChangeManagerInfo";
-            this.groupBox_HeadMainWindow_ChangeManagerInfo.Size = new System.Drawing.Size(300, 214);
+            this.groupBox_HeadMainWindow_ChangeManagerInfo.Size = new System.Drawing.Size(415, 214);
             this.groupBox_HeadMainWindow_ChangeManagerInfo.TabIndex = 11;
             this.groupBox_HeadMainWindow_ChangeManagerInfo.TabStop = false;
             this.groupBox_HeadMainWindow_ChangeManagerInfo.Text = "Изменить данные о менеджере";
@@ -287,7 +295,7 @@
             // label_HeadMainWindow_ChangeManager_MngrPassData
             // 
             this.label_HeadMainWindow_ChangeManager_MngrPassData.AutoSize = true;
-            this.label_HeadMainWindow_ChangeManager_MngrPassData.Location = new System.Drawing.Point(66, 111);
+            this.label_HeadMainWindow_ChangeManager_MngrPassData.Location = new System.Drawing.Point(13, 111);
             this.label_HeadMainWindow_ChangeManager_MngrPassData.Name = "label_HeadMainWindow_ChangeManager_MngrPassData";
             this.label_HeadMainWindow_ChangeManager_MngrPassData.Size = new System.Drawing.Size(175, 23);
             this.label_HeadMainWindow_ChangeManager_MngrPassData.TabIndex = 7;
@@ -296,7 +304,7 @@
             // label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename
             // 
             this.label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.AutoSize = true;
-            this.label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.Location = new System.Drawing.Point(65, 30);
+            this.label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.Location = new System.Drawing.Point(20, 30);
             this.label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.Name = "label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename";
             this.label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.Size = new System.Drawing.Size(49, 23);
             this.label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.TabIndex = 6;
@@ -304,7 +312,7 @@
             // 
             // button_HeadMainWindow_ChangeManagerInfo_Change
             // 
-            this.button_HeadMainWindow_ChangeManagerInfo_Change.Location = new System.Drawing.Point(75, 150);
+            this.button_HeadMainWindow_ChangeManagerInfo_Change.Location = new System.Drawing.Point(242, 173);
             this.button_HeadMainWindow_ChangeManagerInfo_Change.Name = "button_HeadMainWindow_ChangeManagerInfo_Change";
             this.button_HeadMainWindow_ChangeManagerInfo_Change.Size = new System.Drawing.Size(150, 35);
             this.button_HeadMainWindow_ChangeManagerInfo_Change.TabIndex = 5;
@@ -393,7 +401,7 @@
             // 
             // button_HeadMainWindow_AddManager_Add
             // 
-            this.button_HeadMainWindow_AddManager_Add.Location = new System.Drawing.Point(76, 96);
+            this.button_HeadMainWindow_AddManager_Add.Location = new System.Drawing.Point(10, 96);
             this.button_HeadMainWindow_AddManager_Add.Name = "button_HeadMainWindow_AddManager_Add";
             this.button_HeadMainWindow_AddManager_Add.Size = new System.Drawing.Size(150, 35);
             this.button_HeadMainWindow_AddManager_Add.TabIndex = 5;
@@ -677,6 +685,52 @@
             this.label_HeadMainWindow_PeronalArea_HeadPassPata.TabIndex = 0;
             this.label_HeadMainWindow_PeronalArea_HeadPassPata.Text = "Паспортные данные:";
             // 
+            // label_HeadMainWindow_Managers_ChengeManagerInfo
+            // 
+            this.label_HeadMainWindow_Managers_ChengeManagerInfo.AutoSize = true;
+            this.label_HeadMainWindow_Managers_ChengeManagerInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_HeadMainWindow_Managers_ChengeManagerInfo.Location = new System.Drawing.Point(242, 30);
+            this.label_HeadMainWindow_Managers_ChengeManagerInfo.Name = "label_HeadMainWindow_Managers_ChengeManagerInfo";
+            this.label_HeadMainWindow_Managers_ChengeManagerInfo.Size = new System.Drawing.Size(154, 23);
+            this.label_HeadMainWindow_Managers_ChengeManagerInfo.TabIndex = 10;
+            this.label_HeadMainWindow_Managers_ChengeManagerInfo.Text = "Выберите данные";
+            // 
+            // comboBox_HeadMainWindow_ChangeManagerInfo_Change
+            // 
+            this.comboBox_HeadMainWindow_ChangeManagerInfo_Change.FormattingEnabled = true;
+            this.comboBox_HeadMainWindow_ChangeManagerInfo_Change.Items.AddRange(new object[] {
+            "Имя",
+            "Фамилия",
+            "Отчество",
+            "Зарплата",
+            "Дата зарплаты",
+            "Премия",
+            "Номер телефона",
+            "Паспортные данные",
+            "Логин",
+            "Пароль"});
+            this.comboBox_HeadMainWindow_ChangeManagerInfo_Change.Location = new System.Drawing.Point(215, 60);
+            this.comboBox_HeadMainWindow_ChangeManagerInfo_Change.Name = "comboBox_HeadMainWindow_ChangeManagerInfo_Change";
+            this.comboBox_HeadMainWindow_ChangeManagerInfo_Change.Size = new System.Drawing.Size(200, 31);
+            this.comboBox_HeadMainWindow_ChangeManagerInfo_Change.TabIndex = 9;
+            this.comboBox_HeadMainWindow_ChangeManagerInfo_Change.SelectedIndexChanged += new System.EventHandler(this.comboBox_HeadMainWindow_ChangeManagerInfo_Change_SelectedIndexChanged);
+            // 
+            // label_HeadMainWindow_ChangeManagerInfo_NewInfo
+            // 
+            this.label_HeadMainWindow_ChangeManagerInfo_NewInfo.AutoSize = true;
+            this.label_HeadMainWindow_ChangeManagerInfo_NewInfo.Location = new System.Drawing.Point(252, 106);
+            this.label_HeadMainWindow_ChangeManagerInfo_NewInfo.Name = "label_HeadMainWindow_ChangeManagerInfo_NewInfo";
+            this.label_HeadMainWindow_ChangeManagerInfo_NewInfo.Size = new System.Drawing.Size(130, 23);
+            this.label_HeadMainWindow_ChangeManagerInfo_NewInfo.TabIndex = 12;
+            this.label_HeadMainWindow_ChangeManagerInfo_NewInfo.Text = "Новые данные";
+            // 
+            // textBox_HeadMainWindow_NewManagerIfno_Input
+            // 
+            this.textBox_HeadMainWindow_NewManagerIfno_Input.Location = new System.Drawing.Point(242, 132);
+            this.textBox_HeadMainWindow_NewManagerIfno_Input.Name = "textBox_HeadMainWindow_NewManagerIfno_Input";
+            this.textBox_HeadMainWindow_NewManagerIfno_Input.Size = new System.Drawing.Size(150, 30);
+            this.textBox_HeadMainWindow_NewManagerIfno_Input.TabIndex = 11;
+            // 
             // HeadMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -779,5 +833,9 @@
         private ComboBox comboBox_HeadMainWindow_PersonalArea_ChangeHeadData;
         private Button button_HeadMainWindow_PersonalArea_ChahngeHeadData_Change;
         private Microsoft.Data.SqlClient.SqlCommandBuilder sqlCommandBuilder1;
+        private Label label_HeadMainWindow_Managers_ChengeManagerInfo;
+        private ComboBox comboBox_HeadMainWindow_ChangeManagerInfo_Change;
+        private Label label_HeadMainWindow_ChangeManagerInfo_NewInfo;
+        private TextBox textBox_HeadMainWindow_NewManagerIfno_Input;
     }
 }

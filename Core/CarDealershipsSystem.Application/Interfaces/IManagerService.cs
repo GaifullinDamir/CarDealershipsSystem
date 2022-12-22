@@ -15,7 +15,7 @@ namespace CarDealershipsSystem.Application.Interfaces
 
         public ManagerDTO GetManagerByPassData(string mngrPassData);
 
-        public bool ManagerChangeData(decimal mngrSalary, DateTime mngrPayDate, decimal mngrPrize);
+        public bool ManagerChangeData(string option, string mngrPassData, string data, ref string errorMessage);
 
 
 
