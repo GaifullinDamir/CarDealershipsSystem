@@ -82,6 +82,7 @@ namespace CarDealershipsSystem.Application.Services
         public bool IsManagerDataNotUnique(string mngrPassData, string mngrPhoneNumber, string managerLogin, string managerPassword)
         {
             var managers = GetManagers();
+
             foreach (var manager in managers)
             {
                 if (mngrPassData == manager.MngrPassData||
@@ -98,21 +99,24 @@ namespace CarDealershipsSystem.Application.Services
         public ManagerDTO GetManagerByPassData(string mngrPassData)
         {
             var manager = _managerRepository.GetManagerByPassData(mngrPassData);
-            var managerDTO = new ManagerDTO()
+            ManagerDTO managerDTO = null;
+            if (manager != null)
             {
-                IdMngr = manager.IdMngr,
-                MngrPassData = manager.MngrPassData,
-                IdBranch = manager.IdBranch,
-                MngrSurname = manager.MngrSurname,
-                MngrName = manager.MngrName,
-                MngrMiddlename = manager.MngrMiddlename,
-                MngrPhoneNumber = manager.MngrPhoneNumber,
-                MngrSalary = manager.MngrSalary,
-                MngrPayDate = manager.MngrPayDate,
-                MngrPrize = manager.MngrPrize,
-                ManagerPassword = manager.ManagerPassword,
-                ManagerLogin = manager.ManagerLogin,
-                CarOrders = manager.CarOrders
+                managerDTO= new ManagerDTO()
+                {
+                    IdMngr = manager.IdMngr,
+                    MngrPassData = manager.MngrPassData,
+                    IdBranch = manager.IdBranch,
+                    MngrSurname = manager.MngrSurname,
+                    MngrName = manager.MngrName,
+                    MngrMiddlename = manager.MngrMiddlename,
+                    MngrPhoneNumber = manager.MngrPhoneNumber,
+                    MngrSalary = manager.MngrSalary,
+                    MngrPayDate = manager.MngrPayDate,
+                    MngrPrize = manager.MngrPrize,
+                    ManagerPassword = manager.ManagerPassword,
+                    ManagerLogin = manager.ManagerLogin,
+                    CarOrders = manager.CarOrders
                     .Select(carorder => new CarOrderDTO
                     {
                         IdOrder = carorder.IdOrder,
@@ -122,7 +126,9 @@ namespace CarDealershipsSystem.Application.Services
                         OrderAmount = carorder.OrderAmount
                     })
                     .ToList()
-            };
+                };
+            }
+            
             return managerDTO;
         }
 

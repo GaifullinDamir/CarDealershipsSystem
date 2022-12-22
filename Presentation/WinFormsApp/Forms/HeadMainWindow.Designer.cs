@@ -419,6 +419,7 @@
             this.button_HeadMainWindow_SearchManager_Search.TabIndex = 6;
             this.button_HeadMainWindow_SearchManager_Search.Text = "Найти";
             this.button_HeadMainWindow_SearchManager_Search.UseVisualStyleBackColor = true;
+            this.button_HeadMainWindow_SearchManager_Search.Click += new System.EventHandler(this.button_HeadMainWindow_SearchManager_Search_Click);
             // 
             // label_HeadMainWindow_SearchManager_MngrPassData
             // 

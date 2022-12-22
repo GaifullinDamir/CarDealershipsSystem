@@ -66,14 +66,13 @@ namespace WinFormsApp
         private void HeadMainWindow_Load(object sender, EventArgs e)
         {
             var branches = _branchService.GetBranches().ToList();
+            var managers = _managerService.GetManagers().ToList();
             Init_DataGridView_Branches(branches);
-            Init_DataGridView_Managers();
+            Init_DataGridView_Managers(managers);
         }
 
         private void Init_DataGridView_Branches(List<BranchDTO> branches)
         {
-            //var branchesWithCarExemplars = _branchRepository.GetBranchesWithCarsExemplars().ToList();
-
             List<int> carsCount = new List<int>();
             foreach (var branch in branches)
             {
@@ -119,25 +118,28 @@ namespace WinFormsApp
 
         }
 
-        private void Init_DataGridView_Managers()
+        private void Init_DataGridView_Managers(List<ManagerDTO> managers)
         {
             dataGridView_HeadMainWindow_Managers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView_HeadMainWindow_Managers.AllowUserToAddRows= false;
             dataGridView_HeadMainWindow_Managers.ReadOnly = true;
 
-            
-
-            var managers = _managerService.GetManagers().ToList();
             List<int> carOrdersCount = new List<int>();
             List<string> managersBranches = new List<string>();
-            for (int i = 0; i < managers.Count(); i++)
-            {
-                carOrdersCount.Add(managers[i].CarOrders.Count());
 
-                managersBranches.Add(_branchService
-                    .GetBranchById(managers[i].IdBranch)
-                    .BranchName);
+            foreach (var manager in managers)
+            {
+                carOrdersCount.Add(manager.CarOrders.Count());
+                managersBranches.Add(_branchService.GetBranchById(manager.IdBranch).BranchName);
             }
+            //for (int i = 0; i < managers.Count(); i++)
+            //{
+            //    carOrdersCount.Add(managers[i].CarOrders.Count());
+
+            //    managersBranches.Add(_branchService
+            //        .GetBranchById(managers[i].IdBranch)
+            //        .BranchName);
+            //}
 
             dataGridView_HeadMainWindow_Managers.Rows.Clear();
 
@@ -366,7 +368,27 @@ namespace WinFormsApp
 
         private void button_HeadMainWindow_DataGridView_UpdateManagers_Click(object sender, EventArgs e)
         {
-            Init_DataGridView_Managers();
+            var managers = _managerService.GetManagers().ToList();
+            Init_DataGridView_Managers(managers);
+        }
+
+        private void button_HeadMainWindow_SearchManager_Search_Click(object sender, EventArgs e)
+        {
+            var mngrPassData = textBox_HeadMainWIndow_SearchManager_MngrPassData_Input.Text;
+
+            if (!String.IsNullOrWhiteSpace(mngrPassData))
+            {
+                List<ManagerDTO> managers = new List<ManagerDTO>();
+                var manager = _managerService.GetManagerByPassData(mngrPassData);
+                if (manager != null)
+                {
+                    managers.Add(manager);
+                }
+               
+                Init_DataGridView_Managers(managers);
+            }
+            else
+                MessageBox.Show("Поля не должны оставаться пустыми.");
         }
         //private void groupBox_HeadMainWindow_ChangeManagerInfo_Enter(object sender, EventArgs e)
         //{
