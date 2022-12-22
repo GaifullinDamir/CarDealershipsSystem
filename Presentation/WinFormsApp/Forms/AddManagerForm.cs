@@ -148,6 +148,7 @@ namespace WinFormsApp.Forms
             dataGridView_AddManagerForm_Branches.AllowUserToAddRows = false;
             dataGridView_AddManagerForm_Branches.ReadOnly = true;
 
+            dataGridView_AddManagerForm_Branches.Rows.Clear();
             dataGridView_AddManagerForm_Branches.ColumnCount = 3;
             dataGridView_AddManagerForm_Branches.Columns[0].Name = "ID филиала";
             dataGridView_AddManagerForm_Branches.Columns[1].Name = "Имя филиала";

@@ -63,13 +63,15 @@ namespace WinFormsApp
 
         private void HeadMainWindow_Load(object sender, EventArgs e)
         {
-            Init_DataGridView_Branches();
+            var branches = _branchService.GetBranches().ToList();
+            Init_DataGridView_Branches(branches);
             Init_DataGridView_Managers();
         }
 
-        private void Init_DataGridView_Branches()
+        private void Init_DataGridView_Branches(List<BranchDTO> branches)
         {
-            var branches = _branchRepository.GetBranchesWithCarsExemplars().ToList();
+            var branchesWithCarExemplars = _branchRepository.GetBranchesWithCarsExemplars().ToList();
+
             List<int> carsCount = new List<int>();
             foreach (var branch in branches)
             {
@@ -80,6 +82,7 @@ namespace WinFormsApp
                 }
                 carsCount.Add(temp);
             }
+            dataGridView_HeadMainWindow_Branches.Rows.Clear();
 
             dataGridView_HeadMainWindow_Branches.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView_HeadMainWindow_Branches.AllowUserToAddRows = false;
@@ -114,14 +117,69 @@ namespace WinFormsApp
             dataGridView_HeadMainWindow_Managers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView_HeadMainWindow_Managers.AllowUserToAddRows= false;
             dataGridView_HeadMainWindow_Managers.ReadOnly = true;
-            dataGridView_HeadMainWindow_Managers.DataSource = _managerService.GetManagers().ToList();
+
+            var managers = _managerService.GetManagers().ToList();
+            List<int> carOrdersCount = new List<int>();
+            List<string> managersBranches = new List<string>();
+            for (int i = 0; i < managers.Count(); i++)
+            {
+                carOrdersCount.Add(managers[i].CarOrders.Count());
+
+                managersBranches.Add(_branchService
+                    .GetBranchById(managers[i].IdBranch)
+                    .BranchName);
+            }
+
+            dataGridView_HeadMainWindow_Managers.Rows.Clear();
+
+            dataGridView_HeadMainWindow_Managers.ColumnCount = 11;
+            dataGridView_HeadMainWindow_Managers.Columns[0].Width = 100;
+            dataGridView_HeadMainWindow_Managers.Columns[1].Width = 100;
+            dataGridView_HeadMainWindow_Managers.Columns[2].Width = 100;
+            dataGridView_HeadMainWindow_Managers.Columns[3].Width = 120;
+            dataGridView_HeadMainWindow_Managers.Columns[4].Width = 100;
+            dataGridView_HeadMainWindow_Managers.Columns[5].Width = 100;
+            dataGridView_HeadMainWindow_Managers.Columns[6].Width = 70;
+            dataGridView_HeadMainWindow_Managers.Columns[7].Width = 120;
+            dataGridView_HeadMainWindow_Managers.Columns[8].Width = 100;
+            dataGridView_HeadMainWindow_Managers.Columns[9].Width = 120;
+            dataGridView_HeadMainWindow_Managers.Columns[10].Width = 100;
+                                        
+            dataGridView_HeadMainWindow_Managers.Columns[0].Name = "Фамилия";
+            dataGridView_HeadMainWindow_Managers.Columns[1].Name = "Имя";
+            dataGridView_HeadMainWindow_Managers.Columns[2].Name = "Отчество";
+            dataGridView_HeadMainWindow_Managers.Columns[3].Name = "Филиал";
+            dataGridView_HeadMainWindow_Managers.Columns[4].Name = "Логин";
+            dataGridView_HeadMainWindow_Managers.Columns[5].Name = "Пароль";
+            dataGridView_HeadMainWindow_Managers.Columns[6].Name = "Кол-во\nсделок";
+            dataGridView_HeadMainWindow_Managers.Columns[7].Name = "Номер\nтелефона";
+            dataGridView_HeadMainWindow_Managers.Columns[8].Name = "Зарплата";
+            dataGridView_HeadMainWindow_Managers.Columns[9].Name = "Дата\nзарплаты";
+            dataGridView_HeadMainWindow_Managers.Columns[10].Name = "Премия";
+
+            for (int i = 0; i < managers.Count(); i++)
+            {
+                if (dataGridView_HeadMainWindow_Managers.Rows.Count < managers.Count())
+                {
+                    dataGridView_HeadMainWindow_Managers.Rows.Add();
+                }
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[0].Value = managers[i].MngrSurname;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[1].Value = managers[i].MngrName;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[2].Value = managers[i].MngrMiddlename;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[3].Value = managersBranches[i];
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[4].Value = managers[i].ManagerLogin;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[5].Value = managers[i].ManagerPassword;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[6].Value = carOrdersCount[i];
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[7].Value = managers[i].MngrPhoneNumber;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[8].Value = managers[i].MngrSalary;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[9].Value = managers[i].MngrPayDate;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[10].Value = managers[i].MngrPrize;
+            }
+
 
         }
 
-        private void HeadMainWindow_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Environment.Exit(0);
-        }
+
         private void updateData_HeadMainWindow_PersonalArea_Label()
         {
             var head = _headService.GetHeads().ToList();
@@ -179,12 +237,18 @@ namespace WinFormsApp
             var idHead = _headService.GetHeads().FirstOrDefault().IdHead;
             if (!(String.IsNullOrWhiteSpace(branchName) || String.IsNullOrWhiteSpace(branchAddress)))
             {
-                if (_branchService.AddBranch(branchName, branchAddress, idHead))
+                if (!_branchService.IsBranchExistByNameOrByAddress(branchAddress))
                 {
-                    MessageBox.Show($"Филиал {branchName} добавлен успешно.");
+                    if (_branchService.AddBranch(branchName, branchAddress, idHead))
+                    {
+                        MessageBox.Show($"Филиал {branchName} добавлен успешно.");
+                    }
+                    else
+                        MessageBox.Show("Возникла ошибка при добавлении.");
                 }
                 else
-                    MessageBox.Show("ВОзникла ошибка при добавлении.");
+                    MessageBox.Show("По этому адресу уже имеется филиал");
+                
             }
             else
                 MessageBox.Show("Поля не должны оставаться пустыми.");
@@ -193,7 +257,8 @@ namespace WinFormsApp
 
         private void button_HeadMainWindow_DataGridView_UpdateBranches_Click(object sender, EventArgs e)
         {
-            Init_DataGridView_Branches();
+            var branches = _branchService.GetBranches().ToList();
+            Init_DataGridView_Branches(branches);
         }
 
         private void button_HeadMainWindow_SearchBranch_Click(object sender, EventArgs e)
@@ -202,16 +267,20 @@ namespace WinFormsApp
             if (!(String.IsNullOrWhiteSpace(branchName)))
             {
                 var branches = _branchService.SearchBranch(branchName).ToList();
-                Init_DataGridView_Branches();
+                Init_DataGridView_Branches(branches);
             }
             else
                 MessageBox.Show("Введите имя филиала.");
-            
         }
 
         private void button_HeadMainWindow_AddManager_Add_Click(object sender, EventArgs e)
         {
             _addManagerForm.Show();
+        }
+
+        private void HeadMainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
         }
         //private void groupBox_HeadMainWindow_ChangeManagerInfo_Enter(object sender, EventArgs e)
         //{

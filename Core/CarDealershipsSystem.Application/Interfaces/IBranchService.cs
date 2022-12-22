@@ -10,6 +10,10 @@ namespace CarDealershipsSystem.Application.Interfaces
 
         public bool IsBranchExistsById(int idBranch);
 
+        public bool IsBranchExistByNameOrByAddress(string branchAddress);
+
         public IEnumerable<BranchDTO> SearchBranch(string branchName);
+
+        public BranchDTO GetBranchById(int idBranch);
     }
 }

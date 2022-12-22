@@ -10,36 +10,17 @@ namespace CarDealershipsSystem.DAL.Repositories
     {
         private readonly CarDealershipsDbContext _context;
         private readonly ICarRepository _carRepository;
+        private readonly IManagerRepository _managerRepository;
 
         public BranchRepository(CarDealershipsDbContext context,
-            ICarRepository carRepository)
+            ICarRepository carRepository,
+            IManagerRepository managerRepository)
         {
             _context = context;
             _carRepository = carRepository;
+            _managerRepository = managerRepository;
         }
 
-        //public IEnumerable<Branch> GetBranches()
-        //{
-        //    var branches = _context.Branches
-        //        .Include(branch => branch.Cars.Join(_context.CarExemplars
-        //        , c => c.IdCar
-        //        , ce => ce.IdCar,
-        //        (c, ce) => new()
-        //        {
-        //            IdCar = c.IdCar,
-        //            IdBranch = c.IdBranch,
-        //            IdBranchNavigation = c.IdBranchNavigation,
-        //            BodyType = c.BodyType,
-        //            Brand = c.Brand,
-        //            Model = c.Model,
-        //            CarExemplars = c.CarExemplars,
-
-
-        //        })
-
-        //    return branches;
-
-        //}
         public IEnumerable<Branch> GetBranches()
         {
             var branches = _context.Branches
@@ -56,28 +37,11 @@ namespace CarDealershipsSystem.DAL.Repositories
                 .Include(branch => branch.Managers)
                 .ToList();
             var cars = _carRepository.GetCars().ToList();
+            var managers = _managerRepository.GetManagers().ToList();
 
             return branches;
         }
 
-        //public IEnumerable<Branch> GetBranches()
-        //{
-        //    //var branches = _context.Branches
-        //    //    .Join(_context.Cars,
-        //    //    b => b.IdBranch,
-        //    //    c => c.IdBranch)
-                
-        //    //    //.Include(branch => branch.Managers)
-        //    //    //.ToList();
-        //    var branches = from branch in _context.Branches
-        //                   join cars in _context.Cars on branch.IdBranch equals cars.IdBranch
-        //                   join carexemplar in _context.CarExemplars on cars.IdCar equals carexemplar.IdCar
-        //                   select new()
-        //                   {
-
-        //                   };
-        //    return branches;
-        //}
 
         public Branch GetBranchById(int idBranch)
         {
@@ -86,6 +50,12 @@ namespace CarDealershipsSystem.DAL.Repositories
                 .Include(b => b.Cars)
                 .Include(b => b.Managers)
                 .FirstOrDefault();
+            if (branch != null)
+            {
+                var cars = _carRepository.GetCars().ToList();
+                var managers = _managerRepository.GetManagers().ToList();
+            }
+
             return branch;
         }
 
