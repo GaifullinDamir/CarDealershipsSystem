@@ -18,6 +18,7 @@ namespace WinFormsApp
         private readonly IBranchRepository _branchRepository;
 
         private string _changeHeadData_ComboBoxOption;
+        private int managersRowIndex = -1;
 
         public HeadMainWindow(
             IBranchService branchService, IManagerService managerService,
@@ -281,6 +282,33 @@ namespace WinFormsApp
         private void HeadMainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        //private void dataGridView_HeadMainWindow_Managers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //{
+            
+
+
+        //}
+
+        private void dataGridView_HeadMainWindow_Managers_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                managersRowIndex = e.RowIndex;
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+            var managers = _managerService.GetManagers().ToList();
+            var mngrSurname = managers[managersRowIndex].MngrSurname;
+            var mngrName = managers[managersRowIndex].MngrName;
+            var mngrMiddlename = managers[managersRowIndex].MngrMiddlename;
+
+            label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.Text = mngrSurname + "\n" + mngrName + "\n" + mngrMiddlename;
+            label_HeadMainWindow_ChangeManager_MngrPassData.Text = managers[managersRowIndex].MngrPassData;
         }
         //private void groupBox_HeadMainWindow_ChangeManagerInfo_Enter(object sender, EventArgs e)
         //{

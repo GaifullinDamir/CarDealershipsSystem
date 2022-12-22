@@ -287,7 +287,7 @@
             // label_HeadMainWindow_ChangeManager_MngrPassData
             // 
             this.label_HeadMainWindow_ChangeManager_MngrPassData.AutoSize = true;
-            this.label_HeadMainWindow_ChangeManager_MngrPassData.Location = new System.Drawing.Point(63, 90);
+            this.label_HeadMainWindow_ChangeManager_MngrPassData.Location = new System.Drawing.Point(7, 111);
             this.label_HeadMainWindow_ChangeManager_MngrPassData.Name = "label_HeadMainWindow_ChangeManager_MngrPassData";
             this.label_HeadMainWindow_ChangeManager_MngrPassData.Size = new System.Drawing.Size(175, 23);
             this.label_HeadMainWindow_ChangeManager_MngrPassData.TabIndex = 7;
@@ -296,7 +296,7 @@
             // label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename
             // 
             this.label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.AutoSize = true;
-            this.label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.Location = new System.Drawing.Point(125, 60);
+            this.label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.Location = new System.Drawing.Point(8, 30);
             this.label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.Name = "label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename";
             this.label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.Size = new System.Drawing.Size(49, 23);
             this.label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.TabIndex = 6;
@@ -341,6 +341,7 @@
             this.dataGridView_HeadMainWindow_Managers.RowTemplate.Height = 29;
             this.dataGridView_HeadMainWindow_Managers.Size = new System.Drawing.Size(880, 300);
             this.dataGridView_HeadMainWindow_Managers.TabIndex = 0;
+            this.dataGridView_HeadMainWindow_Managers.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_HeadMainWindow_Managers_CellMouseClick);
             // 
             // groupBox_HeadMainWindow_SearchManager
             // 
