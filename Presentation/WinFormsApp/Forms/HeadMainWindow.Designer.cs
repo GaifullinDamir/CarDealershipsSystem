@@ -563,6 +563,7 @@
             this.button_HeadMainWindow_DataGridView_Cars_Update.TabIndex = 1;
             this.button_HeadMainWindow_DataGridView_Cars_Update.Text = "Обновить";
             this.button_HeadMainWindow_DataGridView_Cars_Update.UseVisualStyleBackColor = true;
+            this.button_HeadMainWindow_DataGridView_Cars_Update.Click += new System.EventHandler(this.button_HeadMainWindow_DataGridView_Cars_Update_Click);
             // 
             // dataGridView_HeadMainWindow_Cars
             // 

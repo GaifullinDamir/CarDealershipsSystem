@@ -7,9 +7,12 @@ namespace CarDealershipsSystem.DAL.Repositories
     public class CarRepository : ICarRepository
     {
         private readonly CarDealershipsDbContext _context;
-        public CarRepository(CarDealershipsDbContext context)
+        private readonly ICarExemplarRepository _carExemplarRepository;
+        public CarRepository(CarDealershipsDbContext context,
+            ICarExemplarRepository carExemplarRepository)
         {
             _context = context;
+            _carExemplarRepository = carExemplarRepository;
         }
 
         public IEnumerable<Car> GetCars()
@@ -17,6 +20,7 @@ namespace CarDealershipsSystem.DAL.Repositories
             var cars = _context.Cars
                 .Include(car => car.CarExemplars)
                 .ToList();
+            var carExemplars = _carExemplarRepository.GetCarExemplars();
             return cars;
         }
     }
