@@ -1,6 +1,7 @@
 ﻿using CarDealershipsSystem.Application.DTO;
 using CarDealershipsSystem.Application.Interfaces;
 using CarDealershipsSystem.DAL.Interfaces;
+using System.Globalization;
 
 namespace WinFormsApp.Forms
 {
@@ -9,6 +10,8 @@ namespace WinFormsApp.Forms
         private readonly IBranchRepository _branchRepository;
         private readonly ICarService _carService;
         private readonly IBranchService _branchService;
+
+        private int carsRowIndex = -1;
         public AddCarExemplarWindow(IBranchRepository branchRepository,
             ICarService carService,
             IBranchService branchService)
@@ -80,6 +83,112 @@ namespace WinFormsApp.Forms
                 dataGridView_AddCarExemplarsWindow_Cars.Rows[i].Cells[2].Value = cars[i].Brand + " (" + cars[i].IdCar + ")";
                 dataGridView_AddCarExemplarsWindow_Cars.Rows[i].Cells[3].Value = cars[i].Model;
                 dataGridView_AddCarExemplarsWindow_Cars.Rows[i].Cells[4].Value = cars[i].BodyType;
+            }
+        }
+
+        private void dataGridView_AddCarExemplarsWindow_Cars_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                carsRowIndex = e.RowIndex;
+                if (carsRowIndex == -1)
+                {
+                    return;
+                }
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            var cars = _carService.GetCars().ToList();
+            var idCar = cars[carsRowIndex].IdCar;
+            textBox_AddCarExemplarWindow_IdCar_Input.Text = idCar.ToString();
+        }
+
+        private void button_AddCarExemplarWindow_AddCarExemplar_Click(object sender, EventArgs e)
+        {
+            var idCar = textBox_AddCarExemplarWindow_IdCar_Input.Text;
+            var carPower = textBox_AddCarExemplarWindow_Power_Input.Text;
+            var carPrice = textBox_AddCarExemplarWindow_Price_Input.Text;
+            var carColor = textBox_AddCarExemplarWindow_CarColor_Input.Text;
+            var yearOfAssembly = textBox_AddCarExemplarWindow_YearOffAssebly_Input.Text;
+            var vinNumber = textBox_AddCarExemplarWindow_VinNumber_Input.Text;
+
+            int intIdCar;
+            int intCarPower;
+            decimal decCarPrice;
+            DateTime dateYearOfAssembly = new DateTime();
+
+            if (!(String.IsNullOrWhiteSpace(idCar) ||
+            String.IsNullOrWhiteSpace(carPower) ||
+            String.IsNullOrWhiteSpace(carPrice) ||
+            String.IsNullOrWhiteSpace(carColor)||
+            String.IsNullOrWhiteSpace(yearOfAssembly)||
+            String.IsNullOrWhiteSpace(vinNumber)
+                ))
+            {
+                try
+                {
+                    intIdCar = Convert.ToInt32(idCar);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("ID машины - число!");
+                    return;
+                }
+                try
+                {
+                    intCarPower = Convert.ToInt32(carPower);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Мощность машины - число!");
+                    return;
+                }
+
+                try
+                {
+                    if (!carPrice.Contains(','))
+                    {
+                        decCarPrice = Decimal.Parse(carPrice, CultureInfo.InvariantCulture);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Разедлителем между целой частью числа\n и десятичной должна быть точка ('.')");
+                        return;
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Зарплата - число.");
+                    return;
+                }
+                try
+                {
+                    dateYearOfAssembly = DateTime.Parse(yearOfAssembly);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Формат записи даты:\n" +
+                        "yyyy.mm.dd\n" +
+                        "mm.dd.yyyy\n" +
+                        "yyyy-mm-dd\n" +
+                        "yyyy/mm/dd");
+                    return;
+                }
+                if (_carService.AddCar(brand, model, bodyType, intIdBranch))
+                {
+                    MessageBox.Show("Автомобиль добавлен в филиал.");
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка при добавлении.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Поля не должны оставаться пустыми.");
+                return;
             }
         }
     }

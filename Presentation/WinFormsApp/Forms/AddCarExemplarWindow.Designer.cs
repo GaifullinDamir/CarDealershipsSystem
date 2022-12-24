@@ -31,11 +31,13 @@
             this.groupBox_AddCarExemplarWindow_Cars = new System.Windows.Forms.GroupBox();
             this.dataGridView_AddCarExemplarsWindow_Cars = new System.Windows.Forms.DataGridView();
             this.groupBox_AddCarExemplarWindow_CarData = new System.Windows.Forms.GroupBox();
+            this.label_AddCarExemplarWindow_VinNumber = new System.Windows.Forms.Label();
+            this.textBox_AddCarExemplarWindow_VinNumber_Input = new System.Windows.Forms.TextBox();
             this.label_AddCarExemplarWindow_YearOfAssembly = new System.Windows.Forms.Label();
             this.textBox_AddCarExemplarWindow_YearOffAssebly_Input = new System.Windows.Forms.TextBox();
             this.textBox_AddCarExemplarWindow_Price_Input = new System.Windows.Forms.TextBox();
             this.label_AddCarExemplarWindow_Color = new System.Windows.Forms.Label();
-            this.textBox_AddCarWindow_IdBranch_Input = new System.Windows.Forms.TextBox();
+            this.textBox_AddCarExemplarWindow_CarColor_Input = new System.Windows.Forms.TextBox();
             this.label_AddCarExemplarWindow_IdCar = new System.Windows.Forms.Label();
             this.label_AddCarExemplarWindow_Price = new System.Windows.Forms.Label();
             this.textBox_AddCarExemplarWindow_Power_Input = new System.Windows.Forms.TextBox();
@@ -68,14 +70,17 @@
             this.dataGridView_AddCarExemplarsWindow_Cars.RowTemplate.Height = 29;
             this.dataGridView_AddCarExemplarsWindow_Cars.Size = new System.Drawing.Size(484, 375);
             this.dataGridView_AddCarExemplarsWindow_Cars.TabIndex = 0;
+            this.dataGridView_AddCarExemplarsWindow_Cars.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_AddCarExemplarsWindow_Cars_CellMouseClick);
             // 
             // groupBox_AddCarExemplarWindow_CarData
             // 
+            this.groupBox_AddCarExemplarWindow_CarData.Controls.Add(this.label_AddCarExemplarWindow_VinNumber);
+            this.groupBox_AddCarExemplarWindow_CarData.Controls.Add(this.textBox_AddCarExemplarWindow_VinNumber_Input);
             this.groupBox_AddCarExemplarWindow_CarData.Controls.Add(this.label_AddCarExemplarWindow_YearOfAssembly);
             this.groupBox_AddCarExemplarWindow_CarData.Controls.Add(this.textBox_AddCarExemplarWindow_YearOffAssebly_Input);
             this.groupBox_AddCarExemplarWindow_CarData.Controls.Add(this.textBox_AddCarExemplarWindow_Price_Input);
             this.groupBox_AddCarExemplarWindow_CarData.Controls.Add(this.label_AddCarExemplarWindow_Color);
-            this.groupBox_AddCarExemplarWindow_CarData.Controls.Add(this.textBox_AddCarWindow_IdBranch_Input);
+            this.groupBox_AddCarExemplarWindow_CarData.Controls.Add(this.textBox_AddCarExemplarWindow_CarColor_Input);
             this.groupBox_AddCarExemplarWindow_CarData.Controls.Add(this.label_AddCarExemplarWindow_IdCar);
             this.groupBox_AddCarExemplarWindow_CarData.Controls.Add(this.label_AddCarExemplarWindow_Price);
             this.groupBox_AddCarExemplarWindow_CarData.Controls.Add(this.textBox_AddCarExemplarWindow_Power_Input);
@@ -84,10 +89,26 @@
             this.groupBox_AddCarExemplarWindow_CarData.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox_AddCarExemplarWindow_CarData.Location = new System.Drawing.Point(12, 12);
             this.groupBox_AddCarExemplarWindow_CarData.Name = "groupBox_AddCarExemplarWindow_CarData";
-            this.groupBox_AddCarExemplarWindow_CarData.Size = new System.Drawing.Size(202, 361);
+            this.groupBox_AddCarExemplarWindow_CarData.Size = new System.Drawing.Size(202, 448);
             this.groupBox_AddCarExemplarWindow_CarData.TabIndex = 9;
             this.groupBox_AddCarExemplarWindow_CarData.TabStop = false;
             this.groupBox_AddCarExemplarWindow_CarData.Text = "Данные экземпляра";
+            // 
+            // label_AddCarExemplarWindow_VinNumber
+            // 
+            this.label_AddCarExemplarWindow_VinNumber.AutoSize = true;
+            this.label_AddCarExemplarWindow_VinNumber.Location = new System.Drawing.Point(50, 368);
+            this.label_AddCarExemplarWindow_VinNumber.Name = "label_AddCarExemplarWindow_VinNumber";
+            this.label_AddCarExemplarWindow_VinNumber.Size = new System.Drawing.Size(98, 23);
+            this.label_AddCarExemplarWindow_VinNumber.TabIndex = 14;
+            this.label_AddCarExemplarWindow_VinNumber.Text = "VIN-номер";
+            // 
+            // textBox_AddCarExemplarWindow_VinNumber_Input
+            // 
+            this.textBox_AddCarExemplarWindow_VinNumber_Input.Location = new System.Drawing.Point(23, 394);
+            this.textBox_AddCarExemplarWindow_VinNumber_Input.Name = "textBox_AddCarExemplarWindow_VinNumber_Input";
+            this.textBox_AddCarExemplarWindow_VinNumber_Input.Size = new System.Drawing.Size(150, 30);
+            this.textBox_AddCarExemplarWindow_VinNumber_Input.TabIndex = 13;
             // 
             // label_AddCarExemplarWindow_YearOfAssembly
             // 
@@ -121,12 +142,12 @@
             this.label_AddCarExemplarWindow_Color.TabIndex = 9;
             this.label_AddCarExemplarWindow_Color.Text = "Цвет";
             // 
-            // textBox_AddCarWindow_IdBranch_Input
+            // textBox_AddCarExemplarWindow_CarColor_Input
             // 
-            this.textBox_AddCarWindow_IdBranch_Input.Location = new System.Drawing.Point(23, 254);
-            this.textBox_AddCarWindow_IdBranch_Input.Name = "textBox_AddCarWindow_IdBranch_Input";
-            this.textBox_AddCarWindow_IdBranch_Input.Size = new System.Drawing.Size(150, 30);
-            this.textBox_AddCarWindow_IdBranch_Input.TabIndex = 8;
+            this.textBox_AddCarExemplarWindow_CarColor_Input.Location = new System.Drawing.Point(23, 254);
+            this.textBox_AddCarExemplarWindow_CarColor_Input.Name = "textBox_AddCarExemplarWindow_CarColor_Input";
+            this.textBox_AddCarExemplarWindow_CarColor_Input.Size = new System.Drawing.Size(150, 30);
+            this.textBox_AddCarExemplarWindow_CarColor_Input.TabIndex = 8;
             // 
             // label_AddCarExemplarWindow_IdCar
             // 
@@ -181,6 +202,7 @@
             this.button_AddCarExemplarWindow_AddCarExemplar.TabIndex = 10;
             this.button_AddCarExemplarWindow_AddCarExemplar.Text = "Добавить экземпляр";
             this.button_AddCarExemplarWindow_AddCarExemplar.UseVisualStyleBackColor = true;
+            this.button_AddCarExemplarWindow_AddCarExemplar.Click += new System.EventHandler(this.button_AddCarExemplarWindow_AddCarExemplar_Click);
             // 
             // AddCarExemplarWindow
             // 
@@ -212,12 +234,14 @@
         private TextBox textBox_AddCarExemplarWindow_YearOffAssebly_Input;
         private TextBox textBox_AddCarExemplarWindow_Price_Input;
         private Label label_AddCarExemplarWindow_Color;
-        private TextBox textBox_AddCarWindow_IdBranch_Input;
+        private TextBox textBox_AddCarExemplarWindow_CarColor_Input;
         private Label label_AddCarExemplarWindow_IdCar;
         private Label label_AddCarExemplarWindow_Price;
         private TextBox textBox_AddCarExemplarWindow_Power_Input;
         private TextBox textBox_AddCarExemplarWindow_IdCar_Input;
         private Label label_AddCarExemplarWindow_Power;
         private Button button_AddCarExemplarWindow_AddCarExemplar;
+        private Label label_AddCarExemplarWindow_VinNumber;
+        private TextBox textBox_AddCarExemplarWindow_VinNumber_Input;
     }
 }
