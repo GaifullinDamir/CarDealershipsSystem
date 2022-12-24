@@ -53,7 +53,7 @@
             this.dataGridView_AddCarWindow_Branches.Name = "dataGridView_AddCarWindow_Branches";
             this.dataGridView_AddCarWindow_Branches.RowHeadersWidth = 51;
             this.dataGridView_AddCarWindow_Branches.RowTemplate.Height = 29;
-            this.dataGridView_AddCarWindow_Branches.Size = new System.Drawing.Size(365, 258);
+            this.dataGridView_AddCarWindow_Branches.Size = new System.Drawing.Size(484, 375);
             this.dataGridView_AddCarWindow_Branches.TabIndex = 0;
             this.dataGridView_AddCarWindow_Branches.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_AddCarWindow_Branches_CellMouseClick);
             // 
@@ -63,7 +63,7 @@
             this.groupBox_AddCarWindow_Branches.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox_AddCarWindow_Branches.Location = new System.Drawing.Point(214, 12);
             this.groupBox_AddCarWindow_Branches.Name = "groupBox_AddCarWindow_Branches";
-            this.groupBox_AddCarWindow_Branches.Size = new System.Drawing.Size(377, 290);
+            this.groupBox_AddCarWindow_Branches.Size = new System.Drawing.Size(496, 407);
             this.groupBox_AddCarWindow_Branches.TabIndex = 1;
             this.groupBox_AddCarWindow_Branches.TabStop = false;
             this.groupBox_AddCarWindow_Branches.Text = "Филиалы";
@@ -164,7 +164,7 @@
             // button_AddCarWindow_AddCar
             // 
             this.button_AddCarWindow_AddCar.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button_AddCarWindow_AddCar.Location = new System.Drawing.Point(210, 315);
+            this.button_AddCarWindow_AddCar.Location = new System.Drawing.Point(263, 425);
             this.button_AddCarWindow_AddCar.Name = "button_AddCarWindow_AddCar";
             this.button_AddCarWindow_AddCar.Size = new System.Drawing.Size(200, 35);
             this.button_AddCarWindow_AddCar.TabIndex = 9;
@@ -176,7 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 363);
+            this.ClientSize = new System.Drawing.Size(722, 483);
             this.Controls.Add(this.button_AddCarWindow_AddCar);
             this.Controls.Add(this.groupBox_AddCarWindow_CarData);
             this.Controls.Add(this.groupBox_AddCarWindow_Branches);

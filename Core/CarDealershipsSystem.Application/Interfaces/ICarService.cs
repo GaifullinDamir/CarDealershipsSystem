@@ -8,6 +8,10 @@ namespace CarDealershipsSystem.Application.Interfaces
 
         public int GetCarExemplarsCount(BranchDTO branch);
 
+        //public CarDTO GetCarByID(int idCar);
+
         public bool AddCar(string brand, string model, string bodyType, int idBranch);
+
+        public bool DeleteCar(int idCar);
     }
 }
