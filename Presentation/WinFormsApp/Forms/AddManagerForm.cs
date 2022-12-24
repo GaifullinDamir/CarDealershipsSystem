@@ -63,7 +63,18 @@ namespace WinFormsApp.Forms
                 String.IsNullOrWhiteSpace(managerPassword)||
                 String.IsNullOrWhiteSpace(managerLogin)))
             {
-
+                if (mngrPassData.Length > 20 ||
+                    mngrSurname.Length > 30 ||
+                    mngrName.Length > 30 ||
+                    mngrMiddlename.Length > 30 ||
+                    mngrPhoneNumber.Length > 20 ||
+                    managerPassword.Length > 20 ||
+                    managerLogin.Length > 20
+                    )
+                {
+                    MessageBox.Show("Слишком длинное значение.");
+                    return;
+                }
                 if (_managerService.IsManagerDataNotUnique(mngrPassData, mngrPhoneNumber, managerLogin, managerPassword))
                 {
                     MessageBox.Show("Менеджер с подобными данными уже существует.");

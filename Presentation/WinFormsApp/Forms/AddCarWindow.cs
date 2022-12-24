@@ -72,6 +72,7 @@ namespace WinFormsApp.Forms
 
         private void AddCarWindow_Load(object sender, EventArgs e)
         {
+            comboBox_AddCarWindow_BodyType.DropDownStyle = ComboBoxStyle.DropDownList;
             var branches = _branchService.GetBranches().ToList();
             Init_DataGridView_AddCarWindow_Branches(branches);
         }
@@ -90,6 +91,15 @@ namespace WinFormsApp.Forms
             String.IsNullOrWhiteSpace(idBranch)
                 ))
             {
+                if (brand.Length > 30 ||
+                    model.Length > 30 ||
+                    bodyType.Length > 15
+                    )
+                {
+                    MessageBox.Show("Слишком длинное значение.");
+                    return;
+                }
+
                 try
                 {
                     intIdBranch = Convert.ToInt32(idBranch);

@@ -365,6 +365,11 @@ namespace WinFormsApp
             var idHead = _headService.GetHeads().FirstOrDefault().IdHead;
             if (!(String.IsNullOrWhiteSpace(branchName) || String.IsNullOrWhiteSpace(branchAddress)))
             {
+                if (branchName.Length > 30 || branchAddress.Length > 100)
+                {
+                    MessageBox.Show("Введено слишком длинное значение.");
+                    return;
+                }
                 if (!_branchService.IsBranchExistByNameOrByAddress(branchAddress))
                 {
                     if (_branchService.AddBranch(branchName, branchAddress, idHead))
@@ -561,6 +566,21 @@ namespace WinFormsApp
         private void button_HeadMainWindow_AddCarExemplar_Click(object sender, EventArgs e)
         {
             _addCarExemplarWindow.Show();
+        }
+
+        private void button_HeadMainWindow_SearchCar_Click(object sender, EventArgs e)
+        {
+            var brand = textBox_HeadMainWindow_SearchCar_Brand_Input.Text;
+            var model = textBox_HeadMainWindow_SearchCar_Model_Input.Text;
+
+            if (!(String.IsNullOrWhiteSpace(brand)||
+                String.IsNullOrWhiteSpace(model)))
+            {
+                var cars = _carService.GetCarsByBrandModel(brand, model).ToList();
+                Init_DataGridView_Cars(cars);
+            }
+            else
+                MessageBox.Show("Не оставляйте поля пустыми.");
         }
     }
 }

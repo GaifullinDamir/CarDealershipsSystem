@@ -95,5 +95,32 @@ namespace CarDealershipsSystem.Application.Services
             }
             
         }
+
+        public List<CarDTO> GetCarsByBrandModel(string brand, string model)
+        {
+            var cars = _carRepository.GetCarsByBrandModel(brand, model);
+            var carsDTO = cars
+                .Select(car => new CarDTO
+                {
+                    IdCar = car.IdCar,
+                    IdBranch = car.IdBranch,
+                    Brand = car.Brand,
+                    Model = car.Model,
+                    BodyType = car.BodyType,
+                    CarExemplars = car.CarExemplars
+                    .Select(carex => new CarExemplarDTO
+                    {
+                        VinNumber = carex.VinNumber,
+                        IdCar = carex.IdCar,
+                        HorsePower = carex.HorsePower,
+                        Price = carex.Price,
+                        Color = carex.Color,
+                        YearOfAssembly = carex.YearOfAssembly
+                    })
+                    .ToList()
+                }).ToList();
+            return carsDTO;
+
+        }
     }
 }

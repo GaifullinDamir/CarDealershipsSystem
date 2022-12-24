@@ -52,5 +52,16 @@ namespace CarDealershipsSystem.DAL.Repositories
             _context.Remove(car);
             return _context.SaveChanges() > 0 ? true : false;
         }
+
+        public List<Car> GetCarsByBrandModel(string brand, string model)
+        {
+            var cars = _context.Cars
+                .Where(car => car.Brand == brand)
+                .Where(car => car.Model == model)
+                .ToList();
+            var carExemplars = _carExemplarRepository.GetCarExemplars();
+            return cars;
+
+        }
     }
 }

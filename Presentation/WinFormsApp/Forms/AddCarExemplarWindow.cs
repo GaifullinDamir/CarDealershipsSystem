@@ -131,6 +131,13 @@ namespace WinFormsApp.Forms
             String.IsNullOrWhiteSpace(vinNumber)
                 ))
             {
+                if (carColor.Length > 30||
+                    vinNumber.Length > 17
+                    )
+                {
+                    MessageBox.Show("Слишком длинное значение.");
+                    return;
+                }
                 try
                 {
                     intIdCar = Convert.ToInt32(idCar);
