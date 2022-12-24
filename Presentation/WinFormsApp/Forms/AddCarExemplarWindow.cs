@@ -10,16 +10,19 @@ namespace WinFormsApp.Forms
         private readonly IBranchRepository _branchRepository;
         private readonly ICarService _carService;
         private readonly IBranchService _branchService;
+        private readonly ICarExemplarService _carExemplarService;
 
         private int carsRowIndex = -1;
         public AddCarExemplarWindow(IBranchRepository branchRepository,
             ICarService carService,
-            IBranchService branchService)
+            IBranchService branchService,
+            ICarExemplarService carExemplarService)
         {
             _branchRepository = branchRepository;
             _carService = carService;
             _branchService = branchService;
             InitializeComponent();
+            _carExemplarService = carExemplarService;
         }
 
         private void AddCarExemplarWindow_FormClosing(object sender, FormClosingEventArgs e)
@@ -118,6 +121,7 @@ namespace WinFormsApp.Forms
             int intCarPower;
             decimal decCarPrice;
             DateTime dateYearOfAssembly = new DateTime();
+            string errorMessage = "";
 
             if (!(String.IsNullOrWhiteSpace(idCar) ||
             String.IsNullOrWhiteSpace(carPower) ||
@@ -176,13 +180,14 @@ namespace WinFormsApp.Forms
                         "yyyy/mm/dd");
                     return;
                 }
-                if (_carService.AddCar(brand, model, bodyType, intIdBranch))
+                if (_carExemplarService.AddCarExemplar(vinNumber, intIdCar, intCarPower,
+                    decCarPrice, carColor, dateYearOfAssembly, ref errorMessage))
                 {
                     MessageBox.Show("Автомобиль добавлен в филиал.");
                 }
                 else
                 {
-                    MessageBox.Show("Ошибка при добавлении.");
+                    MessageBox.Show(errorMessage);
                 }
             }
             else
