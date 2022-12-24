@@ -72,7 +72,7 @@
             this.button_HeadMainWindow_AddCar = new System.Windows.Forms.Button();
             this.groupBox_HeadMainWindow_Cars = new System.Windows.Forms.GroupBox();
             this.button_HeadMainWindow_DataGridView_Cars_Update = new System.Windows.Forms.Button();
-            this.dataGridView_HeadMainWindow_Cars = new System.Windows.Forms.DataGridView();
+            this.dataGridView_HeadMainWindow_CarExemplars = new System.Windows.Forms.DataGridView();
             this.tabPage_HeadPersonalArea = new System.Windows.Forms.TabPage();
             this.button_HeadMainWindow_PersonalArea_ChahngeHeadData_Change = new System.Windows.Forms.Button();
             this.label_HeadMainWindow_PersonalArea_ChangeHeadData = new System.Windows.Forms.Label();
@@ -89,6 +89,8 @@
             this.label_HeadMainWindow_PersonalArea_HeadName = new System.Windows.Forms.Label();
             this.label_HeadMainWindow_PeronalArea_HeadPassPata = new System.Windows.Forms.Label();
             this.sqlCommandBuilder1 = new Microsoft.Data.SqlClient.SqlCommandBuilder();
+            this.dataGridView_HeadMainWindow_Cars = new System.Windows.Forms.DataGridView();
+            this.label_HeadMainWindow_Cars_Exemplars = new System.Windows.Forms.Label();
             this.tabControl_HeadMainWindow.SuspendLayout();
             this.tabPage_Branches.SuspendLayout();
             this.groupBox_HeadMainWindow_Branches.SuspendLayout();
@@ -104,9 +106,10 @@
             this.tabPage_Cars.SuspendLayout();
             this.groupBox_HeadMainWindow_SearchCar.SuspendLayout();
             this.groupBox_HeadMainWindow_Cars.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_HeadMainWindow_Cars)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_HeadMainWindow_CarExemplars)).BeginInit();
             this.tabPage_HeadPersonalArea.SuspendLayout();
             this.groupBox_HeadMainWindow_HeadPersonalData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_HeadMainWindow_Cars)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl_HeadMainWindow
@@ -547,8 +550,10 @@
             // 
             // groupBox_HeadMainWindow_Cars
             // 
-            this.groupBox_HeadMainWindow_Cars.Controls.Add(this.button_HeadMainWindow_DataGridView_Cars_Update);
+            this.groupBox_HeadMainWindow_Cars.Controls.Add(this.label_HeadMainWindow_Cars_Exemplars);
             this.groupBox_HeadMainWindow_Cars.Controls.Add(this.dataGridView_HeadMainWindow_Cars);
+            this.groupBox_HeadMainWindow_Cars.Controls.Add(this.button_HeadMainWindow_DataGridView_Cars_Update);
+            this.groupBox_HeadMainWindow_Cars.Controls.Add(this.dataGridView_HeadMainWindow_CarExemplars);
             this.groupBox_HeadMainWindow_Cars.Location = new System.Drawing.Point(6, 0);
             this.groupBox_HeadMainWindow_Cars.Name = "groupBox_HeadMainWindow_Cars";
             this.groupBox_HeadMainWindow_Cars.Size = new System.Drawing.Size(900, 400);
@@ -566,16 +571,16 @@
             this.button_HeadMainWindow_DataGridView_Cars_Update.UseVisualStyleBackColor = true;
             this.button_HeadMainWindow_DataGridView_Cars_Update.Click += new System.EventHandler(this.button_HeadMainWindow_DataGridView_Cars_Update_Click);
             // 
-            // dataGridView_HeadMainWindow_Cars
+            // dataGridView_HeadMainWindow_CarExemplars
             // 
-            this.dataGridView_HeadMainWindow_Cars.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridView_HeadMainWindow_Cars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_HeadMainWindow_Cars.Location = new System.Drawing.Point(10, 30);
-            this.dataGridView_HeadMainWindow_Cars.Name = "dataGridView_HeadMainWindow_Cars";
-            this.dataGridView_HeadMainWindow_Cars.RowHeadersWidth = 51;
-            this.dataGridView_HeadMainWindow_Cars.RowTemplate.Height = 29;
-            this.dataGridView_HeadMainWindow_Cars.Size = new System.Drawing.Size(880, 300);
-            this.dataGridView_HeadMainWindow_Cars.TabIndex = 0;
+            this.dataGridView_HeadMainWindow_CarExemplars.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridView_HeadMainWindow_CarExemplars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_HeadMainWindow_CarExemplars.Location = new System.Drawing.Point(457, 29);
+            this.dataGridView_HeadMainWindow_CarExemplars.Name = "dataGridView_HeadMainWindow_CarExemplars";
+            this.dataGridView_HeadMainWindow_CarExemplars.RowHeadersWidth = 51;
+            this.dataGridView_HeadMainWindow_CarExemplars.RowTemplate.Height = 29;
+            this.dataGridView_HeadMainWindow_CarExemplars.Size = new System.Drawing.Size(437, 300);
+            this.dataGridView_HeadMainWindow_CarExemplars.TabIndex = 0;
             // 
             // tabPage_HeadPersonalArea
             // 
@@ -735,6 +740,26 @@
             this.label_HeadMainWindow_PeronalArea_HeadPassPata.TabIndex = 0;
             this.label_HeadMainWindow_PeronalArea_HeadPassPata.Text = "Паспортные данные:";
             // 
+            // dataGridView_HeadMainWindow_Cars
+            // 
+            this.dataGridView_HeadMainWindow_Cars.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridView_HeadMainWindow_Cars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_HeadMainWindow_Cars.Location = new System.Drawing.Point(8, 29);
+            this.dataGridView_HeadMainWindow_Cars.Name = "dataGridView_HeadMainWindow_Cars";
+            this.dataGridView_HeadMainWindow_Cars.RowHeadersWidth = 51;
+            this.dataGridView_HeadMainWindow_Cars.RowTemplate.Height = 29;
+            this.dataGridView_HeadMainWindow_Cars.Size = new System.Drawing.Size(437, 300);
+            this.dataGridView_HeadMainWindow_Cars.TabIndex = 2;
+            // 
+            // label_HeadMainWindow_Cars_Exemplars
+            // 
+            this.label_HeadMainWindow_Cars_Exemplars.AutoSize = true;
+            this.label_HeadMainWindow_Cars_Exemplars.Location = new System.Drawing.Point(764, 0);
+            this.label_HeadMainWindow_Cars_Exemplars.Name = "label_HeadMainWindow_Cars_Exemplars";
+            this.label_HeadMainWindow_Cars_Exemplars.Size = new System.Drawing.Size(112, 23);
+            this.label_HeadMainWindow_Cars_Exemplars.TabIndex = 3;
+            this.label_HeadMainWindow_Cars_Exemplars.Text = "Экземпляры";
+            // 
             // HeadMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -769,11 +794,13 @@
             this.groupBox_HeadMainWindow_SearchCar.ResumeLayout(false);
             this.groupBox_HeadMainWindow_SearchCar.PerformLayout();
             this.groupBox_HeadMainWindow_Cars.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_HeadMainWindow_Cars)).EndInit();
+            this.groupBox_HeadMainWindow_Cars.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_HeadMainWindow_CarExemplars)).EndInit();
             this.tabPage_HeadPersonalArea.ResumeLayout(false);
             this.tabPage_HeadPersonalArea.PerformLayout();
             this.groupBox_HeadMainWindow_HeadPersonalData.ResumeLayout(false);
             this.groupBox_HeadMainWindow_HeadPersonalData.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_HeadMainWindow_Cars)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -817,7 +844,7 @@
         private Button button_HeadMainWindow_AddCarExemplar;
         private Button button_HeadMainWindow_AddCar;
         private Button button_HeadMainWindow_DataGridView_Cars_Update;
-        private DataGridView dataGridView_HeadMainWindow_Cars;
+        private DataGridView dataGridView_HeadMainWindow_CarExemplars;
         private Label label_HeadMainWindow_SearchCar_Brand;
         private TextBox textBox_HeadMainWindow_SearchCar_Model_Input;
         private Label label_HeadMainWindow_SearchCar_Model;
@@ -841,5 +868,7 @@
         private ComboBox comboBox_HeadMainWindow_ChangeManagerInfo_Change;
         private Label label_HeadMainWindow_ChangeManagerInfo_NewInfo;
         private TextBox textBox_HeadMainWindow_NewManagerIfno_Input;
+        private Label label_HeadMainWindow_Cars_Exemplars;
+        private DataGridView dataGridView_HeadMainWindow_Cars;
     }
 }

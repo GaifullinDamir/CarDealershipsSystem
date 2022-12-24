@@ -81,6 +81,7 @@
             this.comboBox_AddCarWindow_BodyType.Name = "comboBox_AddCarWindow_BodyType";
             this.comboBox_AddCarWindow_BodyType.Size = new System.Drawing.Size(151, 31);
             this.comboBox_AddCarWindow_BodyType.TabIndex = 2;
+            this.comboBox_AddCarWindow_BodyType.SelectedIndexChanged += new System.EventHandler(this.comboBox_AddCarWindow_BodyType_SelectedIndexChanged);
             // 
             // label_AddCarWindow_BodyType
             // 

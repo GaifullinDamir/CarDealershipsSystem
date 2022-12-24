@@ -60,7 +60,11 @@ namespace CarDealershipsSystem.Application.Services
                 IdBranch = idBranch
             };
 
-
+            if (_carRepository.SaveCar(car))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

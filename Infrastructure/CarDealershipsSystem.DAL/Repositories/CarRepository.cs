@@ -26,7 +26,13 @@ namespace CarDealershipsSystem.DAL.Repositories
 
         public bool SaveCar(Car car)
         {
+            if (car == null)
+            {
+                return false;
+            }
 
+            _context.Add(car);
+            return _context.SaveChanges() > 0 ? true : false;
         }
     }
 }

@@ -6,10 +6,14 @@ namespace WinFormsApp.Forms
     public partial class AddCarWindow : Form
     {
         private readonly IBranchService _branchService;
+        private readonly ICarService _carService;
+        private string _bodyType_comboBoxOption = "";
         private int _branchRowIndex = -1;
-        public AddCarWindow(IBranchService branchService)
+        public AddCarWindow(IBranchService branchService,
+            ICarService carService)
         {
             _branchService = branchService;
+            _carService = carService;
             InitializeComponent();
         }
 
@@ -76,13 +80,8 @@ namespace WinFormsApp.Forms
         {
             var brand = textBox_AddCar_Window_Brand.Text;
             var model = textBox_AddCarWindow_Model.Text;
-            var bodyType = comboBox_AddCarWindow_BodyType.SelectedText;
-            if (_branchRowIndex != -1)
-            {
-                textBox_AddCarWindow_IdBranch_Input.Text = _branchService.GetBranches()
-                    .ToList()[_branchRowIndex]
-                    .ToString();
-            }
+            var bodyType = _bodyType_comboBoxOption;
+       
             var idBranch = textBox_AddCarWindow_IdBranch_Input.Text;
             int intIdBranch; 
             if (!(String.IsNullOrWhiteSpace(brand) ||
@@ -98,11 +97,21 @@ namespace WinFormsApp.Forms
                 catch (Exception)
                 {
                     MessageBox.Show("ID филиала - число!");
+                    return;
+                }
+                if (_carService.AddCar(brand, model, bodyType, intIdBranch))
+                {
+                    MessageBox.Show("Автомобиль добавлен в филиал.");
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка при добавлении.");
                 }
             }
             else
             {
                 MessageBox.Show("Поля не должны оставаться пустыми.");
+                return;
             }
         }
 
@@ -111,14 +120,26 @@ namespace WinFormsApp.Forms
             try
             {
                 _branchRowIndex = e.RowIndex;
-                if (_branchRowIndex == -1)
+                if (!(_branchRowIndex == -1))
                 {
-                    return;
+                    var branches = _branchService.GetBranches().ToList();
+                    textBox_AddCarWindow_IdBranch_Input.Text = branches[_branchRowIndex].IdBranch.ToString();
                 }
+                return;
+
             }
             catch (Exception)
             {
                 return;
+            }
+        }
+
+        private void comboBox_AddCarWindow_BodyType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var comboBoxOption = comboBox_AddCarWindow_BodyType.SelectedItem.ToString();
+            if (!String.IsNullOrWhiteSpace(comboBoxOption))
+            {
+                _bodyType_comboBoxOption = comboBoxOption;
             }
         }
     }
