@@ -7,5 +7,7 @@ namespace CarDealershipsSystem.Application.Interfaces
         IEnumerable<CarDTO> GetCars();
 
         public int GetCarExemplarsCount(BranchDTO branch);
+
+        public bool AddCar(string brand, string model, string bodyType, int idBranch);
     }
 }

@@ -16,6 +16,7 @@ namespace WinFormsApp
         private readonly ICarService _carService;
         private readonly AddManagerForm _addManagerForm;
         private readonly IBranchRepository _branchRepository;
+        private readonly AddCarWindow _addCarWindow;
 
         private string _changeHeadData_ComboBoxOption;
         private string _changeManagerInfo_ComboBoxOption;
@@ -25,7 +26,7 @@ namespace WinFormsApp
             IBranchService branchService, IManagerService managerService,
             IHeadService headService, IAccountService accountService,
             ICarService carService, AddManagerForm addManagerForm,
-            IBranchRepository branchRepository
+            IBranchRepository branchRepository, AddCarWindow addCarWindow
             )
         {
             InitializeComponent();
@@ -36,6 +37,7 @@ namespace WinFormsApp
             _carService = carService;
             _addManagerForm = addManagerForm;
             _branchRepository = branchRepository;
+            _addCarWindow = addCarWindow;
         }
 
         //private void tabControl_HeadMainWindow_SelectedIndexChanged(object sender, EventArgs e)
@@ -457,7 +459,13 @@ namespace WinFormsApp
 
         private void button_HeadMainWindow_DataGridView_Cars_Update_Click(object sender, EventArgs e)
         {
+            var cars = _carService.GetCars().ToList();
+            Init_DataGridView_Cars(cars);
+        }
 
+        private void button_HeadMainWindow_AddCar_Click(object sender, EventArgs e)
+        {
+            _addCarWindow.Show();
         }
     }
 }

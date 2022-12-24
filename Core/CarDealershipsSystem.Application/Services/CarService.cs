@@ -1,6 +1,7 @@
 ﻿using CarDealershipsSystem.Application.DTO;
 using CarDealershipsSystem.Application.Interfaces;
 using CarDealershipsSystem.DAL.Interfaces;
+using CarDealershipsSystem.Domain;
 
 namespace CarDealershipsSystem.Application.Services
 {
@@ -43,10 +44,23 @@ namespace CarDealershipsSystem.Application.Services
             var cars = branch.Cars.ToList();
             int counter = 0;
             foreach (var car in cars)
-            {
+            { 
                 counter += car.CarExemplars.Count();
             }
             return counter;
+        }
+
+        public bool AddCar(string brand, string model, string bodyType, int idBranch)
+        {
+            var car = new Car()
+            {
+                Brand = brand,
+                Model = model,
+                BodyType = bodyType,
+                IdBranch = idBranch
+            };
+
+
         }
     }
 }

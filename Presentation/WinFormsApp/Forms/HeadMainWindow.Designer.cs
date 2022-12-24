@@ -543,6 +543,7 @@
             this.button_HeadMainWindow_AddCar.TabIndex = 1;
             this.button_HeadMainWindow_AddCar.Text = "Добавить автомобиль";
             this.button_HeadMainWindow_AddCar.UseVisualStyleBackColor = true;
+            this.button_HeadMainWindow_AddCar.Click += new System.EventHandler(this.button_HeadMainWindow_AddCar_Click);
             // 
             // groupBox_HeadMainWindow_Cars
             // 

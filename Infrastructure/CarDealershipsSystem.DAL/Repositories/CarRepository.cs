@@ -23,5 +23,10 @@ namespace CarDealershipsSystem.DAL.Repositories
             var carExemplars = _carExemplarRepository.GetCarExemplars();
             return cars;
         }
+
+        public bool SaveCar(Car car)
+        {
+
+        }
     }
 }
