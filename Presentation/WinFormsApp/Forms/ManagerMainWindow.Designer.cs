@@ -164,6 +164,7 @@
             this.button_ManagerMainWindow_SearchCar.TabIndex = 2;
             this.button_ManagerMainWindow_SearchCar.Text = "Найти автомобиль";
             this.button_ManagerMainWindow_SearchCar.UseVisualStyleBackColor = true;
+            this.button_ManagerMainWindow_SearchCar.Click += new System.EventHandler(this.button_ManagerMainWindow_SearchCar_Click);
             // 
             // tabPage_ManagerMainWindow_Orders
             // 

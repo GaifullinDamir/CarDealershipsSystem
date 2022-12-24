@@ -159,5 +159,21 @@ namespace WinFormsApp.Forms
             Init_DataGridView_Cars(cars);
             Init_DataGridView_CarExemplars(cars);
         }
+
+        private void button_ManagerMainWindow_SearchCar_Click(object sender, EventArgs e)
+        {
+            var brand = textBox_ManagerMainWindow_SearchCar_Brand_Input.Text;
+            var model = textBox_ManagerMainWindow_SearchCar_Model_Input.Text;
+
+            if (!(String.IsNullOrWhiteSpace(brand) ||
+                String.IsNullOrWhiteSpace(model)))
+            {
+                var cars = _carService.GetCarsByBrandModel(brand, model).ToList();
+                Init_DataGridView_Cars(cars);
+                Init_DataGridView_CarExemplars(cars);
+            }
+            else
+                MessageBox.Show("Не оставляйте поля пустыми.");
+        }
     }
 }
