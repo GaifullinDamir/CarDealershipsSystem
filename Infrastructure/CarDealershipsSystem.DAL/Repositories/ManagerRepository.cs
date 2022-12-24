@@ -7,9 +7,12 @@ namespace CarDealershipsSystem.DAL.Repositories
     public class ManagerRepository : IManagerRepository
     {
         private readonly CarDealershipsDbContext _context;
-        public ManagerRepository(CarDealershipsDbContext context)
+        private readonly ICarOrderRepository _carOrderRepository;
+        public ManagerRepository(CarDealershipsDbContext context,
+            ICarOrderRepository carOrderRepository)
         {
             _context = context;
+            _carOrderRepository = carOrderRepository;
         }
 
         public IEnumerable<Manager> GetManagers()
@@ -17,6 +20,7 @@ namespace CarDealershipsSystem.DAL.Repositories
             var managers = _context.Managers
                 .Include(manager => manager.CarOrders)
                 .ToList();
+            var carOrders = _carOrderRepository.GetCarOrders();
             return managers;
         }
 
@@ -27,6 +31,22 @@ namespace CarDealershipsSystem.DAL.Repositories
                 return false;
             }
             _context.Add(manager);
+            return _context.SaveChanges() > 0 ? true : false;
+        }
+
+        public Manager GetManagerByPassData(string mngrPassData)
+        {
+            var manager = _context.Managers
+                .Include(manager => manager.CarOrders)
+                .FirstOrDefault(manager => manager.MngrPassData == mngrPassData);
+            var carOrders = _carOrderRepository.GetCarOrders();
+            return manager;
+        }
+
+        public bool SaveManagerChange(Manager manager)
+        {
+            if (manager == null)
+            { return false; }
             return _context.SaveChanges() > 0 ? true : false;
         }
     }

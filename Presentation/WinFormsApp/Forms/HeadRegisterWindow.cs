@@ -46,6 +46,18 @@ namespace WinFormsApp
                     String.IsNullOrWhiteSpace(headPassword)
                     ))
                 {
+                    if (headPassData.Length > 20 ||
+                        headName.Length > 30 ||
+                        headSurname.Length > 30 ||
+                        headMiddlename.Length > 30 ||
+                        headPhoneNumber.Length > 20 ||
+                        headLogin.Length > 20 ||
+                        headPassword.Length > 20
+                        )
+                    {
+                        MessageBox.Show("Слишком длинное значение.");
+                        return;
+                    }
                     var result = _accountService.RegisterHeadUser(headPassData, headName, headSurname, headMiddlename,
                     headPhoneNumber, headLogin, headPassword);
                     if (!result)

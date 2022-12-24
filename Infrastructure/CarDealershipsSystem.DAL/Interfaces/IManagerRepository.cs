@@ -7,5 +7,9 @@ namespace CarDealershipsSystem.DAL.Interfaces
         IEnumerable<Manager> GetManagers();
 
         public bool SaveManager(Manager manager);
+
+        public Manager GetManagerByPassData(string mngrPassData);
+
+        public bool SaveManagerChange(Manager manager);
     }
 }

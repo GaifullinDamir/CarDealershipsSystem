@@ -1,5 +1,6 @@
 ﻿using CarDealershipsSystem.Application.DTO;
 using CarDealershipsSystem.Application.Interfaces;
+using CarDealershipsSystem.DAL.Interfaces;
 using System;
 
 using WinFormsApp.Forms;
@@ -14,13 +15,21 @@ namespace WinFormsApp
         private readonly IAccountService _accountService;
         private readonly ICarService _carService;
         private readonly AddManagerForm _addManagerForm;
+        private readonly IBranchRepository _branchRepository;
+        private readonly AddCarWindow _addCarWindow;
+        private readonly AddCarExemplarWindow _addCarExemplarWindow;
 
         private string _changeHeadData_ComboBoxOption;
+        private string _changeManagerInfo_ComboBoxOption;
+        private int managersRowIndex = -1;
+        private int carsRowIndex = -1;
 
         public HeadMainWindow(
             IBranchService branchService, IManagerService managerService,
             IHeadService headService, IAccountService accountService,
-            ICarService carService, AddManagerForm addManagerForm
+            ICarService carService, AddManagerForm addManagerForm,
+            IBranchRepository branchRepository, AddCarWindow addCarWindow,
+            AddCarExemplarWindow addCarExemplarWindow
             )
         {
             InitializeComponent();
@@ -30,88 +39,275 @@ namespace WinFormsApp
             _accountService = accountService;
             _carService = carService;
             _addManagerForm = addManagerForm;
+            _branchRepository = branchRepository;
+            _addCarWindow = addCarWindow;
+            _addCarExemplarWindow = addCarExemplarWindow;
+            
         }
-
-        //private void tabControl_HeadMainWindow_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void groupBox_HeadMainWindow_Managers_Enter(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void groupBox4_HeadMainWindow_AddManager_Enter(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void groupBox3_HeadMainWindow_DeleteManager_Enter(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void groupBox2_HeadMainWindow_SearchManager_Enter(object sender, EventArgs e)
-        //{
-
-        //}
 
         private void HeadMainWindow_Load(object sender, EventArgs e)
         {
-            var branches = _branchService.GetBranches()
-                //.Join()
-                .ToList();
-
+            var branches = _branchService.GetBranches().ToList();
+            var managers = _managerService.GetManagers().ToList();
+            var cars = _carService.GetCars().ToList();
             Init_DataGridView_Branches(branches);
-            Init_DataGridView_Managers();
+            Init_DataGridView_Managers(managers);
+            Init_DataGridView_Cars(cars);
+            Init_DataGridView_CarExemplars(cars);
         }
 
         private void Init_DataGridView_Branches(List<BranchDTO> branches)
         {
-            //var branches = _branchService.GetBranches().ToList();
-            //var carsCount = new List<int>();
-            //foreach (var branch in branches)
-            //{
-            //    carsCount.Add(_carService.GetCarExemplarsCount(branch));
-            //}
-
-            //var column4 = new DataGridViewColumn();
-            //column4.HeaderText = "Количество авто";
-            //column4.Name = "countCars"; 
+            List<int> carsCount = new List<int>();
+            foreach (var branch in branches)
+            {
+                int temp = 0;
+                foreach (var car in branch.Cars)
+                {
+                    temp += car.CarExemplars.Count;
+                }
+                carsCount.Add(temp);
+            }
+            dataGridView_HeadMainWindow_Branches.Rows.Clear();
 
             dataGridView_HeadMainWindow_Branches.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView_HeadMainWindow_Branches.AllowUserToAddRows = false;
             dataGridView_HeadMainWindow_Branches.ReadOnly = true;
-            dataGridView_HeadMainWindow_Branches.DataSource = branches;
 
-
+            dataGridView_HeadMainWindow_Branches.ColumnCount = 4;
             dataGridView_HeadMainWindow_Branches.Columns[0].Width = 100;
-            dataGridView_HeadMainWindow_Branches.Columns[1].Width = 300;
-            dataGridView_HeadMainWindow_Branches.Columns[2].Width = 310;
-            dataGridView_HeadMainWindow_Branches.Columns[3].Width = 120;
+            dataGridView_HeadMainWindow_Branches.Columns[1].Width = 200;
+            dataGridView_HeadMainWindow_Branches.Columns[2].Width = 390;
+            dataGridView_HeadMainWindow_Branches.Columns[3].Width = 130;
+            dataGridView_HeadMainWindow_Branches.Columns[0].Name = "ID филиала";
+            dataGridView_HeadMainWindow_Branches.Columns[1].Name = "Название филиала";
+            dataGridView_HeadMainWindow_Branches.Columns[2].Name = "Адрес филиала";
+            dataGridView_HeadMainWindow_Branches.Columns[3].Name = "Количество экземпляров авто";
 
-            dataGridView_HeadMainWindow_Branches.Columns[0].HeaderText = "ID филиала";
-            dataGridView_HeadMainWindow_Branches.Columns[1].HeaderText = "Название филиала";
-            dataGridView_HeadMainWindow_Branches.Columns[2].HeaderText = "Адрес филиала";
-            dataGridView_HeadMainWindow_Branches.Columns[3].HeaderText = "ID рукводителя";
-            //dataGridView_HeadMainWindow_Branches.Columns[4].HeaderText = "Количество авто";
+            for (int i = 0; i < dataGridView_HeadMainWindow_Branches.ColumnCount; i++)
+            {
+                dataGridView_HeadMainWindow_Branches.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+            for (int i = 0; i < branches.Count(); i++)
+            {
+                if (dataGridView_HeadMainWindow_Branches.Rows.Count < branches.Count())
+                {
+                    dataGridView_HeadMainWindow_Branches.Rows.Add();
+                }
+                dataGridView_HeadMainWindow_Branches.Rows[i].Cells[0].Value = branches[i].IdBranch;
+                dataGridView_HeadMainWindow_Branches.Rows[i].Cells[1].Value = branches[i].BranchName;
+                dataGridView_HeadMainWindow_Branches.Rows[i].Cells[2].Value = branches[i].BranchAddress;
+                dataGridView_HeadMainWindow_Branches.Rows[i].Cells[3].Value = carsCount[i];
+            }
 
         }
 
-        private void Init_DataGridView_Managers()
+        private void Init_DataGridView_Managers(List<ManagerDTO> managers)
         {
             dataGridView_HeadMainWindow_Managers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView_HeadMainWindow_Managers.AllowUserToAddRows= false;
             dataGridView_HeadMainWindow_Managers.ReadOnly = true;
-            dataGridView_HeadMainWindow_Managers.DataSource = _managerService.GetManagers().ToList();
+
+            List<int> carOrdersCount = new List<int>();
+            List<string> managersBranches = new List<string>();
+
+            foreach (var manager in managers)
+            {
+                carOrdersCount.Add(manager.CarOrders.Count());
+                managersBranches.Add(_branchService.GetBranchById(manager.IdBranch).BranchName);
+            }
+            //for (int i = 0; i < managers.Count(); i++)
+            //{
+            //    carOrdersCount.Add(managers[i].CarOrders.Count());
+
+            //    managersBranches.Add(_branchService
+            //        .GetBranchById(managers[i].IdBranch)
+            //        .BranchName);
+            //}
+
+            dataGridView_HeadMainWindow_Managers.Rows.Clear();
+
+            dataGridView_HeadMainWindow_Managers.ColumnCount = 12;
+            dataGridView_HeadMainWindow_Managers.Columns[0].Width = 100;
+            dataGridView_HeadMainWindow_Managers.Columns[1].Width = 100;
+            dataGridView_HeadMainWindow_Managers.Columns[2].Width = 100;
+            dataGridView_HeadMainWindow_Managers.Columns[3].Width = 120;
+            dataGridView_HeadMainWindow_Managers.Columns[4].Width = 120;
+            dataGridView_HeadMainWindow_Managers.Columns[5].Width = 100;
+            dataGridView_HeadMainWindow_Managers.Columns[6].Width = 100;
+            dataGridView_HeadMainWindow_Managers.Columns[7].Width = 70;
+            dataGridView_HeadMainWindow_Managers.Columns[8].Width = 120;
+            dataGridView_HeadMainWindow_Managers.Columns[9].Width = 100;
+            dataGridView_HeadMainWindow_Managers.Columns[10].Width = 120;
+            dataGridView_HeadMainWindow_Managers.Columns[11].Width = 100;
+                                        
+            dataGridView_HeadMainWindow_Managers.Columns[0].Name = "Фамилия";
+            dataGridView_HeadMainWindow_Managers.Columns[1].Name = "Имя";
+            dataGridView_HeadMainWindow_Managers.Columns[2].Name = "Отчество";
+            dataGridView_HeadMainWindow_Managers.Columns[3].Name = "Филиал";
+            dataGridView_HeadMainWindow_Managers.Columns[4].Name = "Паспортные\nданные";
+
+            dataGridView_HeadMainWindow_Managers.Columns[5].Name = "Логин";
+            dataGridView_HeadMainWindow_Managers.Columns[6].Name = "Пароль";
+            dataGridView_HeadMainWindow_Managers.Columns[7].Name = "Cдеки";
+            dataGridView_HeadMainWindow_Managers.Columns[8].Name = "Номер\nтелефона";
+            dataGridView_HeadMainWindow_Managers.Columns[9].Name = "Зарплата";
+            dataGridView_HeadMainWindow_Managers.Columns[10].Name = "Дата\nзарплаты";
+            dataGridView_HeadMainWindow_Managers.Columns[11].Name = "Премия";
+
+            for (int i = 0; i < dataGridView_HeadMainWindow_Managers.ColumnCount; i++)
+            {
+                dataGridView_HeadMainWindow_Managers.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+            for (int i = 0; i < managers.Count(); i++)
+            {
+                if (dataGridView_HeadMainWindow_Managers.Rows.Count < managers.Count())
+                {
+                    dataGridView_HeadMainWindow_Managers.Rows.Add();
+                }
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[0].Value = managers[i].MngrSurname;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[1].Value = managers[i].MngrName;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[2].Value = managers[i].MngrMiddlename;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[3].Value = managersBranches[i];
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[4].Value = managers[i].MngrPassData;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[5].Value = managers[i].ManagerLogin;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[6].Value = managers[i].ManagerPassword;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[7].Value = carOrdersCount[i];
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[8].Value = managers[i].MngrPhoneNumber;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[9].Value = managers[i].MngrSalary;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[10].Value = managers[i].MngrPayDate;
+                dataGridView_HeadMainWindow_Managers.Rows[i].Cells[11].Value = managers[i].MngrPrize;
+            }
+
 
         }
 
-        private void HeadMainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        private void Init_DataGridView_CarExemplars(List<CarDTO> cars)
         {
-            Environment.Exit(0);
+            List<CarDTO> cars1 = new List<CarDTO>();
+            List<CarExemplarDTO> carExemplars = new List<CarExemplarDTO>();
+            List<string> branchesNames = new List<string>();
+            foreach (var car in cars)
+            {
+                var branchById = _branchRepository.GetBranchById(car.IdBranch);
+                var branchName = branchById.BranchName +
+                    " (" + branchById.IdBranch + ")";
+                foreach (var exemplar in car.CarExemplars)
+                {
+                    cars1.Add(car);
+                    carExemplars.Add(exemplar);
+                    branchesNames.Add(branchName);
+                }
+            }
+            dataGridView_HeadMainWindow_CarExemplars.Rows.Clear();
+
+            dataGridView_HeadMainWindow_CarExemplars.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView_HeadMainWindow_CarExemplars.AllowUserToAddRows = false;
+            dataGridView_HeadMainWindow_CarExemplars.ReadOnly = true;
+
+            dataGridView_HeadMainWindow_CarExemplars.ColumnCount = 9;
+            dataGridView_HeadMainWindow_CarExemplars.Columns[0].Width = 140;
+            dataGridView_HeadMainWindow_CarExemplars.Columns[1].Width = 100;
+            dataGridView_HeadMainWindow_CarExemplars.Columns[2].Width = 100;
+            dataGridView_HeadMainWindow_CarExemplars.Columns[3].Width = 100;
+            dataGridView_HeadMainWindow_CarExemplars.Columns[4].Width = 100;
+            dataGridView_HeadMainWindow_CarExemplars.Columns[5].Width = 100;
+            dataGridView_HeadMainWindow_CarExemplars.Columns[6].Width = 100;
+            dataGridView_HeadMainWindow_CarExemplars.Columns[7].Width = 200;
+            dataGridView_HeadMainWindow_CarExemplars.Columns[8].Width = 200;
+
+            dataGridView_HeadMainWindow_CarExemplars.Columns[0].Name = "Филиал(ID)";
+            dataGridView_HeadMainWindow_CarExemplars.Columns[1].Name = "Бренд";
+            dataGridView_HeadMainWindow_CarExemplars.Columns[2].Name = "Модель";
+            dataGridView_HeadMainWindow_CarExemplars.Columns[3].Name = "Тип кузова";
+            dataGridView_HeadMainWindow_CarExemplars.Columns[4].Name = "Мощность";
+            dataGridView_HeadMainWindow_CarExemplars.Columns[5].Name = "Цена";
+            dataGridView_HeadMainWindow_CarExemplars.Columns[6].Name = "Цвет";
+            dataGridView_HeadMainWindow_CarExemplars.Columns[7].Name = "VIN-\nномер";
+            dataGridView_HeadMainWindow_CarExemplars.Columns[8].Name = "Дата\nпроизв-ва";
+
+            for (int i = 0; i < dataGridView_HeadMainWindow_CarExemplars.ColumnCount; i++)
+            {
+                dataGridView_HeadMainWindow_CarExemplars.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+            for (int i = 0; i < cars1.Count(); i++)
+            {
+                if (dataGridView_HeadMainWindow_CarExemplars.Rows.Count < cars1.Count())
+                {
+                    dataGridView_HeadMainWindow_CarExemplars.Rows.Add();
+                }
+                dataGridView_HeadMainWindow_CarExemplars.Rows[i].Cells[0].Value = branchesNames[i];
+                dataGridView_HeadMainWindow_CarExemplars.Rows[i].Cells[1].Value = cars1[i].Brand;
+                dataGridView_HeadMainWindow_CarExemplars.Rows[i].Cells[2].Value = cars1[i].Model;
+                dataGridView_HeadMainWindow_CarExemplars.Rows[i].Cells[3].Value = cars1[i].BodyType;
+                dataGridView_HeadMainWindow_CarExemplars.Rows[i].Cells[4].Value = carExemplars[i].HorsePower;
+                dataGridView_HeadMainWindow_CarExemplars.Rows[i].Cells[5].Value = carExemplars[i].Price;
+                dataGridView_HeadMainWindow_CarExemplars.Rows[i].Cells[6].Value = carExemplars[i].Color;
+                dataGridView_HeadMainWindow_CarExemplars.Rows[i].Cells[7].Value = carExemplars[i].VinNumber;
+                dataGridView_HeadMainWindow_CarExemplars.Rows[i].Cells[8].Value = carExemplars[i].YearOfAssembly;
+
+
+            }
+
         }
+
+        private void Init_DataGridView_Cars(List<CarDTO> cars)
+        {
+            
+            List<string> branchesNames = new List<string>();
+            List<int> countExemplars = new List<int>();
+            
+            foreach (var car in cars)
+            {
+                var branchById = _branchService.GetBranchById(car.IdBranch);
+                var branchName = branchById.BranchName +
+                    " (" + branchById.IdBranch + ")";
+                branchesNames.Add(branchName);
+                countExemplars.Add(car.CarExemplars.Count());
+            }
+
+            dataGridView_HeadMainWindow_Cars.Rows.Clear();
+
+            dataGridView_HeadMainWindow_Cars.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView_HeadMainWindow_Cars.AllowUserToAddRows = false;
+            dataGridView_HeadMainWindow_Cars.ReadOnly = true;
+
+            dataGridView_HeadMainWindow_Cars.ColumnCount = 5;
+            dataGridView_HeadMainWindow_Cars.Columns[0].Width = 140;
+            dataGridView_HeadMainWindow_Cars.Columns[1].Width = 70;
+            dataGridView_HeadMainWindow_Cars.Columns[2].Width = 100;
+            dataGridView_HeadMainWindow_Cars.Columns[3].Width = 100;
+            dataGridView_HeadMainWindow_Cars.Columns[4].Width = 100;
+
+            dataGridView_HeadMainWindow_Cars.Columns[0].Name = "Филиал(ID)";
+            dataGridView_HeadMainWindow_Cars.Columns[1].Name = "Кол\n-во";
+            dataGridView_HeadMainWindow_Cars.Columns[2].Name = "Бренд\n(ID)";
+            dataGridView_HeadMainWindow_Cars.Columns[3].Name = "Модель";
+            dataGridView_HeadMainWindow_Cars.Columns[4].Name = "Тип кузова";
+
+            for (int i = 0; i < dataGridView_HeadMainWindow_Cars.ColumnCount; i++)
+            {
+                dataGridView_HeadMainWindow_Cars.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+            for (int i = 0; i < cars.Count(); i++)
+            {
+                if (dataGridView_HeadMainWindow_Cars.Rows.Count < cars.Count())
+                {
+                    dataGridView_HeadMainWindow_Cars.Rows.Add();
+                }
+                dataGridView_HeadMainWindow_Cars.Rows[i].Cells[0].Value = branchesNames[i];
+                dataGridView_HeadMainWindow_Cars.Rows[i].Cells[1].Value = countExemplars[i];
+                dataGridView_HeadMainWindow_Cars.Rows[i].Cells[2].Value = cars[i].Brand + " ("+cars[i].IdCar+")";
+                dataGridView_HeadMainWindow_Cars.Rows[i].Cells[3].Value = cars[i].Model;
+                dataGridView_HeadMainWindow_Cars.Rows[i].Cells[4].Value = cars[i].BodyType;
+            }
+        }
+
+
         private void updateData_HeadMainWindow_PersonalArea_Label()
         {
             var head = _headService.GetHeads().ToList();
@@ -169,12 +365,23 @@ namespace WinFormsApp
             var idHead = _headService.GetHeads().FirstOrDefault().IdHead;
             if (!(String.IsNullOrWhiteSpace(branchName) || String.IsNullOrWhiteSpace(branchAddress)))
             {
-                if (_branchService.AddBranch(branchName, branchAddress, idHead))
+                if (branchName.Length > 30 || branchAddress.Length > 100)
                 {
-                    MessageBox.Show($"Филиал {branchName} добавлен успешно.");
+                    MessageBox.Show("Введено слишком длинное значение.");
+                    return;
+                }
+                if (!_branchService.IsBranchExistByNameOrByAddress(branchAddress))
+                {
+                    if (_branchService.AddBranch(branchName, branchAddress, idHead))
+                    {
+                        MessageBox.Show($"Филиал {branchName} добавлен успешно.");
+                    }
+                    else
+                        MessageBox.Show("Возникла ошибка при добавлении.");
                 }
                 else
-                    MessageBox.Show("ВОзникла ошибка при добавлении.");
+                    MessageBox.Show("По этому адресу уже имеется филиал");
+                
             }
             else
                 MessageBox.Show("Поля не должны оставаться пустыми.");
@@ -197,24 +404,183 @@ namespace WinFormsApp
             }
             else
                 MessageBox.Show("Введите имя филиала.");
-            
         }
 
         private void button_HeadMainWindow_AddManager_Add_Click(object sender, EventArgs e)
         {
             _addManagerForm.Show();
         }
-        //private void groupBox_HeadMainWindow_ChangeManagerInfo_Enter(object sender, EventArgs e)
-        //{
 
-        //}
+        private void HeadMainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
+        }
 
-        //private void groupBox1_HeadMainWindow_Cars_Enter(object sender, EventArgs e)
-        //{
+        private void dataGridView_HeadMainWindow_Managers_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                managersRowIndex = e.RowIndex;
+                if (managersRowIndex == -1)
+                {
+                    return;
+                }
+            }
+            catch (Exception)
+            {
+                return;
+            }
 
-        //}
+            var managers = _managerService.GetManagers().ToList();
+            var mngrSurname = managers[managersRowIndex].MngrSurname;
+            var mngrName = managers[managersRowIndex].MngrName;
+            var mngrMiddlename = managers[managersRowIndex].MngrMiddlename;
 
+            label_HeadMainWindow_ChangeManager_MngrNameSurnameMiddlename.Text = mngrSurname + "\n" + mngrName + "\n" + mngrMiddlename;
+            label_HeadMainWindow_ChangeManager_MngrPassData.Text = managers[managersRowIndex].MngrPassData;
+        }
 
+        private void button_HeadMainWindow_ChangeManagerInfo_Change_Click(object sender, EventArgs e)
+        {
+            string mngrPassData = "";
+            if (managersRowIndex != -1)
+            {
+                var managers = _managerService.GetManagers().ToList();
+                mngrPassData = managers[managersRowIndex].MngrPassData;
+                
+            }
+            else
+                return;
 
+            var inputData = textBox_HeadMainWindow_NewManagerIfno_Input.Text;
+            string errorMessage = "Ошибка при изменении.";
+            if (!String.IsNullOrWhiteSpace(inputData))
+            {
+                if (_managerService.ManagerChangeData(_changeManagerInfo_ComboBoxOption,
+                    mngrPassData, inputData, ref errorMessage))
+                {
+                    
+                    MessageBox.Show("Данные успешно изменены.");
+                }
+                else
+                    MessageBox.Show(errorMessage);
+            }
+            else
+                MessageBox.Show("Поле данных не должно быть пустым.");
+
+        }
+
+        private void comboBox_HeadMainWindow_ChangeManagerInfo_Change_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var comboBoxOption = comboBox_HeadMainWindow_ChangeManagerInfo_Change.SelectedItem.ToString();
+            if (!String.IsNullOrWhiteSpace(comboBoxOption))
+            {
+                _changeManagerInfo_ComboBoxOption = comboBoxOption;
+            }
+        }
+
+        private void button_HeadMainWindow_DataGridView_UpdateManagers_Click(object sender, EventArgs e)
+        {
+            var managers = _managerService.GetManagers().ToList();
+            Init_DataGridView_Managers(managers);
+        }
+
+        private void button_HeadMainWindow_SearchManager_Search_Click(object sender, EventArgs e)
+        {
+            var mngrPassData = textBox_HeadMainWIndow_SearchManager_MngrPassData_Input.Text;
+
+            if (!String.IsNullOrWhiteSpace(mngrPassData))
+            {
+                List<ManagerDTO> managers = new List<ManagerDTO>();
+                var manager = _managerService.GetManagerByPassData(mngrPassData);
+                if (manager != null)
+                {
+                    managers.Add(manager);
+                }
+               
+                Init_DataGridView_Managers(managers);
+            }
+            else
+                MessageBox.Show("Поля не должны оставаться пустыми.");
+        }
+
+        private void button_HeadMainWindow_DataGridView_Cars_Update_Click(object sender, EventArgs e)
+        {
+            var cars = _carService.GetCars().ToList();
+            Init_DataGridView_Cars(cars);
+            Init_DataGridView_CarExemplars(cars);
+        }
+
+        private void button_HeadMainWindow_AddCar_Click(object sender, EventArgs e)
+        {
+            _addCarWindow.Show();
+        }
+
+        private void button_HeadMainWindow_DeleteCar_Click(object sender, EventArgs e)
+        {
+            if (carsRowIndex != -1)
+            {
+                var cars = _carService.GetCars().ToList();
+                if (cars[carsRowIndex].CarExemplars.Count < 1)
+                {
+                    var idCar = cars[carsRowIndex].IdCar;
+                    if (_carService.DeleteCar(idCar))
+                    {
+                        MessageBox.Show("Автомобиль удален.");
+                        var cars1 = _carService.GetCars().ToList();
+                        Init_DataGridView_Cars(cars1);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ошибка при удалении.");
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Можно удалить только тот автомобиль\nу которого 0 экземпляров.");
+                }
+                
+            }
+        }
+
+        private void dataGridView_HeadMainWindow_Cars_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                carsRowIndex = e.RowIndex;
+                if (carsRowIndex == -1)
+                {
+                    return;
+                }
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            var cars = _carService.GetCars().ToList();
+            var idCar = cars[carsRowIndex].IdCar;
+            label_HeadMainWindow_DeleteCar.Text = idCar.ToString();
+        }
+
+        private void button_HeadMainWindow_AddCarExemplar_Click(object sender, EventArgs e)
+        {
+            _addCarExemplarWindow.Show();
+        }
+
+        private void button_HeadMainWindow_SearchCar_Click(object sender, EventArgs e)
+        {
+            var brand = textBox_HeadMainWindow_SearchCar_Brand_Input.Text;
+            var model = textBox_HeadMainWindow_SearchCar_Model_Input.Text;
+
+            if (!(String.IsNullOrWhiteSpace(brand)||
+                String.IsNullOrWhiteSpace(model)))
+            {
+                var cars = _carService.GetCarsByBrandModel(brand, model).ToList();
+                Init_DataGridView_Cars(cars);
+            }
+            else
+                MessageBox.Show("Не оставляйте поля пустыми.");
+        }
     }
 }

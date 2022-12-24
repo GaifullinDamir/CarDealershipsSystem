@@ -69,30 +69,58 @@ namespace CarDealershipsSystem.Application.Services
 
             if (option == "Имя")
             {
+                if (data.Length > 30)
+                {
+                    return false;
+                }
                 head.HeadName = data;
             }    
             else if(option == "Фамилия")
             {
+                if (data.Length > 30)
+                {
+                    return false;
+                }
                 head.HeadSurname = data;
             }
             else if(option == "Отчество")
             {
+                if (data.Length > 30)
+                {
+                    return false;
+                }
                 head.HeadMiddlename = data;
             }
             else if (option == "Паспортные данные")
             {
+                if (data.Length > 20)
+                {
+                    return false;
+                }
                 head.HeadPassData = data;
             }
             else if (option == "Номер телефона")
             {
+                if (data.Length > 20)
+                {
+                    return false;
+                }
                 head.HeadPhoneNumber = data;
             }
             else if (option == "Логин")
             {
+                if (data.Length > 20)
+                {
+                    return false;
+                }
                 head.HeadLogin = data;
             }
             else if (option == "Пароль")
             {
+                if (data.Length > 20)
+                {
+                    return false;
+                }
                 head.HeadPassword = data;
             }
             return _headRepository.SaveHeadChange(head);
