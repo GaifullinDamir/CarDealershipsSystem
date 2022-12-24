@@ -17,6 +17,7 @@ namespace WinFormsApp
         private readonly AddManagerForm _addManagerForm;
         private readonly IBranchRepository _branchRepository;
         private readonly AddCarWindow _addCarWindow;
+        private readonly AddCarExemplarWindow _addCarExemplarWindow;
 
         private string _changeHeadData_ComboBoxOption;
         private string _changeManagerInfo_ComboBoxOption;
@@ -27,7 +28,8 @@ namespace WinFormsApp
             IBranchService branchService, IManagerService managerService,
             IHeadService headService, IAccountService accountService,
             ICarService carService, AddManagerForm addManagerForm,
-            IBranchRepository branchRepository, AddCarWindow addCarWindow
+            IBranchRepository branchRepository, AddCarWindow addCarWindow,
+            AddCarExemplarWindow addCarExemplarWindow
             )
         {
             InitializeComponent();
@@ -39,6 +41,8 @@ namespace WinFormsApp
             _addManagerForm = addManagerForm;
             _branchRepository = branchRepository;
             _addCarWindow = addCarWindow;
+            _addCarExemplarWindow = addCarExemplarWindow;
+            
         }
 
         private void HeadMainWindow_Load(object sender, EventArgs e)
@@ -258,7 +262,7 @@ namespace WinFormsApp
             
             foreach (var car in cars)
             {
-                var branchById = _branchRepository.GetBranchById(car.IdBranch);
+                var branchById = _branchService.GetBranchById(car.IdBranch);
                 var branchName = branchById.BranchName +
                     " (" + branchById.IdBranch + ")";
                 branchesNames.Add(branchName);
@@ -512,18 +516,24 @@ namespace WinFormsApp
             if (carsRowIndex != -1)
             {
                 var cars = _carService.GetCars().ToList();
-                if (cars[carsRowIndex].CarExemplars.Count > 0)
+                if (cars[carsRowIndex].CarExemplars.Count < 1)
                 {
                     var idCar = cars[carsRowIndex].IdCar;
                     if (_carService.DeleteCar(idCar))
                     {
                         MessageBox.Show("Автомобиль удален.");
+                        var cars1 = _carService.GetCars().ToList();
+                        Init_DataGridView_Cars(cars1);
                     }
                     else
                     {
                         MessageBox.Show("Ошибка при удалении.");
                     }
-;
+
+                }
+                else
+                {
+                    MessageBox.Show("Можно удалить только тот автомобиль\nу которого 0 экземпляров.");
                 }
                 
             }
@@ -546,6 +556,11 @@ namespace WinFormsApp
             var cars = _carService.GetCars().ToList();
             var idCar = cars[carsRowIndex].IdCar;
             label_HeadMainWindow_DeleteCar.Text = idCar.ToString();
+        }
+
+        private void button_HeadMainWindow_AddCarExemplar_Click(object sender, EventArgs e)
+        {
+            _addCarExemplarWindow.Show();
         }
     }
 }

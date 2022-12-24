@@ -29,8 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox_AddCarExemplarWindow_Cars = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView_AddCarExemplarsWindow_Cars = new System.Windows.Forms.DataGridView();
             this.groupBox_AddCarExemplarWindow_CarData = new System.Windows.Forms.GroupBox();
+            this.label_AddCarExemplarWindow_YearOfAssembly = new System.Windows.Forms.Label();
+            this.textBox_AddCarExemplarWindow_YearOffAssebly_Input = new System.Windows.Forms.TextBox();
+            this.textBox_AddCarExemplarWindow_Price_Input = new System.Windows.Forms.TextBox();
             this.label_AddCarExemplarWindow_Color = new System.Windows.Forms.Label();
             this.textBox_AddCarWindow_IdBranch_Input = new System.Windows.Forms.TextBox();
             this.label_AddCarExemplarWindow_IdCar = new System.Windows.Forms.Label();
@@ -38,36 +41,33 @@
             this.textBox_AddCarExemplarWindow_Power_Input = new System.Windows.Forms.TextBox();
             this.textBox_AddCarExemplarWindow_IdCar_Input = new System.Windows.Forms.TextBox();
             this.label_AddCarExemplarWindow_Power = new System.Windows.Forms.Label();
-            this.textBox_AddCarExemplarWindow_Price_Input = new System.Windows.Forms.TextBox();
-            this.label_AddCarExemplarWindow_YearOfAssembly = new System.Windows.Forms.Label();
-            this.textBox_AddCarExemplarWindow_YearOffAssebly_Input = new System.Windows.Forms.TextBox();
             this.button_AddCarExemplarWindow_AddCarExemplar = new System.Windows.Forms.Button();
             this.groupBox_AddCarExemplarWindow_Cars.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AddCarExemplarsWindow_Cars)).BeginInit();
             this.groupBox_AddCarExemplarWindow_CarData.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox_AddCarExemplarWindow_Cars
             // 
-            this.groupBox_AddCarExemplarWindow_Cars.Controls.Add(this.dataGridView1);
+            this.groupBox_AddCarExemplarWindow_Cars.Controls.Add(this.dataGridView_AddCarExemplarsWindow_Cars);
             this.groupBox_AddCarExemplarWindow_Cars.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox_AddCarExemplarWindow_Cars.Location = new System.Drawing.Point(220, 12);
             this.groupBox_AddCarExemplarWindow_Cars.Name = "groupBox_AddCarExemplarWindow_Cars";
-            this.groupBox_AddCarExemplarWindow_Cars.Size = new System.Drawing.Size(374, 361);
+            this.groupBox_AddCarExemplarWindow_Cars.Size = new System.Drawing.Size(499, 407);
             this.groupBox_AddCarExemplarWindow_Cars.TabIndex = 0;
             this.groupBox_AddCarExemplarWindow_Cars.TabStop = false;
             this.groupBox_AddCarExemplarWindow_Cars.Text = "Автомобили";
             // 
-            // dataGridView1
+            // dataGridView_AddCarExemplarsWindow_Cars
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 29);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(364, 325);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView_AddCarExemplarsWindow_Cars.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridView_AddCarExemplarsWindow_Cars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_AddCarExemplarsWindow_Cars.Location = new System.Drawing.Point(6, 29);
+            this.dataGridView_AddCarExemplarsWindow_Cars.Name = "dataGridView_AddCarExemplarsWindow_Cars";
+            this.dataGridView_AddCarExemplarsWindow_Cars.RowHeadersWidth = 51;
+            this.dataGridView_AddCarExemplarsWindow_Cars.RowTemplate.Height = 29;
+            this.dataGridView_AddCarExemplarsWindow_Cars.Size = new System.Drawing.Size(484, 375);
+            this.dataGridView_AddCarExemplarsWindow_Cars.TabIndex = 0;
             // 
             // groupBox_AddCarExemplarWindow_CarData
             // 
@@ -88,6 +88,29 @@
             this.groupBox_AddCarExemplarWindow_CarData.TabIndex = 9;
             this.groupBox_AddCarExemplarWindow_CarData.TabStop = false;
             this.groupBox_AddCarExemplarWindow_CarData.Text = "Данные экземпляра";
+            // 
+            // label_AddCarExemplarWindow_YearOfAssembly
+            // 
+            this.label_AddCarExemplarWindow_YearOfAssembly.AutoSize = true;
+            this.label_AddCarExemplarWindow_YearOfAssembly.Location = new System.Drawing.Point(17, 298);
+            this.label_AddCarExemplarWindow_YearOfAssembly.Name = "label_AddCarExemplarWindow_YearOfAssembly";
+            this.label_AddCarExemplarWindow_YearOfAssembly.Size = new System.Drawing.Size(162, 23);
+            this.label_AddCarExemplarWindow_YearOfAssembly.TabIndex = 12;
+            this.label_AddCarExemplarWindow_YearOfAssembly.Text = "Дата производства";
+            // 
+            // textBox_AddCarExemplarWindow_YearOffAssebly_Input
+            // 
+            this.textBox_AddCarExemplarWindow_YearOffAssebly_Input.Location = new System.Drawing.Point(23, 324);
+            this.textBox_AddCarExemplarWindow_YearOffAssebly_Input.Name = "textBox_AddCarExemplarWindow_YearOffAssebly_Input";
+            this.textBox_AddCarExemplarWindow_YearOffAssebly_Input.Size = new System.Drawing.Size(150, 30);
+            this.textBox_AddCarExemplarWindow_YearOffAssebly_Input.TabIndex = 11;
+            // 
+            // textBox_AddCarExemplarWindow_Price_Input
+            // 
+            this.textBox_AddCarExemplarWindow_Price_Input.Location = new System.Drawing.Point(23, 195);
+            this.textBox_AddCarExemplarWindow_Price_Input.Name = "textBox_AddCarExemplarWindow_Price_Input";
+            this.textBox_AddCarExemplarWindow_Price_Input.Size = new System.Drawing.Size(150, 30);
+            this.textBox_AddCarExemplarWindow_Price_Input.TabIndex = 10;
             // 
             // label_AddCarExemplarWindow_Color
             // 
@@ -149,33 +172,10 @@
             this.label_AddCarExemplarWindow_Power.TabIndex = 5;
             this.label_AddCarExemplarWindow_Power.Text = "Мощность автомобиля";
             // 
-            // textBox_AddCarExemplarWindow_Price_Input
-            // 
-            this.textBox_AddCarExemplarWindow_Price_Input.Location = new System.Drawing.Point(23, 195);
-            this.textBox_AddCarExemplarWindow_Price_Input.Name = "textBox_AddCarExemplarWindow_Price_Input";
-            this.textBox_AddCarExemplarWindow_Price_Input.Size = new System.Drawing.Size(150, 30);
-            this.textBox_AddCarExemplarWindow_Price_Input.TabIndex = 10;
-            // 
-            // label_AddCarExemplarWindow_YearOfAssembly
-            // 
-            this.label_AddCarExemplarWindow_YearOfAssembly.AutoSize = true;
-            this.label_AddCarExemplarWindow_YearOfAssembly.Location = new System.Drawing.Point(17, 298);
-            this.label_AddCarExemplarWindow_YearOfAssembly.Name = "label_AddCarExemplarWindow_YearOfAssembly";
-            this.label_AddCarExemplarWindow_YearOfAssembly.Size = new System.Drawing.Size(162, 23);
-            this.label_AddCarExemplarWindow_YearOfAssembly.TabIndex = 12;
-            this.label_AddCarExemplarWindow_YearOfAssembly.Text = "Дата производства";
-            // 
-            // textBox_AddCarExemplarWindow_YearOffAssebly_Input
-            // 
-            this.textBox_AddCarExemplarWindow_YearOffAssebly_Input.Location = new System.Drawing.Point(23, 324);
-            this.textBox_AddCarExemplarWindow_YearOffAssebly_Input.Name = "textBox_AddCarExemplarWindow_YearOffAssebly_Input";
-            this.textBox_AddCarExemplarWindow_YearOffAssebly_Input.Size = new System.Drawing.Size(150, 30);
-            this.textBox_AddCarExemplarWindow_YearOffAssebly_Input.TabIndex = 11;
-            // 
             // button_AddCarExemplarWindow_AddCarExemplar
             // 
             this.button_AddCarExemplarWindow_AddCarExemplar.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button_AddCarExemplarWindow_AddCarExemplar.Location = new System.Drawing.Point(210, 395);
+            this.button_AddCarExemplarWindow_AddCarExemplar.Location = new System.Drawing.Point(263, 425);
             this.button_AddCarExemplarWindow_AddCarExemplar.Name = "button_AddCarExemplarWindow_AddCarExemplar";
             this.button_AddCarExemplarWindow_AddCarExemplar.Size = new System.Drawing.Size(200, 35);
             this.button_AddCarExemplarWindow_AddCarExemplar.TabIndex = 10;
@@ -186,14 +186,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 453);
+            this.ClientSize = new System.Drawing.Size(722, 483);
             this.Controls.Add(this.button_AddCarExemplarWindow_AddCarExemplar);
             this.Controls.Add(this.groupBox_AddCarExemplarWindow_CarData);
             this.Controls.Add(this.groupBox_AddCarExemplarWindow_Cars);
             this.Name = "AddCarExemplarWindow";
-            this.Text = "AddCarExemplarWindow";
+            this.ShowIcon = false;
+            this.Text = "CarDealershipsSystem";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddCarExemplarWindow_FormClosing);
+            this.Load += new System.EventHandler(this.AddCarExemplarWindow_Load);
             this.groupBox_AddCarExemplarWindow_Cars.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AddCarExemplarsWindow_Cars)).EndInit();
             this.groupBox_AddCarExemplarWindow_CarData.ResumeLayout(false);
             this.groupBox_AddCarExemplarWindow_CarData.PerformLayout();
             this.ResumeLayout(false);
@@ -203,7 +206,7 @@
         #endregion
 
         private GroupBox groupBox_AddCarExemplarWindow_Cars;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridView_AddCarExemplarsWindow_Cars;
         private GroupBox groupBox_AddCarExemplarWindow_CarData;
         private Label label_AddCarExemplarWindow_YearOfAssembly;
         private TextBox textBox_AddCarExemplarWindow_YearOffAssebly_Input;

@@ -62,6 +62,7 @@
             this.groupBox_HeadMainWindow_AddManager = new System.Windows.Forms.GroupBox();
             this.button_HeadMainWindow_AddManager_Add = new System.Windows.Forms.Button();
             this.tabPage_Cars = new System.Windows.Forms.TabPage();
+            this.label_HeadMainWindow_DeleteCar = new System.Windows.Forms.Label();
             this.button_HeadMainWindow_DeleteCar = new System.Windows.Forms.Button();
             this.groupBox_HeadMainWindow_SearchCar = new System.Windows.Forms.GroupBox();
             this.label_HeadMainWindow_SearchCar_Model = new System.Windows.Forms.Label();
@@ -92,7 +93,6 @@
             this.label_HeadMainWindow_PersonalArea_HeadName = new System.Windows.Forms.Label();
             this.label_HeadMainWindow_PeronalArea_HeadPassPata = new System.Windows.Forms.Label();
             this.sqlCommandBuilder1 = new Microsoft.Data.SqlClient.SqlCommandBuilder();
-            this.label_HeadMainWindow_DeleteCar = new System.Windows.Forms.Label();
             this.tabControl_HeadMainWindow.SuspendLayout();
             this.tabPage_Branches.SuspendLayout();
             this.groupBox_HeadMainWindow_Branches.SuspendLayout();
@@ -478,6 +478,14 @@
             this.tabPage_Cars.Text = "Автомобили";
             this.tabPage_Cars.UseVisualStyleBackColor = true;
             // 
+            // label_HeadMainWindow_DeleteCar
+            // 
+            this.label_HeadMainWindow_DeleteCar.AutoSize = true;
+            this.label_HeadMainWindow_DeleteCar.Location = new System.Drawing.Point(331, 434);
+            this.label_HeadMainWindow_DeleteCar.Name = "label_HeadMainWindow_DeleteCar";
+            this.label_HeadMainWindow_DeleteCar.Size = new System.Drawing.Size(0, 23);
+            this.label_HeadMainWindow_DeleteCar.TabIndex = 5;
+            // 
             // button_HeadMainWindow_DeleteCar
             // 
             this.button_HeadMainWindow_DeleteCar.Location = new System.Drawing.Point(125, 429);
@@ -551,6 +559,7 @@
             this.button_HeadMainWindow_AddCarExemplar.TabIndex = 2;
             this.button_HeadMainWindow_AddCarExemplar.Text = "Добавить экземпляр";
             this.button_HeadMainWindow_AddCarExemplar.UseVisualStyleBackColor = true;
+            this.button_HeadMainWindow_AddCarExemplar.Click += new System.EventHandler(this.button_HeadMainWindow_AddCarExemplar_Click);
             // 
             // button_HeadMainWindow_AddCar
             // 
@@ -774,14 +783,6 @@
             this.label_HeadMainWindow_PeronalArea_HeadPassPata.Size = new System.Drawing.Size(179, 23);
             this.label_HeadMainWindow_PeronalArea_HeadPassPata.TabIndex = 0;
             this.label_HeadMainWindow_PeronalArea_HeadPassPata.Text = "Паспортные данные:";
-            // 
-            // label_HeadMainWindow_DeleteCar
-            // 
-            this.label_HeadMainWindow_DeleteCar.AutoSize = true;
-            this.label_HeadMainWindow_DeleteCar.Location = new System.Drawing.Point(331, 434);
-            this.label_HeadMainWindow_DeleteCar.Name = "label_HeadMainWindow_DeleteCar";
-            this.label_HeadMainWindow_DeleteCar.Size = new System.Drawing.Size(0, 23);
-            this.label_HeadMainWindow_DeleteCar.TabIndex = 5;
             // 
             // HeadMainWindow
             // 
