@@ -30,50 +30,57 @@
         {
             this.tabControl_ManagerMainWindow = new System.Windows.Forms.TabControl();
             this.tabPage_ManagerMainWindow_Cars = new System.Windows.Forms.TabPage();
-            this.tabPage_ManagerMainWindow_Orders = new System.Windows.Forms.TabPage();
-            this.tabPage_ManagerMainWindow_Buyers = new System.Windows.Forms.TabPage();
-            this.groupBox_ManagerMainWindow_Cars_Cars = new System.Windows.Forms.GroupBox();
-            this.button_ManagerMainWindow_DataGridView_Cars_Update = new System.Windows.Forms.Button();
-            this.dataGridView_ManagerMainWindow_Cars = new System.Windows.Forms.DataGridView();
             this.groupBox_ManagerMainWindow_SearchCar = new System.Windows.Forms.GroupBox();
             this.label_ManagerMainWindow_SearchCar_Model = new System.Windows.Forms.Label();
             this.label_ManagerMainWindow_SearchCar_Brand = new System.Windows.Forms.Label();
             this.textBox_ManagerMainWindow_SearchCar_Model_Input = new System.Windows.Forms.TextBox();
             this.textBox_ManagerMainWindow_SearchCar_Brand_Input = new System.Windows.Forms.TextBox();
             this.button_ManagerMainWindow_SearchCar = new System.Windows.Forms.Button();
-            this.dataGridView_ManagerMainWindow_Orders_CarOrders = new System.Windows.Forms.DataGridView();
-            this.dataGridView_ManagerMainWindow_Orders_Buyers = new System.Windows.Forms.DataGridView();
-            this.sqlCommandBuilder1 = new Microsoft.Data.SqlClient.SqlCommandBuilder();
-            this.button_HeadMainWindow_DataGridView_Cars_Update = new System.Windows.Forms.Button();
-            this.groupBox_ManagerMainWindow_AddOrder = new System.Windows.Forms.GroupBox();
-            this.textBox_ManagerMainWindow_BuyerPassData_Input = new System.Windows.Forms.TextBox();
-            this.textBox_ManagerMainWindow_ContractDate_Input = new System.Windows.Forms.TextBox();
-            this.textBox_ManagerMainWindow_OrderAmount_Input = new System.Windows.Forms.TextBox();
+            this.groupBox_ManagerMainWindow_Cars_Cars = new System.Windows.Forms.GroupBox();
+            this.button_ManagerMainWindow_DataGridView_Cars_Update = new System.Windows.Forms.Button();
+            this.dataGridView_ManagerMainWindow_Cars = new System.Windows.Forms.DataGridView();
+            this.tabPage_ManagerMainWindow_Orders = new System.Windows.Forms.TabPage();
             this.dataGridView_ManagerMainWindow_Orders_Cars = new System.Windows.Forms.DataGridView();
-            this.textBox_ManagerMainWindow_BuyerSurname_Input = new System.Windows.Forms.TextBox();
-            this.textBox_ManagerMainWindow_BuyerName_Input = new System.Windows.Forms.TextBox();
-            this.textBox_ManagerMainWindow_BuyerPhoneNumber_Input = new System.Windows.Forms.TextBox();
-            this.textBox_ManagerMainWindow_BuyerMiddlename_Input = new System.Windows.Forms.TextBox();
-            this.label_ManagerMainWindow_BuyerPassData = new System.Windows.Forms.Label();
-            this.label_ManagerMainWindow_ContractDate = new System.Windows.Forms.Label();
-            this.label_ManagerMainWindow_OrderAmount = new System.Windows.Forms.Label();
-            this.label_ManagerMainWindow_BuyerSurname = new System.Windows.Forms.Label();
-            this.label_ManagerMainWindow_BuyerName = new System.Windows.Forms.Label();
-            this.label_ManagerMainWindow_BuyerMiddlename = new System.Windows.Forms.Label();
-            this.label_ManagerMainWindow_BuyerPhoneNumber = new System.Windows.Forms.Label();
-            this.textBox_ManagerMainWindow_VinNumber_Input = new System.Windows.Forms.TextBox();
-            this.label_ManagerMainWindow_VinNumber = new System.Windows.Forms.Label();
+            this.groupBox_ManagerMainWindow_AddOrder = new System.Windows.Forms.GroupBox();
             this.button_ManagerMainWindow_AddOrder = new System.Windows.Forms.Button();
+            this.label_ManagerMainWindow_VinNumber = new System.Windows.Forms.Label();
+            this.textBox_ManagerMainWindow_VinNumber_Input = new System.Windows.Forms.TextBox();
+            this.label_ManagerMainWindow_BuyerPhoneNumber = new System.Windows.Forms.Label();
+            this.label_ManagerMainWindow_BuyerMiddlename = new System.Windows.Forms.Label();
+            this.label_ManagerMainWindow_BuyerName = new System.Windows.Forms.Label();
+            this.label_ManagerMainWindow_BuyerSurname = new System.Windows.Forms.Label();
+            this.label_ManagerMainWindow_OrderAmount = new System.Windows.Forms.Label();
+            this.label_ManagerMainWindow_ContractDate = new System.Windows.Forms.Label();
+            this.label_ManagerMainWindow_BuyerPassData = new System.Windows.Forms.Label();
+            this.textBox_ManagerMainWindow_BuyerMiddlename_Input = new System.Windows.Forms.TextBox();
+            this.textBox_ManagerMainWindow_BuyerPhoneNumber_Input = new System.Windows.Forms.TextBox();
+            this.textBox_ManagerMainWindow_BuyerName_Input = new System.Windows.Forms.TextBox();
+            this.textBox_ManagerMainWindow_BuyerSurname_Input = new System.Windows.Forms.TextBox();
+            this.textBox_ManagerMainWindow_OrderAmount_Input = new System.Windows.Forms.TextBox();
+            this.textBox_ManagerMainWindow_ContractDate_Input = new System.Windows.Forms.TextBox();
+            this.textBox_ManagerMainWindow_BuyerPassData_Input = new System.Windows.Forms.TextBox();
+            this.button_HeadMainWindow_DataGridView_Cars_Update = new System.Windows.Forms.Button();
+            this.dataGridView_ManagerMainWindow_Orders_Buyers = new System.Windows.Forms.DataGridView();
+            this.dataGridView_ManagerMainWindow_Orders_CarOrders = new System.Windows.Forms.DataGridView();
+            this.tabPage_ManagerMainWindow_Buyers = new System.Windows.Forms.TabPage();
+            this.sqlCommandBuilder1 = new Microsoft.Data.SqlClient.SqlCommandBuilder();
+            this.groupBox_ManagerMainWindow_CarExemplarExtradition = new System.Windows.Forms.GroupBox();
+            this.label_ManagerMainWindow_OrderNumberLabel = new System.Windows.Forms.Label();
+            this.label_ManagerMainWindow_CarExemplarExtradition_OrderNumber = new System.Windows.Forms.Label();
+            this.button_ManagerMainWindow_CarExemplarExtradition_Extradite = new System.Windows.Forms.Button();
+            this.label_ManagerMainWindow_OrderSNMLabel = new System.Windows.Forms.Label();
+            this.label_ManagerMainWindow_OrderSNM = new System.Windows.Forms.Label();
             this.tabControl_ManagerMainWindow.SuspendLayout();
             this.tabPage_ManagerMainWindow_Cars.SuspendLayout();
-            this.tabPage_ManagerMainWindow_Orders.SuspendLayout();
+            this.groupBox_ManagerMainWindow_SearchCar.SuspendLayout();
             this.groupBox_ManagerMainWindow_Cars_Cars.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Cars)).BeginInit();
-            this.groupBox_ManagerMainWindow_SearchCar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Orders_CarOrders)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Orders_Buyers)).BeginInit();
-            this.groupBox_ManagerMainWindow_AddOrder.SuspendLayout();
+            this.tabPage_ManagerMainWindow_Orders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Orders_Cars)).BeginInit();
+            this.groupBox_ManagerMainWindow_AddOrder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Orders_Buyers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Orders_CarOrders)).BeginInit();
+            this.groupBox_ManagerMainWindow_CarExemplarExtradition.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl_ManagerMainWindow
@@ -99,63 +106,6 @@
             this.tabPage_ManagerMainWindow_Cars.TabIndex = 0;
             this.tabPage_ManagerMainWindow_Cars.Text = "Автомобили";
             this.tabPage_ManagerMainWindow_Cars.UseVisualStyleBackColor = true;
-            // 
-            // tabPage_ManagerMainWindow_Orders
-            // 
-            this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.dataGridView_ManagerMainWindow_Orders_Cars);
-            this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.groupBox_ManagerMainWindow_AddOrder);
-            this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.button_HeadMainWindow_DataGridView_Cars_Update);
-            this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.dataGridView_ManagerMainWindow_Orders_Buyers);
-            this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.dataGridView_ManagerMainWindow_Orders_CarOrders);
-            this.tabPage_ManagerMainWindow_Orders.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tabPage_ManagerMainWindow_Orders.Location = new System.Drawing.Point(4, 29);
-            this.tabPage_ManagerMainWindow_Orders.Name = "tabPage_ManagerMainWindow_Orders";
-            this.tabPage_ManagerMainWindow_Orders.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_ManagerMainWindow_Orders.Size = new System.Drawing.Size(910, 616);
-            this.tabPage_ManagerMainWindow_Orders.TabIndex = 1;
-            this.tabPage_ManagerMainWindow_Orders.Text = "Заказы";
-            this.tabPage_ManagerMainWindow_Orders.UseVisualStyleBackColor = true;
-            // 
-            // tabPage_ManagerMainWindow_Buyers
-            // 
-            this.tabPage_ManagerMainWindow_Buyers.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tabPage_ManagerMainWindow_Buyers.Location = new System.Drawing.Point(4, 29);
-            this.tabPage_ManagerMainWindow_Buyers.Name = "tabPage_ManagerMainWindow_Buyers";
-            this.tabPage_ManagerMainWindow_Buyers.Size = new System.Drawing.Size(910, 616);
-            this.tabPage_ManagerMainWindow_Buyers.TabIndex = 2;
-            this.tabPage_ManagerMainWindow_Buyers.Text = "Покупатели";
-            this.tabPage_ManagerMainWindow_Buyers.UseVisualStyleBackColor = true;
-            // 
-            // groupBox_ManagerMainWindow_Cars_Cars
-            // 
-            this.groupBox_ManagerMainWindow_Cars_Cars.Controls.Add(this.button_ManagerMainWindow_DataGridView_Cars_Update);
-            this.groupBox_ManagerMainWindow_Cars_Cars.Controls.Add(this.dataGridView_ManagerMainWindow_Cars);
-            this.groupBox_ManagerMainWindow_Cars_Cars.Location = new System.Drawing.Point(5, -2);
-            this.groupBox_ManagerMainWindow_Cars_Cars.Name = "groupBox_ManagerMainWindow_Cars_Cars";
-            this.groupBox_ManagerMainWindow_Cars_Cars.Size = new System.Drawing.Size(900, 400);
-            this.groupBox_ManagerMainWindow_Cars_Cars.TabIndex = 1;
-            this.groupBox_ManagerMainWindow_Cars_Cars.TabStop = false;
-            this.groupBox_ManagerMainWindow_Cars_Cars.Text = "Автомобили";
-            // 
-            // button_ManagerMainWindow_DataGridView_Cars_Update
-            // 
-            this.button_ManagerMainWindow_DataGridView_Cars_Update.Location = new System.Drawing.Point(350, 350);
-            this.button_ManagerMainWindow_DataGridView_Cars_Update.Name = "button_ManagerMainWindow_DataGridView_Cars_Update";
-            this.button_ManagerMainWindow_DataGridView_Cars_Update.Size = new System.Drawing.Size(200, 35);
-            this.button_ManagerMainWindow_DataGridView_Cars_Update.TabIndex = 1;
-            this.button_ManagerMainWindow_DataGridView_Cars_Update.Text = "Обновить";
-            this.button_ManagerMainWindow_DataGridView_Cars_Update.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView_ManagerMainWindow_Cars
-            // 
-            this.dataGridView_ManagerMainWindow_Cars.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridView_ManagerMainWindow_Cars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_ManagerMainWindow_Cars.Location = new System.Drawing.Point(10, 30);
-            this.dataGridView_ManagerMainWindow_Cars.Name = "dataGridView_ManagerMainWindow_Cars";
-            this.dataGridView_ManagerMainWindow_Cars.RowHeadersWidth = 51;
-            this.dataGridView_ManagerMainWindow_Cars.RowTemplate.Height = 29;
-            this.dataGridView_ManagerMainWindow_Cars.Size = new System.Drawing.Size(880, 300);
-            this.dataGridView_ManagerMainWindow_Cars.TabIndex = 0;
             // 
             // groupBox_ManagerMainWindow_SearchCar
             // 
@@ -212,36 +162,64 @@
             this.button_ManagerMainWindow_SearchCar.Text = "Найти автомобиль";
             this.button_ManagerMainWindow_SearchCar.UseVisualStyleBackColor = true;
             // 
-            // dataGridView_ManagerMainWindow_Orders_CarOrders
+            // groupBox_ManagerMainWindow_Cars_Cars
             // 
-            this.dataGridView_ManagerMainWindow_Orders_CarOrders.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridView_ManagerMainWindow_Orders_CarOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_ManagerMainWindow_Orders_CarOrders.Location = new System.Drawing.Point(3, 6);
-            this.dataGridView_ManagerMainWindow_Orders_CarOrders.Name = "dataGridView_ManagerMainWindow_Orders_CarOrders";
-            this.dataGridView_ManagerMainWindow_Orders_CarOrders.RowHeadersWidth = 51;
-            this.dataGridView_ManagerMainWindow_Orders_CarOrders.RowTemplate.Height = 29;
-            this.dataGridView_ManagerMainWindow_Orders_CarOrders.Size = new System.Drawing.Size(300, 300);
-            this.dataGridView_ManagerMainWindow_Orders_CarOrders.TabIndex = 0;
+            this.groupBox_ManagerMainWindow_Cars_Cars.Controls.Add(this.button_ManagerMainWindow_DataGridView_Cars_Update);
+            this.groupBox_ManagerMainWindow_Cars_Cars.Controls.Add(this.dataGridView_ManagerMainWindow_Cars);
+            this.groupBox_ManagerMainWindow_Cars_Cars.Location = new System.Drawing.Point(5, -2);
+            this.groupBox_ManagerMainWindow_Cars_Cars.Name = "groupBox_ManagerMainWindow_Cars_Cars";
+            this.groupBox_ManagerMainWindow_Cars_Cars.Size = new System.Drawing.Size(900, 400);
+            this.groupBox_ManagerMainWindow_Cars_Cars.TabIndex = 1;
+            this.groupBox_ManagerMainWindow_Cars_Cars.TabStop = false;
+            this.groupBox_ManagerMainWindow_Cars_Cars.Text = "Автомобили";
             // 
-            // dataGridView_ManagerMainWindow_Orders_Buyers
+            // button_ManagerMainWindow_DataGridView_Cars_Update
             // 
-            this.dataGridView_ManagerMainWindow_Orders_Buyers.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridView_ManagerMainWindow_Orders_Buyers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_ManagerMainWindow_Orders_Buyers.Location = new System.Drawing.Point(607, 6);
-            this.dataGridView_ManagerMainWindow_Orders_Buyers.Name = "dataGridView_ManagerMainWindow_Orders_Buyers";
-            this.dataGridView_ManagerMainWindow_Orders_Buyers.RowHeadersWidth = 51;
-            this.dataGridView_ManagerMainWindow_Orders_Buyers.RowTemplate.Height = 29;
-            this.dataGridView_ManagerMainWindow_Orders_Buyers.Size = new System.Drawing.Size(300, 300);
-            this.dataGridView_ManagerMainWindow_Orders_Buyers.TabIndex = 1;
+            this.button_ManagerMainWindow_DataGridView_Cars_Update.Location = new System.Drawing.Point(350, 350);
+            this.button_ManagerMainWindow_DataGridView_Cars_Update.Name = "button_ManagerMainWindow_DataGridView_Cars_Update";
+            this.button_ManagerMainWindow_DataGridView_Cars_Update.Size = new System.Drawing.Size(200, 35);
+            this.button_ManagerMainWindow_DataGridView_Cars_Update.TabIndex = 1;
+            this.button_ManagerMainWindow_DataGridView_Cars_Update.Text = "Обновить";
+            this.button_ManagerMainWindow_DataGridView_Cars_Update.UseVisualStyleBackColor = true;
             // 
-            // button_HeadMainWindow_DataGridView_Cars_Update
+            // dataGridView_ManagerMainWindow_Cars
             // 
-            this.button_HeadMainWindow_DataGridView_Cars_Update.Location = new System.Drawing.Point(355, 316);
-            this.button_HeadMainWindow_DataGridView_Cars_Update.Name = "button_HeadMainWindow_DataGridView_Cars_Update";
-            this.button_HeadMainWindow_DataGridView_Cars_Update.Size = new System.Drawing.Size(200, 35);
-            this.button_HeadMainWindow_DataGridView_Cars_Update.TabIndex = 2;
-            this.button_HeadMainWindow_DataGridView_Cars_Update.Text = "Обновить";
-            this.button_HeadMainWindow_DataGridView_Cars_Update.UseVisualStyleBackColor = true;
+            this.dataGridView_ManagerMainWindow_Cars.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridView_ManagerMainWindow_Cars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_ManagerMainWindow_Cars.Location = new System.Drawing.Point(10, 30);
+            this.dataGridView_ManagerMainWindow_Cars.Name = "dataGridView_ManagerMainWindow_Cars";
+            this.dataGridView_ManagerMainWindow_Cars.RowHeadersWidth = 51;
+            this.dataGridView_ManagerMainWindow_Cars.RowTemplate.Height = 29;
+            this.dataGridView_ManagerMainWindow_Cars.Size = new System.Drawing.Size(880, 300);
+            this.dataGridView_ManagerMainWindow_Cars.TabIndex = 0;
+            // 
+            // tabPage_ManagerMainWindow_Orders
+            // 
+            this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.groupBox_ManagerMainWindow_CarExemplarExtradition);
+            this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.dataGridView_ManagerMainWindow_Orders_Cars);
+            this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.groupBox_ManagerMainWindow_AddOrder);
+            this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.button_HeadMainWindow_DataGridView_Cars_Update);
+            this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.dataGridView_ManagerMainWindow_Orders_Buyers);
+            this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.dataGridView_ManagerMainWindow_Orders_CarOrders);
+            this.tabPage_ManagerMainWindow_Orders.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tabPage_ManagerMainWindow_Orders.Location = new System.Drawing.Point(4, 29);
+            this.tabPage_ManagerMainWindow_Orders.Name = "tabPage_ManagerMainWindow_Orders";
+            this.tabPage_ManagerMainWindow_Orders.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_ManagerMainWindow_Orders.Size = new System.Drawing.Size(910, 616);
+            this.tabPage_ManagerMainWindow_Orders.TabIndex = 1;
+            this.tabPage_ManagerMainWindow_Orders.Text = "Заказы";
+            this.tabPage_ManagerMainWindow_Orders.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView_ManagerMainWindow_Orders_Cars
+            // 
+            this.dataGridView_ManagerMainWindow_Orders_Cars.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridView_ManagerMainWindow_Orders_Cars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_ManagerMainWindow_Orders_Cars.Location = new System.Drawing.Point(305, 6);
+            this.dataGridView_ManagerMainWindow_Orders_Cars.Name = "dataGridView_ManagerMainWindow_Orders_Cars";
+            this.dataGridView_ManagerMainWindow_Orders_Cars.RowHeadersWidth = 51;
+            this.dataGridView_ManagerMainWindow_Orders_Cars.RowTemplate.Height = 29;
+            this.dataGridView_ManagerMainWindow_Orders_Cars.Size = new System.Drawing.Size(300, 300);
+            this.dataGridView_ManagerMainWindow_Orders_Cars.TabIndex = 4;
             // 
             // groupBox_ManagerMainWindow_AddOrder
             // 
@@ -264,158 +242,247 @@
             this.groupBox_ManagerMainWindow_AddOrder.Controls.Add(this.textBox_ManagerMainWindow_BuyerPassData_Input);
             this.groupBox_ManagerMainWindow_AddOrder.Location = new System.Drawing.Point(5, 355);
             this.groupBox_ManagerMainWindow_AddOrder.Name = "groupBox_ManagerMainWindow_AddOrder";
-            this.groupBox_ManagerMainWindow_AddOrder.Size = new System.Drawing.Size(900, 255);
+            this.groupBox_ManagerMainWindow_AddOrder.Size = new System.Drawing.Size(562, 255);
             this.groupBox_ManagerMainWindow_AddOrder.TabIndex = 3;
             this.groupBox_ManagerMainWindow_AddOrder.TabStop = false;
             this.groupBox_ManagerMainWindow_AddOrder.Text = "Добавить заказ";
             // 
-            // textBox_ManagerMainWindow_BuyerPassData_Input
+            // button_ManagerMainWindow_AddOrder
             // 
-            this.textBox_ManagerMainWindow_BuyerPassData_Input.Location = new System.Drawing.Point(112, 60);
-            this.textBox_ManagerMainWindow_BuyerPassData_Input.Name = "textBox_ManagerMainWindow_BuyerPassData_Input";
-            this.textBox_ManagerMainWindow_BuyerPassData_Input.Size = new System.Drawing.Size(150, 30);
-            this.textBox_ManagerMainWindow_BuyerPassData_Input.TabIndex = 0;
-            // 
-            // textBox_ManagerMainWindow_ContractDate_Input
-            // 
-            this.textBox_ManagerMainWindow_ContractDate_Input.Location = new System.Drawing.Point(112, 120);
-            this.textBox_ManagerMainWindow_ContractDate_Input.Name = "textBox_ManagerMainWindow_ContractDate_Input";
-            this.textBox_ManagerMainWindow_ContractDate_Input.Size = new System.Drawing.Size(150, 30);
-            this.textBox_ManagerMainWindow_ContractDate_Input.TabIndex = 1;
-            // 
-            // textBox_ManagerMainWindow_OrderAmount_Input
-            // 
-            this.textBox_ManagerMainWindow_OrderAmount_Input.Location = new System.Drawing.Point(112, 180);
-            this.textBox_ManagerMainWindow_OrderAmount_Input.Name = "textBox_ManagerMainWindow_OrderAmount_Input";
-            this.textBox_ManagerMainWindow_OrderAmount_Input.Size = new System.Drawing.Size(150, 30);
-            this.textBox_ManagerMainWindow_OrderAmount_Input.TabIndex = 2;
-            // 
-            // dataGridView_ManagerMainWindow_Orders_Cars
-            // 
-            this.dataGridView_ManagerMainWindow_Orders_Cars.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridView_ManagerMainWindow_Orders_Cars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_ManagerMainWindow_Orders_Cars.Location = new System.Drawing.Point(305, 6);
-            this.dataGridView_ManagerMainWindow_Orders_Cars.Name = "dataGridView_ManagerMainWindow_Orders_Cars";
-            this.dataGridView_ManagerMainWindow_Orders_Cars.RowHeadersWidth = 51;
-            this.dataGridView_ManagerMainWindow_Orders_Cars.RowTemplate.Height = 29;
-            this.dataGridView_ManagerMainWindow_Orders_Cars.Size = new System.Drawing.Size(300, 300);
-            this.dataGridView_ManagerMainWindow_Orders_Cars.TabIndex = 4;
-            // 
-            // textBox_ManagerMainWindow_BuyerSurname_Input
-            // 
-            this.textBox_ManagerMainWindow_BuyerSurname_Input.Location = new System.Drawing.Point(375, 60);
-            this.textBox_ManagerMainWindow_BuyerSurname_Input.Name = "textBox_ManagerMainWindow_BuyerSurname_Input";
-            this.textBox_ManagerMainWindow_BuyerSurname_Input.Size = new System.Drawing.Size(150, 30);
-            this.textBox_ManagerMainWindow_BuyerSurname_Input.TabIndex = 3;
-            // 
-            // textBox_ManagerMainWindow_BuyerName_Input
-            // 
-            this.textBox_ManagerMainWindow_BuyerName_Input.Location = new System.Drawing.Point(375, 120);
-            this.textBox_ManagerMainWindow_BuyerName_Input.Name = "textBox_ManagerMainWindow_BuyerName_Input";
-            this.textBox_ManagerMainWindow_BuyerName_Input.Size = new System.Drawing.Size(150, 30);
-            this.textBox_ManagerMainWindow_BuyerName_Input.TabIndex = 4;
-            // 
-            // textBox_ManagerMainWindow_BuyerPhoneNumber_Input
-            // 
-            this.textBox_ManagerMainWindow_BuyerPhoneNumber_Input.Location = new System.Drawing.Point(637, 60);
-            this.textBox_ManagerMainWindow_BuyerPhoneNumber_Input.Name = "textBox_ManagerMainWindow_BuyerPhoneNumber_Input";
-            this.textBox_ManagerMainWindow_BuyerPhoneNumber_Input.Size = new System.Drawing.Size(150, 30);
-            this.textBox_ManagerMainWindow_BuyerPhoneNumber_Input.TabIndex = 5;
-            // 
-            // textBox_ManagerMainWindow_BuyerMiddlename_Input
-            // 
-            this.textBox_ManagerMainWindow_BuyerMiddlename_Input.Location = new System.Drawing.Point(375, 180);
-            this.textBox_ManagerMainWindow_BuyerMiddlename_Input.Name = "textBox_ManagerMainWindow_BuyerMiddlename_Input";
-            this.textBox_ManagerMainWindow_BuyerMiddlename_Input.Size = new System.Drawing.Size(150, 30);
-            this.textBox_ManagerMainWindow_BuyerMiddlename_Input.TabIndex = 6;
-            // 
-            // label_ManagerMainWindow_BuyerPassData
-            // 
-            this.label_ManagerMainWindow_BuyerPassData.AutoSize = true;
-            this.label_ManagerMainWindow_BuyerPassData.Location = new System.Drawing.Point(100, 30);
-            this.label_ManagerMainWindow_BuyerPassData.Name = "label_ManagerMainWindow_BuyerPassData";
-            this.label_ManagerMainWindow_BuyerPassData.Size = new System.Drawing.Size(175, 23);
-            this.label_ManagerMainWindow_BuyerPassData.TabIndex = 7;
-            this.label_ManagerMainWindow_BuyerPassData.Text = "Паспортные данные";
-            // 
-            // label_ManagerMainWindow_ContractDate
-            // 
-            this.label_ManagerMainWindow_ContractDate.AutoSize = true;
-            this.label_ManagerMainWindow_ContractDate.Location = new System.Drawing.Point(164, 93);
-            this.label_ManagerMainWindow_ContractDate.Name = "label_ManagerMainWindow_ContractDate";
-            this.label_ManagerMainWindow_ContractDate.Size = new System.Drawing.Size(47, 23);
-            this.label_ManagerMainWindow_ContractDate.TabIndex = 8;
-            this.label_ManagerMainWindow_ContractDate.Text = "Дата";
-            // 
-            // label_ManagerMainWindow_OrderAmount
-            // 
-            this.label_ManagerMainWindow_OrderAmount.AutoSize = true;
-            this.label_ManagerMainWindow_OrderAmount.Location = new System.Drawing.Point(126, 153);
-            this.label_ManagerMainWindow_OrderAmount.Name = "label_ManagerMainWindow_OrderAmount";
-            this.label_ManagerMainWindow_OrderAmount.Size = new System.Drawing.Size(122, 23);
-            this.label_ManagerMainWindow_OrderAmount.TabIndex = 9;
-            this.label_ManagerMainWindow_OrderAmount.Text = "Сумма заказа";
-            // 
-            // label_ManagerMainWindow_BuyerSurname
-            // 
-            this.label_ManagerMainWindow_BuyerSurname.AutoSize = true;
-            this.label_ManagerMainWindow_BuyerSurname.Location = new System.Drawing.Point(410, 30);
-            this.label_ManagerMainWindow_BuyerSurname.Name = "label_ManagerMainWindow_BuyerSurname";
-            this.label_ManagerMainWindow_BuyerSurname.Size = new System.Drawing.Size(84, 23);
-            this.label_ManagerMainWindow_BuyerSurname.TabIndex = 10;
-            this.label_ManagerMainWindow_BuyerSurname.Text = "Фамилия";
-            // 
-            // label_ManagerMainWindow_BuyerName
-            // 
-            this.label_ManagerMainWindow_BuyerName.AutoSize = true;
-            this.label_ManagerMainWindow_BuyerName.Location = new System.Drawing.Point(429, 93);
-            this.label_ManagerMainWindow_BuyerName.Name = "label_ManagerMainWindow_BuyerName";
-            this.label_ManagerMainWindow_BuyerName.Size = new System.Drawing.Size(45, 23);
-            this.label_ManagerMainWindow_BuyerName.TabIndex = 11;
-            this.label_ManagerMainWindow_BuyerName.Text = "Имя";
-            // 
-            // label_ManagerMainWindow_BuyerMiddlename
-            // 
-            this.label_ManagerMainWindow_BuyerMiddlename.AutoSize = true;
-            this.label_ManagerMainWindow_BuyerMiddlename.Location = new System.Drawing.Point(409, 154);
-            this.label_ManagerMainWindow_BuyerMiddlename.Name = "label_ManagerMainWindow_BuyerMiddlename";
-            this.label_ManagerMainWindow_BuyerMiddlename.Size = new System.Drawing.Size(83, 23);
-            this.label_ManagerMainWindow_BuyerMiddlename.TabIndex = 12;
-            this.label_ManagerMainWindow_BuyerMiddlename.Text = "Отчество";
-            // 
-            // label_ManagerMainWindow_BuyerPhoneNumber
-            // 
-            this.label_ManagerMainWindow_BuyerPhoneNumber.AutoSize = true;
-            this.label_ManagerMainWindow_BuyerPhoneNumber.Location = new System.Drawing.Point(639, 30);
-            this.label_ManagerMainWindow_BuyerPhoneNumber.Name = "label_ManagerMainWindow_BuyerPhoneNumber";
-            this.label_ManagerMainWindow_BuyerPhoneNumber.Size = new System.Drawing.Size(146, 23);
-            this.label_ManagerMainWindow_BuyerPhoneNumber.TabIndex = 13;
-            this.label_ManagerMainWindow_BuyerPhoneNumber.Text = "Номер телефона";
-            // 
-            // textBox_ManagerMainWindow_VinNumber_Input
-            // 
-            this.textBox_ManagerMainWindow_VinNumber_Input.Location = new System.Drawing.Point(637, 120);
-            this.textBox_ManagerMainWindow_VinNumber_Input.Name = "textBox_ManagerMainWindow_VinNumber_Input";
-            this.textBox_ManagerMainWindow_VinNumber_Input.Size = new System.Drawing.Size(150, 30);
-            this.textBox_ManagerMainWindow_VinNumber_Input.TabIndex = 14;
+            this.button_ManagerMainWindow_AddOrder.Location = new System.Drawing.Point(386, 180);
+            this.button_ManagerMainWindow_AddOrder.Name = "button_ManagerMainWindow_AddOrder";
+            this.button_ManagerMainWindow_AddOrder.Size = new System.Drawing.Size(150, 30);
+            this.button_ManagerMainWindow_AddOrder.TabIndex = 16;
+            this.button_ManagerMainWindow_AddOrder.Text = "Добавить ";
+            this.button_ManagerMainWindow_AddOrder.UseVisualStyleBackColor = true;
             // 
             // label_ManagerMainWindow_VinNumber
             // 
             this.label_ManagerMainWindow_VinNumber.AutoSize = true;
-            this.label_ManagerMainWindow_VinNumber.Location = new System.Drawing.Point(664, 94);
+            this.label_ManagerMainWindow_VinNumber.Location = new System.Drawing.Point(415, 94);
             this.label_ManagerMainWindow_VinNumber.Name = "label_ManagerMainWindow_VinNumber";
             this.label_ManagerMainWindow_VinNumber.Size = new System.Drawing.Size(98, 23);
             this.label_ManagerMainWindow_VinNumber.TabIndex = 15;
             this.label_ManagerMainWindow_VinNumber.Text = "VIN-номер";
             // 
-            // button_ManagerMainWindow_AddOrder
+            // textBox_ManagerMainWindow_VinNumber_Input
             // 
-            this.button_ManagerMainWindow_AddOrder.Location = new System.Drawing.Point(613, 178);
-            this.button_ManagerMainWindow_AddOrder.Name = "button_ManagerMainWindow_AddOrder";
-            this.button_ManagerMainWindow_AddOrder.Size = new System.Drawing.Size(200, 35);
-            this.button_ManagerMainWindow_AddOrder.TabIndex = 16;
-            this.button_ManagerMainWindow_AddOrder.Text = "Добавить ";
-            this.button_ManagerMainWindow_AddOrder.UseVisualStyleBackColor = true;
+            this.textBox_ManagerMainWindow_VinNumber_Input.Location = new System.Drawing.Point(388, 120);
+            this.textBox_ManagerMainWindow_VinNumber_Input.Name = "textBox_ManagerMainWindow_VinNumber_Input";
+            this.textBox_ManagerMainWindow_VinNumber_Input.Size = new System.Drawing.Size(150, 30);
+            this.textBox_ManagerMainWindow_VinNumber_Input.TabIndex = 14;
+            // 
+            // label_ManagerMainWindow_BuyerPhoneNumber
+            // 
+            this.label_ManagerMainWindow_BuyerPhoneNumber.AutoSize = true;
+            this.label_ManagerMainWindow_BuyerPhoneNumber.Location = new System.Drawing.Point(390, 30);
+            this.label_ManagerMainWindow_BuyerPhoneNumber.Name = "label_ManagerMainWindow_BuyerPhoneNumber";
+            this.label_ManagerMainWindow_BuyerPhoneNumber.Size = new System.Drawing.Size(146, 23);
+            this.label_ManagerMainWindow_BuyerPhoneNumber.TabIndex = 13;
+            this.label_ManagerMainWindow_BuyerPhoneNumber.Text = "Номер телефона";
+            // 
+            // label_ManagerMainWindow_BuyerMiddlename
+            // 
+            this.label_ManagerMainWindow_BuyerMiddlename.AutoSize = true;
+            this.label_ManagerMainWindow_BuyerMiddlename.Location = new System.Drawing.Point(241, 154);
+            this.label_ManagerMainWindow_BuyerMiddlename.Name = "label_ManagerMainWindow_BuyerMiddlename";
+            this.label_ManagerMainWindow_BuyerMiddlename.Size = new System.Drawing.Size(83, 23);
+            this.label_ManagerMainWindow_BuyerMiddlename.TabIndex = 12;
+            this.label_ManagerMainWindow_BuyerMiddlename.Text = "Отчество";
+            // 
+            // label_ManagerMainWindow_BuyerName
+            // 
+            this.label_ManagerMainWindow_BuyerName.AutoSize = true;
+            this.label_ManagerMainWindow_BuyerName.Location = new System.Drawing.Point(261, 93);
+            this.label_ManagerMainWindow_BuyerName.Name = "label_ManagerMainWindow_BuyerName";
+            this.label_ManagerMainWindow_BuyerName.Size = new System.Drawing.Size(45, 23);
+            this.label_ManagerMainWindow_BuyerName.TabIndex = 11;
+            this.label_ManagerMainWindow_BuyerName.Text = "Имя";
+            // 
+            // label_ManagerMainWindow_BuyerSurname
+            // 
+            this.label_ManagerMainWindow_BuyerSurname.AutoSize = true;
+            this.label_ManagerMainWindow_BuyerSurname.Location = new System.Drawing.Point(242, 30);
+            this.label_ManagerMainWindow_BuyerSurname.Name = "label_ManagerMainWindow_BuyerSurname";
+            this.label_ManagerMainWindow_BuyerSurname.Size = new System.Drawing.Size(84, 23);
+            this.label_ManagerMainWindow_BuyerSurname.TabIndex = 10;
+            this.label_ManagerMainWindow_BuyerSurname.Text = "Фамилия";
+            // 
+            // label_ManagerMainWindow_OrderAmount
+            // 
+            this.label_ManagerMainWindow_OrderAmount.AutoSize = true;
+            this.label_ManagerMainWindow_OrderAmount.Location = new System.Drawing.Point(43, 153);
+            this.label_ManagerMainWindow_OrderAmount.Name = "label_ManagerMainWindow_OrderAmount";
+            this.label_ManagerMainWindow_OrderAmount.Size = new System.Drawing.Size(122, 23);
+            this.label_ManagerMainWindow_OrderAmount.TabIndex = 9;
+            this.label_ManagerMainWindow_OrderAmount.Text = "Сумма заказа";
+            // 
+            // label_ManagerMainWindow_ContractDate
+            // 
+            this.label_ManagerMainWindow_ContractDate.AutoSize = true;
+            this.label_ManagerMainWindow_ContractDate.Location = new System.Drawing.Point(81, 93);
+            this.label_ManagerMainWindow_ContractDate.Name = "label_ManagerMainWindow_ContractDate";
+            this.label_ManagerMainWindow_ContractDate.Size = new System.Drawing.Size(47, 23);
+            this.label_ManagerMainWindow_ContractDate.TabIndex = 8;
+            this.label_ManagerMainWindow_ContractDate.Text = "Дата";
+            // 
+            // label_ManagerMainWindow_BuyerPassData
+            // 
+            this.label_ManagerMainWindow_BuyerPassData.AutoSize = true;
+            this.label_ManagerMainWindow_BuyerPassData.Location = new System.Drawing.Point(17, 30);
+            this.label_ManagerMainWindow_BuyerPassData.Name = "label_ManagerMainWindow_BuyerPassData";
+            this.label_ManagerMainWindow_BuyerPassData.Size = new System.Drawing.Size(175, 23);
+            this.label_ManagerMainWindow_BuyerPassData.TabIndex = 7;
+            this.label_ManagerMainWindow_BuyerPassData.Text = "Паспортные данные";
+            // 
+            // textBox_ManagerMainWindow_BuyerMiddlename_Input
+            // 
+            this.textBox_ManagerMainWindow_BuyerMiddlename_Input.Location = new System.Drawing.Point(207, 180);
+            this.textBox_ManagerMainWindow_BuyerMiddlename_Input.Name = "textBox_ManagerMainWindow_BuyerMiddlename_Input";
+            this.textBox_ManagerMainWindow_BuyerMiddlename_Input.Size = new System.Drawing.Size(150, 30);
+            this.textBox_ManagerMainWindow_BuyerMiddlename_Input.TabIndex = 6;
+            // 
+            // textBox_ManagerMainWindow_BuyerPhoneNumber_Input
+            // 
+            this.textBox_ManagerMainWindow_BuyerPhoneNumber_Input.Location = new System.Drawing.Point(388, 60);
+            this.textBox_ManagerMainWindow_BuyerPhoneNumber_Input.Name = "textBox_ManagerMainWindow_BuyerPhoneNumber_Input";
+            this.textBox_ManagerMainWindow_BuyerPhoneNumber_Input.Size = new System.Drawing.Size(150, 30);
+            this.textBox_ManagerMainWindow_BuyerPhoneNumber_Input.TabIndex = 5;
+            // 
+            // textBox_ManagerMainWindow_BuyerName_Input
+            // 
+            this.textBox_ManagerMainWindow_BuyerName_Input.Location = new System.Drawing.Point(207, 120);
+            this.textBox_ManagerMainWindow_BuyerName_Input.Name = "textBox_ManagerMainWindow_BuyerName_Input";
+            this.textBox_ManagerMainWindow_BuyerName_Input.Size = new System.Drawing.Size(150, 30);
+            this.textBox_ManagerMainWindow_BuyerName_Input.TabIndex = 4;
+            // 
+            // textBox_ManagerMainWindow_BuyerSurname_Input
+            // 
+            this.textBox_ManagerMainWindow_BuyerSurname_Input.Location = new System.Drawing.Point(207, 60);
+            this.textBox_ManagerMainWindow_BuyerSurname_Input.Name = "textBox_ManagerMainWindow_BuyerSurname_Input";
+            this.textBox_ManagerMainWindow_BuyerSurname_Input.Size = new System.Drawing.Size(150, 30);
+            this.textBox_ManagerMainWindow_BuyerSurname_Input.TabIndex = 3;
+            // 
+            // textBox_ManagerMainWindow_OrderAmount_Input
+            // 
+            this.textBox_ManagerMainWindow_OrderAmount_Input.Location = new System.Drawing.Point(29, 180);
+            this.textBox_ManagerMainWindow_OrderAmount_Input.Name = "textBox_ManagerMainWindow_OrderAmount_Input";
+            this.textBox_ManagerMainWindow_OrderAmount_Input.Size = new System.Drawing.Size(150, 30);
+            this.textBox_ManagerMainWindow_OrderAmount_Input.TabIndex = 2;
+            // 
+            // textBox_ManagerMainWindow_ContractDate_Input
+            // 
+            this.textBox_ManagerMainWindow_ContractDate_Input.Location = new System.Drawing.Point(29, 120);
+            this.textBox_ManagerMainWindow_ContractDate_Input.Name = "textBox_ManagerMainWindow_ContractDate_Input";
+            this.textBox_ManagerMainWindow_ContractDate_Input.Size = new System.Drawing.Size(150, 30);
+            this.textBox_ManagerMainWindow_ContractDate_Input.TabIndex = 1;
+            // 
+            // textBox_ManagerMainWindow_BuyerPassData_Input
+            // 
+            this.textBox_ManagerMainWindow_BuyerPassData_Input.Location = new System.Drawing.Point(29, 60);
+            this.textBox_ManagerMainWindow_BuyerPassData_Input.Name = "textBox_ManagerMainWindow_BuyerPassData_Input";
+            this.textBox_ManagerMainWindow_BuyerPassData_Input.Size = new System.Drawing.Size(150, 30);
+            this.textBox_ManagerMainWindow_BuyerPassData_Input.TabIndex = 0;
+            // 
+            // button_HeadMainWindow_DataGridView_Cars_Update
+            // 
+            this.button_HeadMainWindow_DataGridView_Cars_Update.Location = new System.Drawing.Point(355, 316);
+            this.button_HeadMainWindow_DataGridView_Cars_Update.Name = "button_HeadMainWindow_DataGridView_Cars_Update";
+            this.button_HeadMainWindow_DataGridView_Cars_Update.Size = new System.Drawing.Size(200, 35);
+            this.button_HeadMainWindow_DataGridView_Cars_Update.TabIndex = 2;
+            this.button_HeadMainWindow_DataGridView_Cars_Update.Text = "Обновить";
+            this.button_HeadMainWindow_DataGridView_Cars_Update.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView_ManagerMainWindow_Orders_Buyers
+            // 
+            this.dataGridView_ManagerMainWindow_Orders_Buyers.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridView_ManagerMainWindow_Orders_Buyers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_ManagerMainWindow_Orders_Buyers.Location = new System.Drawing.Point(607, 6);
+            this.dataGridView_ManagerMainWindow_Orders_Buyers.Name = "dataGridView_ManagerMainWindow_Orders_Buyers";
+            this.dataGridView_ManagerMainWindow_Orders_Buyers.RowHeadersWidth = 51;
+            this.dataGridView_ManagerMainWindow_Orders_Buyers.RowTemplate.Height = 29;
+            this.dataGridView_ManagerMainWindow_Orders_Buyers.Size = new System.Drawing.Size(300, 300);
+            this.dataGridView_ManagerMainWindow_Orders_Buyers.TabIndex = 1;
+            // 
+            // dataGridView_ManagerMainWindow_Orders_CarOrders
+            // 
+            this.dataGridView_ManagerMainWindow_Orders_CarOrders.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridView_ManagerMainWindow_Orders_CarOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_ManagerMainWindow_Orders_CarOrders.Location = new System.Drawing.Point(3, 6);
+            this.dataGridView_ManagerMainWindow_Orders_CarOrders.Name = "dataGridView_ManagerMainWindow_Orders_CarOrders";
+            this.dataGridView_ManagerMainWindow_Orders_CarOrders.RowHeadersWidth = 51;
+            this.dataGridView_ManagerMainWindow_Orders_CarOrders.RowTemplate.Height = 29;
+            this.dataGridView_ManagerMainWindow_Orders_CarOrders.Size = new System.Drawing.Size(300, 300);
+            this.dataGridView_ManagerMainWindow_Orders_CarOrders.TabIndex = 0;
+            // 
+            // tabPage_ManagerMainWindow_Buyers
+            // 
+            this.tabPage_ManagerMainWindow_Buyers.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tabPage_ManagerMainWindow_Buyers.Location = new System.Drawing.Point(4, 29);
+            this.tabPage_ManagerMainWindow_Buyers.Name = "tabPage_ManagerMainWindow_Buyers";
+            this.tabPage_ManagerMainWindow_Buyers.Size = new System.Drawing.Size(910, 616);
+            this.tabPage_ManagerMainWindow_Buyers.TabIndex = 2;
+            this.tabPage_ManagerMainWindow_Buyers.Text = "Покупатели";
+            this.tabPage_ManagerMainWindow_Buyers.UseVisualStyleBackColor = true;
+            // 
+            // groupBox_ManagerMainWindow_CarExemplarExtradition
+            // 
+            this.groupBox_ManagerMainWindow_CarExemplarExtradition.Controls.Add(this.label_ManagerMainWindow_OrderSNM);
+            this.groupBox_ManagerMainWindow_CarExemplarExtradition.Controls.Add(this.label_ManagerMainWindow_OrderSNMLabel);
+            this.groupBox_ManagerMainWindow_CarExemplarExtradition.Controls.Add(this.button_ManagerMainWindow_CarExemplarExtradition_Extradite);
+            this.groupBox_ManagerMainWindow_CarExemplarExtradition.Controls.Add(this.label_ManagerMainWindow_CarExemplarExtradition_OrderNumber);
+            this.groupBox_ManagerMainWindow_CarExemplarExtradition.Controls.Add(this.label_ManagerMainWindow_OrderNumberLabel);
+            this.groupBox_ManagerMainWindow_CarExemplarExtradition.Location = new System.Drawing.Point(573, 365);
+            this.groupBox_ManagerMainWindow_CarExemplarExtradition.Name = "groupBox_ManagerMainWindow_CarExemplarExtradition";
+            this.groupBox_ManagerMainWindow_CarExemplarExtradition.Size = new System.Drawing.Size(334, 245);
+            this.groupBox_ManagerMainWindow_CarExemplarExtradition.TabIndex = 5;
+            this.groupBox_ManagerMainWindow_CarExemplarExtradition.TabStop = false;
+            this.groupBox_ManagerMainWindow_CarExemplarExtradition.Text = "Выдать заказ";
+            // 
+            // label_ManagerMainWindow_OrderNumberLabel
+            // 
+            this.label_ManagerMainWindow_OrderNumberLabel.AutoSize = true;
+            this.label_ManagerMainWindow_OrderNumberLabel.Location = new System.Drawing.Point(17, 50);
+            this.label_ManagerMainWindow_OrderNumberLabel.Name = "label_ManagerMainWindow_OrderNumberLabel";
+            this.label_ManagerMainWindow_OrderNumberLabel.Size = new System.Drawing.Size(126, 23);
+            this.label_ManagerMainWindow_OrderNumberLabel.TabIndex = 0;
+            this.label_ManagerMainWindow_OrderNumberLabel.Text = "Номер заказа:";
+            // 
+            // label_ManagerMainWindow_CarExemplarExtradition_OrderNumber
+            // 
+            this.label_ManagerMainWindow_CarExemplarExtradition_OrderNumber.AutoSize = true;
+            this.label_ManagerMainWindow_CarExemplarExtradition_OrderNumber.Location = new System.Drawing.Point(149, 50);
+            this.label_ManagerMainWindow_CarExemplarExtradition_OrderNumber.Name = "label_ManagerMainWindow_CarExemplarExtradition_OrderNumber";
+            this.label_ManagerMainWindow_CarExemplarExtradition_OrderNumber.Size = new System.Drawing.Size(17, 23);
+            this.label_ManagerMainWindow_CarExemplarExtradition_OrderNumber.TabIndex = 1;
+            this.label_ManagerMainWindow_CarExemplarExtradition_OrderNumber.Text = "-";
+            // 
+            // button_ManagerMainWindow_CarExemplarExtradition_Extradite
+            // 
+            this.button_ManagerMainWindow_CarExemplarExtradition_Extradite.Location = new System.Drawing.Point(98, 170);
+            this.button_ManagerMainWindow_CarExemplarExtradition_Extradite.Name = "button_ManagerMainWindow_CarExemplarExtradition_Extradite";
+            this.button_ManagerMainWindow_CarExemplarExtradition_Extradite.Size = new System.Drawing.Size(150, 30);
+            this.button_ManagerMainWindow_CarExemplarExtradition_Extradite.TabIndex = 2;
+            this.button_ManagerMainWindow_CarExemplarExtradition_Extradite.Text = "Выдать заказ";
+            this.button_ManagerMainWindow_CarExemplarExtradition_Extradite.UseVisualStyleBackColor = true;
+            // 
+            // label_ManagerMainWindow_OrderSNMLabel
+            // 
+            this.label_ManagerMainWindow_OrderSNMLabel.AutoSize = true;
+            this.label_ManagerMainWindow_OrderSNMLabel.Location = new System.Drawing.Point(22, 90);
+            this.label_ManagerMainWindow_OrderSNMLabel.Name = "label_ManagerMainWindow_OrderSNMLabel";
+            this.label_ManagerMainWindow_OrderSNMLabel.Size = new System.Drawing.Size(150, 23);
+            this.label_ManagerMainWindow_OrderSNMLabel.TabIndex = 3;
+            this.label_ManagerMainWindow_OrderSNMLabel.Text = "ФИО покупателя:";
+            // 
+            // label_ManagerMainWindow_OrderSNM
+            // 
+            this.label_ManagerMainWindow_OrderSNM.AutoSize = true;
+            this.label_ManagerMainWindow_OrderSNM.Location = new System.Drawing.Point(17, 117);
+            this.label_ManagerMainWindow_OrderSNM.Name = "label_ManagerMainWindow_OrderSNM";
+            this.label_ManagerMainWindow_OrderSNM.Size = new System.Drawing.Size(17, 23);
+            this.label_ManagerMainWindow_OrderSNM.TabIndex = 4;
+            this.label_ManagerMainWindow_OrderSNM.Text = "-";
             // 
             // ManagerMainWindow
             // 
@@ -429,18 +496,21 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CarDealershipSystem";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ManagerMainWindow_FormClosing);
             this.tabControl_ManagerMainWindow.ResumeLayout(false);
             this.tabPage_ManagerMainWindow_Cars.ResumeLayout(false);
-            this.tabPage_ManagerMainWindow_Orders.ResumeLayout(false);
-            this.groupBox_ManagerMainWindow_Cars_Cars.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Cars)).EndInit();
             this.groupBox_ManagerMainWindow_SearchCar.ResumeLayout(false);
             this.groupBox_ManagerMainWindow_SearchCar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Orders_CarOrders)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Orders_Buyers)).EndInit();
+            this.groupBox_ManagerMainWindow_Cars_Cars.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Cars)).EndInit();
+            this.tabPage_ManagerMainWindow_Orders.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Orders_Cars)).EndInit();
             this.groupBox_ManagerMainWindow_AddOrder.ResumeLayout(false);
             this.groupBox_ManagerMainWindow_AddOrder.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Orders_Cars)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Orders_Buyers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Orders_CarOrders)).EndInit();
+            this.groupBox_ManagerMainWindow_CarExemplarExtradition.ResumeLayout(false);
+            this.groupBox_ManagerMainWindow_CarExemplarExtradition.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -483,5 +553,11 @@
         private Label label_ManagerMainWindow_VinNumber;
         private TextBox textBox_ManagerMainWindow_VinNumber_Input;
         private Label label_ManagerMainWindow_BuyerPhoneNumber;
+        private GroupBox groupBox_ManagerMainWindow_CarExemplarExtradition;
+        private Label label_ManagerMainWindow_CarExemplarExtradition_OrderNumber;
+        private Label label_ManagerMainWindow_OrderNumberLabel;
+        private Label label_ManagerMainWindow_OrderSNM;
+        private Label label_ManagerMainWindow_OrderSNMLabel;
+        private Button button_ManagerMainWindow_CarExemplarExtradition_Extradite;
     }
 }

@@ -53,5 +53,24 @@ namespace WinFormsApp
                 MessageBox.Show("Аккаунт уже создан.");
             
         }
+
+        private void button_AuthorizationWindow_ManagerAuthorize_Click(object sender, EventArgs e)
+        {
+            var managerLogin = textBox_AuthorizationWindow_ManagerLogin_Input.Text;
+            var managerPassword = textBox_AuthorizationWindow_ManagerPassword_Input.Text;
+            if (!(String.IsNullOrWhiteSpace(managerLogin) || String.IsNullOrWhiteSpace(managerPassword)))
+            {
+                var isGoToHeadMainWindow = _accountService.IsCorrectManagerAuthorizationData(managerLogin, managerPassword);
+                if (isGoToHeadMainWindow)
+                {
+                    _managerMainWindow.Show();
+                    this.Hide();
+                }
+                else
+                    MessageBox.Show("Авторизационные данные не верны.");
+            }
+            else
+                MessageBox.Show("Не оставляйте поля пустыми.");
+        }
     }
 }

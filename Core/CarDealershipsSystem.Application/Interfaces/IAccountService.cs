@@ -12,5 +12,7 @@
             );
 
         public bool HeadChangeData(string option, string data);
+
+        public bool IsCorrectManagerAuthorizationData(string login, string password);
     }
 }

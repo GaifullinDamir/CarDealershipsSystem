@@ -161,6 +161,7 @@
             this.button_AuthorizationWindow_ManagerAuthorize.TabIndex = 9;
             this.button_AuthorizationWindow_ManagerAuthorize.Text = "Войти";
             this.button_AuthorizationWindow_ManagerAuthorize.UseVisualStyleBackColor = true;
+            this.button_AuthorizationWindow_ManagerAuthorize.Click += new System.EventHandler(this.button_AuthorizationWindow_ManagerAuthorize_Click);
             // 
             // label_AuthorizationWindow_ManagerPassword
             // 

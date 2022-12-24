@@ -9,13 +9,16 @@ namespace CarDealershipsSystem.Application.Services
         private readonly IBranchRepository _branchRepository;
         private readonly IHeadRepository _headRepository;
         private readonly IHeadService _headService;
+        private readonly IManagerService _managerService;
         public AccountService(IBranchRepository branchRepository, 
             IHeadRepository headRepository,
-            IHeadService headService)
+            IHeadService headService,
+            IManagerService managerService)
         {
             _branchRepository = branchRepository;
             _headRepository = headRepository;
             _headService = headService;
+            _managerService = managerService;
         }
 
         /*В данном методе, мы получаем из пользовательского ввода логин и пароль, а также получаем логин и паполь из бд.
@@ -125,5 +128,19 @@ namespace CarDealershipsSystem.Application.Services
             }
             return _headRepository.SaveHeadChange(head);
         }
+
+        public bool IsCorrectManagerAuthorizationData(string login, string password)
+        {
+            var managerUsers = _managerService.GetManagers();
+            foreach (var managerUser in managerUsers)
+            {
+                if (login == managerUser.ManagerLogin && password == managerUser.ManagerPassword)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 }
