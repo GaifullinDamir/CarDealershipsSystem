@@ -511,7 +511,21 @@ namespace WinFormsApp
         {
             if (carsRowIndex != -1)
             {
-
+                var cars = _carService.GetCars().ToList();
+                if (cars[carsRowIndex].CarExemplars.Count > 0)
+                {
+                    var idCar = cars[carsRowIndex].IdCar;
+                    if (_carService.DeleteCar(idCar))
+                    {
+                        MessageBox.Show("Автомобиль удален.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ошибка при удалении.");
+                    }
+;
+                }
+                
             }
         }
 
