@@ -8,7 +8,7 @@ namespace CarDealershipsSystem.Application.Interfaces
 
         public int GetCarExemplarsCount(BranchDTO branch);
 
-        //public CarDTO GetCarByID(int idCar);
+        public bool IsCarExistById(int idCar);
 
         public bool AddCar(string brand, string model, string bodyType, int idBranch);
 

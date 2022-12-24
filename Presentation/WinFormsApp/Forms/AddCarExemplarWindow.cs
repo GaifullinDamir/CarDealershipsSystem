@@ -184,6 +184,8 @@ namespace WinFormsApp.Forms
                     decCarPrice, carColor, dateYearOfAssembly, ref errorMessage))
                 {
                     MessageBox.Show("Автомобиль добавлен в филиал.");
+                    var cars = _carService.GetCars().ToList();
+                    Init_DataGridView_AddCarExemplarsWindow_Cars(cars);
                 }
                 else
                 {

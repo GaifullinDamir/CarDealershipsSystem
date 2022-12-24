@@ -7,9 +7,9 @@ namespace CarDealershipsSystem.DAL.Repositories
     public class CarExemplarRepository : ICarExemplarRepository
     {
         private readonly CarDealershipsDbContext _context;
-        private readonly CarOrderRepository _carOrderRepository;
+        private readonly ICarOrderRepository _carOrderRepository;
         public CarExemplarRepository(CarDealershipsDbContext context,
-            CarOrderRepository carOrderRepository)
+            ICarOrderRepository carOrderRepository)
         {
             _context = context;
             _carOrderRepository = carOrderRepository;

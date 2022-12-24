@@ -8,10 +8,13 @@ namespace CarDealershipsSystem.Application.Services
     public class CarExemplarService : ICarExemplarService
     {
         private readonly ICarExemplarRepository _carExemplarRepository;
+        private readonly ICarService _carService;
 
-        public CarExemplarService(ICarExemplarRepository carExemplarRepository)
+        public CarExemplarService(ICarExemplarRepository carExemplarRepository,
+            ICarService carService)
         {
             _carExemplarRepository = carExemplarRepository;
+            _carService = carService;
         }
 
         public IEnumerable<CarExemplarDTO> GetCarExemplars()
@@ -33,6 +36,11 @@ namespace CarDealershipsSystem.Application.Services
         public bool AddCarExemplar(string vinNumber, int idCar, int horsePower, decimal price,
             string color, DateTime yearOfAssembly, ref string errorMessage)
         {
+            if (!_carService.IsCarExistById(idCar))
+            {
+                errorMessage = "Такого автомобиля нет.";
+                return false;
+            }
             if (!IsExistCarExemplarByVinNumber(vinNumber))
             {
                 var carExemplar = new CarExemplar()

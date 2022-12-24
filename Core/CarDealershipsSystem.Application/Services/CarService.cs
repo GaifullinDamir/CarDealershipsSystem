@@ -8,9 +8,11 @@ namespace CarDealershipsSystem.Application.Services
     public class CarService : ICarService
     {
         private readonly ICarRepository _carRepository;
-        public CarService(ICarRepository carRepository)
+        private readonly IBranchService _branchService;
+        public CarService(ICarRepository carRepository, IBranchService branchService)
         {
             _carRepository = carRepository;
+            _branchService = branchService;
         }
 
         public IEnumerable<CarDTO> GetCars()
@@ -52,17 +54,21 @@ namespace CarDealershipsSystem.Application.Services
 
         public bool AddCar(string brand, string model, string bodyType, int idBranch)
         {
-            var car = new Car()
+            if (_branchService.IsBranchExistsById(idBranch))
             {
-                Brand = brand,
-                Model = model,
-                BodyType = bodyType,
-                IdBranch = idBranch
-            };
+                var car = new Car()
+                {
+                    Brand = brand,
+                    Model = model,
+                    BodyType = bodyType,
+                    IdBranch = idBranch
+                };
 
-            if (_carRepository.SaveCar(car))
-            {
-                return true;
+                if (_carRepository.SaveCar(car))
+                {
+                    return true;
+                }
+                return false;
             }
             return false;
         }
@@ -75,6 +81,19 @@ namespace CarDealershipsSystem.Application.Services
                 return (_carRepository.DeleteCar(car));
             }
             return false;
+        }
+
+        public bool IsCarExistById(int idCar)
+        {
+            if (_carRepository.GetById(idCar) == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+            
         }
     }
 }
