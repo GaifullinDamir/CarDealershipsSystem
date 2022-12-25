@@ -1,6 +1,7 @@
 ﻿using CarDealershipsSystem.Application.DTO;
 using CarDealershipsSystem.Application.Interfaces;
 using CarDealershipsSystem.DAL.Interfaces;
+using CarDealershipsSystem.Domain;
 
 namespace CarDealershipsSystem.Application.Services
 {
@@ -26,6 +27,34 @@ namespace CarDealershipsSystem.Application.Services
                 })
                 .ToList();
             return carOrdersDTO;
+        }
+
+        public bool AddCarOrder(string vinNumber, int idMngr,
+            int idBuyer, DateTime contractDate,
+            decimal orderAmount)
+        {
+            var carOrder = new CarOrder()
+            {
+                VinNumber = vinNumber,
+                IdMngr = idMngr,
+                IdBuyer = idBuyer,
+                ContractDate = contractDate,
+                OrderAmount = orderAmount
+            };
+            return _carOrderRepository.SaveCarOrder(carOrder);
+        }
+
+        public bool IsExistCarOrderByVinNumber(string vinNumber)
+        {
+            var carOrders = _carOrderRepository.GetCarOrders();
+            foreach (var carOrder in carOrders)
+            {
+                if (carOrder.VinNumber == vinNumber)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

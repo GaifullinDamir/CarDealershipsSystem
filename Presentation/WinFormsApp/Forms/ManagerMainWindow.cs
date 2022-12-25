@@ -1,6 +1,7 @@
 ﻿using CarDealershipsSystem.Application.DTO;
 using CarDealershipsSystem.Application.Interfaces;
 using CarDealershipsSystem.DAL.Interfaces;
+using System.Globalization;
 
 namespace WinFormsApp.Forms
 {
@@ -271,6 +272,9 @@ namespace WinFormsApp.Forms
             var buyerPhoneNumber = textBox_ManagerMainWindow_BuyerPhoneNumber_Input.Text;
             var vinNumber = textBox_ManagerMainWindow_VinNumber_Input.Text;
 
+            DateTime dtContractDate = new DateTime();
+            decimal decOrderPrice;
+
             if (!(String.IsNullOrWhiteSpace(buyerPassData) ||
                 String.IsNullOrWhiteSpace(contractDate)||
                 String.IsNullOrWhiteSpace(orderPrice) ||
@@ -294,7 +298,47 @@ namespace WinFormsApp.Forms
                 }
                 if (!_buyerService.IsBuyerExistByPassData(buyerPassData))
                 {
-                    if (_carOrderService.AddBranch(branchName, branchAddress, idHead))
+                    if (!_buyerService.AddBuyer(buyerPassData, buyerSurname, buyerName, buyerMiddlename, buyerPhoneNumber))
+                    {
+                        MessageBox.Show("Добавление покупателя не удалось.");
+                        return;
+                    }
+                    if (!_carExemplarService.IsExistCarExemplarByVinNumber(vinNumber))
+                    {
+                        MessageBox.Show("Автомобиля с таким VIN нет.");
+                        return;
+                    }
+                    if (_carOrderService.IsExistCarOrderByVinNumber(vinNumber))
+                    {
+                        MessageBox.Show("Этот автомобиль уже продан.");
+                        return;
+                    }
+                    try
+                    {
+                        dtContractDate = DateTime.Parse(contractDate);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Формат записи даты:\n" +
+                            "yyyy.mm.dd\n" +
+                            "mm.dd.yyyy\n" +
+                            "yyyy-mm-dd\n" +
+                            "yyyy/mm/dd");
+                        return;
+                    }
+                    try
+                    {
+                        if (!orderPrice.Contains(','))
+                        {
+                            decOrderPrice = Decimal.Parse(orderPrice, CultureInfo.InvariantCulture);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Разедлителем между целой частью числа\n и десятичной должна быть точка ('.')");
+                            return;
+                        }
+                    }
+                    if (_carOrderService.AddCarOrder(vinNumber))
                     {
                         MessageBox.Show($"Филиал {branchName} добавлен успешно.");
                     }

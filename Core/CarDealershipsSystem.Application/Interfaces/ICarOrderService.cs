@@ -9,5 +9,7 @@ namespace CarDealershipsSystem.Application.Interfaces
         public bool AddCarOrder(string vinNumber, int idMngr,
             int idBuyer, DateTime contractDate,
             decimal orderAmount);
+
+        public bool IsExistCarOrderByVinNumber(string vinNumber);
     }
 }
