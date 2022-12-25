@@ -36,5 +36,28 @@ namespace CarDealershipsSystem.Application.Services
             });
             return buyersDTO;
         }
+
+        public BuyerDTO GetBuyerById(int idBuyer)
+        {
+            var buyer = _buyerRepository.GetBuyerById(idBuyer);
+            var buyerDTO = new BuyerDTO()
+            {
+                BuyerPassData = buyer.BuyerPassData,
+                BuyerSurname = buyer.BuyerSurname,
+                BuyerName = buyer.BuyerName,
+                BuyerMiddlename = buyer.BuyerMiddlename,
+                BuyerPhoneNumber = buyer.BuyerPhoneNumber,
+                CarOrders = buyer.CarOrders.Select(carorder => new CarOrderDTO
+                {
+                    IdOrder = carorder.IdOrder,
+                    IdMngr = carorder.IdMngr,
+                    IdBuyer = carorder.IdBuyer,
+                    ContractDate = carorder.ContractDate,
+                    OrderAmount = carorder.OrderAmount
+                })
+                .ToList()
+            };
+            return buyerDTO;
+        }
     }
 }

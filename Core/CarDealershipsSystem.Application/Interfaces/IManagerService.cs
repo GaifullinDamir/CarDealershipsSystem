@@ -17,6 +17,8 @@ namespace CarDealershipsSystem.Application.Interfaces
 
         public bool ManagerChangeData(string option, string mngrPassData, string data, ref string errorMessage);
 
+        public ManagerDTO GetManagerById(int idMngr);
+
 
 
     }

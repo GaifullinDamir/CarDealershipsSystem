@@ -37,7 +37,7 @@
             this.textBox_ManagerMainWindow_SearchCar_Brand_Input = new System.Windows.Forms.TextBox();
             this.button_ManagerMainWindow_SearchCar = new System.Windows.Forms.Button();
             this.tabPage_ManagerMainWindow_Orders = new System.Windows.Forms.TabPage();
-            this.dataGridView_ManagerMainWindow_Orders_Cars = new System.Windows.Forms.DataGridView();
+            this.dataGridView_ManagerMainWindow_Orders_CarExemplars = new System.Windows.Forms.DataGridView();
             this.groupBox_ManagerMainWindow_AddOrder = new System.Windows.Forms.GroupBox();
             this.button_ManagerMainWindow_AddOrder = new System.Windows.Forms.Button();
             this.label_ManagerMainWindow_VinNumber = new System.Windows.Forms.Label();
@@ -57,7 +57,6 @@
             this.textBox_ManagerMainWindow_ContractDate_Input = new System.Windows.Forms.TextBox();
             this.textBox_ManagerMainWindow_BuyerPassData_Input = new System.Windows.Forms.TextBox();
             this.button_HeadMainWindow_DataGridView_Cars_Update = new System.Windows.Forms.Button();
-            this.dataGridView_ManagerMainWindow_Orders_Buyers = new System.Windows.Forms.DataGridView();
             this.dataGridView_ManagerMainWindow_Orders_CarOrders = new System.Windows.Forms.DataGridView();
             this.tabPage_ManagerMainWindow_Buyers = new System.Windows.Forms.TabPage();
             this.sqlCommandBuilder1 = new Microsoft.Data.SqlClient.SqlCommandBuilder();
@@ -76,9 +75,8 @@
             this.tabPage_ManagerMainWindow_Cars.SuspendLayout();
             this.groupBox_ManagerMainWindow_SearchCar.SuspendLayout();
             this.tabPage_ManagerMainWindow_Orders.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Orders_Cars)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Orders_CarExemplars)).BeginInit();
             this.groupBox_ManagerMainWindow_AddOrder.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Orders_Buyers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Orders_CarOrders)).BeginInit();
             this.groupBox_ManagerMainWindow_CarExemplarExtradition.SuspendLayout();
             this.groupBox_HeadMainWindow_Cars.SuspendLayout();
@@ -169,10 +167,9 @@
             // tabPage_ManagerMainWindow_Orders
             // 
             this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.groupBox_ManagerMainWindow_CarExemplarExtradition);
-            this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.dataGridView_ManagerMainWindow_Orders_Cars);
+            this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.dataGridView_ManagerMainWindow_Orders_CarExemplars);
             this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.groupBox_ManagerMainWindow_AddOrder);
             this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.button_HeadMainWindow_DataGridView_Cars_Update);
-            this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.dataGridView_ManagerMainWindow_Orders_Buyers);
             this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.dataGridView_ManagerMainWindow_Orders_CarOrders);
             this.tabPage_ManagerMainWindow_Orders.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tabPage_ManagerMainWindow_Orders.Location = new System.Drawing.Point(4, 29);
@@ -183,16 +180,16 @@
             this.tabPage_ManagerMainWindow_Orders.Text = "Заказы";
             this.tabPage_ManagerMainWindow_Orders.UseVisualStyleBackColor = true;
             // 
-            // dataGridView_ManagerMainWindow_Orders_Cars
+            // dataGridView_ManagerMainWindow_Orders_CarExemplars
             // 
-            this.dataGridView_ManagerMainWindow_Orders_Cars.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridView_ManagerMainWindow_Orders_Cars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_ManagerMainWindow_Orders_Cars.Location = new System.Drawing.Point(305, 6);
-            this.dataGridView_ManagerMainWindow_Orders_Cars.Name = "dataGridView_ManagerMainWindow_Orders_Cars";
-            this.dataGridView_ManagerMainWindow_Orders_Cars.RowHeadersWidth = 51;
-            this.dataGridView_ManagerMainWindow_Orders_Cars.RowTemplate.Height = 29;
-            this.dataGridView_ManagerMainWindow_Orders_Cars.Size = new System.Drawing.Size(300, 300);
-            this.dataGridView_ManagerMainWindow_Orders_Cars.TabIndex = 4;
+            this.dataGridView_ManagerMainWindow_Orders_CarExemplars.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridView_ManagerMainWindow_Orders_CarExemplars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_ManagerMainWindow_Orders_CarExemplars.Location = new System.Drawing.Point(391, 6);
+            this.dataGridView_ManagerMainWindow_Orders_CarExemplars.Name = "dataGridView_ManagerMainWindow_Orders_CarExemplars";
+            this.dataGridView_ManagerMainWindow_Orders_CarExemplars.RowHeadersWidth = 51;
+            this.dataGridView_ManagerMainWindow_Orders_CarExemplars.RowTemplate.Height = 29;
+            this.dataGridView_ManagerMainWindow_Orders_CarExemplars.Size = new System.Drawing.Size(513, 300);
+            this.dataGridView_ManagerMainWindow_Orders_CarExemplars.TabIndex = 4;
             // 
             // groupBox_ManagerMainWindow_AddOrder
             // 
@@ -366,17 +363,6 @@
             this.button_HeadMainWindow_DataGridView_Cars_Update.Text = "Обновить";
             this.button_HeadMainWindow_DataGridView_Cars_Update.UseVisualStyleBackColor = true;
             // 
-            // dataGridView_ManagerMainWindow_Orders_Buyers
-            // 
-            this.dataGridView_ManagerMainWindow_Orders_Buyers.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridView_ManagerMainWindow_Orders_Buyers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_ManagerMainWindow_Orders_Buyers.Location = new System.Drawing.Point(607, 6);
-            this.dataGridView_ManagerMainWindow_Orders_Buyers.Name = "dataGridView_ManagerMainWindow_Orders_Buyers";
-            this.dataGridView_ManagerMainWindow_Orders_Buyers.RowHeadersWidth = 51;
-            this.dataGridView_ManagerMainWindow_Orders_Buyers.RowTemplate.Height = 29;
-            this.dataGridView_ManagerMainWindow_Orders_Buyers.Size = new System.Drawing.Size(300, 300);
-            this.dataGridView_ManagerMainWindow_Orders_Buyers.TabIndex = 1;
-            // 
             // dataGridView_ManagerMainWindow_Orders_CarOrders
             // 
             this.dataGridView_ManagerMainWindow_Orders_CarOrders.BackgroundColor = System.Drawing.SystemColors.Window;
@@ -385,7 +371,7 @@
             this.dataGridView_ManagerMainWindow_Orders_CarOrders.Name = "dataGridView_ManagerMainWindow_Orders_CarOrders";
             this.dataGridView_ManagerMainWindow_Orders_CarOrders.RowHeadersWidth = 51;
             this.dataGridView_ManagerMainWindow_Orders_CarOrders.RowTemplate.Height = 29;
-            this.dataGridView_ManagerMainWindow_Orders_CarOrders.Size = new System.Drawing.Size(300, 300);
+            this.dataGridView_ManagerMainWindow_Orders_CarOrders.Size = new System.Drawing.Size(380, 300);
             this.dataGridView_ManagerMainWindow_Orders_CarOrders.TabIndex = 0;
             // 
             // tabPage_ManagerMainWindow_Buyers
@@ -530,10 +516,9 @@
             this.groupBox_ManagerMainWindow_SearchCar.ResumeLayout(false);
             this.groupBox_ManagerMainWindow_SearchCar.PerformLayout();
             this.tabPage_ManagerMainWindow_Orders.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Orders_Cars)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Orders_CarExemplars)).EndInit();
             this.groupBox_ManagerMainWindow_AddOrder.ResumeLayout(false);
             this.groupBox_ManagerMainWindow_AddOrder.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Orders_Buyers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Orders_CarOrders)).EndInit();
             this.groupBox_ManagerMainWindow_CarExemplarExtradition.ResumeLayout(false);
             this.groupBox_ManagerMainWindow_CarExemplarExtradition.PerformLayout();
@@ -557,10 +542,9 @@
         private TextBox textBox_ManagerMainWindow_SearchCar_Model_Input;
         private TextBox textBox_ManagerMainWindow_SearchCar_Brand_Input;
         private Button button_ManagerMainWindow_SearchCar;
-        private DataGridView dataGridView_ManagerMainWindow_Orders_Buyers;
         private DataGridView dataGridView_ManagerMainWindow_Orders_CarOrders;
         private Microsoft.Data.SqlClient.SqlCommandBuilder sqlCommandBuilder1;
-        private DataGridView dataGridView_ManagerMainWindow_Orders_Cars;
+        private DataGridView dataGridView_ManagerMainWindow_Orders_CarExemplars;
         private GroupBox groupBox_ManagerMainWindow_AddOrder;
         private TextBox textBox_ManagerMainWindow_OrderAmount_Input;
         private TextBox textBox_ManagerMainWindow_ContractDate_Input;

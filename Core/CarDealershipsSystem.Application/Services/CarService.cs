@@ -122,5 +122,30 @@ namespace CarDealershipsSystem.Application.Services
             return carsDTO;
 
         }
+
+        public CarDTO GetCarByID(int idCar)
+        {
+            var car = _carRepository.GetById(idCar);
+            var carDTO = new CarDTO()
+            {
+                IdCar = car.IdCar,
+                IdBranch = car.IdBranch,
+                Brand = car.Brand,
+                Model = car.Model,
+                BodyType = car.BodyType,
+                CarExemplars = car.CarExemplars
+                    .Select(carex => new CarExemplarDTO
+                    {
+                        VinNumber = carex.VinNumber,
+                        IdCar = carex.IdCar,
+                        HorsePower = carex.HorsePower,
+                        Price = carex.Price,
+                        Color = carex.Color,
+                        YearOfAssembly = carex.YearOfAssembly
+                    })
+                    .ToList()
+            };
+            return carDTO;
+        }
     }
 }

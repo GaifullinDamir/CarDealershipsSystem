@@ -10,5 +10,7 @@ namespace CarDealershipsSystem.Application.Interfaces
             string color, DateTime yearOfAssembly, ref string errorMessge);
 
         public bool IsExistCarExemplarByVinNumber(string vinNumber);
+
+        public CarExemplarDTO GetCarExemplarByVinNumber(string vinNumber);
     }
 }

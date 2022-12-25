@@ -238,5 +238,36 @@ namespace CarDealershipsSystem.Application.Services
             }
             return _managerRepository.SaveManagerChange(manager);
         }
+
+        public ManagerDTO GetManagerById(int idMngr)
+        {
+            var manager = _managerRepository.GetManagerByID(idMngr);
+            var managerDTO = new ManagerDTO()
+            {
+                IdMngr = manager.IdMngr,
+                MngrPassData = manager.MngrPassData,
+                IdBranch = manager.IdBranch,
+                MngrSurname = manager.MngrSurname,
+                MngrName = manager.MngrName,
+                MngrMiddlename = manager.MngrMiddlename,
+                MngrPhoneNumber = manager.MngrPhoneNumber,
+                MngrSalary = manager.MngrSalary,
+                MngrPayDate = manager.MngrPayDate,
+                MngrPrize = manager.MngrPrize,
+                ManagerPassword = manager.ManagerPassword,
+                ManagerLogin = manager.ManagerLogin,
+                CarOrders = manager.CarOrders
+                    .Select(carorder => new CarOrderDTO
+                    {
+                        IdOrder = carorder.IdOrder,
+                        IdMngr = carorder.IdMngr,
+                        IdBuyer = carorder.IdBuyer,
+                        ContractDate = carorder.ContractDate,
+                        OrderAmount = carorder.OrderAmount
+                    })
+                    .ToList()
+            };
+            return managerDTO;
+        }
     }
 }

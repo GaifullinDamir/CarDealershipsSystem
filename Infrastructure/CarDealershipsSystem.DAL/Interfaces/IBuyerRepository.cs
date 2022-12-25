@@ -5,5 +5,7 @@ namespace CarDealershipsSystem.DAL.Interfaces
     public interface IBuyerRepository
     {
         IEnumerable<Buyer> GetBuyers();
+
+        public Buyer GetBuyerById(int idBuyer);
     }
 }

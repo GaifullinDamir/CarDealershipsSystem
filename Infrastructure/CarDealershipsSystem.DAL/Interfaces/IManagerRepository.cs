@@ -11,5 +11,7 @@ namespace CarDealershipsSystem.DAL.Interfaces
         public Manager GetManagerByPassData(string mngrPassData);
 
         public bool SaveManagerChange(Manager manager);
+
+        public Manager GetManagerByID(int idMngr);
     }
 }
