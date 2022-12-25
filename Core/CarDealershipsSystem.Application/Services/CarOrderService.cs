@@ -19,6 +19,7 @@ namespace CarDealershipsSystem.Application.Services
             var carOrdersDTO = carOrders
                 .Select(carorder => new CarOrderDTO
                 {
+                    VinNumber = carorder.VinNumber,
                     IdOrder = carorder.IdOrder,
                     IdMngr = carorder.IdMngr,
                     IdBuyer = carorder.IdBuyer,
