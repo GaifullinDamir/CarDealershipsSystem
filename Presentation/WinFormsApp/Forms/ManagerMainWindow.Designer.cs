@@ -42,6 +42,9 @@
             this.textBox_ManagerMainWindow_SearchCar_Brand_Input = new System.Windows.Forms.TextBox();
             this.button_ManagerMainWindow_SearchCar = new System.Windows.Forms.Button();
             this.tabPage_ManagerMainWindow_Orders = new System.Windows.Forms.TabPage();
+            this.label_ManagerMainWindow_Buyers = new System.Windows.Forms.Label();
+            this.label_ManagerMainWindow_CarExemplars = new System.Windows.Forms.Label();
+            this.label_ManagerMainWindow_Orders = new System.Windows.Forms.Label();
             this.dataGridView_ManagerMainWindow_Buyers = new System.Windows.Forms.DataGridView();
             this.groupBox_ManagerMainWindow_CarExemplarExtradition = new System.Windows.Forms.GroupBox();
             this.label_ManagerMainWindow_OrderSNM = new System.Windows.Forms.Label();
@@ -101,7 +104,7 @@
             // 
             this.tabPage_ManagerMainWindow_Cars.Controls.Add(this.groupBox_HeadMainWindow_Cars);
             this.tabPage_ManagerMainWindow_Cars.Controls.Add(this.groupBox_ManagerMainWindow_SearchCar);
-            this.tabPage_ManagerMainWindow_Cars.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tabPage_ManagerMainWindow_Cars.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tabPage_ManagerMainWindow_Cars.Location = new System.Drawing.Point(4, 29);
             this.tabPage_ManagerMainWindow_Cars.Name = "tabPage_ManagerMainWindow_Cars";
             this.tabPage_ManagerMainWindow_Cars.Padding = new System.Windows.Forms.Padding(3);
@@ -128,7 +131,7 @@
             this.label_HeadMainWindow_Cars_Exemplars.AutoSize = true;
             this.label_HeadMainWindow_Cars_Exemplars.Location = new System.Drawing.Point(764, 0);
             this.label_HeadMainWindow_Cars_Exemplars.Name = "label_HeadMainWindow_Cars_Exemplars";
-            this.label_HeadMainWindow_Cars_Exemplars.Size = new System.Drawing.Size(107, 23);
+            this.label_HeadMainWindow_Cars_Exemplars.Size = new System.Drawing.Size(112, 23);
             this.label_HeadMainWindow_Cars_Exemplars.TabIndex = 3;
             this.label_HeadMainWindow_Cars_Exemplars.Text = "Экземпляры";
             // 
@@ -183,7 +186,7 @@
             this.label_ManagerMainWindow_SearchCar_Model.AutoSize = true;
             this.label_ManagerMainWindow_SearchCar_Model.Location = new System.Drawing.Point(41, 96);
             this.label_ManagerMainWindow_SearchCar_Model.Name = "label_ManagerMainWindow_SearchCar_Model";
-            this.label_ManagerMainWindow_SearchCar_Model.Size = new System.Drawing.Size(75, 23);
+            this.label_ManagerMainWindow_SearchCar_Model.Size = new System.Drawing.Size(78, 23);
             this.label_ManagerMainWindow_SearchCar_Model.TabIndex = 6;
             this.label_ManagerMainWindow_SearchCar_Model.Text = "Модель:";
             // 
@@ -192,7 +195,7 @@
             this.label_ManagerMainWindow_SearchCar_Brand.AutoSize = true;
             this.label_ManagerMainWindow_SearchCar_Brand.Location = new System.Drawing.Point(56, 46);
             this.label_ManagerMainWindow_SearchCar_Brand.Name = "label_ManagerMainWindow_SearchCar_Brand";
-            this.label_ManagerMainWindow_SearchCar_Brand.Size = new System.Drawing.Size(62, 23);
+            this.label_ManagerMainWindow_SearchCar_Brand.Size = new System.Drawing.Size(63, 23);
             this.label_ManagerMainWindow_SearchCar_Brand.TabIndex = 5;
             this.label_ManagerMainWindow_SearchCar_Brand.Text = "Бренд:";
             // 
@@ -222,6 +225,9 @@
             // 
             // tabPage_ManagerMainWindow_Orders
             // 
+            this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.label_ManagerMainWindow_Buyers);
+            this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.label_ManagerMainWindow_CarExemplars);
+            this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.label_ManagerMainWindow_Orders);
             this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.dataGridView_ManagerMainWindow_Buyers);
             this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.groupBox_ManagerMainWindow_CarExemplarExtradition);
             this.tabPage_ManagerMainWindow_Orders.Controls.Add(this.dataGridView_ManagerMainWindow_Orders_CarExemplars);
@@ -237,16 +243,44 @@
             this.tabPage_ManagerMainWindow_Orders.Text = "Заказы";
             this.tabPage_ManagerMainWindow_Orders.UseVisualStyleBackColor = true;
             // 
+            // label_ManagerMainWindow_Buyers
+            // 
+            this.label_ManagerMainWindow_Buyers.AutoSize = true;
+            this.label_ManagerMainWindow_Buyers.Location = new System.Drawing.Point(1013, 0);
+            this.label_ManagerMainWindow_Buyers.Name = "label_ManagerMainWindow_Buyers";
+            this.label_ManagerMainWindow_Buyers.Size = new System.Drawing.Size(106, 23);
+            this.label_ManagerMainWindow_Buyers.TabIndex = 9;
+            this.label_ManagerMainWindow_Buyers.Text = "Покупатели";
+            // 
+            // label_ManagerMainWindow_CarExemplars
+            // 
+            this.label_ManagerMainWindow_CarExemplars.AutoSize = true;
+            this.label_ManagerMainWindow_CarExemplars.Location = new System.Drawing.Point(638, 3);
+            this.label_ManagerMainWindow_CarExemplars.Name = "label_ManagerMainWindow_CarExemplars";
+            this.label_ManagerMainWindow_CarExemplars.Size = new System.Drawing.Size(152, 23);
+            this.label_ManagerMainWindow_CarExemplars.TabIndex = 8;
+            this.label_ManagerMainWindow_CarExemplars.Text = "Экземпляры авто";
+            // 
+            // label_ManagerMainWindow_Orders
+            // 
+            this.label_ManagerMainWindow_Orders.AutoSize = true;
+            this.label_ManagerMainWindow_Orders.Location = new System.Drawing.Point(65, 0);
+            this.label_ManagerMainWindow_Orders.Name = "label_ManagerMainWindow_Orders";
+            this.label_ManagerMainWindow_Orders.Size = new System.Drawing.Size(67, 23);
+            this.label_ManagerMainWindow_Orders.TabIndex = 7;
+            this.label_ManagerMainWindow_Orders.Text = "Заказы";
+            // 
             // dataGridView_ManagerMainWindow_Buyers
             // 
             this.dataGridView_ManagerMainWindow_Buyers.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView_ManagerMainWindow_Buyers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_ManagerMainWindow_Buyers.Location = new System.Drawing.Point(903, 3);
+            this.dataGridView_ManagerMainWindow_Buyers.Location = new System.Drawing.Point(877, 27);
             this.dataGridView_ManagerMainWindow_Buyers.Name = "dataGridView_ManagerMainWindow_Buyers";
             this.dataGridView_ManagerMainWindow_Buyers.RowHeadersWidth = 51;
             this.dataGridView_ManagerMainWindow_Buyers.RowTemplate.Height = 29;
-            this.dataGridView_ManagerMainWindow_Buyers.Size = new System.Drawing.Size(300, 300);
+            this.dataGridView_ManagerMainWindow_Buyers.Size = new System.Drawing.Size(327, 300);
             this.dataGridView_ManagerMainWindow_Buyers.TabIndex = 6;
+            this.dataGridView_ManagerMainWindow_Buyers.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_ManagerMainWindow_Buyers_CellMouseClick);
             // 
             // groupBox_ManagerMainWindow_CarExemplarExtradition
             // 
@@ -288,6 +322,7 @@
             this.button_ManagerMainWindow_CarExemplarExtradition_Extradite.TabIndex = 2;
             this.button_ManagerMainWindow_CarExemplarExtradition_Extradite.Text = "Выдать заказ";
             this.button_ManagerMainWindow_CarExemplarExtradition_Extradite.UseVisualStyleBackColor = true;
+            this.button_ManagerMainWindow_CarExemplarExtradition_Extradite.Click += new System.EventHandler(this.button_ManagerMainWindow_CarExemplarExtradition_Extradite_Click);
             // 
             // label_ManagerMainWindow_CarExemplarExtradition_OrderNumber
             // 
@@ -311,11 +346,11 @@
             // 
             this.dataGridView_ManagerMainWindow_Orders_CarExemplars.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView_ManagerMainWindow_Orders_CarExemplars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_ManagerMainWindow_Orders_CarExemplars.Location = new System.Drawing.Point(597, 3);
+            this.dataGridView_ManagerMainWindow_Orders_CarExemplars.Location = new System.Drawing.Point(549, 27);
             this.dataGridView_ManagerMainWindow_Orders_CarExemplars.Name = "dataGridView_ManagerMainWindow_Orders_CarExemplars";
             this.dataGridView_ManagerMainWindow_Orders_CarExemplars.RowHeadersWidth = 51;
             this.dataGridView_ManagerMainWindow_Orders_CarExemplars.RowTemplate.Height = 29;
-            this.dataGridView_ManagerMainWindow_Orders_CarExemplars.Size = new System.Drawing.Size(300, 300);
+            this.dataGridView_ManagerMainWindow_Orders_CarExemplars.Size = new System.Drawing.Size(322, 300);
             this.dataGridView_ManagerMainWindow_Orders_CarExemplars.TabIndex = 4;
             this.dataGridView_ManagerMainWindow_Orders_CarExemplars.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_ManagerMainWindow_Orders_CarExemplars_CellMouseClick);
             // 
@@ -485,23 +520,25 @@
             // 
             // button_HeadMainWindow_DataGridView_Cars_Update
             // 
-            this.button_HeadMainWindow_DataGridView_Cars_Update.Location = new System.Drawing.Point(539, 321);
+            this.button_HeadMainWindow_DataGridView_Cars_Update.Location = new System.Drawing.Point(539, 338);
             this.button_HeadMainWindow_DataGridView_Cars_Update.Name = "button_HeadMainWindow_DataGridView_Cars_Update";
             this.button_HeadMainWindow_DataGridView_Cars_Update.Size = new System.Drawing.Size(200, 35);
             this.button_HeadMainWindow_DataGridView_Cars_Update.TabIndex = 2;
             this.button_HeadMainWindow_DataGridView_Cars_Update.Text = "Обновить";
             this.button_HeadMainWindow_DataGridView_Cars_Update.UseVisualStyleBackColor = true;
+            this.button_HeadMainWindow_DataGridView_Cars_Update.Click += new System.EventHandler(this.button_HeadMainWindow_DataGridView_Cars_Update_Click);
             // 
             // dataGridView_ManagerMainWindow_Orders_CarOrders
             // 
             this.dataGridView_ManagerMainWindow_Orders_CarOrders.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView_ManagerMainWindow_Orders_CarOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_ManagerMainWindow_Orders_CarOrders.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView_ManagerMainWindow_Orders_CarOrders.Location = new System.Drawing.Point(4, 27);
             this.dataGridView_ManagerMainWindow_Orders_CarOrders.Name = "dataGridView_ManagerMainWindow_Orders_CarOrders";
             this.dataGridView_ManagerMainWindow_Orders_CarOrders.RowHeadersWidth = 51;
             this.dataGridView_ManagerMainWindow_Orders_CarOrders.RowTemplate.Height = 29;
-            this.dataGridView_ManagerMainWindow_Orders_CarOrders.Size = new System.Drawing.Size(588, 300);
+            this.dataGridView_ManagerMainWindow_Orders_CarOrders.Size = new System.Drawing.Size(539, 300);
             this.dataGridView_ManagerMainWindow_Orders_CarOrders.TabIndex = 0;
+            this.dataGridView_ManagerMainWindow_Orders_CarOrders.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_ManagerMainWindow_Orders_CarOrders_CellMouseClick);
             // 
             // tabPage_ManagerMainWindow_Buyers
             // 
@@ -536,6 +573,7 @@
             this.groupBox_ManagerMainWindow_SearchCar.ResumeLayout(false);
             this.groupBox_ManagerMainWindow_SearchCar.PerformLayout();
             this.tabPage_ManagerMainWindow_Orders.ResumeLayout(false);
+            this.tabPage_ManagerMainWindow_Orders.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ManagerMainWindow_Buyers)).EndInit();
             this.groupBox_ManagerMainWindow_CarExemplarExtradition.ResumeLayout(false);
             this.groupBox_ManagerMainWindow_CarExemplarExtradition.PerformLayout();
@@ -593,5 +631,8 @@
         private Button button_ManagerMainWindow_UpdateCarCarExemplarsTable;
         private DataGridView dataGridView_ManagerMainWindow_CarExemplars;
         private DataGridView dataGridView_ManagerMainWindow_Buyers;
+        private Label label_ManagerMainWindow_Buyers;
+        private Label label_ManagerMainWindow_CarExemplars;
+        private Label label_ManagerMainWindow_Orders;
     }
 }

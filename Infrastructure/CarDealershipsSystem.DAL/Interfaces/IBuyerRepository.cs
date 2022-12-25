@@ -12,6 +12,7 @@ namespace CarDealershipsSystem.DAL.Interfaces
 
         public bool SaveBuyer(Buyer buyer);
 
+        public bool DeleteBuyer(Buyer buyer);
 
     }
 }

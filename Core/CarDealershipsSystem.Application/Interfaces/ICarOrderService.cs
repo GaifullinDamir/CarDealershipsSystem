@@ -11,5 +11,7 @@ namespace CarDealershipsSystem.Application.Interfaces
             decimal orderAmount);
 
         public bool IsExistCarOrderByVinNumber(string vinNumber);
+
+        public bool DeleteCarOrder(int idCarOrder);
     }
 }

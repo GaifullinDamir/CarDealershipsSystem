@@ -20,6 +20,7 @@ namespace CarDealershipsSystem.Application.Services
             var buyersDTO = buyers
                 .Select(buyer => new BuyerDTO
             {
+                IdBuyer = buyer.IdBuyer,
                 BuyerPassData = buyer.BuyerPassData,
                 BuyerSurname = buyer.BuyerSurname,
                 BuyerName = buyer.BuyerName,
@@ -43,6 +44,7 @@ namespace CarDealershipsSystem.Application.Services
             var buyer = _buyerRepository.GetBuyerById(idBuyer);
             var buyerDTO = new BuyerDTO()
             {
+                IdBuyer = buyer.IdBuyer,
                 BuyerPassData = buyer.BuyerPassData,
                 BuyerSurname = buyer.BuyerSurname,
                 BuyerName = buyer.BuyerName,
@@ -127,6 +129,16 @@ namespace CarDealershipsSystem.Application.Services
             }
             return false;
 
+        }
+
+        public bool DeleteBuyer(int idBuyer)
+        {
+            var buyer = _buyerRepository.GetBuyerById(idBuyer);
+            if (buyer != null)
+            {
+                return (_buyerRepository.DeleteBuyer(buyer));
+            }
+            return false;
         }
     }
 }

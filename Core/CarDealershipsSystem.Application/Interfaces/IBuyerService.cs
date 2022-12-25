@@ -19,5 +19,7 @@ namespace CarDealershipsSystem.Application.Interfaces
         public bool IsBuyerExistByAllData(string buyerPassData, string buyerSurname,
             string buyerName, string buyerMiddleName,
             string buyerPhoneNumber);
+
+        public bool DeleteBuyer(int idBuyer);
     }
 }

@@ -93,5 +93,15 @@ namespace CarDealershipsSystem.Application.Services
             return carExemplarDTO;
 
         }
+
+        public bool DeleteCarExemplar(string vinNumber)
+        {
+            var carExemplar = _carExemplarRepository.GetCarExemplarByVinNumber(vinNumber);
+            if (carExemplar != null)
+            {
+                return (_carExemplarRepository.DeleteCarExemplar(carExemplar));
+            }
+            return false;
+        }
     }
 }

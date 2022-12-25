@@ -54,5 +54,14 @@ namespace CarDealershipsSystem.DAL.Repositories
             return _context.SaveChanges() > 0 ? true : false;
         }
 
-     }
+        public bool DeleteBuyer(Buyer buyer)
+        {
+            if (buyer == null)
+                return false;
+
+            _context.Remove(buyer);
+            return _context.SaveChanges() > 0 ? true : false;
+        }
+
+    }
 }

@@ -29,5 +29,21 @@ namespace CarDealershipsSystem.DAL.Repositories
             _context.Add(carOrder);
             return _context.SaveChanges() > 0 ? true : false;
         }
+
+        public CarOrder GetCarOrderById(int idCarOrder)
+        {
+            var carOrder = _context.CarOrders
+                .FirstOrDefault(o => o.IdOrder == idCarOrder);
+            return carOrder;
+        }
+
+        public bool DeleteCarOrder(CarOrder carOrder)
+        {
+            if (carOrder == null)
+                return false;
+
+            _context.Remove(carOrder);
+            return _context.SaveChanges() > 0 ? true : false;
+        }
     }
 }

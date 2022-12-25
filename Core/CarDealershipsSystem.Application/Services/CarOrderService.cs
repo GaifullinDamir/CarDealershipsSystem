@@ -57,5 +57,15 @@ namespace CarDealershipsSystem.Application.Services
             }
             return false;
         }
+
+        public bool DeleteCarOrder(int idCarOrder)
+        {
+            var carOrder = _carOrderRepository.GetCarOrderById(idCarOrder);
+            if (carOrder != null)
+            {
+                return (_carOrderRepository.DeleteCarOrder(carOrder));
+            }
+            return false;
+        }
     }
 }

@@ -15,6 +15,8 @@ namespace WinFormsApp.Forms
         private readonly ICarOrderService _carOrderService;
 
         private int _carsExemplarRowIndex = -1;
+        private int _buyersRowIndex = -1;
+        private int _carOrdersRowIndex = -1;
 
         public ManagerMainWindow(
             IBranchService branchService,
@@ -512,9 +514,109 @@ namespace WinFormsApp.Forms
                     carExemplars.Add(exemplar);
                 }
             }
+            var orderPrice = carExemplars[_carsExemplarRowIndex].Price.ToString();
+            string orderPriceWithDot = "";
+            if (orderPrice.Contains(','))
+            {
+                orderPriceWithDot = orderPrice.Replace(',', '.');
+            }
             textBox_ManagerMainWindow_VinNumber_Input.Text = carExemplars[_carsExemplarRowIndex].VinNumber;
-            textBox_ManagerMainWindow_OrderAmount_Input.Text = carExemplars[_carsExemplarRowIndex].Price.ToString();
+            textBox_ManagerMainWindow_OrderAmount_Input.Text = orderPriceWithDot;
 
+        }
+
+        private void button_HeadMainWindow_DataGridView_Cars_Update_Click(object sender, EventArgs e)
+        {
+            var cars = _carService.GetCars().ToList();
+            var carOrders = _carOrderService.GetCarOrders().ToList();
+            var buyers = _buyerService.GetBuyers().ToList();
+            Init_DataGridView_Cars(cars);
+            Init_DataGridView_CarExemplars(cars);
+            Init_DataGridView_ManagerMainWindow_Orders_CarOrders(carOrders);
+            Init_DataGridView_ManagerMainWindow_Orders_CarExemplars(cars);
+            Init_DataGridView_ManagerMainWindow_Buyers(buyers);
+        }
+
+        private void dataGridView_ManagerMainWindow_Buyers_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                _buyersRowIndex = e.RowIndex;
+                if (_buyersRowIndex == -1)
+                {
+                    return;
+                }
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            var buyers = _buyerService.GetBuyers().ToList();
+            textBox_ManagerMainWindow_BuyerMiddlename_Input.Text = buyers[_buyersRowIndex].BuyerMiddlename;
+            textBox_ManagerMainWindow_BuyerName_Input.Text = buyers[_buyersRowIndex].BuyerName;
+            textBox_ManagerMainWindow_BuyerPassData_Input.Text = buyers[_buyersRowIndex].BuyerPassData;
+            textBox_ManagerMainWindow_BuyerPhoneNumber_Input.Text = buyers[_buyersRowIndex].BuyerPhoneNumber;
+            textBox_ManagerMainWindow_BuyerSurname_Input.Text = buyers[_buyersRowIndex].BuyerSurname;
+          
+        }
+
+        private void button_ManagerMainWindow_CarExemplarExtradition_Extradite_Click(object sender, EventArgs e)
+        {
+            var carOrders = _carOrderService.GetCarOrders().ToList();
+            if (_carOrdersRowIndex != -1)
+            {
+                var idOrder = carOrders[_carOrdersRowIndex].IdOrder;
+                var idBuyer = carOrders[_carOrdersRowIndex].IdBuyer;
+                var vinNumber = carOrders[_carOrdersRowIndex].VinNumber;
+                if (_carOrderService.DeleteCarOrder(idOrder))
+                {
+                    if (_buyerService.GetBuyerById(idBuyer).CarOrders.Count() < 2)
+                    {
+                        if (!_buyerService.DeleteBuyer(idBuyer))
+                        {
+                            MessageBox.Show("Ошибка при удалении покупателя.");
+                            return;
+                        }
+                    }
+                    
+                    if (!_carExemplarService.DeleteCarExemplar(vinNumber))
+                    {
+                        MessageBox.Show("Ошибка при удалении экземпляра авто");
+                        return;
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка при удалении заказа.");
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void dataGridView_ManagerMainWindow_Orders_CarOrders_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                _carOrdersRowIndex = e.RowIndex;
+                if (_carOrdersRowIndex == -1)
+                {
+                    return;
+                }
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            
+            var carOrders = _carOrderService.GetCarOrders().ToList();
+            var buyer = _buyerService.GetBuyerById(carOrders[_carOrdersRowIndex].IdBuyer);
+            var buyerSurnameNameMiddlename = buyer.BuyerSurname + " " + buyer.BuyerName + " " + buyer.BuyerMiddlename;
+            label_ManagerMainWindow_OrderSNM.Text = buyerSurnameNameMiddlename;
+            label_ManagerMainWindow_CarExemplarExtradition_OrderNumber.Text = carOrders[_carOrdersRowIndex].IdOrder.ToString();
         }
     }
 }

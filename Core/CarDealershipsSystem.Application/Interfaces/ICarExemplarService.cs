@@ -12,5 +12,7 @@ namespace CarDealershipsSystem.Application.Interfaces
         public bool IsExistCarExemplarByVinNumber(string vinNumber);
 
         public CarExemplarDTO GetCarExemplarByVinNumber(string vinNumber);
+
+        public bool DeleteCarExemplar(string vinNumber);
     }
 }

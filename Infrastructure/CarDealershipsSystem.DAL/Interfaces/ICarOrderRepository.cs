@@ -7,5 +7,9 @@ namespace CarDealershipsSystem.DAL.Interfaces
         IEnumerable<CarOrder> GetCarOrders();
 
         public bool SaveCarOrder(CarOrder carOrder);
+
+        public CarOrder GetCarOrderById(int idCarOrder);
+
+        public bool DeleteCarOrder(CarOrder carOrder);
     }
 }
