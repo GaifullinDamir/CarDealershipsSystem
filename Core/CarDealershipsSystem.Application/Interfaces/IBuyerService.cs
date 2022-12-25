@@ -15,5 +15,9 @@ namespace CarDealershipsSystem.Application.Interfaces
             string buyerPhoneNumber);
 
         public BuyerDTO GetBuyerByPassData(string passData);
+
+        public bool IsBuyerExistByAllData(string buyerPassData, string buyerSurname,
+            string buyerName, string buyerMiddleName,
+            string buyerPhoneNumber);
     }
 }

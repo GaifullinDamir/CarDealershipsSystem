@@ -90,6 +90,7 @@ namespace CarDealershipsSystem.Application.Services
             var buyer = _buyerRepository.GetBuyerByPassData(passData);
             var buyerDTO = new BuyerDTO()
             {
+                IdBuyer = buyer.IdBuyer,
                 BuyerPassData = buyer.BuyerPassData,
                 BuyerSurname = buyer.BuyerSurname,
                 BuyerName = buyer.BuyerName,
@@ -106,6 +107,25 @@ namespace CarDealershipsSystem.Application.Services
                 .ToList()
             };
             return buyerDTO;
+        }
+
+        public bool IsBuyerExistByAllData(string buyerPassData, string buyerSurname,
+            string buyerName, string buyerMiddleName,
+            string buyerPhoneNumber)
+        {
+            var buyer = _buyerRepository.GetBuyerByPassData(buyerPassData);
+            if (buyer != null)
+            {
+                if (buyer.BuyerPassData == buyerPassData &&
+                    buyer.BuyerSurname == buyerSurname &&
+                    buyer.BuyerName == buyerName &&
+                    buyer.BuyerMiddlename == buyerMiddleName &&
+                    buyer.BuyerPhoneNumber == buyerPhoneNumber)
+                {
+                    return true;
+                }
+            }
+            return false;
 
         }
     }

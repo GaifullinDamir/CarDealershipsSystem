@@ -305,11 +305,15 @@ namespace WinFormsApp.Forms
                 //}
                 //else
                 //    MessageBox.Show("По этому адресу уже имеется филиал");
-                if (!_buyerService.AddBuyer(buyerPassData, buyerSurname, buyerName, buyerMiddlename, buyerPhoneNumber))
+                if (!_buyerService.IsBuyerExistByAllData(buyerPassData, buyerSurname, buyerName, buyerMiddlename, buyerPhoneNumber))
                 {
-                    MessageBox.Show("Добавление покупателя не удалось.");
-                    return;
+                    if (!_buyerService.AddBuyer(buyerPassData, buyerSurname, buyerName, buyerMiddlename, buyerPhoneNumber))
+                    {
+                        MessageBox.Show("Добавление покупателя не удалось.");
+                        return;
+                    }
                 }
+                
                 if (!_carExemplarService.IsExistCarExemplarByVinNumber(vinNumber))
                 {
                     MessageBox.Show("Автомобиля с таким VIN нет.");
