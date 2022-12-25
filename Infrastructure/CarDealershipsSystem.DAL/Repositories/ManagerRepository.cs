@@ -58,5 +58,15 @@ namespace CarDealershipsSystem.DAL.Repositories
             var carOrders = _carOrderRepository.GetCarOrders();
             return manager;
         }
+
+        public Manager GetManagerByLogPass(string login, string password)
+        {
+            var manager = _context.Managers
+                .Include(manager => manager.CarOrders)
+                .FirstOrDefault(manager => manager.ManagerLogin == login && manager.ManagerPassword == password);
+                
+            var carOrders = _carOrderRepository.GetCarOrders();
+            return manager;
+        }
     }
 }

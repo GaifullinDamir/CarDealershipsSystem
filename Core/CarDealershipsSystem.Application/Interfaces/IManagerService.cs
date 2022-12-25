@@ -19,6 +19,8 @@ namespace CarDealershipsSystem.Application.Interfaces
 
         public ManagerDTO GetManagerById(int idMngr);
 
+        public ManagerDTO GetManagerByLogPass(string login, string password);
+
 
 
     }

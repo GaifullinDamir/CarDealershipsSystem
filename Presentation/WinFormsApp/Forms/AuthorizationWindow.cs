@@ -11,6 +11,9 @@ namespace WinFormsApp
         private readonly HeadMainWindow _headMainWindow;
         private readonly ManagerMainWindow _managerMainWindow;
         private readonly HeadRegisterWindow _headRegisterWindow;
+
+        private string _managerLogin = "";
+        private string _managerPassword = "";
         public AuthorizationWindow(
             IAccountService accountService
             , HeadMainWindow headMainWindow, ManagerMainWindow managerMainWindow, HeadRegisterWindow headRegisterWindow)
@@ -23,7 +26,13 @@ namespace WinFormsApp
         }
 
         
-
+        public List<string> GetManagerLoginPassword()
+        {
+            List<string> result = new List<string>();
+            result.Add(_managerLogin);
+            result.Add(_managerPassword);
+            return result;
+        }
         private void button_AuthorizationWindow_HeadAuthorize_Click(object sender, EventArgs e)
         {
             var headLogin = textBox_AuthorizationWindow_HeadLogin_Input.Text;
@@ -63,6 +72,8 @@ namespace WinFormsApp
                 var isGoToHeadMainWindow = _accountService.IsCorrectManagerAuthorizationData(managerLogin, managerPassword);
                 if (isGoToHeadMainWindow)
                 {
+                    _managerLogin = managerLogin;
+                    _managerPassword = managerPassword;
                     _managerMainWindow.Show();
                     this.Hide();
                 }
