@@ -14,6 +14,8 @@ namespace WinFormsApp.Forms
         private readonly IManagerService _managerService;
         private readonly ICarOrderService _carOrderService;
 
+        private int _carsExemplarRowIndex = -1;
+
         public ManagerMainWindow(
             IBranchService branchService,
             ICarService carService,
@@ -43,6 +45,7 @@ namespace WinFormsApp.Forms
             Init_DataGridView_Cars(cars);
             Init_DataGridView_CarExemplars(cars);
             Init_DataGridView_ManagerMainWindow_Orders_CarOrders(carOrders);
+            Init_DataGridView_ManagerMainWindow_Orders_CarExemplars(cars);
         }
 
         private void Init_DataGridView_CarExemplars(List<CarDTO> cars)
@@ -195,10 +198,10 @@ namespace WinFormsApp.Forms
             dataGridView_ManagerMainWindow_Orders_CarOrders.Columns[2].Width = 200;
             dataGridView_ManagerMainWindow_Orders_CarOrders.Columns[3].Width = 200;
             dataGridView_ManagerMainWindow_Orders_CarOrders.Columns[4].Width = 150;
-            dataGridView_ManagerMainWindow_Orders_CarOrders.Columns[5].Width = 80;
-            dataGridView_ManagerMainWindow_Orders_CarOrders.Columns[6].Width = 80;
+            dataGridView_ManagerMainWindow_Orders_CarOrders.Columns[5].Width = 100;
+            dataGridView_ManagerMainWindow_Orders_CarOrders.Columns[6].Width = 100;
             dataGridView_ManagerMainWindow_Orders_CarOrders.Columns[7].Width = 80;
-            dataGridView_ManagerMainWindow_Orders_CarOrders.Columns[8].Width = 80;
+            dataGridView_ManagerMainWindow_Orders_CarOrders.Columns[8].Width = 100;
             dataGridView_ManagerMainWindow_Orders_CarOrders.Columns[9].Width = 80;
             dataGridView_ManagerMainWindow_Orders_CarOrders.Columns[10].Width = 100;
 
@@ -245,6 +248,75 @@ namespace WinFormsApp.Forms
 
             }
 
+        }
+
+        private void Init_DataGridView_ManagerMainWindow_Orders_CarExemplars(List<CarDTO> cars)
+        {
+            List<CarDTO> cars1 = new List<CarDTO>();
+            List<CarExemplarDTO> carExemplars = new List<CarExemplarDTO>();
+            List<string> branchesNames = new List<string>();
+            foreach (var car in cars)
+            {
+                var branchById = _branchService.GetBranchById(car.IdBranch);
+                var branchName = branchById.BranchName +
+                    " (" + branchById.IdBranch + ")";
+                foreach (var exemplar in car.CarExemplars)
+                {
+                    cars1.Add(car);
+                    carExemplars.Add(exemplar);
+                    branchesNames.Add(branchName);
+                }
+            }
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.Rows.Clear();
+
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.AllowUserToAddRows = false;
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.ReadOnly = true;
+
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.ColumnCount = 9;
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.Columns[0].Width = 140;
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.Columns[1].Width = 100;
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.Columns[2].Width = 100;
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.Columns[3].Width = 100;
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.Columns[4].Width = 100;
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.Columns[5].Width = 100;
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.Columns[6].Width = 100;
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.Columns[7].Width = 200;
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.Columns[8].Width = 200;
+
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.Columns[0].Name = "Филиал(ID)";
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.Columns[1].Name = "Бренд";
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.Columns[2].Name = "Модель";
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.Columns[3].Name = "Тип кузова";
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.Columns[4].Name = "Мощность";
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.Columns[5].Name = "Цена";
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.Columns[6].Name = "Цвет";
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.Columns[7].Name = "VIN-\nномер";
+            dataGridView_ManagerMainWindow_Orders_CarExemplars.Columns[8].Name = "Дата\nпроизв-ва";
+
+            for (int i = 0; i < dataGridView_ManagerMainWindow_Orders_CarExemplars.ColumnCount; i++)
+            {
+                dataGridView_ManagerMainWindow_Orders_CarExemplars.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+            for (int i = 0; i < cars1.Count(); i++)
+            {
+                if (dataGridView_ManagerMainWindow_Orders_CarExemplars.Rows.Count < cars1.Count())
+                {
+                    dataGridView_ManagerMainWindow_Orders_CarExemplars.Rows.Add();
+                }
+                dataGridView_ManagerMainWindow_Orders_CarExemplars.Rows[i].Cells[0].Value = branchesNames[i];
+                dataGridView_ManagerMainWindow_Orders_CarExemplars.Rows[i].Cells[1].Value = cars1[i].Brand;
+                dataGridView_ManagerMainWindow_Orders_CarExemplars.Rows[i].Cells[2].Value = cars1[i].Model;
+                dataGridView_ManagerMainWindow_Orders_CarExemplars.Rows[i].Cells[3].Value = cars1[i].BodyType;
+                dataGridView_ManagerMainWindow_Orders_CarExemplars.Rows[i].Cells[4].Value = carExemplars[i].HorsePower;
+                dataGridView_ManagerMainWindow_Orders_CarExemplars.Rows[i].Cells[5].Value = carExemplars[i].Price;
+                dataGridView_ManagerMainWindow_Orders_CarExemplars.Rows[i].Cells[6].Value = carExemplars[i].Color;
+                dataGridView_ManagerMainWindow_Orders_CarExemplars.Rows[i].Cells[7].Value = carExemplars[i].VinNumber;
+                dataGridView_ManagerMainWindow_Orders_CarExemplars.Rows[i].Cells[8].Value = carExemplars[i].YearOfAssembly;
+
+
+            }
         }
         private void button_ManagerMainWindow_UpdateCarCarExemplarsTable_Click(object sender, EventArgs e)
         {
@@ -373,6 +445,36 @@ namespace WinFormsApp.Forms
             }
             else
                 MessageBox.Show("Поля не должны оставаться пустыми.");
+        }
+
+        private void dataGridView_ManagerMainWindow_Orders_CarExemplars_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                _carsExemplarRowIndex = e.RowIndex;
+                if (_carsExemplarRowIndex == -1)
+                {
+                    return;
+                }
+            }
+            catch (Exception)
+            {
+                return;
+            }
+       
+            List<CarExemplarDTO> carExemplars = new List<CarExemplarDTO>();
+            var cars = _carService.GetCars().ToList();
+
+            foreach (var car in cars)
+            {
+                foreach (var exemplar in car.CarExemplars)
+                {
+                    carExemplars.Add(exemplar);
+                }
+            }
+            textBox_ManagerMainWindow_VinNumber_Input.Text = carExemplars[_carsExemplarRowIndex].VinNumber;
+            textBox_ManagerMainWindow_OrderAmount_Input.Text = carExemplars[_carsExemplarRowIndex].Price.ToString();
+
         }
     }
 }
