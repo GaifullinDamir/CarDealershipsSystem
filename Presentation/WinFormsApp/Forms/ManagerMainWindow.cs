@@ -42,10 +42,12 @@ namespace WinFormsApp.Forms
         {
             var cars = _carService.GetCars().ToList();
             var carOrders = _carOrderService.GetCarOrders().ToList();
+            var buyers = _buyerService.GetBuyers().ToList();
             Init_DataGridView_Cars(cars);
             Init_DataGridView_CarExemplars(cars);
             Init_DataGridView_ManagerMainWindow_Orders_CarOrders(carOrders);
             Init_DataGridView_ManagerMainWindow_Orders_CarExemplars(cars);
+            Init_DataGridView_ManagerMainWindow_Buyers(buyers);
         }
 
         private void Init_DataGridView_CarExemplars(List<CarDTO> cars)
@@ -316,6 +318,44 @@ namespace WinFormsApp.Forms
                 dataGridView_ManagerMainWindow_Orders_CarExemplars.Rows[i].Cells[8].Value = carExemplars[i].YearOfAssembly;
 
 
+            }
+        }
+
+        private void Init_DataGridView_ManagerMainWindow_Buyers(List<BuyerDTO> buyers)
+        {
+            dataGridView_ManagerMainWindow_Buyers.Rows.Clear();
+
+            dataGridView_ManagerMainWindow_Buyers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView_ManagerMainWindow_Buyers.AllowUserToAddRows = false;
+            dataGridView_ManagerMainWindow_Buyers.ReadOnly = true;
+
+            dataGridView_ManagerMainWindow_Buyers.ColumnCount = 4;
+            dataGridView_ManagerMainWindow_Buyers.Columns[0].Width = 140;
+            dataGridView_ManagerMainWindow_Buyers.Columns[1].Width = 100;
+            dataGridView_ManagerMainWindow_Buyers.Columns[2].Width = 100;
+            dataGridView_ManagerMainWindow_Buyers.Columns[3].Width = 100;
+
+            dataGridView_ManagerMainWindow_Buyers.Columns[0].Name = "ID";
+            dataGridView_ManagerMainWindow_Buyers.Columns[1].Name = "Пасп-е\nданные";
+            dataGridView_ManagerMainWindow_Buyers.Columns[2].Name = "ФИО";
+            dataGridView_ManagerMainWindow_Buyers.Columns[3].Name = "Номер\nтелефона";
+
+            for (int i = 0; i < dataGridView_ManagerMainWindow_Buyers.ColumnCount; i++)
+            {
+                dataGridView_ManagerMainWindow_Buyers.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+            for (int i = 0; i < buyers.Count(); i++)
+            {
+                if (dataGridView_ManagerMainWindow_Buyers.Rows.Count < buyers.Count())
+                {
+                    dataGridView_ManagerMainWindow_Buyers.Rows.Add();
+                }
+                dataGridView_ManagerMainWindow_Buyers.Rows[i].Cells[0].Value = buyers[i].IdBuyer;
+                dataGridView_ManagerMainWindow_Buyers.Rows[i].Cells[1].Value = buyers[i].BuyerPassData;
+                dataGridView_ManagerMainWindow_Buyers.Rows[i].Cells[2].Value = buyers[i].BuyerSurname +
+                    " " + buyers[i].BuyerName + " " + buyers[i].BuyerMiddlename;
+                dataGridView_ManagerMainWindow_Buyers.Rows[i].Cells[3].Value = buyers[i].BuyerPhoneNumber;
             }
         }
         private void button_ManagerMainWindow_UpdateCarCarExemplarsTable_Click(object sender, EventArgs e)
