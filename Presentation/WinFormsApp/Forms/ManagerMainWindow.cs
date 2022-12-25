@@ -18,6 +18,8 @@ namespace WinFormsApp.Forms
         private int _buyersRowIndex = -1;
         private int _carOrdersRowIndex = -1;
 
+        private int _idManager;
+
         public ManagerMainWindow(
             IBranchService branchService,
             ICarService carService,
@@ -42,6 +44,8 @@ namespace WinFormsApp.Forms
 
         private void ManagerMainWindow_Load(object sender, EventArgs e)
         {
+            _idManager = _managerService.GetManagerByLogPass(AuthorizationWindow.GetManagerLoginPassword()[0],
+                AuthorizationWindow.GetManagerLoginPassword()[1]).IdMngr;
             var cars = _carService.GetCars().ToList();
             var carOrders = _carOrderService.GetCarOrders().ToList();
             var buyers = _buyerService.GetBuyers().ToList();
@@ -588,40 +592,48 @@ namespace WinFormsApp.Forms
                 var idOrder = carOrders[_carOrdersRowIndex].IdOrder;
                 var idBuyer = carOrders[_carOrdersRowIndex].IdBuyer;
                 var vinNumber = carOrders[_carOrdersRowIndex].VinNumber;
-                if (_carOrderService.DeleteCarOrder(idOrder))
+                if (carOrders[_carOrdersRowIndex].IdMngr == _idManager)
                 {
-                    if (_buyerService.GetBuyerById(idBuyer).CarOrders.Count() < 1)
+                    if (_carOrderService.DeleteCarOrder(idOrder))
                     {
-                        if (!_buyerService.DeleteBuyer(idBuyer))
+                        if (_buyerService.GetBuyerById(idBuyer).CarOrders.Count() < 1)
                         {
-                            MessageBox.Show("Ошибка при удалении покупателя.");
+                            if (!_buyerService.DeleteBuyer(idBuyer))
+                            {
+                                MessageBox.Show("Ошибка при удалении покупателя.");
+                                return;
+                            }
+                        }
+
+                        if (!_carExemplarService.DeleteCarExemplar(vinNumber))
+                        {
+                            MessageBox.Show("Ошибка при удалении экземпляра авто");
                             return;
                         }
+
+                        var cars = _carService.GetCars().ToList();
+                        var carOrders2 = _carOrderService.GetCarOrders().ToList();
+                        var buyers = _buyerService.GetBuyers().ToList();
+                        Init_DataGridView_Cars(cars);
+                        Init_DataGridView_CarExemplars(cars);
+                        Init_DataGridView_ManagerMainWindow_Orders_CarOrders(carOrders2);
+                        Init_DataGridView_ManagerMainWindow_Orders_CarExemplars(cars);
+                        Init_DataGridView_ManagerMainWindow_Buyers(buyers);
+                        _carOrdersRowIndex = -1;
+                        label_ManagerMainWindow_OrderSNM.Text = "";
+                        label_ManagerMainWindow_CarExemplarExtradition_OrderNumber.Text = "";
+
                     }
-                    
-                    if (!_carExemplarService.DeleteCarExemplar(vinNumber))
+                    else
                     {
-                        MessageBox.Show("Ошибка при удалении экземпляра авто");
-                        return;
+                        MessageBox.Show("Ошибка при удалении заказа.");
                     }
-
-                    var cars = _carService.GetCars().ToList();
-                    var carOrders2 = _carOrderService.GetCarOrders().ToList();
-                    var buyers = _buyerService.GetBuyers().ToList();
-                    Init_DataGridView_Cars(cars);
-                    Init_DataGridView_CarExemplars(cars);
-                    Init_DataGridView_ManagerMainWindow_Orders_CarOrders(carOrders2);
-                    Init_DataGridView_ManagerMainWindow_Orders_CarExemplars(cars);
-                    Init_DataGridView_ManagerMainWindow_Buyers(buyers);
-                    _carOrdersRowIndex = -1;
-                    label_ManagerMainWindow_OrderSNM.Text = "";
-                    label_ManagerMainWindow_CarExemplarExtradition_OrderNumber.Text = "";
-
                 }
                 else
                 {
-                    MessageBox.Show("Ошибка при удалении заказа.");
+                    MessageBox.Show("Данный заказ не относится к вам.");
                 }
+                
             }
             else
             {
