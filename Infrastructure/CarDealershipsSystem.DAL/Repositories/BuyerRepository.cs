@@ -33,5 +33,25 @@ namespace CarDealershipsSystem.DAL.Repositories
             var carOrders = _carOrderRepository.GetCarOrders();
             return buyer;
         }
+
+        public Buyer GetBuyerByPassData(string buyerPassData)
+        {
+            var buyer = _context.Buyers
+                .Include(buyer => buyer.CarOrders)
+                .FirstOrDefault(buyer => buyer.BuyerPassData == buyerPassData);
+
+            var carOrders = _carOrderRepository.GetCarOrders();
+            return buyer;
+        }
+
+        public bool SaveBuyer(Buyer buyer)
+        {
+            if (buyer == null)
+            {
+                return false;
+            }
+            _context.Add(buyer);
+            return _context.SaveChanges() > 0 ? true : false;
+        }
     }
 }

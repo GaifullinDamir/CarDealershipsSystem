@@ -7,5 +7,11 @@ namespace CarDealershipsSystem.Application.Interfaces
         IEnumerable<BuyerDTO> GetBuyers();
 
         public BuyerDTO GetBuyerById(int idBuyer);
+
+        public bool IsBuyerExistByPassData(string buyerPassData);
+
+        public bool AddBuyer(string buyerPassData, string buyerSurname,
+            string buyerName, string buyerMiddlename,
+            string buyerPhoneNumber);
     }
 }

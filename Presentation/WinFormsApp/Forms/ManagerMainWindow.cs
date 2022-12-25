@@ -259,5 +259,54 @@ namespace WinFormsApp.Forms
             else
                 MessageBox.Show("Не оставляйте поля пустыми.");
         }
+
+        private void button_ManagerMainWindow_AddOrder_Click(object sender, EventArgs e)
+        {
+            var buyerPassData = textBox_ManagerMainWindow_BuyerPassData_Input.Text;
+            var contractDate = textBox_ManagerMainWindow_ContractDate_Input.Text;
+            var orderPrice = textBox_ManagerMainWindow_OrderAmount_Input.Text;
+            var buyerSurname = textBox_ManagerMainWindow_BuyerSurname_Input.Text;
+            var buyerName = textBox_ManagerMainWindow_BuyerName_Input.Text;
+            var buyerMiddlename = textBox_ManagerMainWindow_BuyerMiddlename_Input.Text;
+            var buyerPhoneNumber = textBox_ManagerMainWindow_BuyerPhoneNumber_Input.Text;
+            var vinNumber = textBox_ManagerMainWindow_VinNumber_Input.Text;
+
+            if (!(String.IsNullOrWhiteSpace(buyerPassData) ||
+                String.IsNullOrWhiteSpace(contractDate)||
+                String.IsNullOrWhiteSpace(orderPrice) ||
+                String.IsNullOrWhiteSpace(buyerSurname) ||
+                String.IsNullOrWhiteSpace(buyerName) ||
+                String.IsNullOrWhiteSpace(buyerMiddlename) ||
+                String.IsNullOrWhiteSpace(buyerPhoneNumber) ||
+                String.IsNullOrWhiteSpace(vinNumber) ||
+                ))
+            {
+                if (buyerPassData.Length > 20 ||
+                    buyerSurname.Length > 30 ||
+                    buyerName.Length > 30 ||
+                    buyerMiddlename.Length > 30 ||
+                    buyerPhoneNumber.Length > 20 ||
+                    vinNumber.Length > 17 
+                    )
+                {
+                    MessageBox.Show("Введено слишком длинное значение.");
+                    return;
+                }
+                if (!_buyerService.IsBuyerExistByPassData(buyerPassData))
+                {
+                    if (_carOrderService.AddBranch(branchName, branchAddress, idHead))
+                    {
+                        MessageBox.Show($"Филиал {branchName} добавлен успешно.");
+                    }
+                    else
+                        MessageBox.Show("Возникла ошибка при добавлении.");
+                }
+                else
+                    MessageBox.Show("По этому адресу уже имеется филиал");
+
+            }
+            else
+                MessageBox.Show("Поля не должны оставаться пустыми.");
+        }
     }
 }
