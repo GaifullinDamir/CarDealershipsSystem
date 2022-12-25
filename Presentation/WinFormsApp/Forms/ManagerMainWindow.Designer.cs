@@ -73,7 +73,6 @@
             this.textBox_ManagerMainWindow_BuyerPassData_Input = new System.Windows.Forms.TextBox();
             this.button_HeadMainWindow_DataGridView_Cars_Update = new System.Windows.Forms.Button();
             this.dataGridView_ManagerMainWindow_Orders_CarOrders = new System.Windows.Forms.DataGridView();
-            this.tabPage_ManagerMainWindow_Buyers = new System.Windows.Forms.TabPage();
             this.sqlCommandBuilder1 = new Microsoft.Data.SqlClient.SqlCommandBuilder();
             this.tabControl_ManagerMainWindow.SuspendLayout();
             this.tabPage_ManagerMainWindow_Cars.SuspendLayout();
@@ -93,7 +92,6 @@
             // 
             this.tabControl_ManagerMainWindow.Controls.Add(this.tabPage_ManagerMainWindow_Cars);
             this.tabControl_ManagerMainWindow.Controls.Add(this.tabPage_ManagerMainWindow_Orders);
-            this.tabControl_ManagerMainWindow.Controls.Add(this.tabPage_ManagerMainWindow_Buyers);
             this.tabControl_ManagerMainWindow.Location = new System.Drawing.Point(12, 12);
             this.tabControl_ManagerMainWindow.Name = "tabControl_ManagerMainWindow";
             this.tabControl_ManagerMainWindow.SelectedIndex = 0;
@@ -143,12 +141,12 @@
             this.dataGridView_ManagerMainWindow_Cars.Name = "dataGridView_ManagerMainWindow_Cars";
             this.dataGridView_ManagerMainWindow_Cars.RowHeadersWidth = 51;
             this.dataGridView_ManagerMainWindow_Cars.RowTemplate.Height = 29;
-            this.dataGridView_ManagerMainWindow_Cars.Size = new System.Drawing.Size(581, 300);
+            this.dataGridView_ManagerMainWindow_Cars.Size = new System.Drawing.Size(595, 300);
             this.dataGridView_ManagerMainWindow_Cars.TabIndex = 2;
             // 
             // button_ManagerMainWindow_UpdateCarCarExemplarsTable
             // 
-            this.button_ManagerMainWindow_UpdateCarCarExemplarsTable.Location = new System.Drawing.Point(350, 350);
+            this.button_ManagerMainWindow_UpdateCarCarExemplarsTable.Location = new System.Drawing.Point(520, 350);
             this.button_ManagerMainWindow_UpdateCarCarExemplarsTable.Name = "button_ManagerMainWindow_UpdateCarCarExemplarsTable";
             this.button_ManagerMainWindow_UpdateCarCarExemplarsTable.Size = new System.Drawing.Size(200, 35);
             this.button_ManagerMainWindow_UpdateCarCarExemplarsTable.TabIndex = 1;
@@ -160,11 +158,11 @@
             // 
             this.dataGridView_ManagerMainWindow_CarExemplars.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView_ManagerMainWindow_CarExemplars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_ManagerMainWindow_CarExemplars.Location = new System.Drawing.Point(595, 29);
+            this.dataGridView_ManagerMainWindow_CarExemplars.Location = new System.Drawing.Point(609, 29);
             this.dataGridView_ManagerMainWindow_CarExemplars.Name = "dataGridView_ManagerMainWindow_CarExemplars";
             this.dataGridView_ManagerMainWindow_CarExemplars.RowHeadersWidth = 51;
             this.dataGridView_ManagerMainWindow_CarExemplars.RowTemplate.Height = 29;
-            this.dataGridView_ManagerMainWindow_CarExemplars.Size = new System.Drawing.Size(598, 300);
+            this.dataGridView_ManagerMainWindow_CarExemplars.Size = new System.Drawing.Size(584, 300);
             this.dataGridView_ManagerMainWindow_CarExemplars.TabIndex = 0;
             // 
             // groupBox_ManagerMainWindow_SearchCar
@@ -174,9 +172,9 @@
             this.groupBox_ManagerMainWindow_SearchCar.Controls.Add(this.textBox_ManagerMainWindow_SearchCar_Model_Input);
             this.groupBox_ManagerMainWindow_SearchCar.Controls.Add(this.textBox_ManagerMainWindow_SearchCar_Brand_Input);
             this.groupBox_ManagerMainWindow_SearchCar.Controls.Add(this.button_ManagerMainWindow_SearchCar);
-            this.groupBox_ManagerMainWindow_SearchCar.Location = new System.Drawing.Point(230, 409);
+            this.groupBox_ManagerMainWindow_SearchCar.Location = new System.Drawing.Point(399, 409);
             this.groupBox_ManagerMainWindow_SearchCar.Name = "groupBox_ManagerMainWindow_SearchCar";
-            this.groupBox_ManagerMainWindow_SearchCar.Size = new System.Drawing.Size(450, 200);
+            this.groupBox_ManagerMainWindow_SearchCar.Size = new System.Drawing.Size(450, 233);
             this.groupBox_ManagerMainWindow_SearchCar.TabIndex = 4;
             this.groupBox_ManagerMainWindow_SearchCar.TabStop = false;
             this.groupBox_ManagerMainWindow_SearchCar.Text = "Поиск автомобиля";
@@ -540,16 +538,6 @@
             this.dataGridView_ManagerMainWindow_Orders_CarOrders.TabIndex = 0;
             this.dataGridView_ManagerMainWindow_Orders_CarOrders.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_ManagerMainWindow_Orders_CarOrders_CellMouseClick);
             // 
-            // tabPage_ManagerMainWindow_Buyers
-            // 
-            this.tabPage_ManagerMainWindow_Buyers.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tabPage_ManagerMainWindow_Buyers.Location = new System.Drawing.Point(4, 29);
-            this.tabPage_ManagerMainWindow_Buyers.Name = "tabPage_ManagerMainWindow_Buyers";
-            this.tabPage_ManagerMainWindow_Buyers.Size = new System.Drawing.Size(1209, 648);
-            this.tabPage_ManagerMainWindow_Buyers.TabIndex = 2;
-            this.tabPage_ManagerMainWindow_Buyers.Text = "Покупатели";
-            this.tabPage_ManagerMainWindow_Buyers.UseVisualStyleBackColor = true;
-            // 
             // ManagerMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -590,7 +578,6 @@
         private TabControl tabControl_ManagerMainWindow;
         private TabPage tabPage_ManagerMainWindow_Cars;
         private TabPage tabPage_ManagerMainWindow_Orders;
-        private TabPage tabPage_ManagerMainWindow_Buyers;
         private GroupBox groupBox_ManagerMainWindow_SearchCar;
         private Label label_ManagerMainWindow_SearchCar_Model;
         private Label label_ManagerMainWindow_SearchCar_Brand;
