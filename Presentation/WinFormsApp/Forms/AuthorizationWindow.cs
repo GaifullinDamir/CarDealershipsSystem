@@ -12,8 +12,8 @@ namespace WinFormsApp
         private readonly ManagerMainWindow _managerMainWindow;
         private readonly HeadRegisterWindow _headRegisterWindow;
 
-        private string _managerLogin = "";
-        private string _managerPassword = "";
+        private static string _managerLogin = "";
+        private static string _managerPassword = "";
         public AuthorizationWindow(
             IAccountService accountService
             , HeadMainWindow headMainWindow, ManagerMainWindow managerMainWindow, HeadRegisterWindow headRegisterWindow)
@@ -26,7 +26,7 @@ namespace WinFormsApp
         }
 
         
-        public List<string> GetManagerLoginPassword()
+        public static List<string> GetManagerLoginPassword()
         {
             List<string> result = new List<string>();
             result.Add(_managerLogin);

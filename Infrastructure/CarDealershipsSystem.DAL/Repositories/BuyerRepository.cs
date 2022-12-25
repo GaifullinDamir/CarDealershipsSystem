@@ -53,5 +53,6 @@ namespace CarDealershipsSystem.DAL.Repositories
             _context.Add(buyer);
             return _context.SaveChanges() > 0 ? true : false;
         }
-    }
+
+     }
 }

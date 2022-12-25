@@ -13,5 +13,7 @@ namespace CarDealershipsSystem.Application.Interfaces
         public bool AddBuyer(string buyerPassData, string buyerSurname,
             string buyerName, string buyerMiddlename,
             string buyerPhoneNumber);
+
+        public BuyerDTO GetBuyerByPassData(string passData);
     }
 }

@@ -11,5 +11,7 @@ namespace CarDealershipsSystem.DAL.Interfaces
         public Buyer GetBuyerByPassData(string buyerPassData);
 
         public bool SaveBuyer(Buyer buyer);
+
+
     }
 }

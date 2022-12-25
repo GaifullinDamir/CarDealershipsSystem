@@ -274,7 +274,10 @@ namespace WinFormsApp.Forms
 
             DateTime dtContractDate = new DateTime();
             decimal decOrderPrice;
-
+            var idMngr = _managerService.GetManagerByLogPass(
+                AuthorizationWindow.GetManagerLoginPassword()[0],
+                AuthorizationWindow.GetManagerLoginPassword()[1]).IdMngr;
+            int intIdBuyer;
             if (!(String.IsNullOrWhiteSpace(buyerPassData) ||
                 String.IsNullOrWhiteSpace(contractDate)||
                 String.IsNullOrWhiteSpace(orderPrice) ||
@@ -282,7 +285,7 @@ namespace WinFormsApp.Forms
                 String.IsNullOrWhiteSpace(buyerName) ||
                 String.IsNullOrWhiteSpace(buyerMiddlename) ||
                 String.IsNullOrWhiteSpace(buyerPhoneNumber) ||
-                String.IsNullOrWhiteSpace(vinNumber) ||
+                String.IsNullOrWhiteSpace(vinNumber) 
                 ))
             {
                 if (buyerPassData.Length > 20 ||
@@ -296,57 +299,64 @@ namespace WinFormsApp.Forms
                     MessageBox.Show("Введено слишком длинное значение.");
                     return;
                 }
-                if (!_buyerService.IsBuyerExistByPassData(buyerPassData))
+                //if (!_buyerService.IsBuyerExistByPassData(buyerPassData))
+                //{
+
+                //}
+                //else
+                //    MessageBox.Show("По этому адресу уже имеется филиал");
+                if (!_buyerService.AddBuyer(buyerPassData, buyerSurname, buyerName, buyerMiddlename, buyerPhoneNumber))
                 {
-                    if (!_buyerService.AddBuyer(buyerPassData, buyerSurname, buyerName, buyerMiddlename, buyerPhoneNumber))
+                    MessageBox.Show("Добавление покупателя не удалось.");
+                    return;
+                }
+                if (!_carExemplarService.IsExistCarExemplarByVinNumber(vinNumber))
+                {
+                    MessageBox.Show("Автомобиля с таким VIN нет.");
+                    return;
+                }
+                if (_carOrderService.IsExistCarOrderByVinNumber(vinNumber))
+                {
+                    MessageBox.Show("Этот автомобиль уже продан.");
+                    return;
+                }
+                try
+                {
+                    dtContractDate = DateTime.Parse(contractDate);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Формат записи даты:\n" +
+                        "yyyy.mm.dd\n" +
+                        "mm.dd.yyyy\n" +
+                        "yyyy-mm-dd\n" +
+                        "yyyy/mm/dd");
+                    return;
+                }
+                try
+                {
+                    if (!orderPrice.Contains(','))
                     {
-                        MessageBox.Show("Добавление покупателя не удалось.");
-                        return;
-                    }
-                    if (!_carExemplarService.IsExistCarExemplarByVinNumber(vinNumber))
-                    {
-                        MessageBox.Show("Автомобиля с таким VIN нет.");
-                        return;
-                    }
-                    if (_carOrderService.IsExistCarOrderByVinNumber(vinNumber))
-                    {
-                        MessageBox.Show("Этот автомобиль уже продан.");
-                        return;
-                    }
-                    try
-                    {
-                        dtContractDate = DateTime.Parse(contractDate);
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Формат записи даты:\n" +
-                            "yyyy.mm.dd\n" +
-                            "mm.dd.yyyy\n" +
-                            "yyyy-mm-dd\n" +
-                            "yyyy/mm/dd");
-                        return;
-                    }
-                    try
-                    {
-                        if (!orderPrice.Contains(','))
-                        {
-                            decOrderPrice = Decimal.Parse(orderPrice, CultureInfo.InvariantCulture);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Разедлителем между целой частью числа\n и десятичной должна быть точка ('.')");
-                            return;
-                        }
-                    }
-                    if (_carOrderService.AddCarOrder(vinNumber))
-                    {
-                        MessageBox.Show($"Филиал {branchName} добавлен успешно.");
+                        decOrderPrice = Decimal.Parse(orderPrice, CultureInfo.InvariantCulture);
                     }
                     else
-                        MessageBox.Show("Возникла ошибка при добавлении.");
+                    {
+                        MessageBox.Show("Разедлителем между целой частью числа\n и десятичной должна быть точка ('.')");
+                        return;
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Стоимость - число.");
+                    return;
+                }
+                intIdBuyer = _buyerService.GetBuyerByPassData(buyerPassData).IdBuyer;
+                if (_carOrderService.AddCarOrder(vinNumber, idMngr, intIdBuyer, dtContractDate, decOrderPrice))
+                {
+                    MessageBox.Show($"Заказ добавлен.");
                 }
                 else
-                    MessageBox.Show("По этому адресу уже имеется филиал");
+                    MessageBox.Show("Возникла ошибка при добавлении.");
 
             }
             else
