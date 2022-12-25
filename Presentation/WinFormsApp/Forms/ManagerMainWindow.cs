@@ -437,12 +437,7 @@ namespace WinFormsApp.Forms
                     MessageBox.Show("Введено слишком длинное значение.");
                     return;
                 }
-                //if (!_buyerService.IsBuyerExistByPassData(buyerPassData))
-                //{
 
-                //}
-                //else
-                //    MessageBox.Show("По этому адресу уже имеется филиал");
                 if (!_buyerService.IsBuyerExistByAllData(buyerPassData, buyerSurname, buyerName, buyerMiddlename, buyerPhoneNumber))
                 {
                     if (!_buyerService.AddBuyer(buyerPassData, buyerSurname, buyerName, buyerMiddlename, buyerPhoneNumber))
@@ -479,6 +474,7 @@ namespace WinFormsApp.Forms
                 {
                     if (!orderPrice.Contains(','))
                     {
+                        
                         decOrderPrice = Decimal.Parse(orderPrice, CultureInfo.InvariantCulture);
                     }
                     else
@@ -490,6 +486,11 @@ namespace WinFormsApp.Forms
                 catch (Exception)
                 {
                     MessageBox.Show("Стоимость - число.");
+                    return;
+                }
+                if (_carExemplarService.GetCarExemplarByVinNumber(vinNumber).Price > decOrderPrice)
+                {
+                    MessageBox.Show("Нельзя продать автомобиль дешевле его стоимости.");
                     return;
                 }
                 intIdBuyer = _buyerService.GetBuyerByPassData(buyerPassData).IdBuyer;
