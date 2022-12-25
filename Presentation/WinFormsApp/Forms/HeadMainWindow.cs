@@ -117,14 +117,6 @@ namespace WinFormsApp
                 carOrdersCount.Add(manager.CarOrders.Count());
                 managersBranches.Add(_branchService.GetBranchById(manager.IdBranch).BranchName);
             }
-            //for (int i = 0; i < managers.Count(); i++)
-            //{
-            //    carOrdersCount.Add(managers[i].CarOrders.Count());
-
-            //    managersBranches.Add(_branchService
-            //        .GetBranchById(managers[i].IdBranch)
-            //        .BranchName);
-            //}
 
             dataGridView_HeadMainWindow_Managers.Rows.Clear();
 
@@ -191,7 +183,7 @@ namespace WinFormsApp
             List<string> branchesNames = new List<string>();
             foreach (var car in cars)
             {
-                var branchById = _branchRepository.GetBranchById(car.IdBranch);
+                var branchById = _branchService.GetBranchById(car.IdBranch);
                 var branchName = branchById.BranchName +
                     " (" + branchById.IdBranch + ")";
                 foreach (var exemplar in car.CarExemplars)
@@ -578,6 +570,7 @@ namespace WinFormsApp
             {
                 var cars = _carService.GetCarsByBrandModel(brand, model).ToList();
                 Init_DataGridView_Cars(cars);
+                Init_DataGridView_CarExemplars(cars);
             }
             else
                 MessageBox.Show("Не оставляйте поля пустыми.");

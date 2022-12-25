@@ -42,5 +42,14 @@ namespace CarDealershipsSystem.DAL.Repositories
             _context.Add(carExemplar);
             return _context.SaveChanges() > 0 ? true : false;
         }
+
+        public bool DeleteCarExemplar(CarExemplar carExemplar)
+        {
+            if (carExemplar == null)
+                return false;
+
+            _context.Remove(carExemplar);
+            return _context.SaveChanges() > 0 ? true : false;
+        }
     }
 }

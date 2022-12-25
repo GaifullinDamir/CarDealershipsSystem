@@ -15,5 +15,7 @@ namespace CarDealershipsSystem.Application.Interfaces
         public bool DeleteCar(int idCar);
 
         public List<CarDTO> GetCarsByBrandModel(string brand, string model);
+
+        public CarDTO GetCarByID(int idCar);
     }
 }

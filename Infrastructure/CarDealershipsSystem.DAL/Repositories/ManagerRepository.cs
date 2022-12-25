@@ -49,5 +49,24 @@ namespace CarDealershipsSystem.DAL.Repositories
             { return false; }
             return _context.SaveChanges() > 0 ? true : false;
         }
+
+        public Manager GetManagerByID(int idMngr)
+        {
+            var manager = _context.Managers
+                .Include(manager => manager.CarOrders)
+                .FirstOrDefault(manager => manager.IdMngr == idMngr);
+            var carOrders = _carOrderRepository.GetCarOrders();
+            return manager;
+        }
+
+        public Manager GetManagerByLogPass(string login, string password)
+        {
+            var manager = _context.Managers
+                .Include(manager => manager.CarOrders)
+                .FirstOrDefault(manager => manager.ManagerLogin == login && manager.ManagerPassword == password);
+                
+            var carOrders = _carOrderRepository.GetCarOrders();
+            return manager;
+        }
     }
 }

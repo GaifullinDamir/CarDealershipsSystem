@@ -17,6 +17,10 @@ namespace CarDealershipsSystem.Application.Interfaces
 
         public bool ManagerChangeData(string option, string mngrPassData, string data, ref string errorMessage);
 
+        public ManagerDTO GetManagerById(int idMngr);
+
+        public ManagerDTO GetManagerByLogPass(string login, string password);
+
 
 
     }

@@ -72,5 +72,36 @@ namespace CarDealershipsSystem.Application.Services
             }
             return true;
         }
+
+        public CarExemplarDTO GetCarExemplarByVinNumber(string vinNumber)
+        {
+            var carExemplar = _carExemplarRepository.GetCarExemplarByVinNumber(vinNumber);
+            CarExemplarDTO carExemplarDTO = null;
+            if (carExemplar != null)
+            {
+                carExemplarDTO = new CarExemplarDTO()
+                {
+                    VinNumber = carExemplar.VinNumber,
+                    IdCar = carExemplar.IdCar,
+                    HorsePower = carExemplar.HorsePower,
+                    Price = carExemplar.Price,
+                    Color = carExemplar.Color,
+                    YearOfAssembly = carExemplar.YearOfAssembly
+                };
+            }
+        
+            return carExemplarDTO;
+
+        }
+
+        public bool DeleteCarExemplar(string vinNumber)
+        {
+            var carExemplar = _carExemplarRepository.GetCarExemplarByVinNumber(vinNumber);
+            if (carExemplar != null)
+            {
+                return (_carExemplarRepository.DeleteCarExemplar(carExemplar));
+            }
+            return false;
+        }
     }
 }

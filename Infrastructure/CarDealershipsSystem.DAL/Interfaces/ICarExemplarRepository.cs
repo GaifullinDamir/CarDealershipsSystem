@@ -9,5 +9,8 @@ namespace CarDealershipsSystem.DAL.Interfaces
         public CarExemplar GetCarExemplarByVinNumber(string vinNumber);
 
         public bool SaveCarExemplar(CarExemplar carExemplar);
+
+        public bool DeleteCarExemplar(CarExemplar carExemplar);
+
     }
 }
